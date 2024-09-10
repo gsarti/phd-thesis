@@ -1,0 +1,5 @@
+# Preface {.unnumbered}
+
+This is a Quarto book from the {{< var department >}}.
+
+To learn more about Quarto books visit <https://quarto.org/docs/books>.

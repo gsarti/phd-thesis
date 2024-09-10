@@ -1,0 +1,11 @@
+.quarto/
+_output/
+!template/rug-phd-thesis.tex
+template/*.aux
+template/*.log
+template/*.toc
+template/*.fls
+template/*.fdb_latexmk
+template/*.synctex.gz
+template/*.pdf
+/.quarto/

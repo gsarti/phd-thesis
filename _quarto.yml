@@ -1,0 +1,29 @@
+project:
+  type: book
+  output-dir: _output
+book:
+  title: "RUG PhD Thesis Template"
+  subtitle: "A template for writing a PhD thesis in R Markdown"
+  author: "Gabriele Sarti"
+  date: today
+  date-format: "MMM Do, YYYY"
+  output-file: "thesis"
+  chapters:
+    - index.qmd
+    - chapters/intro.qmd
+    - chapters/summary.qmd
+    - references.qmd
+  appendices: 
+    - chapters/appendices/appendix-a.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    template: template/rug-phd-thesis.tex
+    pdf-engine: pdflatex
+    keep-tex: false
+
+
