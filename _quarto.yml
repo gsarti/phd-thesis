@@ -19,12 +19,12 @@ book:
     - references.qmd
   appendices: 
     - chapters/appendices/appendix-a.qmd
-  
+
+lang: "nld"
 frontmatter:
-  # Description page
+  # Details page
   department: "Center for Language and Cognition Groningen (CLCG)"
   faculty: "Faculty of Arts"
-  university: "University of Groningen"
   funding_agency: "Dutch Research Council (NWO)" # Leave empty if not applicable
   funding_project_type: "NWA-ORC"
   funding_project_title: "InDeep: Interpreting Deep Learning Models for Text and Sound"
@@ -34,6 +34,27 @@ frontmatter:
   book_series: "Groningen Dissertations in Linguistics"
   volume: "XXX"
   year: "2025"
+
+  # Front matter
+  
+  eng:
+    document_type: "PhD Thesis"
+    degree: "PhD"
+    university: "University of Groningen"
+    rector_magnificus: "Prof. J. M. A. Scherpen"
+    defense_date: "XXX, XXX XXX 2025" # Use e.g. Thursday, June 13th 2024 format
+    candidate_birth_date: "DD mmmm YYYY" # Use e.g. 22 January 1996
+  nld:
+    document_type: "Proefschrift"
+    degree: "doctor"
+    university: "Rijksuniversiteit Groningen"
+    rector_magnificus: "prof. dr. ir. J. M. A. Scherpen"
+    defense_date: "XXX, XXX XXX 2025" # Use e.g. donderdag 16 november 2023 format
+    candidate_birth_date: "DD mmmm YYYY" # Use e.g. 4 februari 1994
+  defense_time: "XX:XX"
+  candidate_birthplace: "Amsterdam, the Netherlands"
+
+
 
   # Supervisors and examiners
   promotor_title: "Dr."
@@ -48,6 +69,9 @@ frontmatter:
   second_assessment_committee_name: "XXX XXX"
   third_assessment_committee_title: "Prof. dr."
   third_assessment_committee_name: "XXX XXX"
+
+  # Front matter
+
 
 bibliography: references.bib
 

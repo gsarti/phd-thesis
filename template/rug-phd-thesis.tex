@@ -155,19 +155,19 @@
 
 \makeatletter
 \makechapterstyle{rug}{
-        \chapterstyle{default}
-        \renewcommand*{\chapterheadstart}{\vspace*{10pt}}
-        \renewcommand*{\chapnamefont}{\sffamily\Huge}
-        \renewcommand*{\printchaptername}{
-                \flushright\chapnamefont\MakeUppercase\@chapapp}
-        \renewcommand{\printchapternum}{\chapnumfont \thechapter \medskip \hrule}
-        \renewcommand*{\chapnumfont}{\chapnamefont}
-        \renewcommand*{\chaptitlefont}{\sffamily\bfseries\Huge}
-        \renewcommand*{\printchaptertitle}[1]{
-                \flushright
-                \chaptitlefont{##1}
-                %\bigskip\bigskip
-        }
+  \chapterstyle{default}
+  \renewcommand*{\chapterheadstart}{\vspace*{10pt}}
+  \renewcommand*{\chapnamefont}{\sffamily\Huge}
+  \renewcommand*{\printchaptername}{
+          \flushright\chapnamefont\MakeUppercase\@chapapp}
+  \renewcommand{\printchapternum}{\chapnumfont \thechapter \medskip \hrule}
+  \renewcommand*{\chapnumfont}{\chapnamefont}
+  \renewcommand*{\chaptitlefont}{\sffamily\bfseries\Huge}
+  \renewcommand*{\printchaptertitle}[1]{
+          \flushright
+          \chaptitlefont{##1}
+          %\bigskip\bigskip
+  }
 }
 \chapterstyle{rug}
 \makeatother
@@ -176,29 +176,31 @@
 %% Custom Templates (Adjust data in _quarto.yml)                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Details page
 \newcommand{\makethesisdetails}{
   \thispagestyle{empty}
   \begin{figure}[ht]
-  \begin{minipage}[b]{0.33\linewidth}
-  \includegraphics[height=1.3cm]{example-image-a}
+  \begin{minipage}[b]{0.38\linewidth}
+  \includegraphics[height=1.5cm]{figures/rug_eng_black_logo}
   \end{minipage}
-  \begin{minipage}[b]{0.33\linewidth}
-  \centering  
-  \includegraphics[height=1.3cm]{example-image-b}
-  \end{minipage}
-  \begin{minipage}[b]{0.33\linewidth}
+  \begin{minipage}[b]{0.38\linewidth}
   \centering
   \begin{flushright}
   \vspace{0.15cm}
-  \includegraphics[height=1cm]{example-image-c}
-  \vspace{0.15cm}
+  \includegraphics[height=1cm]{figures/clcg_logo}
+  \end{flushright}
+  \end{minipage}
+  \begin{minipage}[b]{0.2\linewidth}
+  \centering
+  \begin{flushright}
+  \includegraphics[height=1.3cm]{figures/nwo_logo}
   \end{flushright}
   \end{minipage}
   \end{figure}
   
   {\footnotesize
   \noindent
-  The work in this thesis has been carried out under the auspices of the $frontmatter.department$ of the $frontmatter.faculty$ of the $frontmatter.university$.
+  The work in this thesis has been carried out under the auspices of the $frontmatter.department$ of the $frontmatter.faculty$ of the $frontmatter.eng.university$.
   $if(frontmatter.funding_agency)$
   The project was funded by the $frontmatter.funding_agency$, under the $frontmatter.funding_project_type$ project \textit{$frontmatter.funding_project_title$} 
   $if(frontmatter.funding_project_number)$($frontmatter.funding_project_number$)$endif$
@@ -208,7 +210,7 @@
   
   \vfill
   \begin{figure}[h]
-  \includegraphics[width=2cm]{example-image-c}
+  \includegraphics[width=2cm]{figures/grodil_logo}
   \end{figure}
   \vspace{0.1cm}
   {
@@ -230,6 +232,75 @@
   \newpage
 }
 
+% Front matter
+% Change frontmatter.eng to frontmatter.nld to get the Dutch version
+\newcommand{\makefrontmatter}{
+  \thispagestyle{empty}
+  \begin{figure}[h]
+    \ifstrequal{$lang$}{eng}{
+      \includegraphics[height=1.6cm]{figures/rug_eng_black_logo}
+    }{
+      \includegraphics[height=1.6cm]{figures/rug_nld_black_logo}
+    }
+  \end{figure}
+  \vspace{0.5cm}
+  \begin{center}
+    {\huge\textbf{{$title$}$if(subtitle)$: $subtitle$$endif$}}\\
+    \bigskip
+    \bigskip
+    \bigskip
+    \ifstrequal{$lang$}{eng}{ % English version
+      {\large\bfseries{$frontmatter.eng.document_type$}}\\
+      \bigskip
+      \bigskip
+      \smallskip
+      ter verkrijging van de graad van doctor aan de\\
+      Rijksuniversiteit Groningen\\
+      op gezag van de\\
+      rector magnificus prof. dr. C. Wijmenga\\
+      en volgens besluit van het College voor Promoties.
+      \bigskip
+      De openbare verdediging zal plaatsvinden op\\
+      \bigskip
+      donderdag 30 maart 2023 om 16.15 uur \\
+      \bigskip
+      \bigskip
+      door\\
+      \bigskip
+      \bigskip
+      {\large\bfseries{Ahmet \"{U}st\"{u}n}}\\
+      \bigskip
+      geboren op 20 april 1989\\
+      te Burdur, Turkije
+    }{ % Dutch version
+      {\large\bfseries{$frontmatter.nld.document_type$}}\\
+      \bigskip
+      \bigskip
+      \smallskip
+      ter verkrijging van de graad van doctor aan de\\
+      Rijksuniversiteit Groningen\\
+      op gezag van de\\
+      rector magnificus prof. dr. C. Wijmenga\\
+      en volgens besluit van het College voor Promoties.
+      \bigskip
+      De openbare verdediging zal plaatsvinden op\\
+      \bigskip
+      donderdag 30 maart 2023 om 16.15 uur \\
+      \bigskip
+      \bigskip
+      door\\
+      \bigskip
+      \bigskip
+      {\large\bfseries{Ahmet \"{U}st\"{u}n}}\\
+      \bigskip
+      geboren op 20 april 1989\\
+      te Burdur, Turkije
+    }
+  \end{center}
+  \newpage
+}
+
+% Supervisors and examiners
 \newcommand{\makethesissupervisors}{
   \thispagestyle{empty}
   \noindent
@@ -246,11 +317,6 @@
   $frontmatter.first_assessment_committee_title$ $frontmatter.first_assessment_committee_name$ \\
   $frontmatter.second_assessment_committee_title$ $frontmatter.second_assessment_committee_name$ \\
   $frontmatter.third_assessment_committee_title$ $frontmatter.third_assessment_committee_name$ \\
-  \newpage
-}
-
-\newcommand{\makefrontmatter}{
-  \thispagestyle{empty}
   \newpage
 }
 
