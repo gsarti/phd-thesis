@@ -3,18 +3,51 @@ project:
   output-dir: _output
 book:
   title: "RUG PhD Thesis Template"
-  subtitle: "A template for writing a PhD thesis in R Markdown"
+  subtitle: "A template for writing a PhD thesis in Quarto"
   author: "Gabriele Sarti"
   date: today
   date-format: "MMM Do, YYYY"
   output-file: "thesis"
   chapters:
     - index.qmd
-    - chapters/intro.qmd
-    - chapters/summary.qmd
+    - part: "Part Alpha"
+      chapters:
+        - chapters/intro.qmd
+    - part: "Part Beta"
+      chapters:
+        - chapters/summary.qmd
     - references.qmd
   appendices: 
     - chapters/appendices/appendix-a.qmd
+  
+frontmatter:
+  # Description page
+  department: "Center for Language and Cognition Groningen (CLCG)"
+  faculty: "Faculty of Arts"
+  university: "University of Groningen"
+  funding_agency: "Dutch Research Council (NWO)" # Leave empty if not applicable
+  funding_project_type: "NWA-ORC"
+  funding_project_title: "InDeep: Interpreting Deep Learning Models for Text and Sound"
+  funding_project_number: "NWA.1292.19.399"
+  document_formatting_comment: "Document prepared with Quarto and typeset using pdfLatex"
+  cover_designer: "Gabriele Sarti"
+  book_series: "Groningen Dissertations in Linguistics"
+  volume: "XXX"
+  year: "2025"
+
+  # Supervisors and examiners
+  promotor_title: "Dr."
+  promotor_name: "Arianna Bisazza"
+  first_copromotor_title: "Prof. Dr."
+  first_copromotor_name: "Malvina Nissim"
+  second_copromotor_title: "Dr."
+  second_copromotor_name: "Grzegorz Chrupała"
+  first_assessment_committee_title: "Prof. dr."
+  first_assessment_committee_name: "XXX XXX"
+  second_assessment_committee_title: "Prof. dr."
+  second_assessment_committee_name: "XXX XXX"
+  third_assessment_committee_title: "Prof. dr."
+  third_assessment_committee_name: "XXX XXX"
 
 bibliography: references.bib
 

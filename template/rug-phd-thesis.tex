@@ -1,82 +1,78 @@
-% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
-%
+
 \documentclass[b5paper,10pt,oldfontcommands]{memoir}
 \feetbelowfloat
 
-\usepackage{bookmark}
-\usepackage{etoolbox}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{grffile}
-\usepackage{amsmath,amssymb}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp} % provide euro and other symbols
-\usepackage{lmodern}
-\usepackage{microtype}
-\usepackage[table]{xcolor}
-\usepackage{longtable,booktabs,array}
+\usepackage[export]{adjustbox}
 \usepackage{algorithm}
 \usepackage[]{algorithmicx}
 \usepackage{algpseudocode}
 \usepackage{amsfonts}
+\usepackage{amsmath,amssymb}
+\usepackage{arydshln}
 \usepackage{bm}
-\usepackage{ragged2e}    % newcolumntype
-\usepackage{caption} 
+\usepackage{bookmark}
+\usepackage{booktabs}
+\usepackage{calc}
+\usepackage{caption}
+\usepackage{changepage}
 \usepackage{color}
-\usepackage{enumitem,kantlipsum}
+\usepackage[default]{droidserif}
 \usepackage{enumitem}
 \usepackage{epstopdf}
-\usepackage[export]{adjustbox} % right align figure
-\usepackage{fancyvrb}
-\usepackage{float} % keep tables in Section
-\usepackage{forest} % for tree DRSs
-\usepackage{latexsym}
-\usepackage{listings} % for amr
-\usepackage[margin=25mm]{geometry}
+\usepackage{etoolbox}
 \usepackage[mathscr]{euscript}
-\usepackage{mathtools}
-\usepackage{multicol} % multicolumn structure
-\usepackage{multirow}
-\usepackage{pifont}% for checkmarks and arrow in amr to clausal form translation
-\usepackage{relsize} % relative size of font
-\usepackage{rotating}
-\usepackage{pgffor}
-\usepackage{soul} % for eps graphics
-\usepackage{arydshln}
-\usepackage{subcaption} % for the barplots
-\usepackage{tabu}
-\usepackage{tabularx}
-\usepackage{times}
-\usepackage{url}
-\usepackage{lscape}
-\usepackage{pifont}
-\usepackage{xstring}
-\usepackage{hyperref}
-\usepackage[normalem]{ulem} % underline and stikeout
-\usepackage{numprint}
-\usepackage[default]{droidserif}
-\usepackage[defaultsans]{lato}
-\linespread{1.15}
-\usepackage{enumitem}
-\usepackage{microtype}
-\usepackage{pdfpages}
-\usepackage[T1]{fontenc}
-\usepackage{mfirstuc}
+\usepackage{fancyvrb}
+\usepackage{float}
 \usepackage{fontawesome}
-\usepackage{tikz}
-\usepackage{changepage}
+\usepackage[T1]{fontenc}
+\usepackage{footnotehyper}
+\usepackage{forest}
+\usepackage[margin=25mm]{geometry}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{kantlipsum}
+\usepackage[defaultsans]{lato}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{mathtools}
+\usepackage{microtype}
 \usepackage{mfirstuc}
-\usepackage{adjustbox}
-\usepackage{tablefootnote}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{numprint}
 \usepackage[super]{nth}
+\usepackage{pdfpages}
+\usepackage{pgffor}
+\usepackage{pifont}
+\usepackage{ragged2e}
+\usepackage{relsize}
+\usepackage{rotating}
 \usepackage{siunitx}
-\usepackage[export]{adjustbox}
+\usepackage{soul}
+\usepackage{subcaption}
+\usepackage{tablefootnote}
+\usepackage{tabularx}
+\usepackage{tabu}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usepackage{times}
+\usepackage[table]{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{url}
+\usepackage{xstring}
+\usepackage{xurl}
 
-%\usepackage{natbib}
-%\usepackage{pdfcolfoot} % prevents footnotes to mess colouring
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Page Setup (Adapted from Rik van Noord)                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \hypersetup{
     colorlinks,
@@ -86,6 +82,7 @@
     urlcolor=black
 }
 
+\linespread{1.15}
 \sisetup{detect-weight=true,detect-all}
 \renewcommand{\normalsize}{\fontsize{9.5pt}{12.6pt}\selectfont}
 \renewcommand{\abstracttextfont}{\fontsize{9.5pt}{12.6pt}\selectfont}
@@ -95,6 +92,20 @@
 \renewcommand*{\parttitlefont}{\Huge\bfseries\sffamily}
 \renewcommand*{\printpartname}{\partnamefont\MakeUppercase\partname}
 \renewcommand*{\printparttitle}[1]{\parttitlefont{#1}}
+\renewcommand{\printtoctitle}[1]{\vspace{-4cm}\flushright\Huge\sffamily\bfseries#1\vspace{-1cm}}
+\renewcommand*{\cftpartfont}{\sffamily\bfseries}
+\renewcommand*{\cftpartpagefont}{\sffamily\bfseries}
+\renewcommand*{\cftchapterfont}{\sffamily\bfseries}
+\renewcommand*{\cftchapterpagefont}{\cftchapterfont\bfseries}
+\makeatletter
+% \renewcommand*{\l@part}[2]{\l@chapapp{{#1}}{#2}{\cftchaptername}}
+\renewcommand*{\l@chapter}[2]{\l@chapapp{{#1}}{#2}{\cftchaptername}}
+\renewcommand*{\l@appendix}[2]{\l@chapapp{{#1}}{#2}{\cftchaptername}}
+\renewcommand{\@pnumwidth}{2em} 
+\renewcommand{\@tocrmarg}{3em}
+\newcounter{rqcounter}
+\setcounter{rqcounter}{1}
+\makeatother
 
 \setstocksize{240mm}{170mm}
 \settrimmedsize{240mm}{170mm}{*}
@@ -122,146 +133,28 @@
 \pagestyle{ruled}
 
 \setcounter{tocdepth}{2}
-\renewcommand{\printtoctitle}[1]{\vspace{-4cm}\flushright\Huge\sffamily\bfseries#1\vspace{-1cm}}
-\renewcommand*{\cftpartfont}{\sffamily\bfseries}
-\renewcommand*{\cftpartpagefont}{\sffamily\bfseries}
-\renewcommand*{\cftchapterfont}{\sffamily\bfseries}
-\renewcommand*{\cftchapterpagefont}{\cftchapterfont\bfseries}
-\makeatletter
-% \renewcommand*{\l@part}[2]{\l@chapapp{{#1}}{#2}{\cftchaptername}}
-\renewcommand*{\l@chapter}[2]{\l@chapapp{{#1}}{#2}{\cftchaptername}}
-\renewcommand*{\l@appendix}[2]{\l@chapapp{{#1}}{#2}{\cftchaptername}}
-\renewcommand{\@pnumwidth}{2em} 
-\renewcommand{\@tocrmarg}{3em}
-\newcounter{rqcounter}
-\setcounter{rqcounter}{1}
-\makeatother
 
 \setlength\absleftindent{0.0in}
 \setlength\absrightindent{0.0in}
 \renewcommand*{\abstractname}{}
-%\addto\captionsenglish{\renewcommand*\abstractname{}}
-%\renewcommand*{\abstracttextfont}{\itshape}
-
 \newcommand{\absprelude}{\noindent\normalfont{\textbf{Abstract|}}\abstracttextfont}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Caption style                                                         %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \captionnamefont{\bfseries}
 \captionstyle{\itshape}
 \captiondelim{|~}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% New commands                                                          %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\cmark}{\textcolor{bettergreen}{\ding{51}}}%
-\newcommand{\xmark}{\textcolor{betterred}{\ding{55}}}%
-
-\newcommand{\blu}[1]{\textcolor{blue}{#1}}
-\newcommand{\blac}[1]{\textcolor{black}{#1}}
-\newcommand{\bert}{\texttt{Bert}}
-\newcommand{\bertbase}{\texttt{Bert-base}}
-\newcommand{\bertonly}{\texttt{Bert-only}}
-\newcommand{\bertlarge}{\texttt{Bert-large}}
-\newcommand{\roberta}{\texttt{Roberta}}
-\newcommand{\robertabase}{\texttt{Roberta-base}}
-\newcommand{\robertalarge}{\texttt{Roberta-large}}
-\newcommand{\elmo}{\texttt{Elmo}}
-\newcommand{\glove}{\texttt{GloVe}}
-\newcommand{\fasttext}{\texttt{FastText}}
-\newcommand{\drseval}{\textbf{\texttt{drs-jury}}}
-\newcommand{\vect}[1]{\mathbf{#1}}
-\newcommand{\matr}[1]{\mathbf{#1}}
-\newcommand{\smtgn}[1]{\ensuremath{\texttt{#1}}\index{#1}} 
-\newcommand{\semtagnew}[1]{\gentag{#1}{blue}}
-\newcommand{\postagnew}[1]{\gentag{#1}{red}}
-\newcommand{\lemtag}[1]{\gentag{#1}{yellow}}
-\newcommand{\deptag}[1]{\gentag{#1}{green}}
-\newcommand{\ccgtag}[1]{\gentag{#1}{orange}}
-\newcommand{\clause}[1]{\texttt{#1}}
-\newcommand{\disvar}[1]{\textbf{#1}}
-\newcommand{\boxvar}[1]{\textbf{#1}}
-\newcommand{\operator}[1]{#1}
-\newcommand{\concept}[1]{#1}
-\newcommand{\role}[1]{#1}
-\definecolor{green}{rgb}{0.49, 0.99, 0.0}
-\definecolor{red}{rgb}{1.0, 0.0, 0.0}
-\definecolor{orange}{rgb}{1.0, 0.5, 0.0}
-\newcommand{\cellgreen}{\cellcolor{green}}
-\newcommand{\cellred}{\cellcolor{red}}
-\newcommand{\cellorange}{\cellcolor{orange}}
-\newcommand{\boxgreen}{\colorbox{green}}
-\newcommand{\boxred}{\colorbox{red}}
-\newcommand{\boxorange}{\colorbox{orange}}
-
 % Inline header with/without extra space
 \newcommand{\inlineheader}[1]{%
-\vspace{0.1cm}
-\noindent\textbf{#1}\quad
+  \vspace{0.1cm}
+  \noindent\textbf{#1}\quad
 }
 % Header without the tab
 \newcommand{\inlineheadernoquad}[1]{%
-\vspace{0.1cm}
-\noindent\textbf{#1}
+  \vspace{0.1cm}
+  \noindent\textbf{#1}
 }
-% General commands so we can easily change them
-\newcommand{\vardrs}[1]{\textbf{#1}}
-\newcommand{\ttboxlab}[1]{\texttt{#1}}
-\newcommand{\drgvar}[1]{\textbf{#1}}
-\newcommand{\strout}[1]{\sout{\mbox{#1}}}
-\newcommand{\wsp}{\hspace{3mm}}
-\newcommand{\posn}[2]{#1\kern-0.15em.\kern-0.15em#2}
-\newcommand{\smatch}{\texttt{Smatch}}
-\newcommand{\spar}{\texttt{Spar}}
-\newcommand{\simspar}{\texttt{Sim-spar}}
-\newcommand{\amrdrs}{\texttt{Amr2drs}}
-\newcommand{\countertool}{\texttt{Counter}}
-\newcommand{\dmatch}{\mbox{\texttt{Counter}}}
-\newcommand{\matched}[1]{\textcolor{green!40!black}{#1}}
-\newcommand{\nonmatched}[1]{\textcolor{red!70!black}{#1}}
-\newcommand{\ntt}[2][1]{\textsmaller[#1]{\texttt{#2}}}
-\definecolor{pmbBlue}{RGB}{14,163,172}
-\DeclareMathOperator*{\argmax}{arg\,max}
-\definecolor{myred}{RGB}{215,25,28}
-\definecolor{myorange}{RGB}{253,174,97}
-\definecolor{mygreen}{RGB}{0,136,55}
-\definecolor{mybrown}{RGB}{166,97,26}
-\definecolor{myblue}{RGB}{44,123,182}
-\definecolor{hlblue}{RGB}{173,216,230}
-\definecolor{hlred}{RGB}{224,102,102}
-\definecolor{bettergreen}{RGB}{52, 168, 63}
-\definecolor{betterred}{RGB}{234, 68, 63}
-\newcommand{\redtable}[1]{\textcolor{red}{#1}} % for table
-\newcommand{\red}[1]{\textcolor{red}{#1}} % for antonio
-\newcommand{\blue}[1]{\textcolor{blue}{#1}}
-\definecolor{ao}{rgb}{0.0, 0.5, 0.0}
-\newcommand{\green}[1]{\textcolor{ao}{#1}}
-
-% Underscore fix
-\newcommand{\makeunderscoreletter}{\catcode`\_=11}
-\newcommand{\makeunderscoreactive}{\catcode`\_=\active}
-\newcommand{\rmbf}[1]{\textrm{\textbf{#1}}}
-
-\newcommand{\scbf}[1]{\scfont\textbf{\textsc{\capitalisewords{#1}}}\normalfont}
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=0.8pt] (char) {#1};}}
-
-\newcommand{\tcross}{%
-\tikz[scale=0.23] {
-    \draw[line width=0.9,line cap=round] (0,0) to [bend left=6] (1,1);
-    \draw[line width=0.9,line cap=round] (0.2,0.95) to [bend right=3] (0.8,0.05);
-}}
-\newcommand{\tcheck}{%
-\tikz[scale=0.23] {
-    \draw[line width=0.9,line cap=round] (0.25,0) to [bend left=10] (1,1);
-    \draw[line width=0.9,line cap=round] (0,0.35) to [bend right=1] (0.23,0);
-}}
 
 \makeatletter
-\makechapterstyle{vannoord}{
+\makechapterstyle{rug}{
         \chapterstyle{default}
         \renewcommand*{\chapterheadstart}{\vspace*{10pt}}
         \renewcommand*{\chapnamefont}{\sffamily\Huge}
@@ -273,22 +166,111 @@
         \renewcommand*{\printchaptertitle}[1]{
                 \flushright
                 \chaptitlefont{##1}
-                \vspace{-2cm}
-                %\bigskip
+                %\bigskip\bigskip
         }
 }
-\chapterstyle{vannoord}
+\chapterstyle{rug}
 \makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Custom Templates (Adjust data in _quarto.yml)                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\makethesisdetails}{
+  \thispagestyle{empty}
+  \begin{figure}[ht]
+  \begin{minipage}[b]{0.33\linewidth}
+  \includegraphics[height=1.3cm]{example-image-a}
+  \end{minipage}
+  \begin{minipage}[b]{0.33\linewidth}
+  \centering  
+  \includegraphics[height=1.3cm]{example-image-b}
+  \end{minipage}
+  \begin{minipage}[b]{0.33\linewidth}
+  \centering
+  \begin{flushright}
+  \vspace{0.15cm}
+  \includegraphics[height=1cm]{example-image-c}
+  \vspace{0.15cm}
+  \end{flushright}
+  \end{minipage}
+  \end{figure}
+  
+  {\footnotesize
+  \noindent
+  The work in this thesis has been carried out under the auspices of the $frontmatter.department$ of the $frontmatter.faculty$ of the $frontmatter.university$.
+  $if(frontmatter.funding_agency)$
+  The project was funded by the $frontmatter.funding_agency$, under the $frontmatter.funding_project_type$ project \textit{$frontmatter.funding_project_title$} 
+  $if(frontmatter.funding_project_number)$($frontmatter.funding_project_number$)$endif$
+  $endif$
+  \\
+  }
+  
+  \vfill
+  \begin{figure}[h]
+  \includegraphics[width=2cm]{example-image-c}
+  \end{figure}
+  \vspace{0.1cm}
+  {
+    \footnotesize
+    \noindent
+    $frontmatter.book_series$ $frontmatter.volume$ \\
+  }
+  \vspace{0.05cm}\\
+  {\footnotesize
+  \noindent
+  \copyright~$frontmatter.year$, $author$\\
+  }
+  \vspace{0.05cm}\\
+  {\footnotesize
+  \noindent
+  $frontmatter.document_formatting_comment$ \\
+  Cover design: $frontmatter.cover_designer$ \\
+  }
+  \newpage
+}
+
+\newcommand{\makethesissupervisors}{
+  \thispagestyle{empty}
+  \noindent
+  \textbf{Supervisor} \\
+  $frontmatter.promotor_title$ $frontmatter.promotor_name$ \\
+
+  \noindent\textbf{Co-supervisor$if(frontmatter.second_copromotor_title)$s$endif$} \\
+  $frontmatter.first_copromotor_title$ $frontmatter.first_copromotor_name$ \\
+  $if(frontmatter.second_copromotor_title)$
+  $frontmatter.second_copromotor_title$ $frontmatter.second_copromotor_name$ \\
+  $endif$
+
+  \noindent\textbf{Assessment Committee} \\
+  $frontmatter.first_assessment_committee_title$ $frontmatter.first_assessment_committee_name$ \\
+  $frontmatter.second_assessment_committee_title$ $frontmatter.second_assessment_committee_name$ \\
+  $frontmatter.third_assessment_committee_title$ $frontmatter.third_assessment_committee_name$ \\
+  \newpage
+}
+
+\newcommand{\makefrontmatter}{
+  \thispagestyle{empty}
+  \newpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% New commands                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{bettergreen}{RGB}{52, 168, 63}
+\definecolor{betterred}{RGB}{234, 68, 63}
+\newcommand{\cmark}{\textcolor{bettergreen}{\ding{51}}}%
+\newcommand{\xmark}{\textcolor{betterred}{\ding{55}}}%
+
+\DeclareMathOperator*{\argmax}{arg\,max}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Quarto Template Defaults                                              %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-\makeatletter
-\makeatother
 \setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{5}
 
 % Make \paragraph and \subparagraph free-standing
 \makeatletter
@@ -316,20 +298,19 @@
 
 
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+}
 \makeatletter
 \patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
 \makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+
 \makesavenoteenv{longtable}
+
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
 \makeatother
+
 % Scale images if necessary, so that they will not overflow the page
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
@@ -353,6 +334,7 @@
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
+
 \newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
  {\begin{list}{}{%
   \setlength{\itemindent}{0pt}
@@ -373,10 +355,6 @@
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \makeatletter
-\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
-\makeatother
-\makeatletter
-\@ifpackageloaded{caption}{}{\usepackage{caption}}
 \AtBeginDocument{%
 \ifdefined\contentsname
   \renewcommand*\contentsname{Contents}
@@ -384,14 +362,14 @@
   \newcommand\contentsname{Contents}
 \fi
 \ifdefined\listfigurename
-  \renewcommand*\listfigurename{List of Figures}
+  \renewcommand*\listfigurename{Figures}
 \else
-  \newcommand\listfigurename{List of Figures}
+  \newcommand\listfigurename{Figures}
 \fi
 \ifdefined\listtablename
-  \renewcommand*\listtablename{List of Tables}
+  \renewcommand*\listtablename{Tables}
 \else
-  \newcommand\listtablename{List of Tables}
+  \newcommand\listtablename{Tables}
 \fi
 \ifdefined\figurename
   \renewcommand*\figurename{Figure}
@@ -404,7 +382,6 @@
   \newcommand\tablename{Table}
 \fi
 }
-\@ifpackageloaded{float}{}{\usepackage{float}}
 \floatstyle{ruled}
 \@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
 \floatname{codelisting}{Listing}
@@ -412,37 +389,39 @@
 \makeatother
 \makeatletter
 \makeatother
-\makeatletter
-\@ifpackageloaded{caption}{}{\usepackage{caption}}
-\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
-\makeatother
-
-
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 
-\title{$title$}
-\makeatletter
-\providecommand{\subtitle}[1]{% add subtitle to \maketitle
-  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-}
-\makeatother
-\subtitle{A template for writing a PhD thesis in R Markdown}
-\author{Gabriele Sarti}
-\date{Sep 10th, 2024}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Contents                                                              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{\sffamily\Huge\bfseries{$title$}$if(subtitle)$: $subtitle$$endif$}
+\author{$author$}
+\date{} % Not used
 
 \begin{document}
+
+% Title page
+\thispagestyle{empty}
 \maketitle
 
-\thispagestyle{empty}
 \newpage
+
+% Details page
+\makethesisdetails
+
+% Front matter
+\makefrontmatter
+
+% Supervisors and examiners
+\makethesissupervisors
+
+\thispagestyle{empty}
 \tableofcontents
 
 \mainmatter
 \setcounter{secnumdepth}{4}
 
-% Bibliography
-%\chapterstyle{default}
 \bibliographystyle{apalike}
 
 $body$
