@@ -233,7 +233,6 @@
 }
 
 % Front matter
-% Change frontmatter.eng to frontmatter.nld to get the Dutch version
 \newcommand{\makefrontmatter}{
   \thispagestyle{empty}
   \begin{figure}[h]
@@ -250,51 +249,52 @@
     \bigskip
     \bigskip
     \ifstrequal{$lang$}{eng}{ % English version
-      {\large\bfseries{$frontmatter.eng.document_type$}}\\
+      {\large\bfseries{PhD Thesis}}\\
       \bigskip
       \bigskip
       \smallskip
-      ter verkrijging van de graad van doctor aan de\\
-      Rijksuniversiteit Groningen\\
-      op gezag van de\\
-      rector magnificus prof. dr. C. Wijmenga\\
-      en volgens besluit van het College voor Promoties.
+      to obtain the degree of Philosophy Doctor at the\\
+      $frontmatter.eng.university$\\
+      under the authority of the\\
+      Rector Magnificus $frontmatter.eng.rector_magnificus$\\
+      and in accordance with\\
+      the decision by the College of Deans.\\
       \bigskip
-      De openbare verdediging zal plaatsvinden op\\
+      The thesis will be defended in public on\\
       \bigskip
-      donderdag 30 maart 2023 om 16.15 uur \\
-      \bigskip
-      \bigskip
-      door\\
+      $frontmatter.eng.defense_date$ at $frontmatter.defense_time$ \\
       \bigskip
       \bigskip
-      {\large\bfseries{Ahmet \"{U}st\"{u}n}}\\
+      by\\
       \bigskip
-      geboren op 20 april 1989\\
-      te Burdur, Turkije
+      \bigskip
+      {\large\bfseries{$author$}}\\
+      \bigskip
+      born on $frontmatter.eng.candidate_birth_date$\\
+      in $frontmatter.candidate_birthplace$
     }{ % Dutch version
-      {\large\bfseries{$frontmatter.nld.document_type$}}\\
+      {\large\bfseries{Proefschrift}}\\
       \bigskip
       \bigskip
       \smallskip
       ter verkrijging van de graad van doctor aan de\\
-      Rijksuniversiteit Groningen\\
+      $frontmatter.nld.university$\\
       op gezag van de\\
-      rector magnificus prof. dr. C. Wijmenga\\
-      en volgens besluit van het College voor Promoties.
+      rector magnificus $frontmatter.nld.rector_magnificus$\\
+      en volgens besluit van het College voor Promoties.\\
       \bigskip
       De openbare verdediging zal plaatsvinden op\\
       \bigskip
-      donderdag 30 maart 2023 om 16.15 uur \\
+      $frontmatter.nld.defense_date$ om $frontmatter.defense_time$ uur \\
       \bigskip
       \bigskip
       door\\
       \bigskip
       \bigskip
-      {\large\bfseries{Ahmet \"{U}st\"{u}n}}\\
+      {\large\bfseries{$author$}}\\
       \bigskip
-      geboren op 20 april 1989\\
-      te Burdur, Turkije
+      geboren op $frontmatter.nld.candidate_birth_date$\\
+      te $frontmatter.candidate_birthplace$
     }
   \end{center}
   \newpage
@@ -303,20 +303,26 @@
 % Supervisors and examiners
 \newcommand{\makethesissupervisors}{
   \thispagestyle{empty}
-  \noindent
-  \textbf{Supervisor} \\
-  $frontmatter.promotor_title$ $frontmatter.promotor_name$ \\
-
-  \noindent\textbf{Co-supervisor$if(frontmatter.second_copromotor_title)$s$endif$} \\
-  $frontmatter.first_copromotor_title$ $frontmatter.first_copromotor_name$ \\
-  $if(frontmatter.second_copromotor_title)$
-  $frontmatter.second_copromotor_title$ $frontmatter.second_copromotor_name$ \\
+  $if(frontmatter.supervisors)$
+  \noindent\ifstrequal{$lang$}{eng}{\textbf{Supervisor}}{\textbf{Promotor}} \\
+  $for(frontmatter.supervisors)$
+  $frontmatter.supervisors.title$ $frontmatter.supervisors.name$ \\
+  $endfor$
   $endif$
 
-  \noindent\textbf{Assessment Committee} \\
-  $frontmatter.first_assessment_committee_title$ $frontmatter.first_assessment_committee_name$ \\
-  $frontmatter.second_assessment_committee_title$ $frontmatter.second_assessment_committee_name$ \\
-  $frontmatter.third_assessment_committee_title$ $frontmatter.third_assessment_committee_name$ \\
+  $if(frontmatter.cosupervisors)$
+  \noindent\ifstrequal{$lang$}{eng}{\textbf{Co-Supervisors}}{\textbf{Copromotores}} \\
+  $for(frontmatter.cosupervisors)$
+  $frontmatter.cosupervisors.title$ $frontmatter.cosupervisors.name$ \\
+  $endfor$
+  $endif$
+
+  $if(frontmatter.committee)$
+  \noindent\ifstrequal{$lang$}{eng}{\textbf{Assessment Committee}}{\textbf{Beoordelingscommissie}} \\
+  $for(frontmatter.committee)$
+  $frontmatter.committee.title$ $frontmatter.committee.name$ \\
+  $endfor$
+  $endif$
   \newpage
 }
 
@@ -468,10 +474,11 @@
 \begin{document}
 
 % Title page
-\thispagestyle{empty}
+\frontmatter
 \maketitle
+\thispagestyle{empty}
 
-\newpage
+\pagebreak
 
 % Details page
 \makethesisdetails

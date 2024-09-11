@@ -20,7 +20,7 @@ book:
   appendices: 
     - chapters/appendices/appendix-a.qmd
 
-lang: "nld"
+lang: "eng"
 frontmatter:
   # Details page
   department: "Center for Language and Cognition Groningen (CLCG)"
@@ -36,42 +36,35 @@ frontmatter:
   year: "2025"
 
   # Front matter
-  
   eng:
-    document_type: "PhD Thesis"
-    degree: "PhD"
     university: "University of Groningen"
-    rector_magnificus: "Prof. J. M. A. Scherpen"
     defense_date: "XXX, XXX XXX 2025" # Use e.g. Thursday, June 13th 2024 format
-    candidate_birth_date: "DD mmmm YYYY" # Use e.g. 22 January 1996
+    candidate_birth_date: "November 11th, 1996" # Use e.g. January 22nd, 1996
+    rector_magnificus: "Prof. J. M. A. Scherpen"
   nld:
-    document_type: "Proefschrift"
-    degree: "doctor"
     university: "Rijksuniversiteit Groningen"
     rector_magnificus: "prof. dr. ir. J. M. A. Scherpen"
     defense_date: "XXX, XXX XXX 2025" # Use e.g. donderdag 16 november 2023 format
-    candidate_birth_date: "DD mmmm YYYY" # Use e.g. 4 februari 1994
+    candidate_birth_date: "11 november 1996" # Use e.g. 4 februari 1994
   defense_time: "XX:XX"
-  candidate_birthplace: "Amsterdam, the Netherlands"
-
-
+  candidate_birthplace: "Trieste, Italy"
 
   # Supervisors and examiners
-  promotor_title: "Dr."
-  promotor_name: "Arianna Bisazza"
-  first_copromotor_title: "Prof. Dr."
-  first_copromotor_name: "Malvina Nissim"
-  second_copromotor_title: "Dr."
-  second_copromotor_name: "Grzegorz Chrupała"
-  first_assessment_committee_title: "Prof. dr."
-  first_assessment_committee_name: "XXX XXX"
-  second_assessment_committee_title: "Prof. dr."
-  second_assessment_committee_name: "XXX XXX"
-  third_assessment_committee_title: "Prof. dr."
-  third_assessment_committee_name: "XXX XXX"
-
-  # Front matter
-
+  supervisors:
+    - title: "Dr."
+      name: "Arianna Bisazza"
+  cosupervisors:
+    - title: "Prof. Dr."
+      name: "Malvina Nissim"
+    - title: "Dr."
+      name: "Grzegorz Chrupała"
+  committee:
+    - title: "Prof. dr."
+      name: "XXX XXX"
+    - title: "Prof. dr."
+      name: "XXX XXX"
+    - title: "Prof. dr."
+      name: "XXX XXX"
 
 bibliography: references.bib
 
