@@ -2,9 +2,22 @@ project:
   type: book
   output-dir: _output
 book:
-  title: "RUG PhD Thesis Template"
-  subtitle: "A template for writing a PhD thesis in Quarto"
-  author: "Gabriele Sarti"
+  title: "RUG PhD Thesis Template" # Your thesis title
+  subtitle: "" # Your thesis subtitle if present, empty otherwise
+  author: "Gabriele Sarti" # Your name in FirstName LastName format
+  favicon: figures/logos/rug_crest.png # Icon for the web version of the thesis
+  description: A template for writing a RUG PhD thesis in Quarto. # Description for the web version of the thesis
+  keyword: phd, thesis, quarto, template, groningen, rug, gronlp # Keywords for the web version of the thesis
+  url: https://gsarti.com/phd-thesis # The URL at which your thesis will be published
+  sidebar: 
+    logo: figures/logos/rug_crest.png # Remove if you don't want any logo in the website sidebar
+    logo-alt: RUG Coat of Arms # Remove if you don't want any logo in the website sidebar
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/gsarti/phd-thesis
+      - icon: person-circle
+        href: https://gsarti.com
   date: today
   date-format: "MMM Do, YYYY"
   output-file: "thesis"
@@ -22,6 +35,7 @@ book:
 
 lang: "eng"
 frontmatter:
+
   # Details page
   department: "Center for Language and Cognition Groningen (CLCG)"
   faculty: "Faculty of Arts"
@@ -70,7 +84,7 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: morph
   pdf:
     template: template/rug-phd-thesis.tex
     pdf-engine: pdflatex
