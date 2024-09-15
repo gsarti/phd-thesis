@@ -5,6 +5,10 @@
 \documentclass[b5paper,10pt,oldfontcommands]{memoir}
 \feetbelowfloat
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages                                                              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage[export]{adjustbox}
 \usepackage{algorithm}
 \usepackage[]{algorithmicx}
@@ -71,7 +75,7 @@
 \usepackage{xurl}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Page Setup (Adapted from Rik van Noord)                               %%
+%% Page Setup                                                            %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \hypersetup{
@@ -92,7 +96,7 @@
 \renewcommand*{\parttitlefont}{\Huge\bfseries\sffamily}
 \renewcommand*{\printpartname}{\partnamefont\MakeUppercase\partname}
 \renewcommand*{\printparttitle}[1]{\parttitlefont{#1}}
-\renewcommand{\printtoctitle}[1]{\vspace{-4cm}\flushright\Huge\sffamily\bfseries#1\vspace{-1cm}}
+\renewcommand{\printtoctitle}[1]{\vspace{-2.5cm}\flushright\Huge\sffamily\bfseries#1\vspace{-1cm}}
 \renewcommand*{\cftpartfont}{\sffamily\bfseries}
 \renewcommand*{\cftpartpagefont}{\sffamily\bfseries}
 \renewcommand*{\cftchapterfont}{\sffamily\bfseries}
@@ -154,7 +158,8 @@
 }
 
 \makeatletter
-\makechapterstyle{rug}{
+% Main chapters style
+\makechapterstyle{main}{
   \chapterstyle{default}
   \renewcommand*{\chapterheadstart}{\vspace*{10pt}}
   \renewcommand*{\chapnamefont}{\sffamily\Huge}
@@ -169,7 +174,7 @@
           %\bigskip\bigskip
   }
 }
-\chapterstyle{rug}
+\chapterstyle{main}
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -323,6 +328,20 @@
   $frontmatter.committee.title$ $frontmatter.committee.name$ \\
   $endfor$
   $endif$
+  \newpage
+}
+
+\newcommand{\makededication}{
+  \thispagestyle{empty}
+  \vspace{20cm}
+  \begin{center}
+    \textit{$frontmatter.dedication$}
+  \end{center}
+  \newpage
+}
+
+\newcommand{\makeacknowledgements}{
+  \input{latex/acknowledgements.tex}
   \newpage
 }
 
@@ -489,8 +508,18 @@
 % Supervisors and examiners
 \makethesissupervisors
 
-\thispagestyle{empty}
-\tableofcontents
+$if(frontmatter.dedication)$
+  \makededication
+$endif$
+
+\makeacknowledgements
+
+\begingroup
+  \newgeometry{top=40mm}
+  \tableofcontents
+\endgroup
+\clearpage
+\restoregeometry
 
 \mainmatter
 \setcounter{secnumdepth}{4}
@@ -498,4 +527,12 @@
 \bibliographystyle{apalike}
 
 $body$
+
+\chapter*[Samenvatting]{Samenvatting}
+\addcontentsline{toc}{chapter}{Samenvatting}
+\input{latex/summary.tex}
+
+% Include the Grodil series pages verbatim (get updated version!)
+\includepdf[pages=-]{latex/grodil.pdf}
+
 \end{document}

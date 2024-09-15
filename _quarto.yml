@@ -76,9 +76,11 @@ frontmatter:
     - title: "Prof. dr."
       name: "XXX XXX"
     - title: "Prof. dr."
+      name: "YYY YYY"
+    - title: "Dr."
       name: "XXX XXX"
-    - title: "Prof. dr."
-      name: "XXX XXX"
+  
+  dedication: "" # E.g. "To my dog". Leave empty to skip
 
 bibliography: references.bib
 
@@ -86,7 +88,7 @@ format:
   html:
     theme: morph
   pdf:
-    template: template/rug-phd-thesis.tex
+    template: latex/rug-phd-thesis.tex
     pdf-engine: pdflatex
     keep-tex: false
 
