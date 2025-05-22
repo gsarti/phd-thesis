@@ -13,6 +13,7 @@ book:
     logo: figures/logos/rug_crest.png # Remove if you don't want any logo in the website sidebar
     logo-alt: RUG Coat of Arms # Remove if you don't want any logo in the website sidebar
     search: true
+    background: "#F5F5F5"
     tools:
       - icon: github
         href: https://github.com/gsarti/phd-thesis
@@ -23,15 +24,24 @@ book:
   output-file: "thesis"
   chapters:
     - index.qmd
-    - part: "Part Alpha"
+    - chapters/chap-1-background.qmd
+    - part: "Investigating Context Usage in Machine Translation and Multilingual NLP"
       chapters:
-        - chapters/intro.qmd
-    - part: "Part Beta"
+        - chapters/chap-2-inseq.qmd
+        - chapters/chap-3-pecore.qmd
+        - chapters/chap-4-mirage.qmd
+    - part: "Conditioning Language Models for Personalized Machine Translation"
       chapters:
-        - chapters/summary.qmd
-    - references.qmd
+        - chapters/chap-5-ramp.qmd
+        - chapters/chap-6-sae-litmt.qmd
+    - part: "Integrating Interpretability in Professional Translation Workflows"
+      chapters:
+        - chapters/chap-7-divemt.qmd
+        - chapters/chap-8-unsup-wqe.qmd
+        - chapters/chap-9-qe4pe.qmd
+    - chapters/references.qmd
   appendices: 
-    - chapters/appendices/appendix-a.qmd
+    - chapters/appendix-a.qmd
 
 lang: "eng"
 frontmatter:
@@ -67,26 +77,32 @@ frontmatter:
   supervisors:
     - title: "Dr."
       name: "Arianna Bisazza"
-  cosupervisors:
-    - title: "Prof. Dr."
+    - title: "Prof. dr."
       name: "Malvina Nissim"
+  cosupervisors:
     - title: "Dr."
       name: "Grzegorz Chrupała"
   committee:
     - title: "Prof. dr."
-      name: "XXX XXX"
+      name: "Michael Biehl"
     - title: "Prof. dr."
-      name: "YYY YYY"
+      name: "Barbara Plank"
+    - title: "Prof. dr."
+      name: "Andre F. T. Martins"
     - title: "Dr."
-      name: "XXX XXX"
+      name: "Ivan Titov"
   
   dedication: "" # E.g. "To my dog". Leave empty to skip
 
-bibliography: references.bib
+bibliography: latex/references.bib
 
 format:
   html:
-    theme: morph
+    theme:
+      light: cosmo
+    code-fold: false
+    css: html/custom.css
+    backgroundcolor: "#F5F5F5"
   pdf:
     template: latex/rug-phd-thesis.tex
     pdf-engine: pdflatex
