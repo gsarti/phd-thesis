@@ -1,1 +1,1 @@
-# Evaluating MT Post-editing Across Typologically Diverse Languages
+# Machine Translation Post-editing for Typologically Diverse Languages

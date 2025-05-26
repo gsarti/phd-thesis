@@ -1,1 +1,19 @@
-# Inseq: An Interpretability Toolkit for Attributing Language Model Generations
+# Attributing Language Model Generations with the Inseq Toolkit
+
+Recent years saw an increase in studies and tools aimed at improving our behavioral or mechanistic understanding of neural language models [@belinkov-glass-2019-analysis].
+
+Many studies applied such techniques to modern deep learning architectures, including Transformers [@vaswani-etal-2017-attention], leveraging gradients [@baherens-etal-2010-explain; @sundararajan-etal-2017-ig], attention patterns [@xu-etal-2015-show; @clark-etal-2019-bert] and input perturbations [@zeiler-fergus-2014-visualizing; @feng-etal-2018-pathologies] to quantify input importance, often leading to controversial outcomes in terms of faithfulness, plausibility and overall usefulness of such explanations [@adebayo-etal-2018-sanity; @jain-wallace-2019-attention; @jacovi-goldberg-2020-towards; @zafar-etal-2021-lack].
+
+![Feature importance and next-step probability extraction and visualization using Inseq with a 🤗 Transformers causal language model.](../figures/chap-2-inseq/teaser.pdf){#fig-inseq-teaser width=65%}
+
+However, feature attribution techniques have mainly been applied to classification settings [@atanasova-etal-2020-diagnostic; @wallace-etal-2020-interpreting; @madsen-etal-2022-evaluating; @chrysostomou-aletras-2022-empirical], with relatively little interest in the more convoluted mechanisms underlying generation. Classification attribution is a single-step process resulting in one importance score per input token, often allowing for intuitive interpretations in relation to the predicted class. Sequential attribution^[We use *sequence generation* to refer to all iterative tasks including (but not limited to) natural language generation.] instead involves a computationally expensive multi-step iteration producing a matrix $A_{ij}$ representing the importance of every input $i$ in the prediction of every generation outcome $j$ ([@fig-inseq-teaser]).
+
+Moreover, since previous generation steps causally influence following predictions, they must be dynamically incorporated into the set of attributed inputs throughout the process.
+Lastly, while classification usually involves a limited set of classes and simple output selection (e.g. argmax after softmax), generation routinely works with large vocabularies and non-trivial decoding strategies [@eikema-aziz-2020-map]. These differences limited the use of feature attribution methods for generation settings, with relatively few works improving attribution efficiency [@vafa-etal-2021-rationales; @ferrando-etal-2022-towards] and explanations' informativeness [@yin-neubig-2022-interpreting].
+
+In this section, we introduce **Inseq**, a Python library to democratize access to interpretability analyses of generative language models.
+Inseq centralizes access to a broad set of feature attribution methods, sourced in part from the Captum [@kokhlikyan-etal-2020-captum] framework, enabling a fair comparison of different techniques for all sequence-to-sequence and decoder-only models in the popular Hugging Face Transformers library [@wolf-etal-2020-transformers].
+Thanks to its intuitive interface, users can easily integrate interpretability analyses into sequence generation experiments with just 3 lines of code 
+<!-- [@fig:code-short]. -->
+Nevertheless, Inseq is also highly flexible, including cutting-edge attribution methods with built-in post-processing features 
+<!-- (see [@sec:feat-attr]), supporting customizable attribution targets and enabling constrained decoding of arbitrary sequences (see [@sec:customize]). -->

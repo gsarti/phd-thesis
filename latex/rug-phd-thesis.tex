@@ -74,7 +74,7 @@
 \newcommand{\makefrontmatter}{
   \thispagestyle{empty}
   \begin{figure}[h]
-    \ifstrequal{$lang$}{eng}{
+    \ifstrequal{$pdf-lang$}{eng}{
       \includegraphics[height=1.6cm]{figures/logos/rug_eng_black}
     }{
       \includegraphics[height=1.6cm]{figures/logos/rug_nld_black}
@@ -86,7 +86,7 @@
     \bigskip
     \bigskip
     \bigskip
-    \ifstrequal{$lang$}{eng}{ % English version
+    \ifstrequal{$pdf-lang$}{eng}{ % English version
       {\large\bfseries{PhD Thesis}}\\
       \bigskip
       \bigskip
@@ -142,21 +142,21 @@
 \newcommand{\makethesissupervisors}{
   \thispagestyle{empty}
   $if(frontmatter.supervisors)$
-  \noindent\ifstrequal{$lang$}{eng}{\textbf{Supervisors}}{\textbf{Promotor}} \\
+  \noindent\ifstrequal{$pdf-lang$}{eng}{\textbf{Supervisors}}{\textbf{Promotor}} \\
   $for(frontmatter.supervisors)$
   $frontmatter.supervisors.title$ $frontmatter.supervisors.name$ \\
   $endfor$
   $endif$
 
   $if(frontmatter.cosupervisors)$
-  \noindent\ifstrequal{$lang$}{eng}{\textbf{Co-Supervisor}}{\textbf{Copromotores}} \\
+  \noindent\ifstrequal{$pdf-lang$}{eng}{\textbf{Co-Supervisor}}{\textbf{Copromotores}} \\
   $for(frontmatter.cosupervisors)$
   $frontmatter.cosupervisors.title$ $frontmatter.cosupervisors.name$ \\
   $endfor$
   $endif$
 
   $if(frontmatter.committee)$
-  \noindent\ifstrequal{$lang$}{eng}{\textbf{Assessment Committee}}{\textbf{Beoordelingscommissie}} \\
+  \noindent\ifstrequal{$pdf-lang$}{eng}{\textbf{Assessment Committee}}{\textbf{Beoordelingscommissie}} \\
   $for(frontmatter.committee)$
   $frontmatter.committee.title$ $frontmatter.committee.name$ \\
   $endfor$

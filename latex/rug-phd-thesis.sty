@@ -71,6 +71,7 @@
 \usepackage{array}
 \usepackage{cleveref}
 \usepackage{xspace}
+\usepackage{hwemoji}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,6 +91,7 @@
 \renewcommand{\normalsize}{\fontsize{9.5pt}{12.6pt}\selectfont}
 \renewcommand{\abstracttextfont}{\fontsize{9.5pt}{12.6pt}\selectfont}
 \renewcommand{\footnotesize}{\fontsize{8pt}{10.6pt}\selectfont}
+\renewcommand{\figurename}{\textbf{Figure}}
 \renewcommand*{\partnumfont}{\Huge}
 \renewcommand*{\partnamefont}{\Huge}
 \renewcommand*{\parttitlefont}{\Huge\bfseries}
@@ -115,6 +117,7 @@
 \setlength{\trimtop}{\stockheight}
 \addtolength{\trimtop}{-\paperheight}
 \setlength{\trimedge}{\stockwidth}
+\setlength{\belowcaptionskip}{-10pt}
 \addtolength{\trimedge}{-\paperwidth}
 \settrims{0.5\trimtop}{0.5\trimedge}
 \settypeblocksize{170mm}{120mm}{*}
@@ -142,7 +145,7 @@
 \newcommand{\absprelude}{\noindent\normalfont{\textbf{Abstract|}}\abstracttextfont}
 \captionnamefont{\bfseries}
 \captionstyle{\itshape}
-\captiondelim{|~}
+\captiondelim{~|~}
 
 % Inline header with/without extra space
 \newcommand{\inlineheader}[1]{%

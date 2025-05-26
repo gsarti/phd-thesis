@@ -25,16 +25,16 @@ book:
   chapters:
     - index.qmd
     - chapters/chap-1-background.qmd
-    - part: "Investigating Context Usage in Machine Translation and Multilingual NLP"
+    - part: "Context Usage in Machine Translation and Multilingual NLP"
       chapters:
         - chapters/chap-2-inseq.qmd
         - chapters/chap-3-pecore.qmd
         - chapters/chap-4-mirage.qmd
-    - part: "Conditioning Language Models for Personalized Machine Translation"
+    - part: "Conditioning Generation for Personalized Machine Translation"
       chapters:
         - chapters/chap-5-ramp.qmd
         - chapters/chap-6-sae-litmt.qmd
-    - part: "Integrating Interpretability in Professional Translation Workflows"
+    - part: "Towards Interpretability in Human Translation Workflows"
       chapters:
         - chapters/chap-7-divemt.qmd
         - chapters/chap-8-unsup-wqe.qmd
@@ -43,7 +43,7 @@ book:
   appendices: 
     - chapters/appendix-a.qmd
 
-lang: "eng"
+pdf-lang: "eng"
 frontmatter:
 
   # Details page
@@ -94,10 +94,24 @@ frontmatter:
   
   dedication: "" # E.g. "To my dog". Leave empty to skip
 
-bibliography: latex/references.bib
+bibliography:
+- latex/references/anthology-filtered.bib
+- latex/references/index.bib
+- latex/references/chap-1-background.bib
+- latex/references/chap-2-inseq.bib
+- latex/references/chap-3-pecore.bib
+- latex/references/chap-4-mirage.bib
+- latex/references/chap-5-ramp.bib
+- latex/references/chap-6-sae-litmt.bib
+- latex/references/chap-7-divemt.bib
+- latex/references/chap-8-unsup-wqe.bib
+- latex/references/chap-9-qe4pe.bib
+- latex/references/appendices.bib
 
 format:
   html:
+    filters:
+      - pdf-to-image
     theme:
       light: cosmo
     code-fold: false

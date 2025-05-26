@@ -10,3 +10,5 @@ latex/*.fdb_latexmk
 latex/*.synctex.gz
 latex/*.pdf
 /.quarto/
+
+.venv/
