@@ -44,6 +44,7 @@ book:
     - chapters/appendix-a.qmd
 
 pdf-lang: "eng"
+freeze: auto
 frontmatter:
 
   # Details page
@@ -107,6 +108,7 @@ bibliography:
 - latex/references/chap-8-unsup-wqe.bib
 - latex/references/chap-9-qe4pe.bib
 - latex/references/appendices.bib
+bibliographystyle: latex/rug-phd-thesis.bst
 
 format:
   html:
@@ -117,9 +119,17 @@ format:
     code-fold: false
     css: html/custom.css
     backgroundcolor: "#F5F5F5"
+    tbl-cap-location: bottom
   pdf:
+    filters:
+      - at: pre-ast
+        path: _extensions/gsarti/rug-phd-thesis/rug-phd-thesis.lua
     template: latex/rug-phd-thesis.tex
+    cite_method: natbib
+    link-citations: true
     pdf-engine: pdflatex
-    keep-tex: false
+    keep-tex: true
+    fig-pos: "t"
+    tbl-cap-location: bottom
 
 
