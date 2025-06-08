@@ -212,8 +212,17 @@
 %% Font sizes, line spacing, and text formatting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% Suppress specific warnings
+\hfuzz=1pt  % Suppress overfull hbox warnings under 1pt
+\vfuzz=1pt  % Suppress overfull vbox warnings under 1pt
+
+% Update deprecated memoir commands
+\let\oldaddtodef\addtodef
+\renewcommand{\addtodef}[3]{\apptocmd{#1}{#3}{}{}}
+\newcommand{\pandocbounded}[1]{#1} % Placeholder for Pandoc bounded commands
+
 % Line spacing and typography settings
-\linespread{1.15}                           % 1.15x line spacing for readability
+\linespread{1.05}                           % 1.15x line spacing for readability
 
 % Font size redefinitions for consistent typography
 \renewcommand{\normalsize}{\fontsize{9.5pt}{12.6pt}\selectfont}
@@ -368,8 +377,8 @@
       \xxxParagraphStar
       \xxxParagraphNoStar
   }
-  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
-  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\vspace{-5pt}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\vspace{-5pt}\mbox{}}
 \fi
 \ifx\subparagraph\undefined\else
   \let\oldsubparagraph\subparagraph
@@ -378,10 +387,13 @@
       \xxxSubParagraphStar
       \xxxSubParagraphNoStar
   }
-  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
-  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\vspace{-5pt}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\vspace{-5pt}\mbox{}}
 \fi
 \makeatother
+
+\setlength{\parskip}{0.3em}          % Set paragraph spacing
+\setlength{\parindent}{0pt}           % No paragraph indentation
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 20. LONGTABLE AND FOOTNOTE COMPATIBILITY

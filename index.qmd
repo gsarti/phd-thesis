@@ -1,53 +1,75 @@
-# Preface {.unnumbered}
+# Introduction
 
-## Publications
+## Research Output
 
-This thesis is adapted from the following publications:
+This dissertation is the result of multiple peer-reviewed publications and open-source projects, which are presented in this section below.
 
-1. **Sarti, G.**, Feldhus, N., Sickert, L., van der Wal, O., Nissim, M. and Bisazza, A. [-@sarti-etal-2023-inseq]. Inseq: An Interpretability Toolkit for Sequence Generation Models. In *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL Demo)* (**Chapter 2**)
+### Main Contributions
 
-2. **Sarti, G.**, Chrupała G., Nissim, M. and Bisazza, A. [-@sarti-etal-2024-quantifying]. Quantifying the Plausibility of Context Reliance in Neural Machine Translation. In *Proceedings of the 12th International Conference on Learning Representations (ICLR)* (**Chapter 3**)
+The following articles represent the main contributions of this dissertation, organized in their respective parts and chapters:[^1]
 
-3. **Sarti, G.**, Feldhus, N., Qi, J., Nissim, M. and Bisazza, A. [-@sarti-etal-2024-democratizing]. Democratizing Advanced Attribution Analyses of Generative Language Models with the Inseq Toolkit. In *Proceedings of the 2nd World Conference on eXplainable Artificial Intelligence: Late-breaking works and demos (xAI)* (**Chapter 4**)
+[^1]: $^\dagger$ indicates shared first co-authorship.
 
-4. Qi, J.^\*^, **Sarti, G.**^\*^, Fernández, R. and Bisazza, A. [-@qi-etal-2024-model]. Model Internals-based Answer Attribution for Trustworthy Retrieval-Augmented Generation. In *Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (**Chapter 4**)
+\vspace{5pt}
+**Part I: Context Usage in Machine Translation and Multilingual NLP**
 
-5. **Sarti, G.**, Htut, P. M., Niu, X., Hsu, B., Currey, A., Dinu, G. and Nadejde, M. [-@sarti-etal-2023-ramp]. RAMP: Retrieval and Attribute-Marking Enhanced Prompting for Attribute-Controlled Translation. In *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL)* (**Chapter 5**)
+- **Sarti, G.**, Feldhus, N., Sickert, L., van der Wal, O., Nissim, M. and Bisazza, A. [-@sarti-etal-2023-inseq]. Inseq: An Interpretability Toolkit for Sequence Generation Models. In *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL Demo)* (**Chapter 2**)
 
-6. Scalena, D.^\*^, **Sarti, G.**^\*^, Bisazza, A., Fersini, E. and Nissim, M. [-@scalena-sarti-etal-2025-steering]. Steering Large Language Models for Machine Translation Personalization. *Arxiv Preprint* (**Chapter 6**)
+- **Sarti, G.**, Chrupała G., Nissim, M. and Bisazza, A. [-@sarti-etal-2024-quantifying]. Quantifying the Plausibility of Context Reliance in Neural Machine Translation. In *Proceedings of the 12th International Conference on Learning Representations (ICLR)* (**Chapter 3**)
 
-7. **Sarti, G.**, Bisazza, A., Guerberof-Arenas, A. and Toral, A. [-@sarti-etal-2022-divemt]. DivEMT: Neural Machine Translation Post-Editing Effort Across Typologically Diverse Languages. In *Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (**Chapter 7**)
+- **Sarti, G.**, Feldhus, N., Qi, J., Nissim, M. and Bisazza, A. [-@sarti-etal-2024-democratizing]. Democratizing Advanced Attribution Analyses of Generative Language Models with the Inseq Toolkit. In *Proceedings of the 2nd World Conference on eXplainable Artificial Intelligence: Late-breaking works and demos (xAI)* (**Chapter 4**)
 
-8. **Sarti, G.**, Zouhar, V., Nissim, M. and Bisazza, A. [-@sarti-etal-2025-unsupervised]. Unsupervised Word-level Quality Estimation for Machine Translation Through the Lens of Annotators (Dis)agreement. *Arxiv Preprint* (**Chapter 8**)
+- Qi, J.$^\dagger$, **Sarti, G.**$^\dagger$, Fernández, R. and Bisazza, A. [-@qi-etal-2024-model]. Model Internals-based Answer Attribution for Trustworthy Retrieval-Augmented Generation. In *Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (**Chapter 4**)
 
-9. **Sarti, G.**, Zouhar, V., Chrupała, G., Guerberof-Arenas, A., Nissim, M. and Bisazza, A. [-@sarti-etal-2025-qe4pe]. QE4PE: Word-level Quality Estimation for Human Post-Editing. *Arxiv Preprint* (**Chapter 9**)
+**Part II: Conditioning Generation for Personalized Machine Translation**
 
-I led these publications in terms of defining the scope of research questions and analyses, conducting the experiments and writing the papers. Publications 4 and 6 include a shared first co-authorship...
+- **Sarti, G.**, Htut, P. M., Niu, X., Hsu, B., Currey, A., Dinu, G. and Nadejde, M. [-@sarti-etal-2023-ramp]. RAMP: Retrieval and Attribute-Marking Enhanced Prompting for Attribute-Controlled Translation. In *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL)* (**Chapter 5**)
 
-### Other Publications
+- Scalena, D.$^\dagger$, **Sarti, G.**$^\dagger$, Bisazza, A., Fersini, E. and Nissim, M. [-@scalena-sarti-etal-2025-steering]. Steering Large Language Models for Machine Translation Personalization. *Arxiv Preprint* (**Chapter 6**)
 
-Apart from works included as part of this thesis, I was also involved in the following research projects around two macro-themes.
+**Part III: Towards Interpretability in Human Translation Workflows**
 
-Advancing natural language processing for the Italian language:
+- **Sarti, G.**, Bisazza, A., Guerberof-Arenas, A. and Toral, A. [-@sarti-etal-2022-divemt]. DivEMT: Neural Machine Translation Post-Editing Effort Across Typologically Diverse Languages. In *Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (**Chapter 7**)
 
-10. Miaschi, A., **Sarti, G.**, Brunato, D., Dell'Orletta, F. and Venturi, G. [-@miaschi-etal-2022-probing]. Probing Linguistic Knowledge in Italian Neural Language Models across Language Varieties. *Italian Journal of Computational Linguistics (IJCoL)*
+- **Sarti, G.**, Zouhar, V., Nissim, M. and Bisazza, A. [-@sarti-etal-2025-unsupervised]. Unsupervised Word-level Quality Estimation for Machine Translation Through the Lens of Annotators (Dis)agreement. *Arxiv Preprint* (**Chapter 8**)
 
-11. Bianchi, F., Attanasio, G., Pisoni, R., Terragni, S., **Sarti, G.** and Balestri, D. [-@bianchi-etal-2023-contrastive]. Contrastive Language-Image Pre-training for the Italian Language. In *Proceedings of the 9th Italian Conference on Computational Linguistics (CLiC-it)*
+- **Sarti, G.**, Zouhar, V., Chrupała, G., Guerberof-Arenas, A., Nissim, M. and Bisazza, A. [-@sarti-etal-2025-qe4pe]. QE4PE: Word-level Quality Estimation for Human Post-Editing. *Arxiv Preprint* (**Chapter 9**)
 
-12. **Sarti, G.** and Nissim, M. [-@sarti-nissim-2024-it5]. IT5: Text-to-text Pretraining for Italian Language Understanding and Generation. In *Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING)*
+### Open Source Software
 
-13. **Sarti, G.**, Caselli, T., Nissim, M. and Bisazza, A. [-@sarti-etal-2024-non]. Non Verbis, Sed Rebus: Large Language Models Are Weak Solvers of Italian Rebuses. In *Proceedings of the 10th Italian Conference on Computational Linguistics (CLiC-it)*
+Open-source contributions play a fundamental role in my research efforts. Throughout the main contributions detailed above, I strived to make all datasets, methods and code publicly available, and well-documented to facilitate further research and reproducibility. In particular, I led the development of the **Inseq** toolkit discussed in Part I
 
-14. **Sarti, G.**, Caselli, T., Bisazza, A. and Nissim, M. [-@sarti-etal-2024-eurekarebus]. EurekaRebus - Verbalized Rebus Solving with LLMs: A CALAMITA Challenge. In *Proceedings of the 10th Italian Conference on Computational Linguistics (CLiC-it)*
+### Other Contributions
 
-Interpreting the inner workings of generative language models:
+Main contributions aside, an important part of my research output during my PhD includes other projects beyond the scope of this dissertation. These include the following publications, organized around two macro-themes:
 
-15. Langedijk, A., Mohebbi, H., **Sarti, G.**, Zuidema, W. and Jumelet, J. [-@langedijk-etal-2024-decoderlens]. DecoderLens: Layerwise Interpretation of Encoder-Decoder Transformers. In *Findings of the North American Chapter of the Association for Computational Linguistics (NAACL)*
+\vspace{5pt}
+**Advancing Italian natural language processing:**
 
-16. Ferrando, J., **Sarti, G.**, Bisazza, A. and Costa-jussà, M. R. [-@ferrando-etal-2024-primer]. A Primer on the Inner Workings of Transformer-based Language Models. *Arxiv Preprint*
+- Miaschi, A., **Sarti, G.**, Brunato, D., Dell'Orletta, F. and Venturi, G. [-@miaschi-etal-2022-probing]. Probing Linguistic Knowledge in Italian Neural Language Models across Language Varieties. *Italian Journal of Computational Linguistics (IJCoL)*
 
-17. Edman, L., **Sarti, G.**, Toral, A., van Noord, G. and Bisazza, A. [-@edman-etal-2024-character]. Are Character-level Translations Worth the Wait? Comparing ByT5 and mT5 for Machine Translation. *Transactions of the Association for Computational Linguistics (TACL)*
+- Bianchi, F., Attanasio, G., Pisoni, R., Terragni, S., **Sarti, G.** and Balestri, D. [-@bianchi-etal-2023-contrastive]. Contrastive Language-Image Pre-training for the Italian Language. In *Proceedings of the 9th Italian Conference on Computational Linguistics (CLiC-it)*
 
-18. Scalena, D., **Sarti, G.** and Nissim, M. [-@scalena-etal-2024-multi]. Multi-property Steering of Large Language Models with Dynamic Activation Composition. In *Proceedings of the 7th Workshop on Analyzing and Interpreting Neural Networks for NLP (BlackboxNLP)*
+- **Sarti, G.** and Nissim, M. [-@sarti-nissim-2024-it5]. IT5: Text-to-text Pretraining for Italian Language Understanding and Generation. In *Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING)*
 
-19. Ghasemi Madani, M. R., Gema, A. P., **Sarti, G.**, Zhao, Y., Minervini, P. and Passerini, A. [-@madani-etal-2025-noiser]. Noiser: Bounded Input Perturbations for Attributing Large Language Models. *Arxiv Preprint*
+- **Sarti, G.**, Caselli, T., Nissim, M. and Bisazza, A. [-@sarti-etal-2024-non]. Non Verbis, Sed Rebus: Large Language Models Are Weak Solvers of Italian Rebuses. In *Proceedings of the 10th Italian Conference on Computational Linguistics (CLiC-it)*
+
+- **Sarti, G.**, Caselli, T., Bisazza, A. and Nissim, M. [-@sarti-etal-2024-eurekarebus]. EurekaRebus - Verbalized Rebus Solving with LLMs: A CALAMITA Challenge. In *Proceedings of the 10th Italian Conference on Computational Linguistics (CLiC-it)*
+
+- Ciaccio, C., **Sarti, G.**, Miaschi, A. and Dell'Orletta, F. [-@ciaccio-etal-2025-crossword]. Crossword Space: Latent Manifold Learning for
+Italian Crossword Clues and Solutions. In *Proceedings of the 11th Italian Conference on Computational Linguistics (CLiC-it)*
+
+\noindent
+**Interpreting the inner workings of generative language models:**
+
+- Langedijk, A., Mohebbi, H., **Sarti, G.**, Zuidema, W. and Jumelet, J. [-@langedijk-etal-2024-decoderlens]. DecoderLens: Layerwise Interpretation of Encoder-Decoder Transformers. In *Findings of the North American Chapter of the Association for Computational Linguistics (NAACL)*
+
+- Ferrando, J., **Sarti, G.**, Bisazza, A. and Costa-jussà, M. R. [-@ferrando-etal-2024-primer]. A Primer on the Inner Workings of Transformer-based Language Models. *Arxiv Preprint*
+
+- Edman, L., **Sarti, G.**, Toral, A., van Noord, G. and Bisazza, A. [-@edman-etal-2024-character]. Are Character-level Translations Worth the Wait? Comparing ByT5 and mT5 for Machine Translation. *Transactions of the Association for Computational Linguistics (TACL)*
+
+- Scalena, D., **Sarti, G.** and Nissim, M. [-@scalena-etal-2024-multi]. Multi-property Steering of Large Language Models with Dynamic Activation Composition. In *Proceedings of the 7th Workshop on Analyzing and Interpreting Neural Networks for NLP (BlackboxNLP)*
+
+- Ghasemi Madani, M. R., Gema, A. P., **Sarti, G.**, Zhao, Y., Minervini, P. and Passerini, A. [-@madani-etal-2025-noiser]. Noiser: Bounded Input Perturbations for Attributing Large Language Models. *Arxiv Preprint*
+
+- Candussio, S., Saveri, G., **Sarti, G.** and Bortolussi, L. [-@candussio-etal-2025-bridging]. Bridging Logic and Learning: Decoding Temporal Logic Embeddings via Transformers. In *Proceedings of the 2025 European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)*

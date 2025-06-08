@@ -3,7 +3,7 @@ nocite: |
     @simonyan-etal-2014-saliency
 ---
 
-# Attributing Language Model Generations with the Inseq Toolkit {#chap-2-inseq}
+# Attributing Language Model Generations with the Inseq Toolkit {#chap-3-inseq}
 
 > This chapter is adapted from the paper *Inseq: An Interpretability Toolkit for Sequence Generation Models* [@sarti-etal-2023-inseq].
 
@@ -16,7 +16,7 @@ However, feature attribution techniques have mainly been applied to classificati
 Moreover, since previous generation steps causally influence following predictions, they must be dynamically incorporated into the set of attributed inputs throughout the process.
 Lastly, while classification usually involves a limited set of classes and simple output selection (e.g. argmax after softmax), generation routinely works with large vocabularies and non-trivial decoding strategies [@eikema-aziz-2020-map]. These differences limited the use of feature attribution methods for generation settings, with relatively few works improving attribution efficiency [@vafa-etal-2021-rationales; @ferrando-etal-2022-towards] and explanations' informativeness [@yin-neubig-2022-interpreting].
 
-![Feature importance and next-step probability extraction and visualization using Inseq with a 🤗 Transformers causal language model.](../figures/chap-2-inseq/teaser.pdf){#fig-inseq-teaser width=65%}
+![Feature importance and next-step probability extraction and visualization using Inseq with a 🤗 Transformers causal language model.](../figures/chap-3-inseq/teaser.pdf){#fig-inseq-teaser width=65%}
 
 In this section, we introduce **Inseq**, a Python library to democratize access to interpretability analyses of generative language models.
 Inseq centralizes access to a broad set of feature attribution methods, sourced in part from the Captum [@kokhlikyan-etal-2020-captum] framework, enabling a fair comparison of different techniques for all sequence-to-sequence and decoder-only models in the popular 🤗 Transformers library [@wolf-etal-2020-transformers].
@@ -43,7 +43,7 @@ attr_out = model.attribute(
 attr_out.show()
 ```
 
-![](../figures/chap-2-inseq/flant5_math_attribution_example.png){width=50% fig-align="center"}
+![](../figures/chap-3-inseq/flant5_math_attribution_example.png){width=50% fig-align="center"}
 
 Computing and visualizing source and target-side attributions using Flan-T5 [@chung-etal-2022-scaling].
 :::
@@ -62,17 +62,17 @@ Inseq combines sequence models sourced from 🤗 Transformers [@wolf-etal-2020-t
 
 ### Guiding Principles
 
-[Research and Generation-oriented]{.paragraph} Inseq should support interpretability analyses of a broad set of sequence generation models without focusing narrowly on specific architectures or tasks. Moreover, the inclusion of new, cutting-edge methods should be prioritized to enable fair comparisons with well-established ones.
+- **Research and Generation-oriented:** Inseq should support interpretability analyses of a broad set of sequence generation models without focusing narrowly on specific architectures or tasks. Moreover, the inclusion of new, cutting-edge methods should be prioritized to enable fair comparisons with well-established ones.
 
-[Scalable]{.paragraph} The library should provide an optimized interface to a wide range of use cases, models and setups, ranging from interactive attributions of individual examples using toy models to compiling statistics of large language models' predictions for entire datasets.
+- **Scalable:** The library should provide an optimized interface to a wide range of use cases, models and setups, ranging from interactive attributions of individual examples using toy models to compiling statistics of large language models' predictions for entire datasets.
 
-[Beginner-friendly]{.paragraph} Inseq should provide built-in access to popular frameworks for sequence generation modeling and be fully usable by non-experts at a high level of abstraction, providing sensible defaults for supported attribution methods.
+- **Beginner-friendly:** Inseq should provide built-in access to popular frameworks for sequence generation modeling and be fully usable by non-experts at a high level of abstraction, providing sensible defaults for supported attribution methods.
 
-[Extensible]{.paragraph} Inseq should support a high degree of customization for experienced users, with out-of-the-box support for user-defined solutions to enable future investigations into models' behaviors.
+- **Extensible:** Inseq should support a high degree of customization for experienced users, with out-of-the-box support for user-defined solutions to enable future investigations into models' behaviors.
 
 ### Feature Attribution and Post-processing {#sec-chap2-feat-attr}
 
-{{< include ../tables/chap-2-inseq/_methods.qmd >}}
+{{< include ../tables/chap-3-inseq/_methods.qmd >}}
 
 At its core, Inseq provides a simple interface to apply feature attribution techniques for sequence generation tasks. We categorize methods in three groups, *gradient-based*, *internals-based* and *perturbation-based*, depending on their underlying approach to importance quantification.^[We distinguish between gradient- and internals-based methods to account for their difference in scores' granularity.] [@tbl-methods] presents the full list of supported methods. Aside from popular model-agnostic methods, Inseq notably provides built-in support for attention weight attribution and the cutting-edge Discretized Integrated Gradients method [@sanyal-ren-2021-discretized]. Moreover, multiple methods allow for the importance attribution of custom intermediate model layers, simplifying studies on representational structures and information mixing in sequential models, such as our case study of [@sec-chap2-rome-repro].
 
@@ -90,11 +90,11 @@ During attribution, Inseq first generates target tokens using 🤗 Transformers 
 
 ### Usability Features {#sec-chap2-usability}
 
-[Batched and span-focused attributions]{.paragraph} The library provides built-in batching capabilities, enabling users to go beyond single sentences and attribute even entire datasets in a single function call. When the attribution of a specific span of interest is needed, Inseq also allows specifying a start and end position for the attribution process. This functionality greatly accelerates the attribution process for studies on localized phenomena (e.g. pronoun coreference in MT models).
+- **Batched and span-focused attributions:** The library provides built-in batching capabilities, enabling users to go beyond single sentences and attribute even entire datasets in a single function call. When the attribution of a specific span of interest is needed, Inseq also allows specifying a start and end position for the attribution process. This functionality greatly accelerates the attribution process for studies on localized phenomena (e.g. pronoun coreference in MT models).
 
-[CLI, Serialization and Visualization]{.paragraph} The Inseq library offers an API to attribute single examples or entire 🤗 Datasets from the command line and save resulting outputs and visualizations to a file. Attribution outputs can be saved and loaded in JSON format with their respective metadata to easily identify the provenance of contents. Attributions can be visualized in the command line or IPython notebooks and exported as HTML files
+- **CLI, serialization and visualization:** The Inseq library offers an API to attribute single examples or entire 🤗 Datasets from the command line and save resulting outputs and visualizations to a file. Attribution outputs can be saved and loaded in JSON format with their respective metadata to easily identify the provenance of contents. Attributions can be visualized in the command line or IPython notebooks and exported as HTML files
 
-[Quantized Model Attribution]{.paragraph} Supporting the attribution of large models is critical given recent scaling tendencies [@kaplan-etal-2020-scaling]. All models allowing for quantization using `bitsandbytes` [@dettmers-etal-2022-gpt3] can be loaded in 8-bit directly from 🤗 Transformers, and their attributions can be computed normally using Inseq.^[`bitsandbytes 0.37.0` required for backward method, see [@app-ex-factual-int8] for an example.] A minimal manual evaluation of 8-bit attribution outputs for [@sec-chap2-rome-repro] study shows minimal discrepancies compared to full-precision results.
+- **Quantized model attribution:** Supporting the attribution of large models is critical given recent scaling tendencies [@kaplan-etal-2020-scaling]. All models allowing for quantization using `bitsandbytes` [@dettmers-etal-2022-gpt3] can be loaded in 8-bit directly from 🤗 Transformers, and their attributions can be computed normally using Inseq.^[`bitsandbytes 0.37.0` required for backward method, see [@app-ex-factual-int8] for an example.] A minimal manual evaluation of 8-bit attribution outputs for [@sec-chap2-rome-repro] study shows minimal discrepancies compared to full-precision results.
 
 ## Case Studies {#sec-chap2-case-studies}
 
@@ -108,24 +108,24 @@ We repeat this simple setup using a Turkish-to-English MarianMT model [@tiedeman
 
 We select 49 Turkish occupation terms verified by a native speaker (see [@app-gender-bias-turkish]) and use them to infill the template sentence *O bir* ____ (He/She is a(n) ____). For each translation, we compute attribution scores for source Turkish pronoun ($x_\text{pron}$) and occupation ($x_\text{occ}$) tokens^[For multi-token occupation terms, e.g., *bilim insanı* (scientist), the attribution score of the first token was used.] when generating the target English pronoun ($y_\text{pron}$) using Integrated Gradients (IG), Gradients ($\nabla$), and Input $\times$ Gradient (I$\times$G).^[We set approx. steps to ensure convergence $\Delta < 0.05$ for IG. All methods use the L2 norm to obtain token-level attributions.] We also collect target pronoun probabilities ($p(y_\text{pron})$), rank the 49 occupation terms using these metrics, and finally compute Kendall's $\tau$ correlation with the percentage of women working in the respective fields, using U.S. labor statistics as in previous works [e.g., @caliskan-etal-2017-semantics,@rudinger-etal-2018-gender]. [@tbl-turkish-gender-bias] presents our results.
 
-{{< include ../tables/chap-2-inseq/_turkish-gender-bias.qmd >}}
+{{< include ../tables/chap-3-inseq/_turkish-gender-bias.qmd >}}
 
 In the **base case**, we correlate the different metrics with how much the gender distribution deviates from an equal distribution ($50-50\%$) for each occupation (i.e., the gender bias irrespective of the direction). We observe a strong gender bias, with `she` being chosen only for 5 out of 49 translations and gender-neutral variants never being produced by the MT model. We find a low correlation between pronoun probability and the degree of gender stereotype associated with the occupation. Moreover, we note a weaker correlation for IG compared to the other two methods. For those, attribution scores for $x_\text{occ}$ show significant correlations with labor statistics, supporting the intuition that the MT model will accord higher importance to source occupation terms associated to gender-stereotypical occupations when predicting the gendered target pronoun.
 
 In the **gender-swap case** (♀️ $\rightarrow$ ♂️), we use the `PairAggregator` class to contrastively compare attribution scores and probabilities when translating the pronoun as `She` or `He`.^[An example is provided in [@app-pair-agg-gender-swap].]
 We correlate resulting scores with the percentage of women working in the respective occupation and find strong correlations for $p(y_\text{pron})$, supporting the validity of contrastive approaches in uncovering gender bias.
 
-[Qualitative Example: English to Dutch]{#chap2-par-gender-bias-bug .paragraph} We also qualitatively analyze biased MT outputs, showing how attributions can help develop hypotheses about models' behavior. [@tab-m2m-gender-example] (top) shows the I $\times$ G attributions for English-to-Dutch translation using M2M-100 [@fan-etal-2021-m2m100].
+[Qualitative Example: English to Dutch]{#chap2-par-gender-bias-bug .paragraph} We also qualitatively analyze biased MT outputs, showing how attributions can help develop hypotheses about models' behavior. [@tbl-m2m-gender-example] (top) shows the I $\times$ G attributions for English-to-Dutch translation using M2M-100 [@fan-etal-2021-m2m100].
 
-{{< include ../tables/chap-2-inseq/_m2m-gender-example.qmd >}}
+{{< include ../tables/chap-3-inseq/_m2m-gender-example.qmd >}}
 
-The model mistranslates the pronoun `her` into the masculine form *zijn* (his). We find that the wrongly translated pronoun exhibits high probability but does not associate substantial importance to the source occupation term *teacher*. Instead, we find good relative importance for the preceding word and *leraar* (male teacher). This suggests a strong prior bias for masculine variants, shown by the pronoun *zijn* and the noun *leraar*, as a possible cause for this mistranslation. When considering the contrastive example obtained by swapping *leraar* with its gender-neutral variant *leerkracht* ([@tab-m2m-gender-example], bottom), we find increased importance of the target occupation in determining the correctly-gendered target pronoun *haar* (her). Our results highlight the tendency of MT models to attend inputs sequentially rather than relying on context, hinting at the known benefits of context-aware models for pronoun translation [@voita-etal-2018-context].
+The model mistranslates the pronoun `her` into the masculine form *zijn* (his). We find that the wrongly translated pronoun exhibits high probability but does not associate substantial importance to the source occupation term *teacher*. Instead, we find good relative importance for the preceding word and *leraar* (male teacher). This suggests a strong prior bias for masculine variants, shown by the pronoun *zijn* and the noun *leraar*, as a possible cause for this mistranslation. When considering the contrastive example obtained by swapping *leraar* with its gender-neutral variant *leerkracht* ([@tbl-m2m-gender-example], bottom), we find increased importance of the target occupation in determining the correctly-gendered target pronoun *haar* (her). Our results highlight the tendency of MT models to attend inputs sequentially rather than relying on context, hinting at the known benefits of context-aware models for pronoun translation [@voita-etal-2018-context].
 
 ### Locating Factual Knowledge inside GPT-2 with Contrastive Attribution Tracing {#sec-chap2-rome-repro}
 
 For our second case study, we experiment with a novel attribution-based technique to locate factual knowledge encoded in the layers of GPT-2 1.5B [@radford-etal-2019-language]. Specifically, we aim to reproduce the results of @meng-etal-2022-rome, showing the influence of intermediate layers in mediating the recall of factual statements such as `The Eiffel Tower is located in the city of` $\rightarrow$ `Paris`. @meng-etal-2022-rome estimate the effect of network components in the prediction of factual statements as the difference in probability of a correct target (e.g. *Paris*), given a corrupted subject embedding (e.g. for *Eiffel Tower*), before and after restoring clean activations for some input tokens at different layers of the network. Apart from the obvious importance of final token states in terminal layers, their results highlight the presence of an early site associated with the last subject token playing an important role in recalling the network's factual knowledge ([@fig-rome-repro], top).
 
-![**Top:** Estimated causal importance of GPT-2 XL layers for predicting factual associations, as reported by @meng-etal-2022-rome. **Bottom:** Average GPT-2 XL Gradient $\times$ Layer Activation scores obtained with Inseq using contrastive factual pairs as attribution targets.](../figures/chap-2-inseq/rome-repro.pdf){#fig-rome-repro width=65%}
+![**Top:** Estimated causal importance of GPT-2 XL layers for predicting factual associations, as reported by @meng-etal-2022-rome. **Bottom:** Average GPT-2 XL Gradient $\times$ Layer Activation scores obtained with Inseq using contrastive factual pairs as attribution targets.](../figures/chap-3-inseq/rome-repro.pdf){#fig-rome-repro width=65%}
 
 To verify such results, we propose a novel knowledge location method, which we name **Contrastive Attribution Tracing** (CAT), adopting the contrastive attribution paradigm of @yin-neubig-2022-interpreting to locate relevant network components by attributing minimal pairs of correct and wrong factual targets (e.g. *Paris* vs. *Rome* for the example above). To perform the contrastive attribution, we use the Layer Gradient $\times$ Activation method, a layer-specific variant of Input $\times$ Gradient, to propagate gradients up to intermediate network activations instead of reaching input tokens. The resulting attribution scores hence answer the question *"How important are layer $L$ activations for prefix token $t$ in predicting the correct factual target over a wrong one?"*. We compute attribution scores for 1000 statements taken from the Counterfact Statement dataset [@meng-etal-2022-rome] and present averaged results in [@fig-rome-repro] (bottom).^[[@fig-ex-factual-knowledge] of [@app-ex-factual-int8] presents some examples.] Our results closely match those of the original authors, providing further evidence of how attribution methods can be used to identify salient network components and guide model editing, as shown by @dai-etal-2022-knowledge and @nanda-2023-attribution.
 

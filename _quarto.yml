@@ -24,21 +24,21 @@ book:
   output-file: "thesis"
   chapters:
     - index.qmd
-    - chapters/chap-1-background.qmd
+    - chapters/chap-2-background.qmd
     - part: "Context Usage in Machine Translation and Multilingual NLP"
       chapters:
-        - chapters/chap-2-inseq.qmd
-        - chapters/chap-3-pecore.qmd
-        - chapters/chap-4-mirage.qmd
+        - chapters/chap-3-inseq.qmd
+        - chapters/chap-4-pecore.qmd
+        - chapters/chap-5-mirage.qmd
     - part: "Conditioning Generation for Personalized Machine Translation"
       chapters:
-        - chapters/chap-5-ramp.qmd
-        - chapters/chap-6-sae-litmt.qmd
+        - chapters/chap-6-ramp.qmd
+        - chapters/chap-7-sae-litmt.qmd
     - part: "Towards Interpretability in Human Translation Workflows"
       chapters:
-        - chapters/chap-7-divemt.qmd
-        - chapters/chap-8-unsup-wqe.qmd
-        - chapters/chap-9-qe4pe.qmd
+        - chapters/chap-8-divemt.qmd
+        - chapters/chap-9-unsup-wqe.qmd
+        - chapters/chap-10-qe4pe.qmd
     - chapters/references.qmd
   appendices: 
     - chapters/appendix-a.qmd
@@ -98,15 +98,15 @@ frontmatter:
 bibliography:
 - latex/references/anthology-filtered.bib
 - latex/references/index.bib
-- latex/references/chap-1-background.bib
-- latex/references/chap-2-inseq.bib
-- latex/references/chap-3-pecore.bib
-- latex/references/chap-4-mirage.bib
-- latex/references/chap-5-ramp.bib
-- latex/references/chap-6-sae-litmt.bib
-- latex/references/chap-7-divemt.bib
-- latex/references/chap-8-unsup-wqe.bib
-- latex/references/chap-9-qe4pe.bib
+- latex/references/chap-2-background.bib
+- latex/references/chap-3-inseq.bib
+- latex/references/chap-4-pecore.bib
+- latex/references/chap-5-mirage.bib
+- latex/references/chap-6-ramp.bib
+- latex/references/chap-7-sae-litmt.bib
+- latex/references/chap-8-divemt.bib
+- latex/references/chap-9-unsup-wqe.bib
+- latex/references/chap-10-qe4pe.bib
 - latex/references/appendices.bib
 bibliographystyle: latex/rug-phd-thesis.bst
 

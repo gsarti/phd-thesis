@@ -91,7 +91,7 @@
 
 :::
 
-:::{.content-visible when-format="latex"}
+:::{.content-visible when-format="pdf"}
 
 ```{=latex}
 \begin{table}
