@@ -113,6 +113,7 @@ bibliographystyle: latex/rug-phd-thesis.bst
 format:
   html:
     filters:
+      - highlight-text
       - pdf-to-image
     theme:
       light: cosmo
@@ -122,6 +123,7 @@ format:
     tbl-cap-location: bottom
   pdf:
     filters:
+      - highlight-text
       - at: pre-ast
         path: _extensions/gsarti/rug-phd-thesis/rug-phd-thesis.lua
     template: latex/rug-phd-thesis.tex
