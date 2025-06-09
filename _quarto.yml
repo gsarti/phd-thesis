@@ -125,7 +125,7 @@ format:
       - at: pre-ast
         path: _extensions/gsarti/rug-phd-thesis/rug-phd-thesis.lua
     template: latex/rug-phd-thesis.tex
-    cite_method: natbib
+    cite-method: natbib
     link-citations: true
     pdf-engine: pdflatex
     keep-tex: true

@@ -147,7 +147,7 @@
 \definecolor{lightbluedim}{RGB}{111,168,220}
 
 % Code highlighting environments and commands
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newenvironment{Shaded}{\begin{framed}}{\end{framed}}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
 
 % Syntax highlighting token definitions
@@ -158,11 +158,15 @@
 \newcommand{\FunctionTok}[1]{\textcolor{lightpurple}{#1}}
 \newcommand{\OperatorTok}[1]{\textcolor{emph}{\textbf{#1}}}
 \newcommand{\VariableTok}[1]{#1}
+\newcommand{\DecValTok}[1]{\textcolor{emph}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor{keywords}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{\textcolor{keywords}{\textbf{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor{keywords}{\textbf{#1}}}
 
 % Enhanced shaded environment with line numbers
 \newenvironment{Shaded*}[1][]
- {\begin{snugshade}\begin{Highlighting}[#1]}
- {\end{Highlighting}\end{snugshade}}
+ {\begin{framed}\begin{Highlighting}[#1]}
+ {\end{Highlighting}\end{framed}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 9. ALGORITHMS AND PSEUDOCODE
@@ -415,6 +419,8 @@
 %% 21. BIBLIOGRAPHY AND CITATION SUPPORT
 %% Citation processing and bibliography formatting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{natbib}
 
 % Citation processing commands (for citeproc compatibility)
 \NewDocumentCommand\citeproctext{}{}

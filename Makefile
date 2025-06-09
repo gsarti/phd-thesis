@@ -1,9 +1,18 @@
 .PHONY: clean-latex
 
+help:
+	@echo "Available targets:"
+	@echo "  pdf:              Generate PDF version of the thesis."
+	@echo "  web:              Generate web version of the thesis."
+	@echo "  clean-latex:      Clean up LaTeX auxiliary files."
+	@echo "  update-anthology: Update the filtered Anthology bibliography based on the chapter references."
+
 pdf:
+	make update-anthology
 	quarto preview --render pdf
 	
 web:
+	make update-anthology
 	quarto preview --render html
 
 clean-latex:

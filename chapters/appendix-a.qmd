@@ -1,3 +1,138 @@
-# Appendix A
+# Context Usage in Machine Translation and Multilingual NLP {#sec-appendix-a}
 
-This is an appendix.
+## Attributing Language Model Generations with the Inseq Toolkit {#sec-inseq-appendix}
+
+### Additional Details on Turkish Gender Bias Case Study {#sec-inseq-appendix-turkish-gender-bias}
+
+[@tbl-turkish-wordlist] shows the list of occupation terms used in the gender bias case study ([@sec-chap2-gender-bias]).
+We correlate the ranking of occupations based on the selected attribution metrics and probabilities with U.S. labor statistics^[[`https://github.com/rudinger/winogender-schemas`][https://github.com/rudinger/winogender-schemas/blob/master/data/occupations-stats.tsv]](`bls_pct_female` column). Table [@tbl-m2m-gender-example] example was taken from the BUG dataset [@levy-etal-2021-collecting-large].
+
+| **Turkish** | **English** | **Turkish** | **English** |
+|---------|---------|---------|---------|
+| teknisyen | technician | memur | officer |
+| muhasebeci | accountant | patolog | pathologist |
+| süpervizör | supervisor | öğretmen | teacher |
+| mühendis | engineer | avukat | lawyer |
+| işçi | worker | planlamacı | planner |
+| eğitimci | educator | yönetici | practitioner |
+| katip | clerk | tesisatçı | plumber |
+| danışman | consultant | eğitmen | instructor |
+| müfettiş | inspector | cerrah | surgeon |
+| tamirci | mechanic | veteriner | veterinarian |
+| müdür | manager | kimyager | chemist |
+| terapist | therapist | makinist | machinist |
+| resepsiyonist | receptionist | mimar | architect |
+| kütüphaneci | librarian | kuaför | hairdresser |
+| ressam | painter | fırıncı | baker |
+| eczacı | pharmacist | programlamacı | programmer |
+| kapıcı | janitor | itfaiyeci | firefighter |
+| psikolog | psychologist | bilim insanı | scientist |
+| doktor | physician | sevk memuru | dispatcher |
+| marangoz | carpenter | kasiyer | cashier |
+| hemşire | nurse | komisyoncu | broker |
+| araştırmacı | investigator | şef | chef |
+| barmen | bartender | doktor | doctor |
+| uzman | specialist | sekreter | secretary |
+| elektrikçi | electrician | | |
+
+: List of the 49 Turkish occupation terms and their English translations used in the gender bias case study. {#tbl-turkish-wordlist}
+
+### Example of Pair Aggregation for Contrastive MT Comparison {#sec-inseq-appendix-pair-agg-gender-swap}
+
+An example of gender translation pair using the synthetic template of [@sec-chap2-gender-bias] is show in [@fig-ex-gender-pair-agg], highlighting a large drop in probability when switching the gendered pronoun for highly gender-stereotypical professions, similar to [@tbl-turkish-gender-bias] results.
+
+::: {#fig-ex-gender-pair-agg}
+```python
+import inseq
+from inseq.data.aggregator import *
+
+# Load the TR-EN translation model and attach the IG method
+model = inseq.load_model(
+    "Helsinki-NLP/opus-mt-tr-en", "integrated_gradients"
+)
+
+# Forced decoding. Return probabilities, no target attr.
+out = model.attribute(
+    ["O bir teknisyen", "O bir teknisyen"],
+    ["She is a technician.","He is a technician."],
+    step_scores=["probability"],
+)
+
+# Aggregation pipeline composed by two steps:
+# 1. Aggregate subword tokens across all dimensions:
+# 2. Aggregate hidden size to produce token-level attributions
+subw_aggregator = AggregatorPipeline(
+    [SubwordAggregator, SequenceAttributionAggregator]
+)
+masculine = out[0].aggregate(aggregator=subw_aggregator)
+feminine = out[1].aggregate(aggregator=subw_aggregator)
+
+# Take the diff of the scores of the two attributions
+masculine.show(aggregator=PairAggregator, paired_attr=feminine)
+```
+
+![](../figures/chap-3-inseq/tr_en_pair_aggr_example.png){width=60% fig-align="center"}
+
+Comparing attributions for a synthetic Turkish-to-English translation example with underspecified source pronoun gender using a MarianMT Turkish-to-English translation model [@tiedemann-2020-tatoeba]. Values in the visualized attribution matrix show a 46% higher probability of producing the masculine pronoun in the translation and a relative decrease of 18.4% in the importance of the Turkish occupation term compared to the feminine pronoun case.
+:::
+
+### Example of Quantized Contrastive Attribution of Factual Knowledge {#sec-inseq-appendix-factual-knowledge}
+
+[@fig-ex-cat-counterfact-code] presents code used in [@sec-chap2-rome-repro] case study, with visualized attribution scores for contrastive examples presented in [@fig-ex-cat-counterfact-plots].
+
+:::{#fig-ex-cat-counterfact-code}
+```python
+import inseq
+from datasets import load_dataset
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+# The model is loaded in 8-bit on available GPUs
+model = AutoModelForCausalLM.from_pretrained(
+    "gpt2-xl", load_in_8bit=True, device_map="auto"
+)
+# Counterfact datasets used by Meng et al. (2022)
+data = load_dataset("NeelNanda/counterfact-tracing")["train"]
+
+# GPT-2 XL is a Transformer model with 48 layers
+for layer in range(48):
+    attrib_model = inseq.load_model(
+        model,
+        "layer_gradient_x_activation",
+        tokenizer="gpt2-xl",
+        target_layer=model.transformer.h[layer].mlp,
+    )
+    for i, ex in data:
+        # e.g. "The capital of Second Spanish Republic is"
+        # -> Madrid (true) / Paris (false)
+        prompt = ex["relation"].format(ex["subject"])
+        true_answer = prompt + ex["target_true"]
+        false_answer = prompt + ex["target_false"] 
+        # Contrastive attribution of true vs false answer
+        out = attrib_model.attribute(
+            prompt,
+            true_answer,
+            attributed_fn="contrast_prob_diff",
+            contrast_targets=false_answer,
+            show_progress=False,
+        )
+```
+
+Example code to contrastively attribute factual statements from the Counterfact Tracing dataset, using Layer Gradient $\times$ Activation to compute importance scores until intermediate layers of the GPT2-XL model.
+:::
+
+::: {#fig-ex-cat-counterfact-plots layout-ncol="2"}
+
+![](../figures/chap-3-inseq/cat_example_1.png){width=50% fig-align="center"}
+
+![](../figures/chap-3-inseq/cat_example_2.png){width=50% fig-align="center"}
+
+![](../figures/chap-3-inseq/cat_example_3.png){width=50% fig-align="center"}
+
+![](../figures/chap-3-inseq/cat_example_4.png){width=50% fig-align="center"}
+
+![](../figures/chap-3-inseq/cat_example_5.png){width=50% fig-align="center"}
+
+![](../figures/chap-3-inseq/cat_example_6.png){width=50% fig-align="center"}
+
+Visualization of contrastive attribution scores on a subset of layers (23 to 48) for some selected dataset examples. Plot labels show the contrastive pairs of false $\rightarrow$ true answer used as attribution targets.
+:::

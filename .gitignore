@@ -13,11 +13,18 @@ latex/*.pdf
 
 .venv/
 index.aux
+thesis.aux
 index.fdb_latexmk
+thesis.fdb_latexmk
 index.fls
+thesis.fls
 index.log
+thesis.log
 index.pdf
+thesis.pdf
 index.synctex.gz
+thesis.synctex.gz
 index.tex
-index.toc
 thesis.tex
+index.toc
+thesis.toc
