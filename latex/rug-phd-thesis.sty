@@ -73,12 +73,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{amsmath}                        % AMS mathematical environments and commands
+\usepackage{amsthm}                         % Theorem environments and definitions
 \usepackage{mathtools}                      % Extensions to amsmath
 \usepackage{bm}                             % Bold mathematics symbols
 \usepackage{siunitx}                        % Scientific units and number formatting
 
 % Configure siunitx for consistent number formatting
 \sisetup{detect-weight=true,detect-all}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{refremark}[theorem]{Remark}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 5. TABLES AND TABULAR ENVIRONMENTS

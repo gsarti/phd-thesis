@@ -136,3 +136,5 @@ Example code to contrastively attribute factual statements from the Counterfact 
 
 Visualization of contrastive attribution scores on a subset of layers (23 to 48) for some selected dataset examples. Plot labels show the contrastive pairs of false $\rightarrow$ true answer used as attribution targets.
 :::
+
+## Quantifying Context Usage in Neural Machine Translation {#sec-pecore-appendix}

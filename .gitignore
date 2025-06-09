@@ -28,5 +28,7 @@ index.tex
 thesis.tex
 index.toc
 thesis.toc
+thesis.bbl
+thesis.blg
 
 chapters/original-chapters/*
