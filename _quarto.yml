@@ -114,6 +114,7 @@ format:
   html:
     filters:
       - highlight-text
+      - pseudocode
       - pdf-to-image
     theme:
       light: cosmo
@@ -124,6 +125,7 @@ format:
   pdf:
     filters:
       - highlight-text
+      - pseudocode  
       - at: pre-ast
         path: _extensions/gsarti/rug-phd-thesis/rug-phd-thesis.lua
     template: latex/rug-phd-thesis.tex
