@@ -5,7 +5,7 @@
 ### Additional Details on Turkish Gender Bias Case Study {#sec-inseq-appendix-turkish-gender-bias}
 
 [@tbl-turkish-wordlist] shows the list of occupation terms used in the gender bias case study ([@sec-chap2-gender-bias]).
-We correlate the ranking of occupations based on the selected attribution metrics and probabilities with U.S. labor statistics^[[`https://github.com/rudinger/winogender-schemas`][https://github.com/rudinger/winogender-schemas/blob/master/data/occupations-stats.tsv]](`bls_pct_female` column). Table [@tbl-m2m-gender-example] example was taken from the BUG dataset [@levy-etal-2021-collecting-large].
+We correlate the ranking of occupations based on the selected attribution metrics and probabilities with U.S. labor statistics^[[`https://github.com/rudinger/winogender-schemas`](https://github.com/rudinger/winogender-schemas/blob/master/data/occupations-stats.tsv) (`bls_pct_female` column)]. Table [@tbl-m2m-gender-example] example was taken from the BUG dataset [@levy-etal-2021-collecting-large].
 
 | **Turkish** | **English** | **Turkish** | **English** |
 |---------|---------|---------|---------|

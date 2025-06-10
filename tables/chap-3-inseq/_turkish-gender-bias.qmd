@@ -24,7 +24,7 @@
                 <td colspan="2" class="color-fdfebc">0.01</td>
                 <td colspan="2" class="color-fba05b significant">-0.44*</td>
             </tr>
-            <tr class="midrule">
+            <tr>
                 <td><span data-qmd="$\nabla$"></span></td>
                 <td class="color-fee695">-0.16</td>
                 <td class="color-cbe982 significant">0.25*</td>

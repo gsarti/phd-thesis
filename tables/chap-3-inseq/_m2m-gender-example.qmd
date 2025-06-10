@@ -56,8 +56,8 @@
             <td class="color-ffe4e4">0.10</td>
             <td class="color-ffc2c2">0.24</td>
         </tr>
-        <tr>
-            <th class="first-column midrule"><span data-qmd="**Target**"></span></th>
+        <tr class="bottomrule">
+            <th class="first-column"><span data-qmd="**Target**"></span></th>
             <th>De</th>
             <th>leraar</th>
             <th>verliest</th>
@@ -96,7 +96,7 @@
             <td class="gray-cell"></td>
             <td class="color-ffbebe">0.26</td>
         </tr>
-        <tr class="bottomrule">
+        <tr>
             <td class="first-column"><span data-qmd="$p(y_t)$"></span></td>
             <td>0.69</td>
             <td>0.28</td>
@@ -106,7 +106,7 @@
         </tr>
     </tbody>
 </table>
-
+<br>
 <!-- Second Table -->
 <table class="center-table">
     <thead>
@@ -160,7 +160,7 @@
             <td class="color-f6f6ff">-0.02</td>
             <td class="color-f6f6ff">-0.02</td>
         </tr>
-        <tr>
+        <tr class="bottomrule">
             <th class="first-column"><span data-qmd="**Target**"></span></th>
             <th>De</th>
             <th><span data-qmd="♂ → Ø"></span></th>
@@ -200,7 +200,7 @@
             <td class="gray-cell"></td>
             <td class="color-fffefe">0.00</td>
         </tr>
-        <tr class="bottomrule">
+        <tr>
             <td class="first-column"><span data-qmd="$\Delta p(y_t)$"></span></td>
             <td>0.00</td>
             <td>-0.23</td>

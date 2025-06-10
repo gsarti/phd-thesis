@@ -33,7 +33,7 @@
         <td><span data-qmd="@sundararajan-etal-2017-ig"></span></td>
         <td>✅</td>
     </tr>
-    <tr>
+    <tr class="midrule">
         <td>Discretized IG</td>
         <td><span data-qmd="@sanyal-ren-2021-discretized"></span></td>
         <td>❌</td>
@@ -50,7 +50,7 @@
         <td><span data-qmd="@zeiler-fergus-2014-visualizing"></span></td>
         <td>❌</td>
     </tr>
-    <tr>
+    <tr class="midrule">
         <td>LIME</td>
         <td><span data-qmd="@ribeiro-etal-2016-lime"></span></td>
         <td>❌</td>
