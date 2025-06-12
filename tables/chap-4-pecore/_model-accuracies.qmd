@@ -4,7 +4,6 @@
 
 ```{=html}
 <table class="center-table">
-    <caption><span data-qmd="Translation quality of **En** → **Fr** MT models before *(default)* and after *(S+T$_{\text{ctx}}$)* context-aware MT fine-tuning. **OK**: % of translations with correct disambiguation for discourse phenomena. **OK-CS**: % of translations where the correct disambiguation is achieved only when context is provided."></span></caption>
     <thead>
         <tr>
             <th rowspan="2"><span data-qmd="**Model**"></span></th>
@@ -26,7 +25,7 @@
     </thead>
     <tbody>
         <tr>
-            <td class="namerow">OpusMT Small <span class="italic">(def.)</span></td>
+            <td class="namerow">Opus Small <span class="italic">(def.)</span></td>
             <td>29.1</td>
             <td>0.14</td>
             <td class="smallrow">-</td>
@@ -38,7 +37,7 @@
             <td class="smallrow">-</td>
         </tr>
         <tr class="midrule">
-            <td class="namerow"><span data-qmd="OpusMT Small S+T$_{\text{ctx}}$"></span></td>
+            <td class="namerow"><span data-qmd="Opus Small S+T$_{\text{ctx}}$"></span></td>
             <td class="underline">39.1</td>
             <td class="underline">0.81</td>
             <td class="smallrow">0.59</td>
@@ -50,7 +49,7 @@
             <td class="smallrow">0.07</td>
         </tr>
         <tr>
-            <td class="namerow">OpusMT Large <span class="italic">(def.)</span></td>
+            <td class="namerow">Opus Large <span class="italic">(def.)</span></td>
             <td>29.0</td>
             <td>0.16</td>
             <td class="smallrow">-</td>
@@ -62,7 +61,7 @@
             <td class="smallrow">-</td>
         </tr>
         <tr class="midrule">
-            <td class="namerow"><span data-qmd="OpusMT Large S+T$_{\text{ctx}}$"></span></td>
+            <td class="namerow"><span data-qmd="Opus Large S+T$_{\text{ctx}}$"></span></td>
             <td class="bold-underline">40.3</td>
             <td class="bold-underline">0.83</td>
             <td class="smallrow">0.58</td>
@@ -117,11 +116,11 @@
 \textbf{Model} &
 \textbf{\textsc{Bleu}} & \textbf{\textsc{ok}} & \textbf{\textsc{ok-cs}} & \textbf{\textsc{Bleu}} & \textbf{\textsc{ok}} & \textbf{\textsc{ok-cs}} & \textbf{\textsc{Bleu}} & \textbf{\textsc{ok}} & \textbf{\textsc{ok-cs}} \\
 \midrule[1pt]
-OpusMT Small \textit{(def.)}       & 29.1 & 0.14 & - & 43.9 & 0.40 & - & 30.5 & 0.29 & - \\
-OpusMT Small S+T$_{\text{ctx}}$       & \underline{39.1} & \underline{0.81} & 0.59 & \underline{48.1} & \underline{0.60} & 0.24 & \underline{33.5} &  \underline{0.36} & 0.07 \\
+Opus Small \textit{(def.)}       & 29.1 & 0.14 & - & 43.9 & 0.40 & - & 30.5 & 0.29 & - \\
+Opus Small S+T$_{\text{ctx}}$       & \underline{39.1} & \underline{0.81} & 0.59 & \underline{48.1} & \underline{0.60} & 0.24 & \underline{33.5} &  \underline{0.36} & 0.07 \\
 \midrule 
-OpusMT Large \textit{(def.)}       & 29.0 & 0.16 & - & 39.2 & 0.41 & - & 31.2 & 0.31 & - \\
-OpusMT Large S+T$_{\text{ctx}}$ & \underline{\textbf{40.3}} & \underline{\textbf{0.83}} & 0.58 & \underline{48.9} & \underline{\textbf{0.68}} & 0.31 & \underline{\textbf{34.8}} & \underline{\textbf{0.38}} & 0.10 \\
+Opus Large \textit{(def.)}       & 29.0 & 0.16 & - & 39.2 & 0.41 & - & 31.2 & 0.31 & - \\
+Opus Large S+T$_{\text{ctx}}$ & \underline{\textbf{40.3}} & \underline{\textbf{0.83}} & 0.58 & \underline{48.9} & \underline{\textbf{0.68}} & 0.31 & \underline{\textbf{34.8}} & \underline{\textbf{0.38}} & 0.10 \\
 \midrule
 mBART-50 \textit{(def.)}           & 23.8 & 0.26 & - & 33.4 & 0.42 & - & 24.5 & 0.25 & - \\
 mBART-50 S+T$_{\text{ctx}}$     & \underline{37.6} & \underline{0.82} & 0.55 & \underline{\textbf{49.0}} & \underline{0.62} & 0.32 & \underline{29.3} & \underline{0.30} & 0.07 \\
