@@ -1,1 +1,249 @@
-# Interpretable Citations for Faithful Retrieval-augmented Generation
+# Context Attribution for Trustworthy Retrieval-Augmented Generation {#chap-5-mirage}
+
+> This chapter is adapted from the paper *Model Internals-based Answer Attribution for Trustworthy Retrieval-Augmented Generation* [@qi-etal-2024-model].
+
+> **Chapter Summary:** Establishing whether language models can use contextual information in a human-plausible way is important to ensure their trustworthiness in real-world settings. However, the questions of \textit{when} and \textit{which parts} of the context affect model generations are typically tackled separately, with current plausibility evaluations being practically limited to a handful of artificial benchmarks. To address this, we introduce \textbf{P}lausibility \textbf{E}valuation of \textbf{Co}ntext \textbf{Re}liance ([PECoRe]{.smallcaps}), an end-to-end interpretability framework designed to quantify context usage in language models' generations. Our approach leverages model internals to (i) contrastively identify context-sensitive target tokens in generated texts and (ii) link them to contextual cues justifying their prediction. We use [PECoRe]{.smallcaps} to quantify the plausibility of context-aware machine translation models, comparing model rationales with human annotations across several discourse-level phenomena. Finally, we apply our method to unannotated model translations to identify context-mediated predictions and highlight instances of (im)plausible context usage throughout generation.
+
+Ensuring the verifiability of model answers is a fundamental challenge for retrieval-augmented generation (RAG) in the question answering (QA) domain.
+Recently, self-citation prompting was proposed to make large language models (LLMs) generate citations to supporting documents along with their answers.
+However, self-citing LLMs often struggle to match the required format, refer to non-existent sources, and fail to faithfully reflect LLMs' context usage throughout the generation.
+
+In this work, we present [Mirage]{.smallcaps} -- [M]{.smallcaps}odel [I]{.smallcaps}nternals-based [RAG]{.smallcaps} [E]{.smallcaps}xplanations -- a plug-and-play approach using model internals for faithful answer attribution in RAG applications.
+[Mirage]{.smallcaps} detects context-sensitive answer tokens and pairs them with retrieved documents contributing to their prediction via saliency methods.
+We evaluate our proposed approach on a multilingual extractive QA dataset, finding high agreement with human answer attribution.
+On open-ended QA, [Mirage]{.smallcaps} achieves citation quality and efficiency comparable to self-citation while also allowing for a finer-grained control of attribution parameters.
+Our qualitative evaluation highlights the faithfulness of [Mirage]{.smallcaps}'s attributions and underscores the promising application of model internals for RAG answer attribution.
+
+## Introduction {#sec-chap5-intro}
+
+![MIRAGE is a model internals-based answer attribution framework for RAG settings. Context-sensitive answer spans (in color) are detected and matched with contextual cues in retrieved sources to evaluate the trustworthiness of models' answers.](../figures/chap-5-mirage/1_motivation.pdf){#fig-chap5-motivation width=60%}
+
+Retrieval-augmented generation (RAG) with large language models (LLMs) has become the de-facto standard methodology for Question Answering (QA) in both academic [@lewis-etal-2020-rag; @izacard-etal-2023-atlas] and industrial settings [@dao-le-2023-chatgptchatgpt; @ma-etal-2024-crafting].
+This approach was shown to be effective at mitigating hallucinations and producing factually accurate answers [@petroni-etal-2020-how; @lewis-etal-2020-rag; @borgeaud-etal-2022-improving; @ren-etal-2025-investigating].
+
+However, verifying whether the model answer is faithfully supported by the retrieved sources is often non-trivial due to the large context size and the variety of potentially correct answers [@krishna-etal-2021-hurdles; @xu-etal-2023-critical].
+
+In light of this issue, several *answer attribution* approaches were recently proposed to ensure the trustworthiness of RAG outputs [@rashkin-etal-2023-measuring; @Bohnet2022AttributedQA; @muller-etal-2023-evaluating].
+
+Initial efforts in this area employed models trained on Natural Language Inference (NLI) to automate the identification of supporting documents [@Bohnet2022AttributedQA; @yue-etal-2023-automatic].
+
+However, being based on an external validator, this approach does not faithfully explain the answer generation process but simply identifies plausible sources supporting model answers in a post-hoc fashion.
+Following recent progress in the instruction-following abilities of LLMs, *self-citation* (i.e. prompting LLMs to generate inline citations alongside their answers) has been proposed to mitigate the training and inference costs of external validator modules [@gao-etal-2023-enabling]. 
+However, self-citation performance is hindered by the imperfect instruction-following capacity of modern LLMs [@mu2023can; @liu-etal-2023-evaluating], and resulting attributions are still predicted in an unintelligible, post-hoc fashion.
+This is an important limitation for these approaches, since the primary goal of answer attribution should be to ensure that the LLM is not 'right for the wrong reasons' [@mccoy-etal-2019-right].
+
+In light of these considerations, in this work we introduce [Mirage]{.smallcaps}, an extension of the context-reliance evaluation [PECoRe]{.smallcaps} framework [@sarti-etal-2024-quantifying] that employs model internals for efficient and faithful answer attributions. 
+[Mirage]{.smallcaps} first identifies context-sensitive tokens in a generated sentence by measuring the shift in LM predictive distribution caused by the added input context. Then, it attributes this shift to specific influential tokens in the context using gradient-based saliency or other feature attribution techniques [@madsen-etal-2022-evaluating].
+
+We adapt this approach to the RAG setup by matching context-dependent generated sentences to retrieved documents that contribute to their prediction and converting the resulting pairs to citations using the standard answer attribution (AA) format.
+
+We begin our assessment of [Mirage]{.smallcaps} on the short-form XOR-AttriQA dataset [@muller-etal-2023-evaluating], showing high agreement between [Mirage]{.smallcaps} results and human annotations across several languages. We then test our method on the open-ended ELI5 dataset [@fan-etal-2019-eli5], achieving AA quality comparable to or better than self-citation while ensuring a higher degree of control over attribution parameters.
+
+In summary, we make the following contributions:
+
+- We introduce [Mirage]{.smallcaps}, a model internals-based answer attribution framework optimized for RAG applications.
+- We quantify the plausibility of [Mirage]{.smallcaps} attributions on two datasets, showing improvements over NLI and self-citation methods while ensuring better controllability and efficiency.
+- We analyze challenging attribution settings, highlighting [Mirage]{.smallcaps}'s faithfulness to LLMs' reasoning process. 
+
+## Background and Related Work
+
+In RAG settings, a set of documents relevant to a user query is retrieved from an external dataset and infilled into an LLM prompt to improve the generation process [@petroni-etal-2020-how; @lewis-etal-2020-rag].
+
+*Answer attribution* [@rashkin-etal-2023-measuring; @Bohnet2022AttributedQA; @muller-etal-2023-evaluating] aims to identify which retrieved documents support the generated answer (*answer faithfulness*, @gao-etal-2023-retrieval), e.g., by exploiting the similarity between model outputs and references.
+
+Simplifying access to relevant sources via answer attribution is a fundamental step towards ensuring RAG trustworthiness in customer-facing scenarios [@liu-etal-2023-evaluating].
+
+### Answer Attribution Methods {#sec-chap5-approaches}
+
+**Entailment-based Answer Attribution** @Bohnet2022AttributedQA and 
+@muller-etal-2023-evaluating propose to approximate human AA annotations with NLI systems such as TRUE [@honovich-etal-2022-true-evaluating], using a source document as premise and an LLM-generated sentence as entailment hypothesis.
+AAs produced by these systems were shown to correlate strongly with human annotations, prompting their adoption in AA studies [@muller-etal-2023-evaluating; @gao-etal-2023-enabling]. Despite their effectiveness, entailment-based methods can be computationally expensive when several answer sentence-document pairs are present. Moreover, this setup assumes the NLI model ability to robustly detect entailment relations across all domains and languages for which the LLM generator is used. In practice, however, NLI systems were shown to be brittle in challenging scenarios, exploiting shallow heuristics [@mccoy-etal-2019-right; @nie-etal-2020-adversarial; @sinha-etal-2021-unnatural; @luo-etal-2022-simple-challenging], and require dedicated efforts for less-resourced settings [@conneau-etal-2018-xnli]. For example, NLI may fail to correctly attribute answers in multi-hop QA settings when considering individual documents as premises [@yang-etal-2018-hotpotqa; @welbl-etal-2018-constructing].
+
+**Self-citation** [@gao-etal-2023-enabling] is a recent AA approach exploiting the ability of recent LLMs to follow instructions in natural language [@raffel-etal-2020-exploring; @chung-etal-2022-scaling; @sanh2022multitask; @openai-2023-gpt4], thereby avoiding the need for an external validator.
+
+@nakano-etal-2021-webgpt and @menick-etal-2022-teaching propose citation fine-tuning for LLMs, while @gao-etal-2023-enabling instruct general-purpose LLMs to produce inline citations in a few-shot setting. Self-citation answers are generally more relevant to the provided sources' contents, but can still contain unsupported statements and inaccurate citations [@liu-etal-2023-evaluating]. In our preliminary analysis, we find that self-citation often misses relevant citations, uses wrong formats, or refers to non-existing documents (@fig-chap5-error). For the ELI5 dataset [@fan-etal-2019-eli5], we find that LLaMA 2 7B Chat [@touvron-etal-2023-llama2] and Zephyr $\beta$ 7B [@tunstall-etal-2023-zephyr] fail to produce AAs matching the prompt instructions for the majority of generated sentences, with almost all answers having at least one unattributed sentence when the @gao-etal-2023-enabling self-citation setup is used (@tbl-chap5-self-citation-error).
+
+![Instruction-following errors in a *self-citation* example, using the setup of @gao-etal-2023-enabling.](../figures/chap-5-mirage/2_error.pdf){#fig-chap5-error width=65%}
+
+{{< include ../tables/chap-5-mirage/_self-citation-error.qmd >}}
+
+![Illustration of MIRAGE's two-step approach adapted from PECoRe for RAG answer attribution. **Step 1:** CTI detects context-sensitive tokens in the generation (e.g. *smaller*). **Step 2:** CCI attributes the generation of detected tokens back to context tokens (e.g. *few* in Doc[1] promotes the generation of *smaller* instead of *PC*) using contrastive feature attribution. Token pairs are then aggregated into sentence-document citations for practical usage.](../figures/chap-5-mirage/2_5_MIRAGE_illustration.pdf){#fig-chap5-mirage-illustration width=100%}
+
+### Attribution Faithfulness
+
+**Answer Attribution can be Unfaithful** The aforementioned approaches do not account for attributions' *faithfulness*, i.e. whether the selected documents influence the LLM during the generation.
+
+Indeed, the presence of an entailment relation or high semantic similarity does not imply that the retrieved document had an influence on the answer generation process. This can be true in cases where LLMs may rely on memorized knowledge while ignoring relevant, albeit unnecessary, contextual information.
+
+Even in the case of self-citation, recent work showed that, while the justifications of self-explaining LLMs appear plausible, they generally do not align with their internal reasoning process [@atanasova-etal-2023-faithfulness; @madsen-etal-2024-self; @agarwal2024faithfulness; @randl-etal-2025-evaluating], with little to no predictive efficacy [@huang-etal-2023-rigorously]. 
+By contrast, approaches based on model internals are designed to faithfully reflect input importance in motivating model predictions. For instance, @alghisi-etal-2024-fine-tune explore the use of gradients-based attribution to locate salient history segments for various dialogical tasks.
+
+Concurrent to our work, @phukan-etal-2024-peering and 
+@cohenwang-etal-2024-contextcite have proposed other internals-based methods for granular AA of LLM generations. While the two-step approaches proposed in both works are similar to [Mirage]{.smallcaps}, they also differ in substantial ways. Notably, @phukan-etal-2024-peering derive attributions from embedding similarity, which does not capture the functional influence of context usage during the generation process. ContextCite [@cohenwang-etal-2024-contextcite] instead fits a linear surrogate model to estimate the impact of ablating context segments over downstream answer probabilities. While this procedure approximates causal context influence, it still requires a sufficiently large context and many LLM forward passes to learn the surrogate model, ultimately providing a coarser attribution for the full generated output. On the contrary, MIRAGE efficiently estimates generated tokens requiring attribution via contrastive metrics to produce granular attributions at the token level, limiting computations to estimate how context impacts LLM predictions.
+
+**Feature Attribution in Interpretability** The task of faithfully identifying salient context information has been studied extensively in the NLP interpretability field [@ferrando-etal-2024-primer].
+
+In particular, *post-hoc feature attribution* approaches [@madsen-etal-2022-evaluating] exploit information sourced from model internals, e.g., attention weights or gradients of next-word probabilities, to identify input tokens playing an important role towards the model's prediction.
+
+While feature attribution studies in NLP typically focused on classification tasks [@atanasova-etal-2020-diagnostic; @wallace-etal-2020-interpreting; @chrysostomou-aletras-2022-empirical], recent work applies these methods to evaluate context usage in language generation [@yin-neubig-2022-interpreting; @ferrando-etal-2023-explaining; @sarti-etal-2023-inseq-fixed; @sarti-etal-2024-quantifying].
+
+Importantly, feature attribution techniques are designed to maximize the faithfulness of selected context tokens by accessing models' intermediate computations, as opposed to the AA methods of @sec-chap5-approaches. While the faithfulness of such approaches can still vary depending on models and tasks, the development of robust and faithful methods is an active area of research [@jacovi-goldberg-2020-towards; @chan-etal-2022-comparative; @bastings-etal-2022-will; @lyu-etal-2024-towards].
+
+## Method {#sec-chap5-framework}
+
+Identifying which generated spans were most influenced by preceding information is a key challenge for LM attribution. The Model Internals-based RAG Explanations ([Mirage]{.smallcaps})
+method we propose is an extension of the Plausibility Evaluation for Context Reliance ([PECoRe]{.smallcaps}) framework [@sarti-etal-2024-quantifying] for context-aware machine translation. Importantly, this framework requires open-weights access to the LLM generator, which is a strict but necessary requirement to provide an accurate overview of the actual context usage during generation [@casper-etal-2024-blackbox].
+This section provides an overview of [PECoRe]{.smallcaps}'s two-step procedure (illustrated in @fig-chap5-mirage-illustration) and clarifies how [Mirage]{.smallcaps} adapts it for RAG answer attribution.
+
+### Step 1: Context-sensitive Token Identification (CTI) 
+
+For every token in an answer sentence $\mathbf{y} = \langle y_1, \dots, y_{n} \rangle$ generated by an LM prompted with a query $\mathbf{q}$ and a context $\mathbf{c} = \langle c_1, \dots, c_{|\mathbf{c}|} \rangle$, a contrastive metric $m$ such as KL divergence [@kullback-leibler-1951-information] is used to quantify the shift in the LM predictive distribution at the $i$-th generation step when the context is present or absent ($P^i_\text{ctx}$ or $P^i_\text{no-ctx}$). Resulting scores $\mathbf{m} = \langle m_1, \dots, m_{n} \rangle$ reflect the context sensitivity of every generated token and can be converted into binary labels using a selector function $s_\text{cti}$:
+
+$$
+\begin{split}
+    \text{CTI}(\mathbf{q}, \mathbf{c}, \mathbf{y}) = \{\,y_i\,|\,s_\text{cti\,}(m_i) = 1\,\forall y_i \in \mathbf{y}\}
+    \\
+    \text{with}\;m_i = D_\text{KL}(P^i_\text{ctx} \| P^i_\text{no-ctx})
+\end{split}
+$$
+
+### Step 2: Contextual Cues Imputation (CCI) 
+
+For every context-sensitive token $y_i$ identified by CTI, a contrastive alternative $y^{\setminus \mathbf{c}}_i$ is produced by excluding $\mathbf{c}$ from the prompt, but using the original generated prefix $\mathbf{y}_{<i}$. Then, *contrastive feature attribution* [@yin-neubig-2022-interpreting] is used to obtain attribution scores $\mathbf{a}^i = \langle a^i_1, \dots, a^i_{|\mathbf{c}|} \rangle$ for every context token $c_j \in \mathbf{c}$:
+
+$$
+\begin{split}
+    \mathbf{a}^i = 
+    \big\{\,\nabla_j\big(p(y_i) - p(y^{\setminus \mathbf{c}}_i)\,\big),\;\forall c_j \in \mathbf{c}\,\}
+\end{split}
+$$
+
+where $\nabla_j$ is the L2 norm of the gradient vector over the input embedding of context token $c_j$, and both probabilities are computed from the same contextual inputs $(\mathbf{q}, \mathbf{c}, \mathbf{y}_{<i})$. Intuitively, this procedure identifies which tokens in $\mathbf{c}$ influence the prediction of $y_i$ while accounting for the non-contextual option $y^{\setminus \mathbf{c}}_i$, as shown in Step 2 in @fig-chap5-mirage-illustration. Resulting scores are once again binarized with a selector $s_\text{CCI}$:
+
+$$
+\text{CCI}(y_i) = \{\,c_j\,|\,s_\text{cci\,}(a^i_j) = 1,\;\forall c_j \in \mathbf{c}\}
+$$
+
+This results in pairs of context-sensitive generated tokens and the respective input-context tokens influencing their prediction:
+
+$$
+\mathcal{P} = \big\{ \langle\,y_i, c_j\,\rangle,\; \forall y_i \in \text{CTI}, \forall c_j \in \text{CCI}(y_i)\big\}
+$$
+
+### From Granular Attributions to Document-level Citations
+
+**CTI Filtering** To obtain discrete labels from the CTI step, we set $s_\text{cti}(m_i) = m_i \geq m^*$, where $m^*$ is a threshold value for selecting context-sensitive generated tokens. In this work, we experiment with two variants of $m^*$: a **calibrated threshold** $m_{\text{cal}}^*$ obtained by maximizing agreement between the contrastive metric and human annotations on a calibration set with human AA annotations, and an **example-level threshold** $m_\text{ex}^*$ using only within-example scores to avoid the need of calibration data. Following @sarti-etal-2024-quantifying, we set $m_\text{ex}^* = \overline{\mathbf{m}} + \sigma_\mathbf{m}$, where $\overline{\mathbf{m}}$ and $\sigma_\mathbf{m}$ are the average and standard deviation of $\mathbf{m}$ scores for generated tokens.
+
+**CCI Filtering** To extract granular document citations (i.e., colored spans with document indices in @fig-chap5-motivation), we set $s_\text{cci} = a^i_j \geq a^{i*}$, where $a^{i*}$ is either the Top-K or Top-% highest attribution value in $\mathbf{a}^i$, to filter attributed context tokens $c_j \in \text{CCI}(y_i)$.
+Then, we use the identifier $\text{docid}(c_j)$ of the documents they belong to as citation indices for context-sensitive token $y_i$. Highlights for consecutive tokens citing the same documents are collated into a single span and mapped from subword to word level to facilitate interpretation.
+
+**Sentence-level Aggregation** Following standard sentence-level AA practices, we aggregate token-level citations as the union over all cited documents $\text{docid}(\cdot)$ across context-sensitive tokens in $\mathbf{y}$:
+
+$$
+\begin{gathered}
+    \text{mirage}(\mathbf{y}) = \bigcup_{y_i \in \text{CTI}(\mathbf{y})} \text{docid}(c_j)\;\forall c_j \in \text{CCI}(y_i) \\
+    \text{with}\;s_\text{cti} = m_i \geq m^*, s_\text{cci} = a^i_j \geq a^{i*}
+\end{gathered}
+$$
+
+In the following sections, we use [Mirage]{.smallcaps}$_{\text{cal}}$ and [Mirage]{.smallcaps}$_{\text{ex}}$ to refer to sentence-level answer attribution using $m_{\text{cal}}^*$ and $m_{\text{ex}}^*$ thresholds, respectively.
+
+## Agreement with Human Answer Attribution Annotations {#sec-chap5-agreement}
+
+{{< include ../tables/chap-5-mirage/_agreement.qmd >}}
+
+We begin our evaluation by comparing [Mirage]{.smallcaps} predictions to human-produced answer attributions. Importantly, our aim is not to compare several AA approaches to claim optimal faithfulness, but rather evaluate how our proposed framework fares against existing approaches at the task of producing answer attributions from model internals.
+We employ the XOR-AttriQA dataset [@muller-etal-2023-evaluating], which, to our knowledge, is the only open dataset with human annotations over RAG outputs produced by a publicly accessible LM.
+We limit our assessment to open-weights LLMs to ensure that [Mirage]{.smallcaps} answer attribution can faithfully reflect the model's inner processing towards the natural production of the annotated answer used for evaluation.
+
+Moreover, while cross-linguality is not the focus of our work, XOR-AttriQA allows us to assess the robustness of [Mirage]{.smallcaps} across several languages and its agreement with human annotations compared to an entailment-based system.
+
+### Experimental Setup {#sec-chap5-xor-attriqa}
+
+XOR-AttriQA consists of 500/4720 validation/test tuples, each containing a concise factual query $\mathbf{q}$, a set of retrieved documents that we use as context $\mathbf{c} = \langle \text{doc}_1, \dots, \text{doc}_k \rangle$, and a single-sentence answer $\mathbf{y}$ produced by an mT5-base model [@xue-etal-2021-mt5] fine-tuned on cross-lingual QA in a RAG setup (CORA; @asai-etal-2021-one). Queries and documents span five languages (Bengali (BN), Finnish (FI), Japanese (JA), Russian (RU), and Telugu (TE)), with no constraint on documents to match the language of the query.
+
+Although the RAG generator employs a set of retrieved documents during generation, human annotators were asked to label tuples $(\mathbf{q}, \text{doc}_i, \mathbf{y})$ to indicate whether the information in $\text{doc}_i$ supports the generation of $\mathbf{y}$.
+
+Importantly, [Mirage]{.smallcaps} requires extracting model internals in the naturalistic setting that leads to the generation of the desired answer, i.e., the one assessed by human annotators. Hence, we perform a selection procedure to identify XOR-AttriQA examples where the answer produced by filling in the concatenated documents $\mathbf{c}$ in the LM prompt matches the one provided. The resulting subset, which we dub XOR-AttriQA$_{\text{match}}$, contains 142/1144 calibration/test examples and is used for our evaluation.
+
+### Entailment-based Baselines
+
+@muller-etal-2023-evaluating use an mT5 XXL model fine-tuned on NLI for performing answer attribution on XOR-AttriQA. Since neither the tuned model nor the tuning data are released, we opt to use TRUE [@honovich-etal-2022-true-evaluating], a fine-tuned T5 11B model [@raffel-etal-2020-exploring], which was shown to highly overlap with human annotation on English answer attribution tasks [@muller-etal-2023-evaluating; @gao-etal-2023-enabling]. We evaluate TRUE agreement with human annotation in two setups. In NLI$_\text{orig}$, we evaluate the model directly on all examples, including non-English data. While this leads the English-centric TRUE model out-of-distribution, it accounts for real-world scenarios with noisy data, and can be used to assess the robustness of the method in less-resourced settings. Instead, in NLI$_\text{mt}$, all queries and documents are machine translated to English using the Google Translate API. While this simplifies the task by ensuring all TRUE inputs are in English, it can lead to information loss caused by imprecise translation.
+
+### Results and Analysis {#sec-chap5-xor-attriqa-results}
+
+**MIRAGE agrees with human answer attribution**
+@tbl-chap5-agreement presents our results. [Mirage]{.smallcaps} is found to largely agree with human annotations on XOR-AttriQA$_{\text{match}}$, with scores on par or slightly better than those of the ad-hoc NLI$_\text{mt}$ system augmented with automatic translation. Although calibration appears to generally improve [Mirage]{.smallcaps}'s agreement with human annotators, we note that the uncalibrated [Mirage]{.smallcaps}$_{\text{ex}}$ achieves strong performances despite having no access to external modules or tuning data. These findings confirm that the inner workings of LMs can be used to perform answer attribution, resulting in performances on par with supervised answer attribution approaches even in the absence of annotations for calibration.
+
+**MIRAGE is robust across languages and filtering procedures**
+@tbl-chap5-agreement shows that NLI$_\text{orig}$ answer attribution performances are largely language-dependent due to the unbalanced multilingual abilities of the TRUE NLI model. This highlights the brittleness of entailment-based approaches in OOD settings, as discussed in @sec-chap5-approaches. Instead, [Mirage]{.smallcaps} variants perform similarly across all languages by exploiting the internals of the multilingual RAG model. [Mirage]{.smallcaps}'s performance across languages is comparable to that of NLI$_\text{mt}$, which requires an extra translation step to operate on English inputs. 
+
+We further validate the robustness of the CCI filtering process by testing percentile values between Top 3-100% for the [Mirage]{.smallcaps}$_{\text{ex}}$ setting. @fig-chap5-robustness shows that Top % values between 3 and 20% lead to a comparably high agreement with human annotation, suggesting this filtering threshold can be selected without ad-hoc parameter tuning.
+
+![Robustness of MIRAGE$_{\text{ex}}$ agreement with human annotations across Top-% CCI filtering thresholds.](../figures/chap-5-mirage/3_robustness_human.pdf){#fig-chap5-robustness width=75%}
+
+## Answer Attribution for Long-form QA {#sec-chap5-eli5-evaluation}
+
+XOR-AttriQA can only provide limited insights for real-world answer attribution evaluation since its examples are sourced from Wikipedia articles, and its answers are very concise. In this section, we extend our evaluation to ELI5 [@fan-etal-2019-eli5], a challenging long-form QA dataset that was recently employed to evaluate LLM self-citation capabilities [@gao-etal-2023-enabling]. Different from XOR-AttriQA, ELI5 answers are expected to contain multiple sentences of variable length, making it especially fitting to assess [Mirage]{.smallcaps} context-sensitive token identification capabilities before document attribution. Alongside our quantitative assessment of [Mirage]{.smallcaps} in relation to self-citation baselines, we conduct a qualitative evaluation of the disagreement between the two methods.
+ 
+### Experimental Setup
+
+**Dataset** The ELI5 dataset contains open-ended why/how/what queries $\mathbf{q}$ from the "Explain Like I'm Five" subreddit eliciting long-form multi-sentence answers. For our evaluation, we use the RAG-adapted ELI5 version by @gao-etal-2023-enabling, containing top-5 matching documents $\mathbf{c} = \langle \text{doc}_1, \dots, \text{doc}_5 \rangle$ retrieved from a filtered version of the Common Crawl (Sphere; @piktus-etal-2021-web) for every query. The answer attribution task is performed by generating a multi-sentence answer $\mathbf{ans} = \langle \mathbf{y}_1, \dots, \mathbf{y}_m \rangle$ with an LLM using $(\mathbf{q}, \mathbf{c})$ as inputs, and identifying documents in $\mathbf{c}$ supporting the generation of answer sentence $\mathbf{y}_i,\,\forall \mathbf{y}_i \in \mathbf{ans}$.
+
+**Models and Answer Attribution Procedure** We select LLaMA 2 7B Chat [@touvron-etal-2023-llama2] and Zephyr $\beta$ 7B [@tunstall-etal-2023-zephyr] for our experiments since they are high-quality open-source LLMs of manageable size. 
+To enable a fair comparison between the tested attribution methods, we first generate answers with inline citations using the self-citation prompt by @gao-etal-2023-retrieval.
+Then, we remove citation tags and use [Mirage]{.smallcaps} to attribute the resulting answers to retrieved documents. This process ensures that citation quality is compared over the same set of answers, controlling for the variability that could be produced by a different prompt. 
+For more robust results, we perform generation three times using different sampling seeds, and report the averaged scores.
+Since human-annotated data is not available, we only assess the calibration-free [Mirage]{.smallcaps}$_{\text{ex}}$. 
+
+**Entailment-based Evaluation** Differently from the XOR-AttriQA dataset used in @sec-chap5-agreement, ELI5 does not contain human annotations of AA. For this reason, and to ensure consistency with @gao-etal-2023-enabling self-citation assessment, we adopt the TRUE model as a high-quality approximation of expected annotation behavior.
+Despite the potential OOD issues of entailment-based AA highlighted in @sec-chap5-agreement, we expect TRUE to perform well on ELI5 since it closely matches the general/scientific knowledge queries in TRUE's fine-tuning corpora and contains only English sentences. To overcome the multi-hop issue when using single documents for entailment-based answer attribution, we follow the ALCE evaluation [@gao-etal-2023-enabling] to measure citation quality as NLI precision and recall (summarized by F1 scores) over the concatenation of retrieved documents.
+
+{{< include ../tables/chap-5-mirage/_eli5-results.qmd >}}
+
+![Attribution scores over retrieved documents' tokens for the prediction of context-sensitive token '9'.](../figures/chap-5-mirage/4_CCI_v1.png){#fig-chap5-cci-case width=80%}
+
+### Results
+
+Results in @tbl-chap5-eli5-results show that [Mirage]{.smallcaps} provides a significant boost in answer attribution precision and recall for the Zephyr $\beta$ model, while it greatly improves citation recall at the expense of precision for LLaMA 2, resulting in an overall higher F1 score for the [Mirage]{.smallcaps}$_{\text{ex}}$ Top 5% setting. These results confirm that [Mirage]{.smallcaps} can produce effective answer attributions in longer and more complex settings while employing no external resources like the self-citation approach.
+
+From the comparison between Top 3 and Top 5% CCI filtering strategies, we note that the latter generally results in better performance. This intuitively supports the idea that an adaptive selection strategy is more fitting to accommodate the large variability of attribution scores across different examples.
+@fig-chap5-cci-case visualizes the distributions of attribution scores $a^i_j$ for an answer produced by Zephyr $\beta$, showing that most context tokens in retrieved documents receive low attribution scores, with only a handful of them contributing to the prediction of the context-sensitive token '9' in the generation. This example also provides an intuitive explanation of the robustness of Top-% selection thresholds discussed in @sec-chap5-xor-attriqa-results. Ultimately, the Top 5% threshold is sufficient to select the document containing the direct mention of the generated token.
+
+Since the $m^*_\text{ex}$ threshold used to select context-sensitive tokens by [Mirage]{.smallcaps}$_{\text{ex}}$ depends on the mean and standard deviation of generated answer's scores, we expect that the length of the generated answer might play a role in citation quality. 
+As shown in @fig-chap5-correlation, [Mirage]{.smallcaps} citation quality is indeed lower for shorter answer sentences. 
+However, a similar trend is observed for self-citation, which is outperformed by [Mirage]{.smallcaps} for all but the shortest length bin ($\leq 10$ tokens). 
+The proportion of non-attributed sentences (red line) suggests that the lower quality could be a byproduct of the ALCE evaluation protocol, where non-attributed sentences receive 0 precision/recall. Future availability of human-annotated RAG datasets may shed more light on this effect.
+
+![[Mirage]{.smallcaps}$_\text{ex}$ (top) and self-citation (bottom) average performance on ELI5 answer sentences binned by length. [Red]{color="brand-color.red"}: Percentage of sentences with $\geq 1$ citations.](../figures/chap-5-mirage/5_correlation.png){#fig-chap5-correlation width=80%}
+
+### Qualitative Analysis of Disagreements {#sec-chap5-disagree}
+
+To better understand [Mirage]{.smallcaps}'s performance, we examine some ELI5 examples where [Mirage]{.smallcaps} disagrees with self-citation on Zephyr $\beta$'s generations. @tbl-chap5-case-study-1 and @tbl-chap5-case-study-2 illustrate two cases in which the entailment-based TRUE model results agree with either [Mirage]{.smallcaps} or self-citation.
+
+In @tbl-chap5-case-study-1, the answer provided by the model is directly supported by Document [1], as also identified by TRUE. However, self-citation fails to cite the related document at the end of the two sentences. By contrast, [Mirage]{.smallcaps} attributes several spans to Document [1], resulting in the correct answer attribution for both sentences.
+
+{{< include ../tables/chap-5-mirage/_case-study-1.qmd >}}
+
+While TRUE achieves high consistency with human judgment (e.g., for the example in @tbl-chap5-case-study-1), NLI-based AA can still prove unreliable in cases of high lexical overlap between the answer and supporting documents. @tbl-chap5-case-study-2 illustrates one such case, where both self-citation and TRUE attribute the answer to Document [3], whereas [Mirage]{.smallcaps} does not label any context document as salient for the answer. Here, the answer wrongly states that the bar code can used to **prevent** the alarm, while Document [3] mentions that the code can be used to **cancel** the alarm after an accidental activation. Thus, despite the high lexical and semantic relatedness, the answer is not supported by Document [3]. 
+The failure of TRUE in this setting highlights the sensitivity of entailment-based systems to surface-level similarity, making them brittle in cases where the model's context usage is not straightforward. Using another sampling seed for the same query produces the answer *"[...] the individual can **cancel** the alarm by providing their password at the keypad"*, which [Mirage]{.smallcaps} correctly attributes to Document [3].
+
+{{< include ../tables/chap-5-mirage/_case-study-2.qmd >}}
+
+## Conclusion
+
+In this study, we introduced [Mirage]{.smallcaps}, a novel approach to enhance the faithfulness of answer attribution in RAG systems. By leveraging model internals, [Mirage]{.smallcaps} effectively addresses the limitations of previous methods based on prompting or external NLI validators. Our experiments demonstrate that [Mirage]{.smallcaps} produces outputs that strongly agree with human annotations while being more efficient and controllable than its counterparts. Our qualitative analysis shows that [Mirage]{.smallcaps} can produce faithful attributions that reflect actual context usage during generation, reducing the risk of false positives motivated by surface-level similarity.
+
+In conclusion, [Mirage]{.smallcaps} represents a promising first step in exploiting interpretability insights to develop faithful answer attribution methods, paving the way for the usage of LLM-powered question-answering systems in mission-critical applications.
+
+## Limitations
+
+**LLMs Optimized for Self-citation** In this study, we focus our analysis on models that are not explicitly trained to perform self-citation and can provide citations only when prompted to do so. While recent systems include self-citation in their optimization scheme for RAG applications, we believe incorporating model internals in the attribution process will remain a valuable and inexpensive method to ensure faithful answer attributions.
+
+**Brittleness of NLI-based Evaluation** Following @gao-etal-2023-enabling, the evaluation of @sec-chap5-eli5-evaluation employs the NLI-based system TRUE due to the lack of AA-annotated answers produced by open-source LLMs. However, using the predictions of NLI models as AA references is far from ideal in light of their brittleness in challenging scenarios and their tendency to exploit shallow heuristics. While the ELI5 dataset is reasonably in-domain for the TRUE model, this factor might still undermine the reliability of some of our quantitative evaluation results. Future work should produce a wider variety of annotated datasets for reproducible answer attribution using open-source LLMs, enabling us to extend our analysis to a broader set of languages and model sizes and ultimately enhance the robustness of our findings.
+
+**Applicability to Other Domains and Models** Our evaluation is conducted on relatively homogeneous QA datasets and does not include language models with >7B parameters. This limits the generalizability of our findings to other domains and larger models. Future work should extend our analysis to a broader range of domains and model sizes to further validate the robustness and applicability of [Mirage]{.smallcaps}. This said, we expect [Mirage]{.smallcaps} to be less vulnerable to language and quality shifts compared to existing AA methods that depend on external validators or on the model's instruction-following abilities.
+
+**Scalability of MIRAGE on Longer Context** The computational cost for the simple gradient-based version of [Mirage]{.smallcaps} proposed in this work is $2O(F)+|\text{CTI}(\mathbf{y})| \cdot O(B)$, where $O(F), O(B)$ are respectively the costs of a forward and a backward pass with the LLM, and $|\text{CTI}(\mathbf{y})|$ is the number of tokens selected by the CTI step. While CTI effectively limits the expensive backward component in the [Mirage]{.smallcaps} computation, its cost is bound to increase significantly for larger models and context sizes. When applying [Mirage]{.smallcaps} to LLMs with <10B parameters, we note that its cost can be comparable or lower to supervised models like TRUE, requiring several forward passes using a large 11B LLM. Importantly, [Mirage]{.smallcaps} is a flexible framework that can be implemented using different feature attribution methods in the CCI step, including lightweight techniques requiring only forward passes (e.g., Attention Rollout [@abnar-zuidema-2020-quantifying], Value Zeroing [@mohebbi-etal-2023-quantifying], or ALTI-Logit [@ferrando-etal-2023-explaining]. Finally, a promising perspective for scaling to larger LLMs could be to assess whether [Mirage]{.smallcaps}-produced AAs remain accurate when force-decoding the original model's answer from a different LLM with fewer parameters.
+
+**MIRAGE's Parametrization and Choice of Attribution Method** While @sec-chap5-agreement highlights the robustness of [Mirage]{.smallcaps} to various CCI filtering thresholds, the method still requires non-trivial parametrization. In particular, we emphasize that the choice of the attribution method employed to generate attribution scores in the CCI step can significantly impact the faithfulness of the resulting answer attributions. Although we used a relatively simple gradient-based approach in this study, our proposed framework is method-agnostic. We leave the evaluation of modern feature attribution techniques, such as the ones mentioned in the previous paragraph, to future work to further improve [Mirage]{.smallcaps} applicability in real-world settings.
