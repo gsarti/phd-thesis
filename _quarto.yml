@@ -37,8 +37,8 @@ book:
     - part: "Towards Interpretability in Human Translation Workflows"
       chapters:
         - chapters/chap-8-divemt.qmd
-        - chapters/chap-9-unsup-wqe.qmd
-        - chapters/chap-10-qe4pe.qmd
+        - chapters/chap-9-qe4pe.qmd
+        - chapters/chap-10-unsup-wqe.qmd
     - chapters/references.qmd
   appendices: 
     - chapters/appendix-a.qmd
@@ -105,8 +105,8 @@ bibliography:
 - latex/references/chap-6-ramp.bib
 - latex/references/chap-7-sae-litmt.bib
 - latex/references/chap-8-divemt.bib
-- latex/references/chap-9-unsup-wqe.bib
-- latex/references/chap-10-qe4pe.bib
+- latex/references/chap-9-qe4pe.bib
+- latex/references/chap-10-unsup-wqe.bib
 - latex/references/appendices.bib
 bibliographystyle: latex/rug-phd-thesis.bst
 
