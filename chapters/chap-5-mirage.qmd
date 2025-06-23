@@ -12,7 +12,7 @@ In light of this issue, several *answer attribution*^[We use the term *answer at
 
 In light of these considerations, in this work we introduce [Mirage]{.smallcaps}, an extension of the context-reliance evaluation [PECoRe]{.smallcaps} framework [@sarti-etal-2024-quantifying] that employs model internals for efficient and faithful answer attributions. [Mirage]{.smallcaps} first identifies context-sensitive tokens in a generated sentence by measuring the shift in LM predictive distribution caused by the added input context. Then, it attributes this shift to specific influential tokens in the context using gradient-based saliency or other feature attribution techniques [@madsen-etal-2022-evaluating]. We adapt this approach to the RAG setup by matching context-dependent generated sentences to retrieved documents that contribute to their prediction and converting the resulting pairs to citations using the standard answer attribution (AA) format.
 
-![MIRAGE is a model internals-based answer attribution framework for RAG settings. Context-sensitive answer spans (in color) are detected and matched with contextual cues in retrieved sources to evaluate the trustworthiness of models' answers.](../figures/chap-5-mirage/1_motivation.pdf){#fig-chap5-motivation width=60%}
+![MIRAGE is a model internals-based answer attribution framework for RAG settings. Context-sensitive answer spans (in color) are detected and matched with contextual cues in retrieved sources to evaluate the trustworthiness of models' answers.](../figures/chap-5-mirage/mirage_small.pdf){#fig-chap5-motivation width=60%}
 
 We begin our assessment of [Mirage]{.smallcaps} on the short-form XOR-AttriQA dataset [@muller-etal-2023-evaluating], showing high agreement between [Mirage]{.smallcaps} results and human annotations across several languages. We then test our method on the open-ended ELI5 dataset [@fan-etal-2019-eli5], achieving AA quality comparable to or better than self-citation while ensuring a higher degree of control over attribution parameters. In summary, we make the following contributions:^[Code and data released at [`https://github.com/Betswish/MIRAGE`](https://github.com/Betswish/MIRAGE). A demo system is available at [`https://hf.co/spaces/gsarti/mirage`](https://hf.co/spaces/gsarti/mirage).]
 
@@ -32,7 +32,7 @@ AAs produced by these systems were shown to correlate strongly with human annota
 
 **Self-citation** [@gao-etal-2023-enabling] is a recent AA approach exploiting the ability of recent LLMs to follow instructions in natural language [@raffel-etal-2020-exploring; @chung-etal-2022-scaling; @sanh2022multitask; @openai-2023-gpt4], thereby avoiding the need for an external validator. @nakano-etal-2021-webgpt and @menick-etal-2022-teaching propose citation fine-tuning for LLMs, while @gao-etal-2023-enabling instruct general-purpose LLMs to produce inline citations in a few-shot setting. Self-citation answers are generally more relevant to the provided sources' contents, but can still contain unsupported statements and inaccurate citations [@liu-etal-2023-evaluating]. In our preliminary analysis, we find that self-citation often misses relevant citations, uses wrong formats, or refers to non-existing documents (@fig-chap5-error). For the ELI5 dataset [@fan-etal-2019-eli5], we find that LLaMA 2 7B Chat [@touvron-etal-2023-llama2] and Zephyr $\beta$ 7B [@tunstall-etal-2023-zephyr] fail to produce AAs matching the prompt instructions for the majority of generated sentences, with almost all answers having at least one unattributed sentence when the @gao-etal-2023-enabling self-citation setup is used (@tbl-chap5-self-citation-error).
 
-![Instruction-following errors in a *self-citation* example, using the setup of @gao-etal-2023-enabling.](../figures/chap-5-mirage/2_error.pdf){#fig-chap5-error width=65%}
+![Instruction-following errors in a *self-citation* example, using the setup of @gao-etal-2023-enabling.](../figures/chap-5-mirage/self_citation_errors.pdf){#fig-chap5-error width=65%}
 
 {{< include ../tables/chap-5-mirage/_self-citation-error.qmd >}}
 
@@ -54,7 +54,7 @@ Identifying which generated spans were most influenced by preceding information 
 method we propose is an extension of the Plausibility Evaluation for Context Reliance ([PECoRe]{.smallcaps}) framework [@sarti-etal-2024-quantifying] for context-aware machine translation. Importantly, this framework requires open-weights access to the LLM generator, which is a strict but necessary requirement to provide an accurate overview of the actual context usage during generation [@casper-etal-2024-blackbox].
 This section provides an overview of [PECoRe]{.smallcaps}'s two-step procedure (illustrated in @fig-chap5-mirage-illustration) and clarifies how [Mirage]{.smallcaps} adapts it for RAG answer attribution.
 
-![Illustration of MIRAGE's two-step approach adapted from PECoRe for RAG answer attribution. **Step 1:** CTI detects context-sensitive tokens in the generation (e.g. *smaller*). **Step 2:** CCI attributes the generation of detected tokens back to context tokens (e.g. *few* in Doc[1] promotes the generation of *smaller* instead of *PC*) using contrastive feature attribution. Token pairs are then aggregated into sentence-document citations for practical usage.](../figures/chap-5-mirage/2_5_MIRAGE_illustration.pdf){#fig-chap5-mirage-illustration width=100%}
+![Illustration of MIRAGE's two-step approach adapted from PECoRe for RAG answer attribution. **Step 1:** CTI detects context-sensitive tokens in the generation (e.g. *smaller*). **Step 2:** CCI attributes the generation of detected tokens back to context tokens (e.g. *few* in Doc[1] promotes the generation of *smaller* instead of *PC*) using contrastive feature attribution. Token pairs are then aggregated into sentence-document citations for practical usage.](../figures/chap-5-mirage/mirage_large.pdf){#fig-chap5-mirage-illustration width=100%}
 
 ### Step 1: Context-sensitive Token Identification (CTI) 
 
@@ -143,7 +143,7 @@ To maximize the chances of replication, we attempt to restore the original docum
 
 We further validate the robustness of the CCI filtering process by testing percentile values between Top 3-100% for the [Mirage]{.smallcaps}$_{\text{ex}}$ setting. @fig-chap5-robustness shows that Top % values between 3 and 20% lead to a comparably high agreement with human annotation, suggesting this filtering threshold can be selected without ad-hoc parameter tuning.
 
-![Robustness of MIRAGE$_{\text{ex}}$ agreement with human annotations across Top-% CCI filtering thresholds.](../figures/chap-5-mirage/3_robustness_human.pdf){#fig-chap5-robustness width=70%}
+![Robustness of MIRAGE$_{\text{ex}}$ agreement with human annotations across Top-% CCI filtering thresholds.](../figures/chap-5-mirage/cci_filtering_robustness.pdf){#fig-chap5-robustness width=70%}
 
 ## Answer Attribution for Long-form QA {#sec-chap5-eli5-evaluation}
 
@@ -170,12 +170,12 @@ Results in @tbl-chap5-eli5-results show that [Mirage]{.smallcaps} provides a sig
 
 From the comparison between Top 3 and Top 5% CCI filtering strategies, we note that the latter generally results in better performance. This intuitively supports the idea that an adaptive selection strategy is more fitting to accommodate the large variability of attribution scores across different examples. @fig-chap5-cci-case visualizes the distributions of attribution scores $a^i_j$ for an answer produced by Zephyr $\beta$, showing that most context tokens in retrieved documents receive low attribution scores, with only a handful of them contributing to the prediction of the context-sensitive token '9' in the generation. This example also provides an intuitive explanation of the robustness of Top-% selection thresholds discussed in @sec-chap5-xor-attriqa-results. Ultimately, the Top 5% threshold is sufficient to select the document containing the direct mention of the generated token.
 
-![Attribution scores over retrieved documents' tokens for the prediction of context-sensitive token '9'.](../figures/chap-5-mirage/4_CCI_v1.png){#fig-chap5-cci-case width=80%}
+![Attribution scores over retrieved documents' tokens for the prediction of context-sensitive token '9'.](../figures/chap-5-mirage/attribution_example.png){#fig-chap5-cci-case width=80%}
 
 Since the $m^*_\text{ex}$ threshold used to select context-sensitive tokens by [Mirage]{.smallcaps}$_{\text{ex}}$ depends on the mean and standard deviation of generated answer's scores, we expect that the length of the generated answer might play a role in citation quality. As shown in @fig-chap5-correlation, [Mirage]{.smallcaps} citation quality is indeed lower for shorter answer sentences. 
 However, a similar trend is observed for self-citation, which is outperformed by [Mirage]{.smallcaps} for all but the shortest length bin ($\leq 10$ tokens). The proportion of non-attributed sentences (red line) suggests that the lower quality could be a byproduct of the ALCE evaluation protocol, where non-attributed sentences receive 0 precision/recall. Future availability of human-annotated RAG datasets may shed more light on this effect.
 
-![[Mirage]{.smallcaps}$_\text{ex}$ (top) and self-citation (bottom) average performance on ELI5 answer sentences binned by length. [Red]{color="brand-color.red"}: Percentage of sentences with $\geq 1$ citations.](../figures/chap-5-mirage/5_correlation.png){#fig-chap5-correlation width=80%}
+![[Mirage]{.smallcaps}$_\text{ex}$ (top) and self-citation (bottom) average performance on ELI5 answer sentences binned by length. [Red]{color="brand-color.red"}: Percentage of sentences with $\geq 1$ citations.](../figures/chap-5-mirage/mirage_performance.png){#fig-chap5-correlation width=80%}
 
 ### Qualitative Analysis of Disagreements {#sec-chap5-disagree}
 
