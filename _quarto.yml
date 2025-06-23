@@ -133,7 +133,7 @@ format:
     link-citations: true
     pdf-engine: pdflatex
     keep-tex: true
-    fig-pos: "t"
+    fig-pos: "!ht"
     tbl-cap-location: bottom
 
 

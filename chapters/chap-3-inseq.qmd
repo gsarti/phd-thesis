@@ -1,9 +1,4 @@
----
-nocite: |
-    @simonyan-etal-2014-saliency
----
-
-# Attributing Language Model Generations with the Inseq Toolkit {#chap-3-inseq}
+# Attributing Language Model Generations with the Inseq Toolkit {#sec-chap-3-inseq}
 
 > This chapter is adapted from the paper *Inseq: An Interpretability Toolkit for Sequence Generation Models* [@sarti-etal-2023-inseq-fixed].
 

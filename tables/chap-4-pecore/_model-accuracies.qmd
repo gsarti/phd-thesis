@@ -6,7 +6,7 @@
 <table class="center-table">
     <thead>
         <tr>
-            <th rowspan="2"><span data-qmd="**Model**"></span></th>
+            <th class="rowspan" rowspan="2"><span data-qmd="**Model**"></span></th>
             <th colspan="3" class="group-header"><span data-qmd="**SCAT+**"></span></th>
             <th colspan="3" class="group-header"><span data-qmd="**[DiscEval-MT (ana)]{.smallcaps}**"></span></th>
             <th colspan="3" class="group-header"><span data-qmd="**[DiscEval-MT (lex)]{.smallcaps}**"></span></th>

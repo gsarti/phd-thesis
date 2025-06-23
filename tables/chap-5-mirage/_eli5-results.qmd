@@ -18,7 +18,7 @@
     </thead>
     <tbody>
         <tr>
-            <td rowspan="3" class="namerow"><span data-qmd="Zephyr $\beta$"></span></td>
+            <td class="rowspan" rowspan="3"><span data-qmd="Zephyr $\beta$"></span></td>
             <td>Self-citation</td>
             <td>41.4</td>
             <td>24.3</td>
@@ -37,7 +37,7 @@
             <td class="bold">45.6</td>
         </tr>
         <tr>
-            <td rowspan="3" class="namerow">LLaMA 2</td>
+            <td class="rowspan" rowspan="3">LLaMA 2</td>
             <td>Self-citation</td>
             <td class="bold">37.9</td>
             <td>19.8</td>

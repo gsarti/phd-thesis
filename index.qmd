@@ -56,8 +56,7 @@ Main contributions aside, an important part of my research output during my PhD 
 
 - **Sarti, G.**, Caselli, T., Bisazza, A. and Nissim, M. [-@sarti-etal-2024-eurekarebus]. EurekaRebus - Verbalized Rebus Solving with LLMs: A CALAMITA Challenge. In *Proceedings of the 10th Italian Conference on Computational Linguistics (CLiC-it)*
 
-- Ciaccio, C., **Sarti, G.**, Miaschi, A. and Dell'Orletta, F. [-@ciaccio-etal-2025-crossword]. Crossword Space: Latent Manifold Learning for
-Italian Crossword Clues and Solutions. In *Proceedings of the 11th Italian Conference on Computational Linguistics (CLiC-it)*
+- Ciaccio, C., **Sarti, G.**, Miaschi, A. and Dell'Orletta, F. [-@ciaccio-etal-2025-crossword]. Crossword Space: Latent Manifold Learning for Italian Crosswords and Beyond. In *Proceedings of the 11th Italian Conference on Computational Linguistics (CLiC-it)*
 
 \noindent
 **Interpreting the inner workings of generative language models:**

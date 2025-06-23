@@ -26,7 +26,7 @@
             <td><span data-qmd="**Self-citation**: [...] False alarms can be prevented by entering the code on the keypad, as documented in [[3]]{color='blue'}. [...]"></span></td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="**[Mirage]{.smallcaps}**: [...] False alarms can be prevented by entering the code on the keypad []{color='blue'} [...]"></span></td>
+            <td><span data-qmd="**[Mirage]{.smallcaps}**: [...] False alarms can be prevented by entering the code on the keypad [\[$\varnothing$\]]{color='blue'} [...]"></span></td>
         </tr>
         <tr>
             <td><span data-qmd="**NLI ([True]{.smallcaps} model)**: [[3] entails the answer sentence.]{color='blue'}"></span></td>
@@ -41,7 +41,7 @@
 \begin{table}
 \centering
 \footnotesize
-\begin{tabular}{p{7.2cm}}
+\begin{tabular}{p{1\textwidth}}
 \toprule
 \textsc{Input: Prompt + Retrieved docs (N=5) + Query} \\
 \midrule
@@ -65,5 +65,5 @@
 ```
 :::
 
-Example showcasing the brittleness of entailment-based AA. [Mirage]{.smallcaps} correctly finds that the answer cannot be attributed ([$\varnothing$]), while NLI and self-citation attribute the lexically similar Document [3].
+Example showcasing the brittleness of entailment-based AA. [Mirage]{.smallcaps} correctly finds that the answer cannot be attributed ([[$\varnothing$]{color='brand-color.blue'}]), while NLI and self-citation attribute the lexically similar [Document [3]]{color='brand-color.blue'}.
 :::

@@ -19,56 +19,56 @@
     </thead>
     <tbody>
         <tr>
-            <td class="namerow"><span data-qmd="NLI$_{\text{orig}}$~(@honovich-etal-2022-true-evaluating)"></span></td>
+            <td class="namerow"><span data-qmd="NLI$_{\text{orig}}$"></span></td>
             <td><span class="footnotesize">11B NLI model</span></td>
-            <td rowspan="2">--</td>
+            <td class="rowspan" rowspan="2">--</td>
             <td>33.8</td>
             <td>83.7</td>
             <td>86.5</td>
             <td class="bold">85.8</td>
             <td>50.0</td>
-            <td>68.0 / 21.9</td>
+            <td class="mediumrow">68.0 / 21.9</td>
         </tr>
         <tr class="midrule">
-            <td class="namerow"><span data-qmd="NLI$_{\text{mt}}$~(@honovich-etal-2022-true-evaluating)"></span></td>
+            <td class="namerow"><span data-qmd="NLI$_{\text{mt}}$"></span></td>
             <td><span class="footnotesize">11B NLI model + MT engine</span></td>
             <td>82.6</td>
             <td>83.7</td>
             <td>90.5</td>
             <td>81.7</td>
             <td>82.5</td>
-            <td>84.2 / 3.2</td>
+            <td class="mediumrow">84.2 / 3.2</td>
         </tr>
-        <tr class="midrule">
-            <td rowspan="2" class="namerow"><span data-qmd="[Mirage]{.smallcaps}$_{\text{cal}}$ (Ours)"></span></td>
-            <td rowspan="2"><span class="footnotesize">142 annotated AA examples</span></td>
+        <tr>
+            <td class="rowspan" rowspan="2"><span data-qmd="[Mirage]{.smallcaps}$_{\text{cal}}$ (Ours)"></span></td>
+            <td class="rowspan" rowspan="2"><span class="footnotesize">142 annotated AA examples</span></td>
             <td>Top 3</td>
             <td>81.7</td>
             <td class="bold">84.2</td>
             <td>87.8</td>
             <td>83.3</td>
             <td>87.0</td>
-            <td>84.8 / 2.3</td>
+            <td class="mediumrow">84.8 / 2.3</td>
         </tr>
-        <tr>
+        <tr class="midrule">
             <td>Top 5%</td>
             <td class="bold">84.4</td>
             <td>83.0</td>
             <td class="bold">91.4</td>
             <td class="bold">85.8</td>
             <td class="bold">88.9</td>
-            <td class="bold">86.7 / 3.1</td>
+            <td class="mediumrow"><span class="bold">86.7</span> / 3.1</td>
         </tr>
-        <tr class="midrule">
-            <td rowspan="2" class="namerow"><span data-qmd="[Mirage]{.smallcaps}$_{\text{ex}}$ (Ours)"></span></td>
-            <td rowspan="2">--</td>
+        <tr>
+            <td class="rowspan" rowspan="2"><span data-qmd="[Mirage]{.smallcaps}$_{\text{ex}}$ (Ours)"></span></td>
+            <td class="rowspan" rowspan="2">--</td>
             <td>Top 3</td>
             <td>80.2</td>
             <td>78.5</td>
             <td>83.8</td>
             <td>77.2</td>
             <td>75.2</td>
-            <td>79.0 / 2.9</td>
+            <td class="mediumrow">79.0 / 2.9</td>
         </tr>
         <tr>
             <td>Top 5%</td>
@@ -77,7 +77,7 @@
             <td class="underline">89.2</td>
             <td class="underline">84.4</td>
             <td class="underline">81.8</td>
-            <td class="underline">83.4 / 3.2</td>
+            <td class="mediumrow"><span class="underline">83.4</span> / 3.2</td>
         </tr>
     </tbody>
 </table>
@@ -96,8 +96,8 @@
 \toprule
 \textbf{Method} & \textbf{Extra Requirements} & \textbf{CCI Filter} & \textbf{BN} & \textbf{FI} & \textbf{JA} & \textbf{RU} & \textbf{TE} & \textbf{Avg. $\,/\,$ Std} \\
 \midrule
-NLI${_\textsc{~orig}}$~\citep{honovich-etal-2022-true-evaluating} & {\footnotesize 11B NLI model} & \multirow{2}{*}{--} & 33.8 & 83.7 & 86.5 & \textbf{85.8} & 50.0 & 68.0 $\,/\,$ 21.9 \\
-NLI${_\textsc{~mt}}$~\citep{honovich-etal-2022-true-evaluating} & {\footnotesize 11B NLI model + MT engine} &  & 82.6 & 83.7 & 90.5 & 81.7 & 82.5 & 84.2 $\,/\,$ 3.2 \\
+NLI${_\textsc{~orig}}$ & {\footnotesize 11B NLI model} & \multirow{2}{*}{--} & 33.8 & 83.7 & 86.5 & \textbf{85.8} & 50.0 & 68.0 $\,/\,$ 21.9 \\
+NLI${_\textsc{~mt}}$ & {\footnotesize 11B NLI model + MT engine} &  & 82.6 & 83.7 & 90.5 & 81.7 & 82.5 & 84.2 $\,/\,$ 3.2 \\
 \midrule
 \multirow{2}{*}{\textsc{mirage}$_{\textsc{~cal}}$ (Ours)} & \multirow{2}{*}{{\footnotesize 142 annotated AA examples}} & Top 3 & 81.7 & \textbf{84.2} & 87.8 & 83.3 & 87.0 & 84.8 $\,/\,$ 2.3 \\
 & & Top 5\% & \textbf{84.4} & 83.0 & \textbf{91.4} & \textbf{85.8} & \textbf{88.9} & \textbf{86.7} $\,/\,$ 3.1\\
@@ -112,5 +112,5 @@ NLI${_\textsc{~mt}}$~\citep{honovich-etal-2022-true-evaluating} & {\footnotesize
 
 :::
 
-Agreement % of [Mirage]{.smallcaps} and entailment-based baselines with human AA on XOR-AttriQA$_{\text{match}}$ using CORA for RAG. **Extra Requirements**: data/models needed for AA in addition to the RAG model and the current example. **Filter**: $s_\textsc{cci}$ filtering for saliency scores. **Best overall** and best uncalibrated scores are highlighted.
+Agreement % of [Mirage]{.smallcaps} and entailment-based baselines with human AA on XOR-AttriQA$_{\text{match}}$ using CORA for RAG. **Extra Requirements**: data/models needed for AA in addition to the RAG model and the current example. **Filter**: $s_\text{cci}$ filtering for saliency scores. **Best overall** and best uncalibrated scores are highlighted.
 :::

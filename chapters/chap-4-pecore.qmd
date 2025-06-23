@@ -1,4 +1,4 @@
-# Quantifying Context Usage in Neural Machine Translation {#chap-4-pecore}
+# Quantifying Context Usage in Neural Machine Translation {#sec-chap-4-pecore}
 
 > This chapter is adapted from the paper *Quantifying the Plausibility of Context Reliance in Neural Machine Translation* [@sarti-etal-2024-quantifying].
 

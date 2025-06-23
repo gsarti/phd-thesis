@@ -24,7 +24,7 @@
 .center-table th, .center-table td {
     padding: 8px 12px;
     text-align: center;
-    border: none;
+    border-bottom: none;
 }
 
 .center-table thead th {
@@ -120,8 +120,6 @@
 
 .group-header {
     border-bottom: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
 }
 
 .namerow {
@@ -132,6 +130,15 @@
 .smallrow {
     display: inline-block;
     width: 75px;
+}
+
+.mediumrow {
+    display: inline-block;
+    width: 105px;
+}
+
+.rowspan {
+    vertical-align: middle;
 }
 
 .fullwidthtable {
@@ -174,4 +181,9 @@
 
 figure.quarto-float-tbl figcaption.quarto-float-caption-bottom {
     text-align: left;
+}
+
+.rline {
+    border-right-width: 1px !important;
+    border-right-color: black;
 }
