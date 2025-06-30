@@ -1,0 +1,63 @@
+:::{#tbl-chap6-language-codes}
+
+:::{.content-visible when-format="html"}
+
+```{=html}
+<table class="center-table">
+    <tbody>
+        <tr>
+            <td>AR</td>
+            <td class="rline">Arabic</td>
+            <td>DE</td>
+            <td class="rline">German</td>
+            <td>EN</td>
+            <td>English</td>
+        </tr>
+        <tr>
+            <td>ES</td>
+            <td class="rline">Spanish</td>
+            <td>FR</td>
+            <td class="rline">French</td>
+            <td>HI</td>
+            <td>Hindi</td>
+        </tr>
+        <tr>
+            <td>IT</td>
+            <td class="rline">Italian</td>
+            <td>JA</td>
+            <td class="rline">Japanese</td>
+            <td>NL</td>
+            <td>Dutch</td>
+        </tr>
+        <tr>
+            <td>RU</td>
+            <td class="rline">Russian</td>
+            <td></td>
+            <td class="rline"></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+```
+
+:::
+
+:::{.content-visible when-format="pdf"}
+
+```{=latex}
+\begin{table}
+\centering
+\begin{tabular}{ll|ll|ll}
+AR & Arabic & DE & German & EN & English \\
+ES & Spanish & FR & French & HI & Hindi \\
+IT & Italian & JA & Japanese & NL & Dutch \\
+RU & Russian \\
+\end{tabular}
+\end{table}
+```
+
+:::
+
+Language codes used in the [Ramp]{.smallcaps} experiments.
+:::

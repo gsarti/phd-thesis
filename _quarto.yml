@@ -42,6 +42,7 @@ book:
     - chapters/references.qmd
   appendices: 
     - chapters/appendix-a.qmd
+    - chapters/appendix-b.qmd
 
 pdf-lang: "eng"
 freeze: auto

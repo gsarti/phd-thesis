@@ -1,0 +1,71 @@
+# Conditioning Generation for Personalized Machine Translation {#sec-appendix-b}
+
+## Prompt Templates {#sec-chap6-prompt-templates}
+
+**Formality-Controlled Translation** *Here is a sentence: {`src`} Here is its `lang` translation written in a `attr` style: {`tgt`} The translated sentence conveys a `attr` style by using words such as '`w1`', '`w2`'.
+
+**Gender-Controlled Translation** Here is a sentence: {`src`} Here is its `lang` translation in which the person is `attr`: {`tgt`} In the translation, the `attr` gender of the person is made explicit by words such as '`w1`', '`w2`'.
+
+## Language Codes {#sec-chap6-languages}
+
+{{< include ../tables/chap-6-ramp/_language-codes.qmd >}}
+
+## Preliminary Evaluation of Same-Language Prompting {#sec-chap6-preliminary}
+
+We conduct preliminary evaluations aimed at reducing the number of experimental settings. We perform formality-controlled translation using [CoCoA-MT]{.smallcaps}, and evaluate LLMs by varying the number of in-context examples (i.e., 4-8-16-32, selected based on the feasible context length[^b-2]).
+
+[^b-2]: [Bloom]{.smallcaps} 175B encountered out-of-memory errors with 32 in-context example using eight 40GB A100 GPUs.
+
+@fig-chap6-preliminary-cocoa-results presents results averaged across all four languages **seen** by [Bloom]{.smallcaps} during its pre-training.[^b-3]
+
+::: {#fig-chap6-preliminary-cocoa-results layout-ncol=2 fig-pos="t"}
+
+![](../figures/chap-6-ramp/cocoamt_bleu.pdf)
+
+![](../figures/chap-6-ramp/cocoamt_accuracy.pdf)
+
+BLEU and sentential formality accuracy of prompt outputs on [CoCoA-MT]{.smallcaps} test set for different amounts of in-context examples. Confidence intervals are obtained base setting by sampling in-context examples using 3 seeds.
+:::
+
+Observations:
+
+[^b-3]: Detailed scores are included in @tbl-chap6-preliminary-cocoa-results.
+
+- [Ramp]{.smallcaps} generally outperforms base prompting (i.e., random in-context examples and no attribute marking) across most LLMs and example settings for both BLEU and formality accuracy.
+- BLEU and formality accuracy improve with increased model size and with the number of examples, until this number reaches 16. 
+
+Based on these results we move forward with the [XGLM]{.smallcaps} 7.5B and [Bloom]{.smallcaps} 175B models and 16 examples.
+
+## Detailed Scores of Aggregated Results {#sec-chap6-decomposed-scores}
+
+- @tbl-chap6-preliminary-cocoa-results: Detailed scores of same-language prompting on [CoCoA-MT]{.smallcaps} (preliminary evaluation).[^b-4]
+- @tbl-chap6-same-language-cocoa-details: Decomposed results of same-language prompting on [CoCoA-MT]{.smallcaps} (full evaluation).
+- @tbl-chap6-same-language-geneval-details: Decomposed results of same-language prompting on [MT-GenEval]{.smallcaps} (full evaluation).
+- @tbl-chap6-cross-lingual-cocoa-details: Decomposed results of cross-lingual prompting on [CoCoA-MT]{.smallcaps}.
+- @tbl-chap6-cross-lingual-geneval-details: Decomposed results of cross-lingual prompting on [MT-GenEval]{.smallcaps}.
+
+[^b-4]: We set maximum output length as 50 tokens in the preliminary evaluation, while we use 100 tokens in the main evaluation. Early truncating leads to slightly lower scores in @tbl-chap6-preliminary-cocoa-results than in @tbl-chap6-full-results.
+
+{{< include ../tables/chap-6-ramp/_preliminary-cocoa-results.qmd >}}
+
+{{< include ../tables/chap-6-ramp/_same-language-cocoa-details.qmd >}}
+
+{{< include ../tables/chap-6-ramp/_same-language-geneval-details.qmd >}}
+
+{{< include ../tables/chap-6-ramp/_cross-lingual-cocoa-details.qmd >}}
+
+{{< include ../tables/chap-6-ramp/_cross-lingual-geneval-details.qmd >}}
+
+## Amended Details of Cross-Lingual Prompting {#sec-chap6-zero-shot-cross}
+
+We test the zero-shot setting using the leave-one-out strategy, i.e. we retrieve in-context examples from every languages except the desired language of translation. We ensure that we retrieve an equal number of examples from all languages: the number of examples retrieved from each language is the total desired number of in-context examples divided by number of training languages. In [CoCoA-MT]{.smallcaps}, we retrieve 14 in-context examples from 7 languages. In [MT-GenEval]{.smallcaps}, we retrieve 8 in-context examples from 8 languages. We reduced the number of in-context examples in this setting to avoid out-of-memory errors with [Bloom]{.smallcaps} 175B.
+
+## Error Analysis of Cross-Lingual Prompting {#sec-chap6-analysis-zeroshot}
+
+@tbl-chap6-cross-lingual-analysis shows two examples where [Ramp]{.smallcaps} performs significantly worse than the base model in terms of [COMET]{.smallcaps}. 
+In the first example, having multiple in-context examples containing *"million"* led the model to mis-translate *"billion"* to *"million"*.
+In the second example, we observe that the color related in-context examples led the model to produce hallucinated output about clothing colors.
+
+Repeated misleading in-context examples are less observed on [MT-GenEval]{.smallcaps} and in the same-language setting because (1) [CoCoA-MT]{.smallcaps} translates the same set of English sentences to different languages while [MT-GenEval]{.smallcaps} collects English sentences independently; (2) There are no duplicated source (English) sentences for each language. (Therefore, if [Ramp]{.smallcaps} retrieves duplicated English sentences as in @tbl-chap6-cross-lingual-analysis, their reference translations are guaranteed to be in different languages.)
+
+{{< include ../tables/chap-6-ramp/_cross-lingual-analysis.qmd >}}
