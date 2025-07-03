@@ -1,10 +1,8 @@
 # Introduction
 
-## Research Output
+## Output
 
-This dissertation is the result of multiple peer-reviewed publications and open-source projects, which are presented in this section below.
-
-### Main Contributions
+### Main Research Contributions
 
 The following articles represent the main contributions of this dissertation, organized in their respective parts and chapters:[^1]
 
@@ -35,11 +33,11 @@ The following articles represent the main contributions of this dissertation, or
 
 - **Sarti, G.**, Zouhar, V., Chrupała, G., Guerberof-Arenas, A., Nissim, M. and Bisazza, A. [-@sarti-etal-2025-qe4pe]. QE4PE: Word-level Quality Estimation for Human Post-Editing. *Arxiv Preprint* (**Chapter 9**)
 
-### Open Source Software
+### Open-source Software
 
 Open-source contributions play a fundamental role in my research efforts. Throughout the main contributions detailed above, I strived to make all datasets, methods and code publicly available, and well-documented to facilitate further research and reproducibility. In particular, I led the development of the **Inseq** toolkit discussed in Part I
 
-### Other Contributions
+### Other Research Contributions
 
 Main contributions aside, an important part of my research output during my PhD includes other projects beyond the scope of this dissertation. These include the following publications, organized around two macro-themes:
 

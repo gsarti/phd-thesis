@@ -1,16 +1,18 @@
 # Conditioning Generation for Personalized Machine Translation {#sec-appendix-b}
 
-## Prompt Templates {#sec-chap6-prompt-templates}
+## Attribute-Controlled Translation using Retrieval and Marking {#sec-ramp-appendix}
+
+### Prompt Templates {#sec-ramp-prompt-templates}
 
 **Formality-Controlled Translation** *Here is a sentence: {`src`} Here is its `lang` translation written in a `attr` style: {`tgt`} The translated sentence conveys a `attr` style by using words such as '`w1`', '`w2`'.
 
 **Gender-Controlled Translation** Here is a sentence: {`src`} Here is its `lang` translation in which the person is `attr`: {`tgt`} In the translation, the `attr` gender of the person is made explicit by words such as '`w1`', '`w2`'.
 
-## Language Codes {#sec-chap6-languages}
+### Language Codes {#sec-ramp-languages}
 
 {{< include ../tables/chap-6-ramp/_language-codes.qmd >}}
 
-## Preliminary Evaluation of Same-Language Prompting {#sec-chap6-preliminary}
+### Preliminary Evaluation of Same-Language Prompting {#sec-ramp-preliminary}
 
 We conduct preliminary evaluations aimed at reducing the number of experimental settings. We perform formality-controlled translation using [CoCoA-MT]{.smallcaps}, and evaluate LLMs by varying the number of in-context examples (i.e., 4-8-16-32, selected based on the feasible context length[^b-2]).
 
@@ -36,7 +38,7 @@ Observations:
 
 Based on these results we move forward with the [XGLM]{.smallcaps} 7.5B and [Bloom]{.smallcaps} 175B models and 16 examples.
 
-## Detailed Scores of Aggregated Results {#sec-chap6-decomposed-scores}
+### Detailed Scores of Aggregated Results {#sec-ramp-decomposed-scores}
 
 - @tbl-chap6-preliminary-cocoa-results: Detailed scores of same-language prompting on [CoCoA-MT]{.smallcaps} (preliminary evaluation).[^b-4]
 - @tbl-chap6-same-language-cocoa-details: Decomposed results of same-language prompting on [CoCoA-MT]{.smallcaps} (full evaluation).
@@ -56,11 +58,11 @@ Based on these results we move forward with the [XGLM]{.smallcaps} 7.5B and [Blo
 
 {{< include ../tables/chap-6-ramp/_cross-lingual-geneval-details.qmd >}}
 
-## Amended Details of Cross-Lingual Prompting {#sec-chap6-zero-shot-cross}
+### Amended Details of Cross-Lingual Prompting {#sec-ramp-zero-shot-cross}
 
 We test the zero-shot setting using the leave-one-out strategy, i.e. we retrieve in-context examples from every languages except the desired language of translation. We ensure that we retrieve an equal number of examples from all languages: the number of examples retrieved from each language is the total desired number of in-context examples divided by number of training languages. In [CoCoA-MT]{.smallcaps}, we retrieve 14 in-context examples from 7 languages. In [MT-GenEval]{.smallcaps}, we retrieve 8 in-context examples from 8 languages. We reduced the number of in-context examples in this setting to avoid out-of-memory errors with [Bloom]{.smallcaps} 175B.
 
-## Error Analysis of Cross-Lingual Prompting {#sec-chap6-analysis-zeroshot}
+### Error Analysis of Cross-Lingual Prompting {#sec-ramp-analysis-zeroshot}
 
 @tbl-chap6-cross-lingual-analysis shows two examples where [Ramp]{.smallcaps} performs significantly worse than the base model in terms of [COMET]{.smallcaps}. 
 In the first example, having multiple in-context examples containing *"million"* led the model to mis-translate *"billion"* to *"million"*.

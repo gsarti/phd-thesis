@@ -43,7 +43,7 @@ In our experiments, we use attribute values provided by the [CoCoA-MT]{.smallcap
 In style-controlled translation, we formulate the prompt for target language $l$ and attribute $a$ using the text *"Here is a sentence: {$\underline{\mathbf{x}}$} Here is its $\underline{l}$ translation written in a $\underline{a}$ style:"* to produce the output $\mathbf{y}$.[^6-3]
 In the few-shot setting, we provide a sequence of $k$ labeled *in-context examples* before the unlabeled input, which can be formulated as a function $f: \{(\mathbf{x}_1, l_1, a, \mathbf{y}_1),\dots, (\mathbf{x}_{k+1}, l_{k+1}, a)\}\rightarrow\mathbf{y}_{k+1}$.
 
-[^6-3]: We adopt prompt templates similar to the one used by @reif-etal-2022-recipe, and we write the prompt template in English. Complete templates are provided in @sec-chap6-prompt-templates.
+[^6-3]: We adopt prompt templates similar to the one used by @reif-etal-2022-recipe, and we write the prompt template in English. Complete templates are provided in @sec-ramp-prompt-templates.
 
 ### Our Approach: [Ramp]{.smallcaps} {#sec-chap6-ramp}
 
@@ -121,7 +121,7 @@ We first evaluate the effectiveness of [Ramp]{.smallcaps} for formality- and gen
 We test [XGLM]{.smallcaps} 7.5B and [Bloom]{.smallcaps} 175B with 16 in-context examples on both tasks.[^6-6]
 @tbl-chap6-full-results presents our results alongside the adapted MT baseline. The base model uses in-context examples that are sampled randomly from the pool of labeled examples. We also include an ablation that adds attribute marking only on top of base, without similarity retrieval (**+mark**).
 
-[^6-6]: We proceed with this setting based on a preliminary evaluation of 3 LLMs and 4 numbers of examples in @sec-chap6-preliminary.
+[^6-6]: We proceed with this setting based on a preliminary evaluation of 3 LLMs and 4 numbers of examples in @sec-ramp-preliminary.
 
 {{< include ../tables/chap-6-ramp/_full-results.qmd >}}
 
@@ -140,7 +140,7 @@ We test this zero-shot setting using the leave-one-out strategy, and results of 
 
 @tbl-chap6-full-results presents our results using [Bloom]{.smallcaps} 175B. On both test sets, compared to the baseline, we observe improved attribute accuracy and comparable or better generic translation quality when using [Ramp]{.smallcaps} with cross-lingual prompting.
 
-We do observe translation quality degradation with [Ramp]{.smallcaps} on some target languages of [CoCoA-MT]{.smallcaps}, e.g., Spanish. Manual analysis shows that **repeated** inaccurate retrieval results could lead to hallucinations.[^6-8] For example, [Ramp]{.smallcaps} retrieves multiple sentences containing *"million"* for the input *"If you got it why not? He is worth over 20 billion dollars after all."*. This results in mistranslation of *billion* to *million* (*millionario*): *"Si lo tienes, ¿por qué no? Es millonario después de todo."*. We give detailed examples in @sec-chap6-analysis-zeroshot.
+We do observe translation quality degradation with [Ramp]{.smallcaps} on some target languages of [CoCoA-MT]{.smallcaps}, e.g., Spanish. Manual analysis shows that **repeated** inaccurate retrieval results could lead to hallucinations.[^6-8] For example, [Ramp]{.smallcaps} retrieves multiple sentences containing *"million"* for the input *"If you got it why not? He is worth over 20 billion dollars after all."*. This results in mistranslation of *billion* to *million* (*millionario*): *"Si lo tienes, ¿por qué no? Es millonario después de todo."*. We give detailed examples in @sec-ramp-analysis-zeroshot.
 
 [^6-8]: @vilar-etal-2023-prompting also observe hallucinations when the retrieved examples have bad translations (i.e., non-parallel sentences).
 

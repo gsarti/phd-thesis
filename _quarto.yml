@@ -43,6 +43,7 @@ book:
   appendices: 
     - chapters/appendix-a.qmd
     - chapters/appendix-b.qmd
+    - chapters/appendix-c.qmd
 
 pdf-lang: "eng"
 freeze: auto

@@ -1,0 +1,97 @@
+# Towards Interpretability in Human Translation Workflows {#sec-appendix-c}
+
+## Machine Translation Post-editing for Typologically Diverse Languages {#sec-divemt-appendix}
+
+### Modality scheduling {#sec-divemt-modality-scheduling}
+
+[@tbl-schedule] shows an example of the adopted modality scheduling. The modality of document docM$_i$ for translator T$_j$ in the main task is picked randomly among the two modalities that were not seen by the same translator for docM$_{i-1}$, enforcing consecutive documents given to the same translator to be assigned different modalities to avoid periodicity in repetition and enable the same-language comparisons of [@sec-pe_effort]. Importantly, although all three modes were collected for every document, we did not enforce mode consistency across the same translator identifier across languages (i.e. T$_1$ for Italian does not have the same sequence of modalities of translator T$_1$ in Arabic, for example). For this reason, individual subjects are not directly comparable across languages. This is relevant since, e.g. T$_3$ for Dutch and Italian did not operate on the same set of sentences on the same modalities, and thus their comparable editing behavior in [@fig-errorless-sentences] should be attributed to personal preference rather than an identical assignment of modalities on the same sentences. Despite modality scheduling, we have no guarantees that translators consistently follow the order of documents presented in PET, and thus possibly operate on documents assigned to the same modality consecutively. However, this possibility reduces to random guessing due to a lack of any identifying information related to the modality until the document is entered for editing. The sequence of modalities for the warmup task is fixed and is: HT, PE$_2$, PE$_1$, HT, PE$_2$.
+
+{{< include ../tables/chap-8-divemt/_schedule.qmd >}}
+
+### Subject Information {#sec-divemt-subject-info}
+
+During the setup of our experiment, one translator refused to carry out the main task after the warmup phase, and another was substituted by our choice. Both translators were working in the English-Italian direction and were found to make heavy usage of copy-pasting during the warmup stage, suggesting an incorrect utilization of the platform in light of our guidelines. Both translators, which we identified as T$_2$ and T$_3$ for Italian, were replaced by T$_5$ and T$_4$ respectively. [@tbl-subjects-info] reflects the final translation selection for all languages, with the information collected by means of the pre-task questionnaire.
+
+{{< include ../tables/chap-8-divemt/_subjects-info.qmd >}}
+
+### Translation Guidelines {#sec-divemt-guidelines}
+
+An extract of the translation guidelines provided to the translators follows. The full guidelines are provided in the additional materials.
+
+> Fill in the pre-task questionnaire before starting the project. In this experiment, your goal is to complete the translation of multiple files in one of two possible translation settings. Please, complete the tasks on your own, even if you know another translator that might be working on this project. The translation setting alternates between texts, with each text requiring a single translation in the assigned setting. The two translation settings are:
+>
+> 1. **Translation from scratch.** Only the source sentence is provided, you are to write the
+> translation from scratch.
+> 2. **Post-editing.** The source sentence is provided alongside a translation produced by an MT system. You are to post-edit this MT output. Post-edit the text so you are satisfied with the final translation (the required quality is publishable quality). If the MT output is too time-consuming to fix, you can delete it and start from scratch. However, please do not systematically delete the provided MT output to give your own translation.
+>
+> **Important:** All editing MUST happen in the provided PET interface: that is, working in other editors and copy-pasting the text back to PET is NOT ALLOWED, because it invalidates the experiment. This is easy to spot in the log data, so please avoid doing this. Complete the translation of all files sequentially, i.e. in the order presented in the tool. DO NOT SKIP files at your own convenience. Make sure that ALL files are translated when you deliver the tasks.
+>
+> The aim is to produce publishable professional quality translations for both translation settings. Thus, please translate to your best abilities. You can return to the files and self-review as many times as you think it is necessary. Important: The time invested to translate is recorded while the active unit (sentence) is in editing mode (yellow background). Therefore:
+> 
+> - Only start to translate when you are in editing mode (yellow background). In other words, do not start thinking how you will translate a sentence when the active unit is not yet in editing mode (green or red background).
+> 
+> - Do not leave a unit in editing mode (yellow background) while you do something else. If you need to do something unrelated in the middle of a translation then go out of editing mode and come back to editing mode when you are ready to resume translating.
+> 
+> - First you will be translating a warmup task, and then the main task. When you are translating each file, you can consult the Source text (ST) by looking up the url in the Excel files that we have sent for reference.
+>
+> In order to find the correct terminology for the translation you can consult any source in the Internet. Important: However, it is **NOT ALLOWED** to use any MT engine to find terms or alternatives to translations (such as Google Translate, DeepL, MS Translator or any MT engine available in your language). Using MT engines invalidates the experiment, and will be detected in the log data. Please fill-in the post-task questionnaire ONLY ONCE after completing all the translation tasks (both warmup and main tasks).
+
+{{< include ../tables/chap-8-divemt/_sources.qmd >}}
+
+### Details on Document Selection and Preprocessing {#sec-divemt-doc-select}
+
+[Document selection]{.paragraph} [@tbl-sources] present the distribution of selected documents from the Flores-101 devtest split based on their domain and the number of sentences that compose them. The first goal in the selection process was to preserve a rough balance between the three categories while including mostly 4 and 5-sentence docs which are faster to edit in PET (no need to frequently close and reopen an editing window). Another objective of the selection was to minimize the chance of translators finding the translated version of the Wikipedia article from which documents were taken and copied from there, despite our guidelines. We thus scrape the articles from Wikipedia and assess the number of available translations. Among the selected documents, only a small subset has translations in other languages (see [@fig-lang-doc-select] top, an article can have multiple languages), mainly in Hebrew (14), Chinese (10), Spanish (7) and German (5) respectively. Considering the total number of translations for every article ([@fig-lang-doc-select] bottom), we see that roughly 75% of them (79 docs) have no translations. We consider this satisfactory as proof there should not be a large amount of possible copying involved, and we follow up on this evaluation by also ensuring that no repeated copy-paste patterns are present in keylogs after the warmup stage.
+
+[Filtering of Outliers]{.paragraph} For our analysis of [@sec-pe_effort], we only use sentences with an editing time lower than 45 minutes, which was selected heuristically as a reasonably high threshold to allow for extensive searching and thinking. In the following, we present the identifiers of the sentences that were filtered out during this process. E.g. 54.1 means the first sentence of document 54, having `item_id` equal to `flores101-main-541` in the dataset. Note that the sentences were outliers only for 2/6 languages and were all different, indicating no systematic issues in the sample: ARA: 54.1, 100.3, VIE: 3.1, 3.2, 24.3, 28.4, 33.1, 33.2, 40.3, 41.2, 50.3, 100.1, 102.1, 106.1, 107.2, 107.4. The 17 sentences were removed for all modalities and languages in the analysis of [@sec-pe_effort] to preserve the validity of our comparison, representing a loss of roughly 4% of the total available data, a tolerable amount for our analysis.
+
+[Fields Description]{.paragraph} [@tbl-divemt-fields] presents the set of fields that were collected for every entry of the DivEMT dataset. The fields related to keystrokes, times, pauses, annotations and visit order were extracted from the event log of PET .per files, while edits information and other MT quality metrics were computed in a second moment with the help of widely-used libraries.
+
+{{< include ../tables/chap-8-divemt/_divemt-fields.qmd >}}
+
+[Additional Notes on PET]{.paragraph} The PET platform was modified to enable a correct right-to-left language visualization, which was necessary for Arabic.
+
+![Top: Distribution for the availability of documents selected for DivEMT in languages other than English. Bottom: Quantity of selected documents per number of available translations of Wikipedia.](../figures/chap-8-divemt/lang_distribution_divemt.png){#fig-lang-doc-select width="50%" fig-pos="t"}
+
+### Other Measurements {#sec-divemt-other}
+
+![Character-level Human-targeted Translation Edit Rate (CharacTER) for Google Translate and mBART-50 post-editing across available languages.](../figures/chap-8-divemt/cer_per_system.pdf){#fig-character width="65%" fig-pos="t"}
+
+[CharacTER Across Systems and Languages]{.paragraph} While HTER is a standard metric adopted both in academic and industrial settings, we also evaluated its character-level variant CharacTER [@wang-etal-2016-character] to assess whether it could better account for the editing process of morphologically rich languages.
+[@fig-character] presents the CharacTER results. When comparing this plot to the HTER one ([@fig-hter]),
+we notice that CharacTER preserves the overall trends, but slightly improves the edit rate for Arabic and Turkish with respect to other languages. Nevertheless, we find HTER to correlate slightly better with productivity scores across all tested languages, both at a sentence and at a document level. For this reason, word-level results are reported in the article's main body.
+
+[Automatic Evaluation of NMT Systems]{.paragraph} The selection of systems used in this study was driven by a broader evaluation procedure covering more models, metrics and target languages. [@tbl-flores-perf-full] presents the overall results of our evaluation. We use HuggingFace’s Transformers library [@wolf-etal-2020-transformers] for all neural models, using the default decoding settings without further fine-tuning. All metrics were computed using the default settings of SacreBLEU [@post-2018-call] and Comet [@rei-etal-2020-comet].
+
+[Inter-subject Variability in Translation Times]{.paragraph} Although the variability across different subjects working on the same language directions is not the main concern of our investigation, we produce [@fig-time-per-src-word-per-translator] (an expanded version of [@fig-time-per-src-word]) to visualize the inter-subject variability for translation times. We observe that the variability across different translators is more pronounced when translating from scratch and that the overall trend of speed improvements associated with PE is mostly preserved (with few exceptions related to the PE$_2$ modality).
+
+![Time per processed source word across languages, subjects and translation modalities, measured in seconds. Each point represents a document containing 3--5 sentences translated by a subject in one of the languages, with higher scores representing slower editing.](../figures/chap-8-divemt/trans_time_per_word_per_mode.pdf){#fig-time-per-src-word-per-translator width="80%"}
+
+{{< include ../tables/chap-8-divemt/_flores-perf-full.qmd >}}
+
+{{< include ../tables/chap-8-divemt/_data_example_full_1.qmd >}}
+
+{{< include ../tables/chap-8-divemt/_data_example_full_2.qmd >}}
+
+### Model Description and Feature Significance {#sec-divemt-modeling}
+
+:::{layout="[45,-5,50]" fig-pos="t"}
+![Residuals of the final LMER model, used to verify the heteroscedasticity assumption.](../figures/chap-8-divemt/residuals.png){#fig-residuals}
+
+![Quantile-quantile plot before and after the removal of outliers when fitting the LMER model, used to verify the normality assumption.](../figures/chap-8-divemt/normality.png){#fig-normality}
+:::
+
+{{< include ../tables/chap-8-divemt/_coeff-reff-lmer.qmd >}}
+
+Linear Mixed Effects models (LMER) are used for regression analyses involving dependent data, such as longitudinal studies with multiple observations per subject. Given the variables of [@tbl-divemt-fields], our final model to predict translation time has the following formulation:
+
+```python
+edit_time ~ src_len_chr + lang_id * task_type +
+(1|subject_id) +
+(1 | document_id/item_id) +
+(0 + task_type | document_id/item_id)
+```
+
+We log-transform the dependent variable, edit time in seconds, given its long right tail. The models are built by adding one element at a time, and checking whether such addition leads to a significantly better model with AIC (i.e. if the score gets reduced by at least 2). We fit the models using ML when comparing models that differ in the fixed structure, and REML when they differ in the random structure.
+We start with an initial model that just includes the two random intercepts (by-translator and by-segment) and proceed by (i) finding significance for nested document/segment random effect; (ii) adding fixed predictors one by one; (iii) adding interactions between fixed predictors; and (iv) adding the random slopes.
+
+From this sequential procedure, we obtain the resulting model. When checking the homoscedasticity and normality of residuals assumptions ([@fig-residuals] and [@fig-normality]), we find the latter is not fulfilled. Consequently, we remove data points for which observations deviate by more than 2.5 standard deviations from the predicted value by the model (2.4% of the data) and refit the best model on this subset, in order to find out whether any of the effects were due to these outliers. The resulting trends do not change significantly in this final model, in which residuals are normally distributed. As a final sanity check, in [@tbl-coeff-reff-lmer] we measure the effect of subject identity on edit times and find no systematic patterns across languages.

@@ -22,4 +22,4 @@ update-anthology:
 	python scripts/filter_bib_from_qmds.py \
 		latex/references/anthology.bib \
 		latex/references/anthology-filtered.bib \
-		index.qmd chapters/*.qmd
+		index.qmd chapters/*.qmd tables/chap-8-divemt/_languages-small.qmd
