@@ -71,3 +71,6 @@ In the second example, we observe that the color related in-context examples led
 Repeated misleading in-context examples are less observed on [MT-GenEval]{.smallcaps} and in the same-language setting because (1) [CoCoA-MT]{.smallcaps} translates the same set of English sentences to different languages while [MT-GenEval]{.smallcaps} collects English sentences independently; (2) There are no duplicated source (English) sentences for each language. (Therefore, if [Ramp]{.smallcaps} retrieves duplicated English sentences as in @tbl-chap6-cross-lingual-analysis, their reference translations are guaranteed to be in different languages.)
 
 {{< include ../tables/chap-6-ramp/_cross-lingual-analysis.qmd >}}
+
+{{< pagebreak >}}
+\FloatBarrier

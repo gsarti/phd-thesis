@@ -10,3 +10,12 @@ color:
     lightorange: "#f9cb9c"
     lightgray: "#bebebe"
     blue: "#0000ff"
+    majorerror: "#e69500"
+    minorerror: "#e6bb00"
+    correction: "#98cc70"
+    nohighlight: "#3949f5"
+    unsupervised: "#e6950a"
+    supervised: "#dc0d97"
+    oracle: "#1c9a0e"
+    random: "#888888"
+    

@@ -20,19 +20,19 @@
         </tr>
         <tr class="midrule">
             <td>PE$_1$</td>
-            <td><span data-qmd="**MT:**"></span> ![](figures/chap-8-divemt/MTPE1ARA2.pdf)</td>
+            <td><span data-qmd="**MT:** ![](../figures/chap-8-divemt/MTPE1ARA2.pdf)"></span></td>
         </tr>
         <tr>
             <td></td>
-            <td><span data-qmd="**PE:**"></span> ![](figures/chap-8-divemt/PEPE1ARA2.pdf)</td>
+            <td><span data-qmd="**PE:** ![](../figures/chap-8-divemt/PEPE1ARA2.pdf)"></span></td>
         </tr>
         <tr class="midrule">
             <td>PE$_2$</td>
-            <td><span data-qmd="**MT:**"></span> ![](figures/chap-8-divemt/MTPE2ARA2.pdf)</td>
+            <td><span data-qmd="**MT:** ![](../figures/chap-8-divemt/MTPE2ARA2.pdf)"></span></td>
         </tr>
         <tr>
             <td></td>
-            <td><span data-qmd="**PE:**"></span> ![](figures/chap-8-divemt/PEPE2ARA2.pdf)</td>
+            <td><span data-qmd="**PE:** ![](../figures/chap-8-divemt/PEPE2ARA2.pdf)"></span></td>
         </tr>
         <tr class="midrule">
             <td colspan="2"><span data-qmd="**[Dutch]{.smallcaps}**"></span></td>

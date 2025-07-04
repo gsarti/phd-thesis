@@ -95,3 +95,52 @@ We log-transform the dependent variable, edit time in seconds, given its long ri
 We start with an initial model that just includes the two random intercepts (by-translator and by-segment) and proceed by (i) finding significance for nested document/segment random effect; (ii) adding fixed predictors one by one; (iii) adding interactions between fixed predictors; and (iv) adding the random slopes.
 
 From this sequential procedure, we obtain the resulting model. When checking the homoscedasticity and normality of residuals assumptions ([@fig-residuals] and [@fig-normality]), we find the latter is not fulfilled. Consequently, we remove data points for which observations deviate by more than 2.5 standard deviations from the predicted value by the model (2.4% of the data) and refit the best model on this subset, in order to find out whether any of the effects were due to these outliers. The resulting trends do not change significantly in this final model, in which residuals are normally distributed. As a final sanity check, in [@tbl-coeff-reff-lmer] we measure the effect of subject identity on edit times and find no systematic patterns across languages.
+
+{{< pagebreak >}}
+\FloatBarrier
+
+## Word-level Quality Estimation for Machine Translation Post-editing {#sec-qe4pe-appendix}
+
+### Filtering Details for QE4PE Data {#sec-qe4pe-data-stats}
+
+1. *Documents should contain between 4 and 10 segments, each containing 10-100 words (959 docs).* This ensures that all documents are roughly uniform in terms of size and complexity to maintain a steady editing flow (@sec-qe4pe-interface).
+2. *The average segment-level QE score predicted by XCOMET-XXL is between 0.3 and 0.95, with no segment below 0.3 (429 docs).* This forces segments to have a decent but still imperfect quality, excluding fully wrong translations.
+3. *At least 3 and at most 20 errors spans per document, with no more than 30% of words in the document being highlighted (351 docs).* This avoids overwhelming the editor with excessive highlighting, while still ensuring error presence.
+
+The same heuristics were applied to both translation directions, selecting only documents matching our criteria in both cases.
+
+{{< include ../tables/chap-9-qe4pe/_critical-errors-examples.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_edit-time-model.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_edit-rate-model.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_highlight-agreement.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_edit-highlights-stats-domain-modality.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_edit-highlights-stats-domain-speed.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_unsup-selection.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_mqm-errors-full.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_critical-errors.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_qa-example.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_qa-guidelines.qmd >}}
+
+![**Top:** Post-editing rate across highlight modalities, domains and directions. **Bottom:** Proportion of edits in highlighted spans across highlight modalities. *** $=p<0.001$, ** $=p<0.01$, * $=p<0.05$, ns $=$ not significant with Bonferroni correction.](../figures/chap-9-qe4pe/edit_highlighted_edit_rates.pdf){#fig-qe4pe-editing width=65%}
+
+![Post-editing agreement across various modalities (@sec-qe4pe-highlights-edits). Results are averaged across all translator pairs for the two modalities ($n = 3$ intra-modality, $n=9$ inter-modality for every language) and all segments.](../figures/chap-9-qe4pe/pe_agreement.pdf){#fig-qe4pe-edit-agreement width=65%}
+
+![ESA ratings for MT outputs and post-edits across domains and translation directions.](../figures/chap-9-qe4pe/esa_counts_splits.pdf){#fig-qe4pe-esa-domains-langs width=65%}
+
+![Distribution of MQM error categories for MT and post-edits across highlight modalities for the two translation directions and domains of QE4PE.](../figures/chap-9-qe4pe/mqm_errors.pdf){#fig-qe4pe-quality-mqm width=65%}
+
+![Median ESA quality improvement following post-editing for segments at various initial MT quality levels across translators' speed groups, showing no clear quality trends across editors' productivity levels.](../figures/chap-9-qe4pe/esa_quality_speed.pdf){#fig-qe4pe-quality-across-speed width=65%}
+
+![Editing proportion, measured by word error rate between MT and post-edited texts, with respect to post-editor progression. Values are medians across all post-editors.](../figures/chap-9-qe4pe/learning_effect_wer.pdf){#fig-qe4pe-learning-effect-wer width=100%}
+
+![Segment-level post-editing time with respect to post-editor progression. Values are medians across all annotators. Light gray area is min-max values, dark gray represents 25%-75% quantiles. The annotators do not became considerably faster with the task progression, likely due to the simplicity of the task and the high post-editing proficiency of professional post-editors. The high variability in editing times motivates the careful group assignments performed using [Pre]{.smallcaps} task edit logs.](../figures/chap-9-qe4pe/learning_effect_time.pdf){#fig-qe4pe-learning-effect-time width=100%}

@@ -1,0 +1,81 @@
+:::{#tbl-qe4pe-unsup-perf}
+
+:::{.content-visible when-format="html"}
+
+```{=html}
+<table class="center-table">
+    <thead>
+        <tr>
+            <th rowspan="2"><span data-qmd="**Method**"></span></th>
+            <th colspan="2" class="group-header"><span data-qmd="**DivEMT**"></span></th>
+            <th colspan="2" class="group-header"><span data-qmd="**QE4PE**"></span></th>
+        </tr>
+        <tr class="subheader">
+            <th><span data-qmd="**en-it**"></span></th>
+            <th><span data-qmd="**en-nl**"></span></th>
+            <th><span data-qmd="**en-it**"></span></th>
+            <th><span data-qmd="**en-nl**"></span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Logprobs</td>
+            <td>0.18</td>
+            <td>0.19</td>
+            <td>0.10</td>
+            <td>0.09</td>
+        </tr>
+        <tr>
+            <td>MCD Var.</td>
+            <td class="bold">0.41</td>
+            <td class="bold">0.42</td>
+            <td class="bold">0.23</td>
+            <td class="bold">0.31</td>
+        </tr>
+        <tr class="midrule">
+            <td><span data-qmd="XCOMET ([Sup.]{.smallcaps})"></span></td>
+            <td>0.34</td>
+            <td>0.35</td>
+            <td>0.16</td>
+            <td>0.19</td>
+        </tr>
+        <tr>
+            <td>Avg. Trans.</td>
+            <td>-</td>
+            <td>-</td>
+            <td>0.53</td>
+            <td>0.55</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+:::
+
+:::{.content-visible when-format="pdf"}
+
+```{=latex}
+\begin{table}
+    \centering
+    \footnotesize
+    \begin{tabular}{lcccc}
+        \toprule[1.5pt]
+        \multirow{2}{*}{\bf Method} & \multicolumn{2}{c}{\bf DivEMT} & \multicolumn{2}{c}{\bf QE4PE} \\
+         \cmidrule(lr){2-3}
+         \cmidrule(lr){4-5}
+         & \bf \textsc{en}-\textsc{it} & \bf \textsc{en}-\textsc{nl} & \bf  \textsc{en}-\textsc{it} & \bf \textsc{en}-\textsc{nl} \\
+        \midrule
+        Logprobs    & 0.18 & 0.19 & 0.10 & 0.09 \\
+        MCD Var.    & \textbf{0.41} & \textbf{0.42} & \textbf{0.23} & \textbf{0.31} \\
+        XCOMET (\SupervisedShort)     & 0.34 & 0.35 & 0.16 & 0.19 \\
+        \midrule
+        Avg. Trans. & -   & -   & 0.53 & 0.55\\
+        \bottomrule[1.5pt]
+    \end{tabular}
+\end{table}
+```
+
+:::
+
+Average Precision (AP) between metrics and reference error spans.
+:::
