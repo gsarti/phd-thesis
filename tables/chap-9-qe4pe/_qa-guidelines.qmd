@@ -103,13 +103,15 @@
 
 ```{=latex}
 \begin{table}
-    \tiny
+    \setlength{\tabcolsep}{3pt}
+    \scriptsize
     \begin{tabularx}{\linewidth}{llX}
+    \toprule
     \bf Error category &
     \bf Subcategory &
     \bf Description \\
     \midrule
-    \multirow{5}{*}{\makecell*[{{p{3cm}}}]{\textbf{Accuracy}\newline Incorrect meaning has been transferred to the source text.}}
+    \multirow{5}{*}{\makecell*[{{p{3cm}}}]{\textbf{Accuracy}\newline\vspace{3pt} Incorrect meaning has been transferred to the source text.}}
     & \textbf{Addition}
     & Translation includes the information that is not present in the source and it changes or distorts the original message. \\
     \cmidrule(lr){3-3}
@@ -121,14 +123,14 @@
     \cmidrule(lr){3-3}
     & \textbf{Untranslated} & Content that should have been translated has been left untranslated. \\
     \midrule
-    \multirow{3}{*}{\makecell*[{{p{3cm}}}]{\textbf{Linguistic}\newline Official linguistic reference sources such as grammar books.}}
+    \multirow{3}{*}{\makecell*[{{p{3cm}}}]{\textbf{Linguistic}\newline\vspace{3pt} Official linguistic reference sources such as grammar books.}}
     & \textbf{Punctuation} & Punctuation is used incorrectly (for the locale or style), including missing or extra white spaces and the incorrect use of space (non-breaking space). Violation of typographic conventions of the locale. \\
     \cmidrule(lr){3-3}
     & \textbf{Spelling} & Issues related to spelling of words, including typos, wrong word hyphenation, word breaks and capitalization. \\
     \cmidrule(lr){3-3}
     & \textbf{Grammar} & Issues related to the grammar or syntax of the text, other than spelling. \\
     \midrule
-    \multirow{3}{*}{\makecell*[{{p{3cm}}}]{\textbf{Style}\newline Not suitable/native; too literal or awkward.}}
+    \multirow{3}{*}{\makecell*[{{p{3cm}}}]{\textbf{Style}\newline\vspace{3pt} Not suitable/native; too literal or awkward.}}
     & \textbf{Inconsistent Style} & Style is inconsistent within a text. \\
     \cmidrule(lr){3-3}
     & \textbf{Readability} & Translation does not read well (due to heavy sentence structure, frequent repetitions, unidiomatic). \\

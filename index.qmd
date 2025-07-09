@@ -67,6 +67,6 @@ Main contributions aside, an important part of my research output during my PhD 
 
 - Scalena, D., **Sarti, G.** and Nissim, M. [-@scalena-etal-2024-multi]. Multi-property Steering of Large Language Models with Dynamic Activation Composition. In *Proceedings of the 7th Workshop on Analyzing and Interpreting Neural Networks for NLP (BlackboxNLP)*
 
-- Ghasemi Madani, M. R., Gema, A. P., **Sarti, G.**, Zhao, Y., Minervini, P. and Passerini, A. [-@madani-etal-2025-noiser]. Noiser: Bounded Input Perturbations for Attributing Large Language Models. *Arxiv Preprint*
+- Ghasemi Madani, M. R., Gema, A. P., **Sarti, G.**, Zhao, Y., Minervini, P. and Passerini, A. [-@ghasemi-madani-etal-2025-noiser]. Noiser: Bounded Input Perturbations for Attributing Large Language Models. In *Proceedings of the Second Conference on Language Modeling (CoLM)*
 
 - Candussio, S., Saveri, G., **Sarti, G.** and Bortolussi, L. [-@candussio-etal-2025-bridging]. Bridging Logic and Learning: Decoding Temporal Logic Embeddings via Transformers. In *Proceedings of the 2025 European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)*

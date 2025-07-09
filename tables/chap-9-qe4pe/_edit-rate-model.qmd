@@ -11,7 +11,7 @@
         <tr class="subheader">
             <th><span data-qmd="**Feature**"></span></th>
             <th><span data-qmd="**Coeff.**"></span></th>
-            <th><span data-qmd="**Significance**"></span></th>
+            <th><span data-qmd="**Sig.**"></span></th>
         </tr>
     </thead>
     <tbody>
@@ -138,19 +138,20 @@
 
 ```{=latex}
 \begin{table}
+    \setlength{\tabcolsep}{3pt}
     \footnotesize
     \centering
     \begin{tabular}{lcc}
     \toprule[1.5pt]
-    \multicolumn{3}{l}{\textbf{Target:} \% of edited characters in a segment (0-100).} \\
+    \multicolumn{3}{l}{\textbf{Target:} \% edited char. in segment (0-100).} \\
     \midrule
-    \textbf{Feature} & \textbf{Coeff.} & \textbf{Significance} \\
+    \textbf{Feature} & \textbf{Coeff.} & \textbf{Sig.} \\
     \midrule
     (Intercept)                      & 21.0  & *** \\
     MT Num. Chars                    & 10.3  & *** \\
-    Highlight Ratio \%               & 7.1   & *** \\
+    High. Ratio \%               & 7.1   & *** \\
     Target Lang.: ITA                & -9.9  & *** \\
-    Text Domain: Social              & 10.9  & *** \\
+    Domain: Social              & 10.9  & *** \\
     \OracleShort~Highlight           & -5.2  & \\
     \SupervisedShort Highlight       & -4.7  & \\
     \UnsupervisedShort~Highlight     & -0.9  & \\
@@ -160,14 +161,14 @@
     Social:\OracleShort              & 3.5  & *** \\
     Social:\SupervisedShort          & -0.4 &  \\
     Social:\UnsupervisedShort        & 2.1  & ** \\
-    Highlight Ratio:\OracleShort     & -0.18 & \\
-    Highlight Ratio:\SupervisedShort & -1.78 & *** \\
+    High. Ratio:\OracleShort     & -0.18 & \\
+    High. Ratio:\SupervisedShort & -1.78 & *** \\
     \midrule
     Edit Order & \multicolumn{2}{c}{\multirow{3}{*}{\textbf{Random Factors}}} \\
     Translator ID \\
     Segment ID \\
     \midrule
-    MT Num. Chars & \multicolumn{2}{c}{\multirow{4}{*}{\textbf{Zero-Inflation Factors}}} \\
+    MT \# Chars & \multicolumn{2}{c}{\multirow{4}{*}{\textbf{Zero-Inflation Factors}}} \\
     Target Lang \\
     Text Domain \\
     Translator ID \\

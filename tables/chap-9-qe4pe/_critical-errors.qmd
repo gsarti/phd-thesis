@@ -186,12 +186,12 @@
 
 ```{=latex}
 \begin{table}
-    \setlength{\tabcolsep}{4pt}
-    \small
+    \setlength{\tabcolsep}{3pt}
+    \footnotesize
     \centering
     \begin{tabular}{cl|ccc|cccc}
         \toprule[1.5pt]
-        \multirow{2}{*}{\textbf{\# Doc.-Seg.}} & \multirow{2}{*}{\textbf{Error Type}} & \multicolumn{3}{c}{\textbf{Has Highlight}} & \multicolumn{4}{c}{\textbf{\% Post-edited}} \\
+        \multirow{2}{*}{\textbf{ID}} & \multirow{2}{*}{\textbf{Error Type}} & \multicolumn{3}{c}{\textbf{Has Highlight}} & \multicolumn{4}{c}{\textbf{\% Post-edited}} \\
         \cmidrule(lr){3-5}
         \cmidrule(lr){6-9}
         & & \OracleShort & \UnsupervisedShort & \SupervisedShort & \NoHighlightShort & \OracleShort & \UnsupervisedShort & \SupervisedShort \\

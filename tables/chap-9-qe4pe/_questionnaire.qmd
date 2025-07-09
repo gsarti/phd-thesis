@@ -183,7 +183,7 @@
             </td>
         </tr>
         <tr>
-            <td>... influenced my editing choices.</td>
+            <td>... influenced my choices regarding edits.</td>
             <td>
                 <div class="bar-chart">
                     <div class="bar-group-3">
@@ -301,7 +301,7 @@
     ... improved my editing productivity. & \modblockshigh{2.33}{2.33}{2.00} & \modblockshigh{2.0}{2.67}{1.67} \\
     ... improved the quality of my translations. & \modblockshigh{1.33}{2.67}{1.33} & \modblockshigh{2}{3.33}{1.67} \\
     ... required additional editing effort on my part. & \modblockshigh{2.00}{2.67}{2.67} & \modblockshigh{2.00}{2.67}{2.67} \\
-    ... influenced my editing choices. & \modblockshigh{1}{2.00}{2.67} & \modblockshigh{1.67}{2.00}{2.00} \\
+    ... influenced my choices regarding edits. & \modblockshigh{1}{2.00}{2.67} & \modblockshigh{1.67}{2.00}{2.00} \\
     ... helped identify errors I'd have otherwise missed. & \modblockshigh{2}{2.33}{3} & \modblockshigh{1.33}{2}{1.67} \\
     \bottomrule[1.5pt]
     \end{tabular}

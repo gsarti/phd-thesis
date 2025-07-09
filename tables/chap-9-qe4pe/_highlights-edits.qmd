@@ -63,10 +63,10 @@
             <td class="bold">4.62</td>
             <td class="bold underline">0.45</td>
             <td class="bold">4.1</td>
-            <td class="bold">0.18<span style="color: #dc143c; font-size: 0.8em;">₋₀.₁₉</span></td>
-            <td class="bold">6.00<span style="color: #228b22; font-size: 0.8em;">₊₁.₃₈</span></td>
-            <td class="bold underline">0.55<span style="color: #228b22; font-size: 0.8em;">₊₀.₁₀</span></td>
-            <td class="bold">4.23<span style="color: #228b22; font-size: 0.8em;">₊₀.₁₄</span></td>
+            <td class="bold">0.18<span style="color: #dc143c; font-size: 1em;">₋₀.₁₉</span></td>
+            <td class="bold">6.00<span style="color: #228b22; font-size: 1em;">₊₁.₃₈</span></td>
+            <td class="bold underline">0.55<span style="color: #228b22; font-size: 1em;">₊₀.₁₀</span></td>
+            <td class="bold">4.23<span style="color: #228b22; font-size: 1em;">₊₀.₁₄</span></td>
         </tr>
         <tr>
             <td><span data-qmd="[Unsup.]{.smallcaps}"></span></td>
@@ -76,10 +76,10 @@
             <td>2.27</td>
             <td>0.21</td>
             <td>2.2</td>
-            <td>0.11<span style="color: #dc143c; font-size: 0.8em;">₋₀.₁₄</span></td>
-            <td>2.75<span style="color: #228b22; font-size: 0.8em;">₊₀.₄₈</span></td>
-            <td>0.37<span style="color: #228b22; font-size: 0.8em;">₊₀.₁₆</span></td>
-            <td>2.47<span style="color: #228b22; font-size: 0.8em;">₊₀.₂₆</span></td>
+            <td>0.11<span style="color: #dc143c; font-size: 1em;">₋₀.₁₄</span></td>
+            <td>2.75<span style="color: #228b22; font-size: 1em;">₊₀.₄₈</span></td>
+            <td>0.37<span style="color: #228b22; font-size: 1em;">₊₀.₁₆</span></td>
+            <td>2.47<span style="color: #228b22; font-size: 1em;">₊₀.₂₆</span></td>
         </tr>
         <tr class="midrule">
             <td><span data-qmd="[Sup.]{.smallcaps}"></span></td>
@@ -89,10 +89,10 @@
             <td>2.00</td>
             <td>0.22</td>
             <td>2.0</td>
-            <td>0.14<span style="color: #dc143c; font-size: 0.8em;">₋₀.₁₄</span></td>
-            <td>3.50<span style="color: #228b22; font-size: 0.8em;">₊₁.₅₀</span></td>
-            <td>0.35<span style="color: #228b22; font-size: 0.8em;">₊₀.₁₃</span></td>
-            <td>3.18<span style="color: #228b22; font-size: 0.8em;">₊₁.₁₈</span></td>
+            <td>0.14<span style="color: #dc143c; font-size: 1em;">₋₀.₁₄</span></td>
+            <td>3.50<span style="color: #228b22; font-size: 1em;">₊₁.₅₀</span></td>
+            <td>0.35<span style="color: #228b22; font-size: 1em;">₊₀.₁₃</span></td>
+            <td>3.18<span style="color: #228b22; font-size: 1em;">₊₁.₁₈</span></td>
         </tr>
         <tr class="section-header">
             <td colspan="11" class="bold center" style="background-color: #f0f0f0;"><span data-qmd="**en→nl**"></span></td>
@@ -131,10 +131,10 @@
             <td class="bold underline">4.33</td>
             <td class="bold underline">0.53</td>
             <td>3.12</td>
-            <td class="bold">0.28<span style="color: #228b22; font-size: 0.8em;">₊₀.₀₂</span></td>
-            <td class="bold">2.55<span style="color: #dc143c; font-size: 0.8em;">₋₁.₇₈</span></td>
-            <td class="bold underline">0.40<span style="color: #dc143c; font-size: 0.8em;">₋₀.₁₃</span></td>
-            <td>2.35<span style="color: #dc143c; font-size: 0.8em;">₋₀.₇₇</span></td>
+            <td class="bold">0.28<span style="color: #228b22; font-size: 1em;">₊₀.₀₂</span></td>
+            <td class="bold">2.55<span style="color: #dc143c; font-size: 1em;">₋₁.₇₈</span></td>
+            <td class="bold underline">0.40<span style="color: #dc143c; font-size: 1em;">₋₀.₁₃</span></td>
+            <td>2.35<span style="color: #dc143c; font-size: 1em;">₋₀.₇₇</span></td>
         </tr>
         <tr>
             <td><span data-qmd="[Unsup.]{.smallcaps}"></span></td>
@@ -144,10 +144,10 @@
             <td>2.50</td>
             <td>0.36</td>
             <td>2.00</td>
-            <td>0.22<span style="color: #228b22; font-size: 0.8em;">₊₀.₀₂</span></td>
-            <td>1.83<span style="color: #dc143c; font-size: 0.8em;">₋₀.₆₇</span></td>
-            <td>0.31<span style="color: #dc143c; font-size: 0.8em;">₋₀.₀₅</span></td>
-            <td>1.72<span style="color: #dc143c; font-size: 0.8em;">₋₀.₂₈</span></td>
+            <td>0.22<span style="color: #228b22; font-size: 1em;">₊₀.₀₂</span></td>
+            <td>1.83<span style="color: #dc143c; font-size: 1em;">₋₀.₆₇</span></td>
+            <td>0.31<span style="color: #dc143c; font-size: 1em;">₋₀.₀₅</span></td>
+            <td>1.72<span style="color: #dc143c; font-size: 1em;">₋₀.₂₈</span></td>
         </tr>
         <tr>
             <td><span data-qmd="[Sup.]{.smallcaps}"></span></td>
@@ -157,10 +157,10 @@
             <td>3.43</td>
             <td>0.33</td>
             <td class="bold">3.30</td>
-            <td class="bold">0.28<span style="color: #228b22; font-size: 0.8em;">₊₀.₀₄</span></td>
-            <td>2.33<span style="color: #dc143c; font-size: 0.8em;">₋₁.₁₀</span></td>
-            <td>0.24<span style="color: #dc143c; font-size: 0.8em;">₋₀.₀₉</span></td>
-            <td class="bold">2.40<span style="color: #dc143c; font-size: 0.8em;">₋₀.₉₀</span></td>
+            <td class="bold">0.28<span style="color: #228b22; font-size: 1em;">₊₀.₀₄</span></td>
+            <td>2.33<span style="color: #dc143c; font-size: 1em;">₋₁.₁₀</span></td>
+            <td>0.24<span style="color: #dc143c; font-size: 1em;">₋₀.₀₉</span></td>
+            <td class="bold">2.40<span style="color: #dc143c; font-size: 1em;">₋₀.₉₀</span></td>
         </tr>
     </tbody>
 </table>
@@ -172,8 +172,8 @@
 
 ```{=latex}
 \begin{table}
-    \setlength{\tabcolsep}{4.5pt}
-    \small
+    \setlength{\tabcolsep}{2.8pt}
+    \footnotesize
     \centering
     \begin{tabular}{lcc|clcl|llll}
         \toprule[1.5pt]
@@ -186,16 +186,16 @@
         \rowcolor{lightgray} \multicolumn{11}{c}{\textbf{\EnIt}}   \\
         \NoHighlightShort  & -    & 0.05 & -    & -    & -    & -   & -    & -    & -    & -    \\
         \Random            & 0.16 & -    & -    & -    & -    & -   & 0.06 & 1.20 & 0.18 & 1.20 \\
-        \OracleShort       & 0.15 & 0.12 & \textbf{0.37} & \textbf{4.62} & \underline{\textbf{0.45}} & \textbf{4.1} & \textbf{0.18}\noteneg{0.19} & \textbf{6.00}\notepos{1.38} & \underline{\textbf{0.55}}\notepos{0.10} & \textbf{4.23}\notepos{0.14} \\
-        \UnsupervisedShort & 0.16 & 0.13 & 0.25 & 2.27 & 0.21 & 2.2 & 0.11\noteneg{0.14} & 2.75\notepos{0.48} & 0.37\notepos{0.16} & 2.47\notepos{0.26} \\
-        \SupervisedShort   & 0.12 & 0.16 & 0.28 & 2.00 & 0.22 & 2.0 & 0.14\noteneg{0.14} & 3.50\notepos{1.50} & 0.35\notepos{0.13} & 3.18\notepos{1.18} \\
+        \OracleShort       & 0.15 & 0.12 & \textbf{0.37} & \textbf{4.62} & \underline{\textbf{0.45}} & \textbf{4.1} & \textbf{0.18}\noteneg{0.2} & \textbf{6.00}\notepos{1.4} & \underline{\textbf{0.55}}\notepos{0.1} & \textbf{4.23}\notepos{0.1} \\
+        \UnsupervisedShort & 0.16 & 0.13 & 0.25 & 2.27 & 0.21 & 2.2 & 0.11\noteneg{0.1} & 2.75\notepos{0.5} & 0.37\notepos{0.2} & 2.47\notepos{0.3} \\
+        \SupervisedShort   & 0.12 & 0.16 & 0.28 & 2.00 & 0.22 & 2.0 & 0.14\noteneg{0.1} & 3.50\notepos{1.5} & 0.35\notepos{0.1} & 3.18\notepos{1.2} \\
         \midrule
         \rowcolor{lightgray} \multicolumn{11}{c}{\textbf{\EnNl}}   \\
         \NoHighlightShort  & -    & 0.14 & -    & -    & -    & -   & -    & -    & -    & -    \\
         \Random            & 0.17 & -    & -    & -    & -    & -    & 0.16 & 1.14 & 0.19 & 1.19 \\
-        \OracleShort       & 0.20 & 0.10 & \textbf{0.26} & \underline{\textbf{4.33}} & \underline{\textbf{0.53}} & 3.12 & \textbf{0.28}\notepos{0.02} & \textbf{2.55}\noteneg{1.78} & \underline{\textbf{0.40}}\noteneg{0.13} & 2.35\noteneg{0.77} \\
-        \UnsupervisedShort & 0.20 & 0.11 & 0.20 & 2.50 & 0.36 & 2.00 & 0.22\notepos{0.02} & 1.83\noteneg{0.67} & 0.31\noteneg{0.05} & 1.72\noteneg{0.28} \\
-        \SupervisedShort   & 0.12 & 0.09 & 0.24 & 3.43 & 0.33 & \textbf{3.30} & \textbf{0.28}\notepos{0.04} & 2.33\noteneg{1.10} & 0.24\noteneg{0.09} & \textbf{2.40}\noteneg{0.90} \\
+        \OracleShort       & 0.20 & 0.10 & \textbf{0.26} & \underline{\textbf{4.33}} & \underline{\textbf{0.53}} & 3.12 & \textbf{0.28}\notepos{0.0} & \textbf{2.55}\noteneg{1.8} & \underline{\textbf{0.40}}\noteneg{0.1} & 2.35\noteneg{0.8} \\
+        \UnsupervisedShort & 0.20 & 0.11 & 0.20 & 2.50 & 0.36 & 2.00 & 0.22\notepos{0.0} & 1.83\noteneg{0.7} & 0.31\noteneg{0.1} & 1.72\noteneg{0.3} \\
+        \SupervisedShort   & 0.12 & 0.09 & 0.24 & 3.43 & 0.33 & \textbf{3.30} & \textbf{0.28}\notepos{0.0} & 2.33\noteneg{1.1} & 0.24\noteneg{0.1} & \textbf{2.40}\noteneg{0.9} \\
         \bottomrule[1.5pt]
     \end{tabular}
 \end{table}

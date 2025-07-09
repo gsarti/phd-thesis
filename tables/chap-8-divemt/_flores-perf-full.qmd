@@ -464,5 +464,5 @@
 
 :::
 
-Automatic MT quality of all evaluated NMT systems on all tested languages in the English-to-XX setting, using the FLORES-101 full devtest for evaluation. Besides mBART-50 and Google Translate (GTrans), we also evaluate a set of bilingual Transformer-based NMT models trained with MarianNMT [@tiedemann-thottingal-2020-opus], the DeepL industrial MT system and the multilingual M2M-100 418M model [@fan-etal-2021-beyond]. Best **overall** and [open-source only] performances are highlighted.
+Automatic MT quality of all evaluated NMT systems on all tested languages in the English-to-XX setting, using the FLORES-101 full devtest for evaluation. Besides mBART-50 and Google Translate (GTrans), we also evaluate a set of bilingual Transformer-based NMT models trained with MarianNMT [@tiedemann-thottingal-2020-opus], the DeepL industrial MT system and the multilingual M2M-100 418M model [@fan-etal-2021-beyond]. Best **overall** and [open-source only]{.underline} performances are highlighted.
 :::

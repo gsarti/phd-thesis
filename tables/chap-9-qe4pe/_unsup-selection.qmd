@@ -82,7 +82,8 @@
 
 ```{=latex}
 \begin{table}
-\small
+    \setlength{\tabcolsep}{3pt}
+    \footnotesize
     \centering
     \begin{tabular}{l|cccc|cccc}
     \toprule[1.5pt]

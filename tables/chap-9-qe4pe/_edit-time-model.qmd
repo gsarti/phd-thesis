@@ -11,7 +11,7 @@
         <tr class="subheader">
             <th><span data-qmd="**Feature**"></span></th>
             <th><span data-qmd="**Coeff.**"></span></th>
-            <th><span data-qmd="**Significance**"></span></th>
+            <th><span data-qmd="**Sig.**"></span></th>
         </tr>
     </thead>
     <tbody>
@@ -124,31 +124,32 @@
 
 ```{=latex}
 \begin{table}
+    \setlength{\tabcolsep}{3pt}
     \footnotesize
     \centering
     \begin{tabular}{lcc}
     \toprule[1.5pt]
     \multicolumn{3}{l}{\textbf{Target:} Seg. Edit Time, 5s bins from 0 to 600s} \\[0.2em]
     % \midrule
-    \textbf{Feature} & \textbf{Coeff.} & \textbf{Significance} \\
+    \textbf{Feature} & \textbf{Coeff.} & \textbf{Sig.} \\
     \midrule
-    (Intercept)                       & 1.67 & *** \\
+    (Intercept)                      & 1.67 & *** \\
     MT Num. Chars                    & 2.42 & *** \\
-    Highlight Ratio \%               & 1.59 & *** \\
+    High. Ratio \%                   & 1.59 & *** \\
     Target Lang.: ITA                & -0.34 & *** \\
-    Text Domain: Social              & 0.31 & *** \\
+    Domain: Social                   & 0.31 & *** \\
     \OracleShort~Highlight           & -0.79 & . \\
     \SupervisedShort Highlight       & 0.02 & \\
     \UnsupervisedShort~Highlight     & -0.07 & \\
-    MT XCOMET QE Score               & 0.01 & *** \\
+    MT \textsc{xcomet} QE            & 0.01 & *** \\
     ITA:\OracleShort                 & 0.91 & *** \\
     ITA:\SupervisedShort             & 1.18 & *** \\
     ITA:\UnsupervisedShort           & 0.48 & *** \\
     Social:\OracleShort              & -0.19 & ** \\
     Social:\SupervisedShort          & -0.34 & *** \\
     Social:\UnsupervisedShort        & -0.22 & *** \\
-    Highlight Ratio:\OracleShort     & -0.83 & * \\
-    Highlight Ratio:\SupervisedShort & -1.33 & *** \\
+    High. Ratio:\OracleShort         & -0.83 & * \\
+    High. Ratio:\SupervisedShort     & -1.33 & *** \\
     \midrule
     Edit Order & \multicolumn{2}{c}{\multirow{3}{*}{\textbf{Random Factors}}} \\
     Translator ID \\

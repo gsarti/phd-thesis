@@ -161,7 +161,7 @@
 \begin{table}
     \centering
     \tiny
-    \begin{tabular}{p{0.1in} p{0.1in} p{\textwidth - 0.6in}}
+    \begin{tabular}{p{0.1in} p{0.1in} p{\textwidth - 0.7in}}
         \toprule
         \multicolumn{3}{l}{\textsc{English} \hspace{2mm} The Internet combines elements of both mass and interpersonal communication.} \\
         \midrule

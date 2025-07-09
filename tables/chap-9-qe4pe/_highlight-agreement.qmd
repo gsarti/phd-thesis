@@ -111,8 +111,9 @@
 
 ```{=latex}
 \begin{table}
+\setlength{\tabcolsep}{3pt}
 \centering
-\small
+\footnotesize
 \begin{tabular}{r@{\hspace{1mm}}lccccccccc}
 \toprule[1.5pt]
 \multicolumn{2}{c}{\multirow{2}{*}{\textbf{Modalities}}} & \multicolumn{3}{c}{\textbf{\EnIt}} & \multicolumn{3}{c}{\textbf{\EnNl}} & \multicolumn{3}{c}{\textbf{Both}} \\

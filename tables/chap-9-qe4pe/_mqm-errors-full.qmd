@@ -352,8 +352,8 @@
 
 ```{=latex}
 \begin{table}
-    \setlength{\tabcolsep}{4pt}
-    \footnotesize
+    \setlength{\tabcolsep}{3pt}
+    \scriptsize
     \centering
     \begin{tabular}{ll|cc|cc|cc|cc|cc}
     \toprule[1.5pt]

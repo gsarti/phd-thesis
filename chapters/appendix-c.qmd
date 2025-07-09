@@ -109,13 +109,17 @@ From this sequential procedure, we obtain the resulting model. When checking the
 
 The same heuristics were applied to both translation directions, selecting only documents matching our criteria in both cases.
 
+### Additional Details and Statistics {#sec-qe4pe-additional}
+
 {{< include ../tables/chap-9-qe4pe/_critical-errors-examples.qmd >}}
 
+{{< include ../tables/chap-9-qe4pe/_highlight-agreement.qmd >}}
+
+:::{layout="[47,-3,42]"}
 {{< include ../tables/chap-9-qe4pe/_edit-time-model.qmd >}}
 
 {{< include ../tables/chap-9-qe4pe/_edit-rate-model.qmd >}}
-
-{{< include ../tables/chap-9-qe4pe/_highlight-agreement.qmd >}}
+:::
 
 {{< include ../tables/chap-9-qe4pe/_edit-highlights-stats-domain-modality.qmd >}}
 
@@ -133,13 +137,13 @@ The same heuristics were applied to both translation directions, selecting only 
 
 ![**Top:** Post-editing rate across highlight modalities, domains and directions. **Bottom:** Proportion of edits in highlighted spans across highlight modalities. *** $=p<0.001$, ** $=p<0.01$, * $=p<0.05$, ns $=$ not significant with Bonferroni correction.](../figures/chap-9-qe4pe/edit_highlighted_edit_rates.pdf){#fig-qe4pe-editing width=65%}
 
-![Post-editing agreement across various modalities (@sec-qe4pe-highlights-edits). Results are averaged across all translator pairs for the two modalities ($n = 3$ intra-modality, $n=9$ inter-modality for every language) and all segments.](../figures/chap-9-qe4pe/pe_agreement.pdf){#fig-qe4pe-edit-agreement width=65%}
+![Post-editing agreement across various modalities (@sec-qe4pe-highlights-edits). Results are averaged across all translator pairs for the two modalities ($n = 3$ intra-modality, $n=9$ inter-modality for every language) and all segments.](../figures/chap-9-qe4pe/pe_agreement.pdf){#fig-qe4pe-edit-agreement width=75%}
 
-![ESA ratings for MT outputs and post-edits across domains and translation directions.](../figures/chap-9-qe4pe/esa_counts_splits.pdf){#fig-qe4pe-esa-domains-langs width=65%}
+![ESA ratings for MT outputs and post-edits across domains and translation directions.](../figures/chap-9-qe4pe/esa_counts_splits.pdf){#fig-qe4pe-esa-domains-langs width=55%}
 
-![Distribution of MQM error categories for MT and post-edits across highlight modalities for the two translation directions and domains of QE4PE.](../figures/chap-9-qe4pe/mqm_errors.pdf){#fig-qe4pe-quality-mqm width=65%}
+![Distribution of MQM error categories for MT and post-edits across highlight modalities for the two translation directions and domains of QE4PE.](../figures/chap-9-qe4pe/mqm_errors.pdf){#fig-qe4pe-quality-mqm width=60%}
 
-![Median ESA quality improvement following post-editing for segments at various initial MT quality levels across translators' speed groups, showing no clear quality trends across editors' productivity levels.](../figures/chap-9-qe4pe/esa_quality_speed.pdf){#fig-qe4pe-quality-across-speed width=65%}
+![Median ESA quality improvement following post-editing for segments at various initial MT quality levels across translators' speed groups, showing no clear quality trends across editors' productivity levels.](../figures/chap-9-qe4pe/esa_quality_speed.pdf){#fig-qe4pe-quality-across-speed width=70%}
 
 ![Editing proportion, measured by word error rate between MT and post-edited texts, with respect to post-editor progression. Values are medians across all post-editors.](../figures/chap-9-qe4pe/learning_effect_wer.pdf){#fig-qe4pe-learning-effect-wer width=100%}
 
