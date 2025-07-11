@@ -16,7 +16,7 @@
     </thead>
     <tbody>
         <tr>
-            <td>(Intercept)</td>
+            <td class="longrow">(Intercept)</td>
             <td>1.67</td>
             <td>***</td>
         </tr>

@@ -1,8 +1,18 @@
 # Context Attribution for Trustworthy Retrieval-Augmented Generation {#sec-chap-5-mirage}
 
-> This chapter is adapted from the paper *Model Internals-based Answer Attribution for Trustworthy Retrieval-Augmented Generation* [@qi-etal-2024-model].
+::: {.callout-note appearance="simple" icon="false"}
 
-> **Chapter Summary:** Ensuring the verifiability of model answers is a fundamental challenge for retrieval-augmented generation (RAG) in the question answering (QA) domain. Recently, self-citation prompting was proposed to make large language models (LLMs) generate citations to supporting documents along with their answers. However, self-citing LLMs often struggle to match the required format, refer to non-existent sources, and fail to faithfully reflect LLMs’ context usage throughout the generation. In this work, we present [Mirage]{.smallcaps} – Model Internals-based RAG Explanations – a plug-and-play approach using model internals for faithful answer attribution in RAG applications. [Mirage]{.smallcaps} detects context-sensitive answer tokens and pairs them with retrieved documents contributing to their prediction via saliency methods. We evaluate our proposed approach on a multilingual extractive QA dataset, finding high agreement with human answer attribution. On open-ended QA, [Mirage]{.smallcaps} achieves citation quality and efficiency comparable to self-citation while also allowing for a finer-grained control of attribution parameters. Our qualitative evaluation highlights the faithfulness of [Mirage]{.smallcaps} attributions and underscores the promising application of model internals for RAG answer attribution.
+This chapter is adapted from the paper *Model Internals-based Answer Attribution for Trustworthy Retrieval-Augmented Generation* [@qi-etal-2024-model].
+
+:::
+
+::: {.callout-note icon="false"}
+
+## Chapter Summary
+
+Ensuring the verifiability of model answers is a fundamental challenge for retrieval-augmented generation (RAG) in the question answering (QA) domain. Recently, self-citation prompting was proposed to make large language models (LLMs) generate citations to supporting documents along with their answers. However, self-citing LLMs often struggle to match the required format, refer to non-existent sources, and fail to faithfully reflect LLMs’ context usage throughout the generation. In this work, we present [Mirage]{.smallcaps} – Model Internals-based RAG Explanations – a plug-and-play approach using model internals for faithful answer attribution in RAG applications. [Mirage]{.smallcaps} detects context-sensitive answer tokens and pairs them with retrieved documents contributing to their prediction via saliency methods. We evaluate our proposed approach on a multilingual extractive QA dataset, finding high agreement with human answer attribution. On open-ended QA, [Mirage]{.smallcaps} achieves citation quality and efficiency comparable to self-citation while also allowing for a finer-grained control of attribution parameters. Our qualitative evaluation highlights the faithfulness of [Mirage]{.smallcaps} attributions and underscores the promising application of model internals for RAG answer attribution.
+
+:::
 
 ## Introduction {#sec-chap5-intro}
 
