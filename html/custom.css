@@ -137,6 +137,11 @@
     width: 105px;
 }
 
+.mediumlongrow {
+    display: inline-block;
+    width: 150px;
+}
+
 .longrow {
     display: inline-block;
     width: 200px;
@@ -210,6 +215,14 @@ figure.quarto-float-tbl figcaption.quarto-float-caption-bottom {
     background-color: rgb(191, 191, 255) !important;
 }
 
+.bg-blue-d {
+    background-color: rgb(161, 161, 255) !important;
+}
+
+.bg-blue-e {
+    background-color: rgb(130, 130, 255) !important;
+}
+
 .bg-blue-f {
     background-color: rgb(89, 89, 255) !important;
 }
@@ -237,4 +250,18 @@ figure.quarto-float-tbl figcaption.quarto-float-caption-bottom {
 
 .bg-red-f {
     background-color: rgb(255, 89, 89) !important;
+}
+
+.bg-green {
+    background-color: #75A875 !important
+}
+
+#refs > div {
+	margin-bottom: 10px;
+	margin-left: 40px;
+	text-indent: -40px;
+}
+
+.sidebar-menu-container > * > .sidebar-item {
+    margin-top: 15px;
 }

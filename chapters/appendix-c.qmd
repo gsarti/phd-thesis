@@ -57,12 +57,12 @@ An extract of the translation guidelines provided to the translators follows. Th
 ![Character-level Human-targeted Translation Edit Rate (CharacTER) for Google Translate and mBART-50 post-editing across available languages.](../figures/chap-8-divemt/cer_per_system.pdf){#fig-character width="65%" fig-pos="t"}
 
 [CharacTER Across Systems and Languages]{.paragraph} While HTER is a standard metric adopted both in academic and industrial settings, we also evaluated its character-level variant CharacTER [@wang-etal-2016-character] to assess whether it could better account for the editing process of morphologically rich languages.
-[@fig-character] presents the CharacTER results. When comparing this plot to the HTER one ([@fig-hter]),
+[@fig-character] presents the CharacTER results. When comparing this plot to the HTER one (@fig-hter),
 we notice that CharacTER preserves the overall trends, but slightly improves the edit rate for Arabic and Turkish with respect to other languages. Nevertheless, we find HTER to correlate slightly better with productivity scores across all tested languages, both at a sentence and at a document level. For this reason, word-level results are reported in the article's main body.
 
 [Automatic Evaluation of NMT Systems]{.paragraph} The selection of systems used in this study was driven by a broader evaluation procedure covering more models, metrics and target languages. [@tbl-flores-perf-full] presents the overall results of our evaluation. We use HuggingFace’s Transformers library [@wolf-etal-2020-transformers] for all neural models, using the default decoding settings without further fine-tuning. All metrics were computed using the default settings of SacreBLEU [@post-2018-call] and Comet [@rei-etal-2020-comet].
 
-[Inter-subject Variability in Translation Times]{.paragraph} Although the variability across different subjects working on the same language directions is not the main concern of our investigation, we produce [@fig-time-per-src-word-per-translator] (an expanded version of [@fig-time-per-src-word]) to visualize the inter-subject variability for translation times. We observe that the variability across different translators is more pronounced when translating from scratch and that the overall trend of speed improvements associated with PE is mostly preserved (with few exceptions related to the PE$_2$ modality).
+[Inter-subject Variability in Translation Times]{.paragraph} Although the variability across different subjects working on the same language directions is not the main concern of our investigation, we produce [@fig-time-per-src-word-per-translator] (an expanded version of @fig-time-per-src-word) to visualize the inter-subject variability for translation times. We observe that the variability across different translators is more pronounced when translating from scratch and that the overall trend of speed improvements associated with PE is mostly preserved (with few exceptions related to the PE$_2$ modality).
 
 ![Time per processed source word across languages, subjects and translation modalities, measured in seconds. Each point represents a document containing 3--5 sentences translated by a subject in one of the languages, with higher scores representing slower editing.](../figures/chap-8-divemt/trans_time_per_word_per_mode.pdf){#fig-time-per-src-word-per-translator width="80%"}
 
@@ -103,7 +103,7 @@ From this sequential procedure, we obtain the resulting model. When checking the
 
 ### Filtering Details for QE4PE Data {#sec-qe4pe-data-stats}
 
-1. *Documents should contain between 4 and 10 segments, each containing 10-100 words (959 docs).* This ensures that all documents are roughly uniform in terms of size and complexity to maintain a steady editing flow (@sec-qe4pe-interface).
+1. *Documents should contain between 4 and 10 segments, each containing 10-100 words (959 docs).* This ensures that all documents are roughly uniform in terms of size and complexity to maintain a steady editing flow [@sec-qe4pe-interface].
 2. *The average segment-level QE score predicted by XCOMET-XXL is between 0.3 and 0.95, with no segment below 0.3 (429 docs).* This forces segments to have a decent but still imperfect quality, excluding fully wrong translations.
 3. *At least 3 and at most 20 errors spans per document, with no more than 30% of words in the document being highlighted (351 docs).* This avoids overwhelming the editor with excessive highlighting, while still ensuring error presence.
 
@@ -137,7 +137,7 @@ The same heuristics were applied to both translation directions, selecting only 
 
 ![**Top:** Post-editing rate across highlight modalities, domains and directions. **Bottom:** Proportion of edits in highlighted spans across highlight modalities. *** $=p<0.001$, ** $=p<0.01$, * $=p<0.05$, ns $=$ not significant with Bonferroni correction.](../figures/chap-9-qe4pe/edit_highlighted_edit_rates.pdf){#fig-qe4pe-editing width=65%}
 
-![Post-editing agreement across various modalities (@sec-qe4pe-highlights-edits). Results are averaged across all translator pairs for the two modalities ($n = 3$ intra-modality, $n=9$ inter-modality for every language) and all segments.](../figures/chap-9-qe4pe/pe_agreement.pdf){#fig-qe4pe-edit-agreement width=75%}
+![Post-editing agreement across various modalities [@sec-qe4pe-highlights-edits]. Results are averaged across all translator pairs for the two modalities ($n = 3$ intra-modality, $n=9$ inter-modality for every language) and all segments.](../figures/chap-9-qe4pe/pe_agreement.pdf){#fig-qe4pe-edit-agreement width=75%}
 
 ![ESA ratings for MT outputs and post-edits across domains and translation directions.](../figures/chap-9-qe4pe/esa_counts_splits.pdf){#fig-qe4pe-esa-domains-langs width=55%}
 
@@ -148,3 +148,36 @@ The same heuristics were applied to both translation directions, selecting only 
 ![Editing proportion, measured by word error rate between MT and post-edited texts, with respect to post-editor progression. Values are medians across all post-editors.](../figures/chap-9-qe4pe/learning_effect_wer.pdf){#fig-qe4pe-learning-effect-wer width=100%}
 
 ![Segment-level post-editing time with respect to post-editor progression. Values are medians across all annotators. Light gray area is min-max values, dark gray represents 25%-75% quantiles. The annotators do not became considerably faster with the task progression, likely due to the simplicity of the task and the high post-editing proficiency of professional post-editors. The high variability in editing times motivates the careful group assignments performed using [Pre]{.smallcaps} task edit logs.](../figures/chap-9-qe4pe/learning_effect_time.pdf){#fig-qe4pe-learning-effect-time width=100%}
+
+{{< pagebreak >}}
+\FloatBarrier
+
+## Unsupervised MT Error Detection and Human Disagreement {#sec-unsup-wqe-appendix}
+
+### Evaluation Details {#sec-unsup-wqe-evaluation-details}
+
+[Token-level Evaluation]{.paragraph} Error spans used as labels in our evaluation are defined at the character level, while metric scores depend on the tokenization employed by either the MT model (for unsupervised metrics) or [xcomet]{.smallcaps} (for supervised metrics). To allow for comparison, we label tokens as being part of an error span if at least one character contained in it was marked as an error or edited by an annotator. @tbl-example-qe4pe-ita and @tbl-example-wmt24-encs provide examples of various segmentations for the same MT output.
+
+{{< include ../tables/chap-10-unsup-wqe/_example-qe4pe-ita.qmd >}}
+
+{{< include ../tables/chap-10-unsup-wqe/_example-wmt24-encs.qmd >}}
+
+[Constraining generation]{.paragraph} Evaluating metrics at the word level can be challenging due to the need for perfect uniformity between model generations and annotated spans. For this reason we extract unsupervised metrics during generation while force-decoding the annotated outputs from the MT model to ensure perfect adherence with annotated error spans. In general, such an approach could introduce a problematic confounder in the evaluation, since observed results could be the product of constraining a model towards an unnatural generation, rather than reflecting underlying phenomena. However, in this study, we carefully ensure that the generation setup matches exactly the one of previous works where the annotated translations were produced, using the same MT model and the same inputs.[^generation-params] Hence, the constraining process is a simple insurance of conformity in light of potential discrepancies introduced by different decoding strategies, and does not affect the soundness of our method.
+
+[^generation-params]: Generation parameters are not relevant in this setting, provided that they only alter the selection of the following output token, which we do via force-decoding.
+
+{{< include ../tables/chap-10-unsup-wqe/_qe4pe-ita-results.qmd >}}
+
+{{< include ../tables/chap-10-unsup-wqe/_qe4pe-nld-results.qmd >}}
+
+{{< include ../tables/chap-10-unsup-wqe/_divemt-results.qmd >}}
+
+{{< include ../tables/chap-10-unsup-wqe/_wmt24esa-results.qmd >}}
+
+![Precision-recall curves for [xcomet]{.smallcaps} metrics and Surprisal MCD~var~ for all annotators of QE4PE En$\rightarrow$It.](../figures/chap-10-unsup-wqe/qe4pe_ita_metrics_pr_curves.pdf){#fig-qe4pe-ita-pr-curves}
+
+![Precision-recall curves for [xcomet]{.smallcaps} metrics and Surprisal MCD~var~ for all annotators of QE4PE En$\rightarrow$Nl.](../figures/chap-10-unsup-wqe/qe4pe_nld_metrics_pr_curves.pdf){#fig-qe4pe-nld-pr-curves}
+
+![Precision-recall curves for [xcomet]{.smallcaps} metrics and Surprisal MCD~var~ on all [DivEMT]{.smallcaps} languages.](../figures/chap-10-unsup-wqe/divemt_metrics_pr_curves.pdf){#fig-divemt-pr-curves}
+
+![Precision-recall curves for [xcomet]{.smallcaps} metrics and Out. Entropy on all WMT24 languages.](../figures/chap-10-unsup-wqe/wmt24esa_metrics_pr_curves.pdf){#fig-wmt24esa-pr-curves}

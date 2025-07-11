@@ -67,15 +67,11 @@
 \definecolor{MajorErrorColor}{RGB}{230,149,0}
 \definecolor{MinorErrorColor}{RGB}{230, 187, 0}
 
-\newcommand{\EnNl}{English$\rightarrow$Dutch\xspace}
-\newcommand{\EnIt}{English$\rightarrow$Italian\xspace}
-\newcommand{\EnDe}{English$\rightarrow$German\xspace}
-\newcommand{\EnNlS}{En$\rightarrow$Nl\xspace}
-\newcommand{\EnItS}{En$\rightarrow$It\xspace}
 \newcommand{\nohighlight}{\textcolor{NoHighlightColor}{\textbf{\textit{no highlight}}}\xspace}
 \newcommand{\unsupervised}{\textcolor{UnsupervisedColor}{\textbf{\textit{unsupervised}}}\xspace}
 \newcommand{\supervised}{\textcolor{SupervisedColor}{\textbf{\textit{supervised}}}\xspace}
 \newcommand{\oracle}{\textcolor{OracleColor}{\textbf{\textit{oracle}}}\xspace}
+
 \newcommand{\NoHighlight}{\textcolor{NoHighlightColor}{\textbf{No Highlight}}\xspace}
 \newcommand{\Unsupervised}{\textcolor{UnsupervisedColor}{\textbf{Unsupervised}}\xspace}
 \newcommand{\Supervised}{\textcolor{SupervisedColor}{\textbf{Supervised}}\xspace}
@@ -92,6 +88,8 @@
 
 \newcommand{\qemajor}[1]{\textcolor{black}{\sethlcolor{Apricot}\hl{#1}}}
 \newcommand{\nohighvv}[1]{{\color{NoHighlightColor}\vv{\color{black}{#1}}}}
+
+\newcommand{\ncbox}[3]{$\overset{\text{#2}}{\colorbox{#1}{\text{#3}}}$}
 
 \def\modblocks#1#2#3#4{
     \vspace{0.07cm}
@@ -130,3 +128,44 @@
     \hspace{-0.3cm}
     \vspace{-0.4cm}
 }
+
+\definecolor{Blue1}{RGB}{204, 229, 255}  % A very light, airy blue
+\definecolor{Blue2}{RGB}{179, 217, 255}  % A light sky blue
+\definecolor{Blue3}{RGB}{153, 204, 255}  % A clear, medium-light blue
+\definecolor{Blue4}{RGB}{128, 191, 255}  % A slightly deeper light blue
+\definecolor{Blue5}{RGB}{102, 178, 255}  % A medium blue, still light enough
+\definecolor{Blue6}{RGB}{77, 153, 230}
+
+\definecolor{Red1}{RGB}{255, 229, 229}  % A very light, almost pastel pinkish-red
+\definecolor{Red2}{RGB}{255, 204, 204}  % A light pink-red
+\definecolor{Red3}{RGB}{255, 179, 179}  % A clear, medium-light red
+\definecolor{Red4}{RGB}{255, 153, 153}  % A slightly deeper light red
+\definecolor{Red5}{RGB}{244, 143, 143}  % A medium-light salmon red, still providing good contrast
+\definecolor{Red6}{RGB}{230, 120, 120}
+
+\newcommand{\best}{{\tiny~$_{\textsc{best}}$~}}
+\newcommand{\mcdavg}{{\tiny~$_{\textsc{mcd avg}}$~}}
+\newcommand{\mcdvar}{{\tiny~$_{\textsc{mcd var}}$~}}
+\newcommand{\minim}{{\tiny~$_{\textsc{min}}$~}}
+\newcommand{\maxim}{{\tiny~$_{\textsc{max}}$~}}
+\newcommand{\var}{{\tiny~$_{\textsc{var}}$~}}
+\newcommand{\avg}{{\tiny~$_{\textsc{avg}}$~}}
+\newcommand{\topk}{{\tiny~$_{\textsc{top-}5}$~}}
+\newcommand{\severity}{{\tiny~$_{\textsc{severity}}$~}}
+\newcommand{\confw}{{\tiny~$_{\textsc{conf}}$~}}
+\newcommand{\binary}{{\tiny~$_{\textsc{binary}}$~}}
+\renewcommand{\u}[1]{\underline{#1}}
+\renewcommand{\b}[1]{\textbf{#1}}
+
+\newcommand{\EnNl}{\textsc{en}$\rightarrow$\textsc{nl}\xspace}
+\newcommand{\EnIt}{\textsc{en}$\rightarrow$\textsc{it}\xspace}
+\newcommand{\EnTr}{\textsc{en}$\rightarrow$\textsc{tr}\xspace}
+\newcommand{\EnUk}{\textsc{en}$\rightarrow$\textsc{uk}\xspace}
+\newcommand{\EnAr}{\textsc{en}$\rightarrow$\textsc{ar}\xspace}
+\newcommand{\EnVi}{\textsc{en}$\rightarrow$\textsc{vi}\xspace}
+\newcommand{\EnCs}{\textsc{en}$\rightarrow$\textsc{cs}\xspace}
+\newcommand{\EnZh}{\textsc{en}$\rightarrow$\textsc{zh}\xspace}
+\newcommand{\EnJa}{\textsc{en}$\rightarrow$\textsc{ja}\xspace}
+\newcommand{\EnHi}{\textsc{en}$\rightarrow$\textsc{hi}\xspace}
+\newcommand{\EnRu}{\textsc{en}$\rightarrow$\textsc{ru}\xspace}
+\newcommand{\CsUk}{\textsc{cs}$\rightarrow$\textsc{uk}\xspace}

@@ -189,7 +189,7 @@
         \toprule[1.5pt]
 \bf Domain & \bf Speed & $\mathbf{P(H)}$& $\mathbf{P(E)}$  & $\mathbf{P(E|H)}$ & $\mathbf{P(E|\neg H)}$ & $\mathbf{\Lambda_H(E)}$ & $\mathbf{P(H|E)}$ & $\mathbf{P(H|\neg E)}$ & $\mathbf{\Lambda_E(H)}$ \\
 \midrule
-\rowcolor{lightgray} \multicolumn{10}{c}{\textbf{\EnIt}}   \\
+\rowcolor{lightgray} \multicolumn{10}{c}{\textbf{English$\rightarrow$Italian\xspace}}   \\
 \multirow{3}{*}{Biomed.} & Fast  &  \multirow{3}{*}{.09} &  .04/.01 &  .12/.02 &  .03/.01 &  4.0/2.0 &  .30/.27 &  .08/.11 &  3.7/2.4 \\
                          & Avg.  &                       &  .10/.05 &  .27/.12 &  .09/.04 &  3.0/3.0 &  .22/.30 &  .07/.11 &  3.1/2.7 \\
                          & Slow  &                       &  .09/.02 &  .21/.04 &  .08/.01 &  2.6/4.0 &  .19/.26 &  .07/.11 &  2.7/2.3 \\
@@ -198,7 +198,7 @@
                          & Avg.  &                       &  .23/.14 &  .48/.32 &  .18/.10 &  2.6/3.2 &  .30/.42 &  .09/.15 &  3.3/2.8 \\ 
                          & Slow  &                       &  .17/.05 &  .39/.14 &  .14/.03 &  2.7/4.6 &  .31/.54 &  .11/.17 &  2.8/3.1 \\ 
 \midrule
-\rowcolor{lightgray} \multicolumn{10}{c}{\textbf{\EnNl}}   \\
+\rowcolor{lightgray} \multicolumn{10}{c}{\textbf{English$\rightarrow$Dutch\xspace}}   \\
 \multirow{3}{*}{Biomed.} & Fast  & \multirow{3}{*}{.14}  &  .03/.02 &  .11/.05 &  .02/.01 &  5.5/5.0 &  .48/.61 &  .13/.18 &  3.6/3.3 \\
                          & Avg.  &                       &  .11/.19 &  .20/.30 &  .10/.17 &  2.0/1.7 &  .25/.29 &  .13/.16 &  1.9/1.8 \\
                          & Slow  &                       &  .12/.10 &  .26/.23 &  .10/.07 &  2.6/3.2 &  .29/.42 &  .12/.16 &  2.4/2.6 \\

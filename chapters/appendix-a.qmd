@@ -1,4 +1,4 @@
-# Context Usage in Machine Translation and Multilingual NLP {#sec-appendix-a}
+# Context Usage in Multilingual NLP {#sec-appendix-a}
 
 ## Attributing Language Model Generations with the Inseq Toolkit {#sec-inseq-appendix}
 

@@ -3,18 +3,19 @@
 :::{.content-visible when-format="html"}
 
 ```{=html}
-<table class="fullwidthtable leftalign">
+<p style="font-weight: bold;font-style: italic;font-size: 0.8em">Hover bars to see avg. response values.</p>
+<table class="center-table leftalign">
     <thead>
         <tr>
-            <th style="width: 60%;"><span data-qmd="**Question**"></span></th>
-            <th style="width: 20%;"><span data-qmd="**Italian**"></span></th>
-            <th style="width: 20%;"><span data-qmd="**Dutch**"></span></th>
+            <th><span data-qmd="**Question**"></span></th>
+            <th class="bar-chart-cell"><span data-qmd="**Italian**"></span></th>
+            <th class="bar-chart-cell"><span data-qmd="**Dutch**"></span></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>MT outputs were generally of high quality.</td>
-            <td>
+            <td class="longrow">MT outputs were generally of high quality.</td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group">
                         <div class="bar" style="height: 66.6%; background-color: #3949f5;" title="No Highlight: 3.33"></div>
@@ -25,7 +26,7 @@
                     <div class="midline"></div>
                 </div>
             </td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group">
                         <div class="bar" style="height: 46.6%; background-color: #3949f5;" title="No Highlight: 2.33"></div>
@@ -39,7 +40,7 @@
         </tr>
         <tr class="midrule">
             <td>Provided texts were challenging to translate.</td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group">
                         <div class="bar" style="height: 66.6%; background-color: #3949f5;" title="No Highlight: 3.33"></div>
@@ -50,7 +51,7 @@
                     <div class="midline"></div>
                 </div>
             </td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group">
                         <div class="bar" style="height: 93.4%; background-color: #3949f5;" title="No Highlight: 4.67"></div>
@@ -69,7 +70,7 @@
         </tr>
         <tr>
             <td>... were generally accurate in detecting potential issues.</td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 53.4%; background-color: #1c9a0e;" title="Oracle: 2.67"></div>
@@ -79,7 +80,7 @@
                     <div class="midline"></div>
                 </div>
             </td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 60%; background-color: #1c9a0e;" title="Oracle: 3"></div>
@@ -92,7 +93,7 @@
         </tr>
         <tr>
             <td>... were generally useful during editing.</td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 46.6%; background-color: #1c9a0e;" title="Oracle: 2.33"></div>
@@ -102,7 +103,7 @@
                     <div class="midline"></div>
                 </div>
             </td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 33.4%; background-color: #1c9a0e;" title="Oracle: 1.67"></div>
@@ -115,7 +116,7 @@
         </tr>
         <tr>
             <td>... improved my editing productivity.</td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 46.6%; background-color: #1c9a0e;" title="Oracle: 2.33"></div>
@@ -125,7 +126,7 @@
                     <div class="midline"></div>
                 </div>
             </td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 40%; background-color: #1c9a0e;" title="Oracle: 2.0"></div>
@@ -138,7 +139,7 @@
         </tr>
         <tr>
             <td>... improved the quality of my translations.</td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 26.6%; background-color: #1c9a0e;" title="Oracle: 1.33"></div>
@@ -148,7 +149,7 @@
                     <div class="midline"></div>
                 </div>
             </td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 40%; background-color: #1c9a0e;" title="Oracle: 2"></div>
@@ -161,7 +162,7 @@
         </tr>
         <tr>
             <td>... required additional editing effort on my part.</td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 40%; background-color: #1c9a0e;" title="Oracle: 2.00"></div>
@@ -171,7 +172,7 @@
                     <div class="midline"></div>
                 </div>
             </td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 40%; background-color: #1c9a0e;" title="Oracle: 2.00"></div>
@@ -184,7 +185,7 @@
         </tr>
         <tr>
             <td>... influenced my choices regarding edits.</td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 20%; background-color: #1c9a0e;" title="Oracle: 1"></div>
@@ -194,7 +195,7 @@
                     <div class="midline"></div>
                 </div>
             </td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 33.4%; background-color: #1c9a0e;" title="Oracle: 1.67"></div>
@@ -207,7 +208,7 @@
         </tr>
         <tr>
             <td>... helped identify errors I'd have otherwise missed.</td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 40%; background-color: #1c9a0e;" title="Oracle: 2"></div>
@@ -217,7 +218,7 @@
                     <div class="midline"></div>
                 </div>
             </td>
-            <td>
+            <td class="bar-chart-cell">
                 <div class="bar-chart">
                     <div class="bar-group-3">
                         <div class="bar" style="height: 26.6%; background-color: #1c9a0e;" title="Oracle: 1.33"></div>
@@ -237,7 +238,6 @@
     height: 40px;
     display: flex;
     align-items: flex-end;
-    margin: 5px 0;
 }
 
 .bar-group {
@@ -272,10 +272,9 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: #888;
     border-style: dashed;
-    border-width: 1px 0 0 0;
-    border-color: #888;
+    border-width: 2px 0 0 0;
+    width: 80px;
 }
 </style>
 ```

@@ -2,30 +2,42 @@ project:
   type: book
   output-dir: _output
 book:
-  title: "RUG PhD Thesis Template" # Your thesis title
-  subtitle: "" # Your thesis subtitle if present, empty otherwise
+  title: "From Insights to Impact" # Your thesis title
+  subtitle: "User-centric Interpretability for Neural Machine Translation" # Your thesis subtitle if present, empty otherwise
   author: "Gabriele Sarti" # Your name in FirstName LastName format
-  favicon: figures/logos/rug_crest.png # Icon for the web version of the thesis
-  description: A template for writing a RUG PhD thesis in Quarto. # Description for the web version of the thesis
+  favicon: figures/logos/rug_crest_icon.png # Icon for the web version of the thesis
+  description: "Ph.D. Thesis, Center for Language and Cognition (CLCG), University of Groningen" # Description for the web version of the thesis
   keyword: phd, thesis, quarto, template, groningen, rug, gronlp # Keywords for the web version of the thesis
   url: https://gsarti.com/phd-thesis # The URL at which your thesis will be published
+  back-to-top-navigation: true
   sidebar: 
-    logo: figures/logos/rug_crest.png # Remove if you don't want any logo in the website sidebar
+    logo: figures/logos/rug_eng_red.png # Remove if you don't want any logo in the website sidebar
     logo-alt: RUG Coat of Arms # Remove if you don't want any logo in the website sidebar
     search: true
-    background: "#F5F5F5"
+    background: "#ffffff"
     tools:
       - icon: github
         href: https://github.com/gsarti/phd-thesis
       - icon: person-circle
         href: https://gsarti.com
+  page-footer:
+    border: true
+    left: |
+      © 2025 Gabriele Sarti. All rights reserved.
+    center: |
+      <a href="https://www.rug.nl/?lang=en">![](/figures/logos/rug_eng_red.png){style='width: auto; height: 35px; padding-left: 10px; padding-right: 10px; margin-bottom:5px;'}</a>
+      <a href="https://www.rug.nl/research/clcg/?lang=en">![](/figures/logos/clcg.png){style='width: auto; height: 35px; padding-left: 10px; padding-right: 10px; margin-bottom:5px;'}</a>
+      <a href="https://projects.illc.uva.nl/indeep/">![](/figures/logos/indeep_logo_horizontal.png){style='width: auto; height: 35px; padding-left: 10px; padding-right: 10px; margin-bottom:5px;'}</a>
+      <a href="https://www.rug.nl/research/clcg/research/cl/?lang=en">![](/figures/logos/gronlp.png){style='width: auto; height: 35px; padding-left: 10px; padding-right: 10px; margin-bottom:5px;'}</a>
+    right: |
+      Written with <a href="https://quarto.org/">Quarto</a>.
   date: today
   date-format: "MMM Do, YYYY"
   output-file: "thesis"
   chapters:
     - index.qmd
     - chapters/chap-2-background.qmd
-    - part: "Context Usage in Machine Translation and Multilingual NLP"
+    - part: "Context Usage in Multilingual NLP"
       chapters:
         - chapters/chap-3-inseq.qmd
         - chapters/chap-4-pecore.qmd
@@ -118,12 +130,19 @@ format:
       - highlight-text
       - pseudocode
       - pdf-to-image
-    theme:
-      light: cosmo
+    mainfont: Roboto
+    monofont: Fira Code
+    highlight-style: arrow
+    monobackgroundcolor: "#F7F7F7"
+    theme: 
+      - html/theme.css
+      - html/theme.scss
+      - lumen
     code-fold: false
     css: html/custom.css
-    backgroundcolor: "#F5F5F5"
+    backgroundcolor: "#ffffff"
     tbl-cap-location: bottom
+    csl: html/bibliography.csl
   pdf:
     filters:
       - highlight-text

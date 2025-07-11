@@ -5,149 +5,149 @@
 ```{=html}
 <table class="fullwidthtable leftalign">
     <tbody>
-        <tr class="bottomrule">
+        <tr>
             <td colspan="2"><span data-qmd="**[English]{.smallcaps}**"></span></td>
         </tr>
-        <tr>
+        <tr class="midrule">
             <td colspan="2">The Internet combines elements of both mass and interpersonal communication.</td>
         </tr>
-        <tr class="midrule">
+        <tr>
             <td colspan="2"><span data-qmd="**[Arabic]{.smallcaps}**"></span></td>
         </tr>
         <tr>
             <td>HT</td>
-            <td>يجمع الإنترنت بين عناصر وسائل الاتصال العامة والشخصية على حدٍ سواء.</td>
+            <td style="font-size: 18px">يجمع الإنترنت بين عناصر وسائل الاتصال العامة والشخصية على حدٍ سواء</td>
         </tr>
-        <tr class="midrule">
-            <td>PE$_1$</td>
-            <td><span data-qmd="**MT:** ![](../figures/chap-8-divemt/MTPE1ARA2.pdf)"></span></td>
+        <tr>
+            <td>PE1</td>
+            <td style="font-size: 18px"><span data-qmd="**[mt]{.smallcaps}:** [تجمع]{bg-color='brand-color.lightorange'} الإنترنت بين عناصر الاتصال الجماهيري والشخصي"></span></td>
         </tr>
         <tr>
             <td></td>
-            <td><span data-qmd="**PE:** ![](../figures/chap-8-divemt/PEPE1ARA2.pdf)"></span></td>
-        </tr>
-        <tr class="midrule">
-            <td>PE$_2$</td>
-            <td><span data-qmd="**MT:** ![](../figures/chap-8-divemt/MTPE2ARA2.pdf)"></span></td>
+            <td style="font-size: 18px"><span data-qmd="**[pe]{.smallcaps}:** [يجمع]{bg-color='brand-color.lightorange'} الإنترنت بين عناصر الاتصال الجماهيري والشخصي"></span></td>
         </tr>
         <tr>
-            <td></td>
-            <td><span data-qmd="**PE:** ![](../figures/chap-8-divemt/PEPE2ARA2.pdf)"></span></td>
+            <td>PE2</td>
+            <td style="font-size: 18px"><span data-qmd="**[mt]{.smallcaps}:** [إنترنت]{bg-color='brand-color.lightorange'} [تجمع]{bg-color='brand-color.lightbluedim'} عناصر التواصل الجماعي والتواصل الشخصي"></span></td>
         </tr>
         <tr class="midrule">
+            <td></td>
+            <td style="font-size: 18px"><span data-qmd="**[pe]{.smallcaps}:** [تجمع]{bg-color='brand-color.lightbluedim'} [شبكة]{bg-color='brand-color.lightgreen'} [الإنترنت]{bg-color='brand-color.lightorange'} عناصر التواصل الجماعي والتواصل الشخصي"></span></td>
+        </tr>
+        <tr>
             <td colspan="2"><span data-qmd="**[Dutch]{.smallcaps}**"></span></td>
         </tr>
         <tr>
             <td>HT</td>
             <td>Het internet combineert elementen van zowel massa- en intermenselijke communicatie.</td>
         </tr>
-        <tr class="midrule">
-            <td>PE$_1$</td>
-            <td><span data-qmd="**MT:** Het internet combineert elementen van zowel massa- [als]{bg-color='brand-color.lightorange'} interpersoonlijke communicatie."></span></td>
+        <tr>
+            <td>PE1</td>
+            <td><span data-qmd="**MT:** Het internet combineert elementen van zowel massa- als interpersoonlijke communicatie."></span></td>
         </tr>
         <tr>
             <td></td>
-            <td><span data-qmd="**PE:** Het internet combineert elementen van zowel massa- [als]{bg-color='brand-color.lightorange'} interpersoonlijke communicatie."></span></td>
-        </tr>
-        <tr class="midrule">
-            <td>PE$_2$</td>
-            <td><span data-qmd="**MT:** Het internet combineert elementen van massa- [en]{bg-color='brand-color.lightorange'} interpersoonlijke communicatie."></span></td>
+            <td><span data-qmd="**PE:** Het internet combineert elementen van zowel massa- als interpersoonlijke communicatie."></span></td>
         </tr>
         <tr>
-            <td></td>
-            <td><span data-qmd="**PE:** Het internet combineert elementen van massa- [en]{bg-color='brand-color.lightorange'} interpersoonlijke communicatie."></span></td>
+            <td>PE2</td>
+            <td><span data-qmd="**MT:** Het internet combineert elementen van massa- en interpersoonlijke communicatie."></span></td>
         </tr>
         <tr class="midrule">
+            <td></td>
+            <td><span data-qmd="**PE:** Het internet combineert elementen van massa- en interpersoonlijke communicatie."></span></td>
+        </tr>
+        <tr>
             <td colspan="2"><span data-qmd="**[Italian]{.smallcaps}**"></span></td>
         </tr>
         <tr>
             <td>HT</td>
             <td>Internet combina elementi di comunicazione sia di massa sia interpersonale.</td>
         </tr>
-        <tr class="midrule">
-            <td>PE$_1$</td>
+        <tr>
+            <td>PE1</td>
             <td><span data-qmd="**MT:** Internet combina elementi di comunicazione di massa e [interpersonali]{bg-color='brand-color.lightorange'}."></span></td>
         </tr>
         <tr>
             <td></td>
             <td><span data-qmd="**PE:** Internet combina elementi di comunicazione di massa e [interpersonale]{bg-color='brand-color.lightorange'}."></span></td>
         </tr>
-        <tr class="midrule">
-            <td>PE$_2$</td>
+        <tr>
+            <td>PE2</td>
             <td><span data-qmd="**MT:**"></span> Internet combina elementi di comunicazione di massa e interpersonale.</td>
         </tr>
-        <tr>
+        <tr class="midrule">
             <td></td>
             <td><span data-qmd="**PE:**"></span> Internet combina elementi di comunicazione di massa e interpersonale.</td>
         </tr>
-        <tr class="midrule">
+        <tr>
             <td colspan="2"><span data-qmd="**[Turkish]{.smallcaps}**"></span></td>
         </tr>
         <tr>
             <td>HT</td>
             <td>İnternet hem kitlesel hem de bireysel iletişim öğelerini birleştiriyor.</td>
         </tr>
-        <tr class="midrule">
-            <td>PE$_1$</td>
-            <td><span data-qmd="**MT:**"></span> İnternet, hem kitle hem de kişiler arası iletişimin unsurlarını birleştirir.</td>
+        <tr>
+            <td>PE1</td>
+            <td><span data-qmd="**MT:** İnternet, hem [kitle]{bg-color='brand-color.lightorange'} hem de kişiler arası iletişimin unsurlarını birleştirir."></span></td>
         </tr>
         <tr>
             <td></td>
             <td><span data-qmd="**PE:** İnternet, hem [kitleler]{bg-color='brand-color.lightorange'} hem de kişiler arası iletişimin unsurlarını birleştirir."></span></td>
         </tr>
-        <tr class="midrule">
-            <td>PE$_2$</td>
+        <tr>
+            <td>PE2</td>
             <td><span data-qmd="**MT:**"></span> İnternet hem kitlesel hem de kişisel iletişim unsurlarını birleştiriyor.</td>
         </tr>
-        <tr>
+        <tr class="midrule">
             <td></td>
             <td><span data-qmd="**PE:**"></span> İnternet hem kitlesel hem de kişisel iletişim unsurlarını birleştiriyor.</td>
         </tr>
-        <tr class="midrule">
+        <tr>
             <td colspan="2"><span data-qmd="**[Ukrainian]{.smallcaps}**"></span></td>
         </tr>
         <tr>
             <td>HT</td>
             <td>В інтернеті поєднуються елементи групового спілкування та особистого спілкування.</td>
         </tr>
-        <tr class="midrule">
-            <td>PE$_1$</td>
+        <tr>
+            <td>PE1</td>
             <td><span data-qmd="**MT:**"></span> Інтернет поєднує в собі елементи як масового, так і міжособистісного спілкування.</td>
         </tr>
         <tr>
             <td></td>
             <td><span data-qmd="**PE:**"></span> Інтернет поєднує в собі елементи як масового, так і міжособистісного спілкування.</td>
         </tr>
+        <tr>
+            <td>PE2</td>
+            <td><span data-qmd="**MT:** Інтернет [об 'єднує]{bg-color='brand-color.lightorange'} як [масову]{bg-color='brand-color.lightorange'}, так і [міжлюдську комунікацію]{bg-color='brand-color.lightorange'}."></span></td>
+        </tr>
         <tr class="midrule">
-            <td>PE$_2$</td>
-            <td><span data-qmd="**MT:** Інтернет [об 'єднує]{bg-color='brand-color.lightorange'} як [масову]{bg-color='brand-color.lightorange'}, так і [міжлюдську]{bg-color='brand-color.lightorange'} комунікацію."></span></td>
+            <td></td>
+            <td><span data-qmd="**PE:** Інтернет [поєднує в]{bg-color='brand-color.lightgreen'} [собі елементи]{bg-color='brand-color.lightorange'} як [групової]{bg-color='brand-color.lightorange'}, так і [особистої комунікації]{bg-color='brand-color.lightorange'}."></span></td>
         </tr>
         <tr>
-            <td></td>
-            <td><span data-qmd="**PE:** Інтернет [поєднує в собі елементи]{bg-color='brand-color.lightorange'} як [групової]{bg-color='brand-color.lightorange'}, так і [особистої]{bg-color='brand-color.lightorange'} [комунікації]{bg-color='brand-color.lightorange'}."></span></td>
-        </tr>
-        <tr class="midrule">
             <td colspan="2"><span data-qmd="**[Vietnamese]{.smallcaps}**"></span></td>
         </tr>
         <tr>
             <td>HT</td>
             <td>Internet là nơi tổng hợp các yếu tố của cả phương tiện truyền thông đại chúng và giao tiếp liên cá nhân.</td>
         </tr>
-        <tr class="midrule">
-            <td>PE$_1$</td>
-            <td><span data-qmd="**MT:**"></span> Internet kết hợp các yếu tố của cả giao tiếp đại chúng và giao tiếp giữa các cá nhân.</td>
+        <tr>
+            <td>PE1</td>
+            <td><span data-qmd="**MT:** Internet kết hợp các yếu tố của cả [giao tiếp]{bg-color='brand-color.lightorange'} đại chúng và giao tiếp giữa các cá nhân."></span></td>
         </tr>
         <tr>
             <td></td>
             <td><span data-qmd="**PE:** Internet kết hợp các yếu tố của cả [truyền thông]{bg-color='brand-color.lightorange'} đại chúng và giao tiếp giữa các cá nhân."></span></td>
         </tr>
-        <tr class="midrule">
-            <td>PE$_2$</td>
-            <td><span data-qmd="**MT:** Internet kết hợp [những]{bg-color='brand-color.lightorange'} yếu tố của [sự giao tiếp quần chúng]{bg-color='brand-color.lightorange'} và [giao tiếp giữa người với người]{bg-color='brand-color.lightorange'}."></span></td>
+        <tr>
+            <td>PE2</td>
+            <td><span data-qmd="**MT:** Internet kết hợp những yếu tố của [sự]{bg-color='brand-color.lightorange'} giao tiếp [quần]{bg-color='brand-color.lightorange'} chúng và giao tiếp [giữa người]{bg-color='brand-color.lightreddim'} [với người]{bg-color='brand-color.lightorange'}."></span></td>
         </tr>
         <tr>
             <td></td>
-            <td><span data-qmd="**PE:** Internet kết hợp [những]{bg-color='brand-color.lightorange'} yếu tố của [cả việc giao tiếp]{bg-color='brand-color.lightorange'} đại chúng và [giao tiếp cá nhân]{bg-color='brand-color.lightorange'}."></span></td>
+            <td><span data-qmd="**PE:** Internet kết hợp những yếu tố của [cả]{bg-color='brand-color.lightgreen'} [việc]{bg-color='brand-color.lightorange'} giao tiếp [đại]{bg-color='brand-color.lightorange'} chúng và giao tiếp [cá nhân]{bg-color='brand-color.lightorange'}."></span></td>
         </tr>
     </tbody>
 </table>
@@ -232,5 +232,5 @@
 
 :::
 
-An example sentence (29.2) from the DivEMT corpus, with the English source and all output modalities for all target languages, including intermediate machine translations (MT) and subsequent post-editings (PE). Colors denote [insertions]{bg-color="brand-color.lightgreen"}, [deletions]{bg-color="brand-color.lightred"}, [substitutions]{bg-color="brand-color.lightorange"} and [shifts]{bg-color="brand-color.lightblue"} computed with Tercom [@snover-etal-2006-study].
+An example sentence (29.2) from the DivEMT corpus, with the English source and all output modalities for all target languages, including intermediate machine translations (MT) and subsequent post-editings (PE). Colors denote [insertions]{bg-color="brand-color.lightgreen"}, [deletions]{bg-color="brand-color.lightreddim"}, [substitutions]{bg-color="brand-color.lightorange"} and [shifts]{bg-color="brand-color.lightbluedim"} computed with Tercom [@snover-etal-2006-study].
 :::

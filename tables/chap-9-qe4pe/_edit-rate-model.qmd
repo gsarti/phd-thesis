@@ -3,7 +3,7 @@
 :::{.content-visible when-format="html"}
 
 ```{=html}
-<table class="center-table">
+<table class="center-table" style="width: 100% !important;">
     <thead>
         <tr>
             <th colspan="3" class="group-header"><span data-qmd="**Target:** % of edited characters in a segment (0-100)."></span></th>

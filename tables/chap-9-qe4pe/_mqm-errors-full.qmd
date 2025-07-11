@@ -29,7 +29,7 @@
     </thead>
     <tbody>
         <tr>
-            <td class="rowspan" rowspan="9"><span data-qmd="**Italian**"></span></td>
+            <td class="rowspan" rowspan="12"><span data-qmd="**Italian**"></span></td>
             <td>Accuracy - Addition</td>
             <td>0</td>
             <td>1</td>
@@ -316,7 +316,7 @@
             <td>0</td>
             <td>3</td>
         </tr>
-        <tr>
+        <tr class="midrule">
             <td>Linguistic - Spelling</td>
             <td>1</td>
             <td>1</td>

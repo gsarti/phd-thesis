@@ -116,7 +116,7 @@
 \footnotesize
 \begin{tabular}{r@{\hspace{1mm}}lccccccccc}
 \toprule[1.5pt]
-\multicolumn{2}{c}{\multirow{2}{*}{\textbf{Modalities}}} & \multicolumn{3}{c}{\textbf{\EnIt}} & \multicolumn{3}{c}{\textbf{\EnNl}} & \multicolumn{3}{c}{\textbf{Both}} \\
+\multicolumn{2}{c}{\multirow{2}{*}{\textbf{Modalities}}} & \multicolumn{3}{c}{\textbf{English$\rightarrow$Italian\xspace}} & \multicolumn{3}{c}{\textbf{English$\rightarrow$Dutch\xspace}} & \multicolumn{3}{c}{\textbf{Both}} \\
 \cmidrule(lr){3-5}
 \cmidrule(lr){6-8}
 \cmidrule(lr){9-11}

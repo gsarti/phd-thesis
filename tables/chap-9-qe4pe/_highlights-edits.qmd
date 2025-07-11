@@ -183,14 +183,14 @@
         \cmidrule(lr){8-11}
         & $P(H)$& $P(E)$  & $P(E|H)$ & $\Lambda_E$ & $P(H|E)$ & $\Lambda_H$ & $\nohighvv{P}(E|H)$ & \multicolumn{1}{c}{$\nohighvv{\Lambda}_E$} & $\nohighvv{P}(H|E)$ & \multicolumn{1}{c}{$\nohighvv{\Lambda}_H$} \\
         \midrule
-        \rowcolor{lightgray} \multicolumn{11}{c}{\textbf{\EnIt}}   \\
+        \rowcolor{lightgray} \multicolumn{11}{c}{\textbf{English$\rightarrow$Italian\xspace}}   \\
         \NoHighlightShort  & -    & 0.05 & -    & -    & -    & -   & -    & -    & -    & -    \\
         \Random            & 0.16 & -    & -    & -    & -    & -   & 0.06 & 1.20 & 0.18 & 1.20 \\
         \OracleShort       & 0.15 & 0.12 & \textbf{0.37} & \textbf{4.62} & \underline{\textbf{0.45}} & \textbf{4.1} & \textbf{0.18}\noteneg{0.2} & \textbf{6.00}\notepos{1.4} & \underline{\textbf{0.55}}\notepos{0.1} & \textbf{4.23}\notepos{0.1} \\
         \UnsupervisedShort & 0.16 & 0.13 & 0.25 & 2.27 & 0.21 & 2.2 & 0.11\noteneg{0.1} & 2.75\notepos{0.5} & 0.37\notepos{0.2} & 2.47\notepos{0.3} \\
         \SupervisedShort   & 0.12 & 0.16 & 0.28 & 2.00 & 0.22 & 2.0 & 0.14\noteneg{0.1} & 3.50\notepos{1.5} & 0.35\notepos{0.1} & 3.18\notepos{1.2} \\
         \midrule
-        \rowcolor{lightgray} \multicolumn{11}{c}{\textbf{\EnNl}}   \\
+        \rowcolor{lightgray} \multicolumn{11}{c}{\textbf{English$\rightarrow$Dutch\xspace}}   \\
         \NoHighlightShort  & -    & 0.14 & -    & -    & -    & -   & -    & -    & -    & -    \\
         \Random            & 0.17 & -    & -    & -    & -    & -    & 0.16 & 1.14 & 0.19 & 1.19 \\
         \OracleShort       & 0.20 & 0.10 & \textbf{0.26} & \underline{\textbf{4.33}} & \underline{\textbf{0.53}} & 3.12 & \textbf{0.28}\notepos{0.0} & \textbf{2.55}\noteneg{1.8} & \underline{\textbf{0.40}}\noteneg{0.1} & 2.35\noteneg{0.8} \\
