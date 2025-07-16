@@ -74,3 +74,170 @@ Repeated misleading in-context examples are less observed on [MT-GenEval]{.small
 
 {{< pagebreak >}}
 \FloatBarrier
+
+## Steering Language Models for Machine Translation Personalization {#sec-sae-litmt-appendix}
+
+### List of Novels Used {#sec-sae-litmt-novels}
+
+To ensure a diverse and representative evaluation, we select novels spanning a variety of linguistic families and cultural backgrounds. Our dataset includes Romance languages such as Italian (Pinocchio) and French (Around the World in Eighty Days), as well as Germanic languages like Dutch (The Diary of a Young Girl) and German (Beware of Pity). To evaluate our setup on non-Latin scripts and distinct linguistic structures, we also include Russian (Crime and Punishment), Japanese (No Longer Human), and Chinese (Dream of the Red Chamber). @tbl-chap7-novels-details summarizes the number of paragraphs employed in the evaluation of each language.
+
+{{< include ../tables/chap-7-sae-litmt/_novels-details.qmd >}}
+
+### Experiments Reproducibility {#sec-sae-litmt-reproducibility}
+
+In this section, we provide every parameter we use for the reproducibility of our experiments setups.
+
+#### Base Prompt {#sec-sae-litmt-base-prompt}
+
+We use the same prompt template across all methods: ZS (which corresponds to the original model translation), ZS-Exp.$_\text{HT}$, ZS-Exp.$_\text{PT}$ (detailed in @sec-sae-litmt-explain), MS, ActAdd, ReFT, and SAE-based contrastive setups. This prompt, shown in @lst-chap7-explain-final, instructs the model to translate the source sentence while explicitly preventing it from adding any explanations about the translation process. Since all test models are Instruction Tuned, we utilize their native chat templates to preprocess the input accordingly. For multi-shot examples, the *user* and *assistant* turns are repeated for each example, always using the same prompt structure.
+
+#### Classifier Training {#sec-sae-litmt-classifiers}
+
+All classifiers are fine-tuned from the `xlm-roberta-large` model^[<https://huggingface.co/FacebookAI/xlm-roberta-large>], using a linear classification head. Training is conducted for 6 epochs with a learning rate of 2e-5 and a batch size of 32, selecting the best model checkpoint based on validation accuracy.
+
+Training data only includes generations from models and the translator without any source text. It is also perfectly balanced, as each paragraph provides one instance for all three labels: H1, H2, and MT. The total size of the training set varies depending on the number of paragraphs in the chosen novel. On average, we obtain approximately 830 instances, resulting in a total of around 2,490 labeled examples for training (see @tbl-chap7-novels-details). Validation and test sets are strictly held out and never seen during training. Additionally, they do not include the small 20-example subsets used in the MS, ZS-Exp.$_\text{HT}$, ZS-Exp.$_\text{PT}$, SAE Cont.$_\text{HT}$, and SAE Cont.$_\text{PT}$ setups.
+
+#### ReFT Training {#sec-sae-litmt-reft-training}
+
+ReFT training was conducted using the PyReFT toolkit from the original authors^[<https://github.com/stanfordnlp/pyreft>]. We applied the intervention at the same hook point used by other steering methods - specifically, the layer output corresponding to the residual stream at the selected layer. The training configuration includes a `low_rank_dimension` of 4, `lora_alpha` set to 32, and a `lora_dropout` of 0.05. ReFT was trained on the same 20 prompts used in the MS setup, for a total of 100 epochs.
+
+#### SAE Cont.$_\text{HT}$ and SAE Cont.$_\text{PT}$ {#sec-sae-litmt-cont-methods}
+
+We use the NNsight library [@fiottokaufman-etal-2024-nnsight] to extract and manipulate model activations for all steering experiments. The source code is publicly available in the repository linked in the main body of this paper. For consistency, we use the same set of contrastive examples employed in the MS approach.
+
+@alg-chap7-latent-steering outlines the procedure for latent-based steering. It enhances features identified as relevant to personalization while simultaneously suppressing those negatively correlated with the task.
+
+```pseudocode
+#| label: alg-chap7-latent-steering
+#| pdf-placement: "ht!"
+
+\begin{algorithm}
+\caption{Contrastive SAE Steering}
+\begin{algorithmic}
+\Require Input activation $z$, SAE model, target latents expected value $\mathbb{E}^+[X_i]$, contrast latents expected value $\mathbb{E}^-[X_i]$, steering coefficient $\alpha$
+\Ensure Steered activation $z_{\text{new}}$
+\Procedure{ContrastiveSteering}{$z, \text{SAE}, \mathbb{E}^+[X_i], \mathbb{E}^-[X_i], \alpha$}
+    \State $x = \text{SAE.encode}(z)$
+    \State $m = \text{length}(x)$
+    \For{$i \gets 1$ to $m$}
+        \If{$\mathbb{E}^+[X_i] > x[i]$}
+            \State $x[i] = \mathbb{E}^+[X_i]$
+        \EndIf
+        \If{$\mathbb{E}^-[X_i] < x[i]$}
+            \State $x[i] =\mathbb{E}^-[X_i]$
+        \EndIf
+    \EndFor
+    \State $z_{\text{new}} = \alpha \cdot \text{SAE.decode}(x)$
+    \State \textbf{return} $z_{\text{new}}$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+```
+
+#### ZS-Exp.$_\text{HT}$ and ZS-Exp.$_\text{PT}$ {#sec-sae-litmt-explain}
+
+For both the ZS-Exp.$_\text{HT}$ and ZS-Exp.$_\text{PT}$ setups, we used GPT-4o (June 2025) to generate explanations detailing the stylistic differences between a base translation and a target human translation. The prompt template used for this task is shown in @lst-chap7-explain-template, using the same 20 examples as in the MS, SAE Cont.$_\text{HT}$, and SAE Cont.$_\text{PT}$ setups.
+
+All outputs were manually inspected to ensure no verbatim excerpts from the provided examples were present, avoiding any risk of data leakage. Example outputs for different novels are shown in @lst-chap7-explain-example.
+
+Finally, these generated guidelines are used to prompt the evaluated models, following the template shown in @lst-chap7-explain-final.
+
+::: {#lst-chap7-explain-template}
+
+```markdown
+Objective - Identify stylistic choices in translations for personalization purposes.
+
+You will be provided with a source text, a standard translation, and a target translation by a specific translator whose style we want to emulate.
+Your task is to analyze the 'Target translation' by comparing it to the 'Base translation' and the 'Source text'.
+Identify and list the distinctive stylistic patterns, choices, and preferences exhibited in the Target translation.
+
+These stylistic cues should help another translator (or an AI) to adapt their translations to match the style of the target translator.
+
+Source text: ____
+Base translation: ____
+Target translation: ____
+
+[... Repeat Source, Base and Target]
+
+Please extract a concise list of key stylistic cues. Focus on aspects such as vocabulary choices, sentence structure, tone and register, handling of cultural nuances, punctuation/formatting preferences and overall creativity.
+
+Output a short list of stylistic cues as bullet points. Write the list as if you were directly giving the guidelines to the translator and avoid using specific examples.
+```
+
+Prompt template used to get GPT 4o explanation using translation examples.
+:::
+
+::: {#lst-chap7-explain-example}
+
+```markdown
+[When comparing H1 and MT for Beware of Pity (German)]
+- Maintain a tone that is professional, thoughtful, and subtly persuasive.
+- Avoid overly technical jargon unless necessary; explain specialized terms briefly if used.
+- Preserve the author's voice, keeping a balance between academic rigor and narrative engagement.
+- Ensure smooth transitions between sentences and paragraphs to support coherent argumentation.
+- Translate idiomatic expressions in a way that retains their intended effect, even if the wording differs.
+
+[When comparing H1 and H2 for Beware of Pity (German)]
+- Keep the tone warm, welcoming, and direct - avoid overly formal or distant language.
+- Use active voice wherever possible to maintain energy and engagement.
+- Avoid idioms or expressions that may not translate culturally; aim for universal accessibility.
+- Maintain consistent tone and register throughout, adapting to the intended audience's familiarity with the subject.
+- Respect the rhythm and structure of the original, but feel free to adjust sentence length for readability.
+
+[When comparing H1 and H2 for Crime and Punishment (Russian)]
+- Prefer dynamic over formal vocabulary: Opt for vivid or emotionally charged words when available.
+- Add tonal nuance and emotional shading: Enrich dialogues and narration with subtle shifts in tone, especially sarcasm, understatement, or irony, to match character voice or mood.
+- Use contractions and familiar phrasing: Employ contractions and relaxed expressions to preserve spoken character.
+- Expand or rephrase for clarity and voice: Don't hesitate to slightly reword or elaborate if it strengthens tone, clarifies intent, or enhances character differentiation.
+- Favor rhythmic, flowing sentence structure: Break long, formal sentences into multiple shorter clauses or use punctuation (dashes, ellipses) for dramatic or emotional effect.
+[...]
+```
+
+Examples of explanation obtained from GPT 4o when comparing different translations from different novels.
+:::
+
+::: {#lst-chap7-explain-final}
+
+```markdown
+Translate the following sentence between the angular parentheses into English.
+
+[if setup == ZS-Exp]
+[Follow the following guidelines when translating: <explanations here>]
+
+The original sentence is: ____.
+
+Remember to write only the translation, without any additional text or explanation.
+```
+
+Zero shot template template when prompting language models with different setups
+:::
+
+### All Models Results {#sec-sae-litmt-all-models}
+
+#### Classifiers {#sec-sae-litmt-classifier-results}
+
+We show in @tbl-chap7-classifiers-perf results for every classifier trained for each model and for each language.
+
+{{< include ../tables/chap-7-sae-litmt/_classifiers-perf.qmd >}}
+
+#### Prompting and Steering Results {#sec-sae-litmt-steering-results}
+
+We present detailed plots of the results for each novel across the three evaluated models in @fig-chap7-gemma2b-all (Gemma 2 2B), @fig-chap7-gemma9b-all (Gemma 2 9B), and @fig-chap7-llama8b-all (Llama 3.1 8B). These plots display the performance of all evaluated methods, reporting the three submetrics: **H** accuracy (general human-likeness), **P** accuracy (translator-specific accuracy), and **P$_\text{flip}$** (personalized flip accuracy), alongside the corresponding COMET scores measuring translation quality.
+
+![Results for every language on Gemma 2 2B.](../figures/chap-7-sae-litmt/app_gemma-2-2b-it_novels_avg.pdf){#fig-chap7-gemma2b-all fig-pos="t"}
+
+![Results for every language on Gemma 2 9B.](../figures/chap-7-sae-litmt/app_gemma-2-9b-it_novels_avg.pdf){#fig-chap7-gemma9b-all fig-pos="t"}
+
+![Results for every language on Llama 3.1 8B.](../figures/chap-7-sae-litmt/app_llama-3.1-8b-it_novels_avg.pdf){#fig-chap7-llama8b-all fig-pos="t"}
+
+### Examples from Dataset and Different Approaches {#sec-sae-litmt-output-examples}
+
+We present in @tbl-chap7-examples-all-zh and @tbl-chap7-examples-all-it a selection of examples from two different languages, showcasing outputs from each of the tested setups. For each example, we also report the corresponding classification label predicted by the classifier and the associated COMET score. Additionally @tbl-chap7-extreme-alphas shows some examples of models generating output aligned with the Human translator according to the classifier but with a low COMET score corresponding to an almost unreadable output due to extreme $\alpha$ values.
+
+{{< include ../tables/chap-7-sae-litmt/_examples-all-zh.qmd >}}
+
+{{< include ../tables/chap-7-sae-litmt/_examples-all-it.qmd >}}
+
+{{< include ../tables/chap-7-sae-litmt/_extreme-alphas.qmd >}}
+
+{{< pagebreak >}}

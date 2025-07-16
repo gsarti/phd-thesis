@@ -14,6 +14,7 @@ book:
     logo: figures/logos/rug_eng_red.png # Remove if you don't want any logo in the website sidebar
     logo-alt: RUG Coat of Arms # Remove if you don't want any logo in the website sidebar
     search: true
+    style: "floating"
     background: "#ffffff"
     tools:
       - icon: github
@@ -37,20 +38,24 @@ book:
   chapters:
     - index.qmd
     - chapters/chap-2-background.qmd
+    - text: "---"
     - part: "Context Usage in Multilingual NLP"
       chapters:
         - chapters/chap-3-inseq.qmd
         - chapters/chap-4-pecore.qmd
         - chapters/chap-5-mirage.qmd
+    - text: "---"
     - part: "Conditioning Generation for Personalized Machine Translation"
       chapters:
         - chapters/chap-6-ramp.qmd
         - chapters/chap-7-sae-litmt.qmd
+    - text: "---"
     - part: "Towards Interpretability in Human Translation Workflows"
       chapters:
         - chapters/chap-8-divemt.qmd
         - chapters/chap-9-qe4pe.qmd
         - chapters/chap-10-unsup-wqe.qmd
+    - text: "---"
     - chapters/references.qmd
   appendices: 
     - chapters/appendix-a.qmd

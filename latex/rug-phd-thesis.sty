@@ -152,6 +152,7 @@
 
 \usepackage{listings}                       % Source code listings
 \usepackage{fancyvrb}                       % Enhanced verbatim environments
+\usepackage{fvextra}                       % Extended verbatim features
 
 % Define colors for syntax highlighting
 \definecolor{shadecolor}{RGB}{248,248,248}
@@ -167,11 +168,15 @@
 
 % Code highlighting environments and commands
 \newenvironment{Shaded}{\begin{framed}}{\end{framed}}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\},fontsize=\small}
 
 % Syntax highlighting token definitions
+\newcommand{\AnnotationTok}[1]{#1}
+\newcommand{\InformationTok}[1]{#1}
+\newcommand{\SpecialStringTok}[1]{#1}
 \newcommand{\ImportTok}[1]{\textcolor{emph}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor{codegreen}{\textit{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor{codegreen}{\textit{#1}}}
 \newcommand{\StringTok}[1]{\textcolor{nightblue}{#1}}
 \newcommand{\NormalTok}[1]{#1}
 \newcommand{\FunctionTok}[1]{\textcolor{lightpurple}{#1}}

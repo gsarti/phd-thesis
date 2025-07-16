@@ -142,6 +142,11 @@
     width: 150px;
 }
 
+.mediumsmallrow {
+    display: inline-block;
+    width: 95px;
+}
+
 .longrow {
     display: inline-block;
     width: 200px;
