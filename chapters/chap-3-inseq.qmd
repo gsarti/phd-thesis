@@ -2,7 +2,7 @@
 
 ::: {.callout-note appearance="simple" icon="false"}
 
-This chapter is adapted from the paper *Inseq: An Interpretability Toolkit for Sequence Generation Models* [@sarti-etal-2023-inseq-fixed].
+This chapter is adapted from the papers *Inseq: An Interpretability Toolkit for Sequence Generation Models* [@sarti-etal-2023-inseq-fixed] and *Democratizing Advanced Attribution Analyses of Generative Language Models with the Inseq Toolkit* [@sarti-etal-2024-democratizing].
 
 :::
 

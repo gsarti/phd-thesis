@@ -227,6 +227,18 @@ Macro F1 of CCI methods over full datasets using models trained with only source
 Area Under Precision-Recall Curve (AUPRC) of CCI methods over full datasets using models trained with only source context (left) or with source+target context (right). Boxes and red median lines show CCI results based on gold context-sensitive tokens. Dotted bars show  median CCI scores obtained from context-sensitive tokens identified by KL-Divergence during CTI (E2E settings). **Top to bottom:** ⓵ OpusMT Small S$_\text{ctx}$ and S+T$_\text{ctx}$ ⓶ OpusMT Large S$_\text{ctx}$ and S+T$_\text{ctx}$ ⓷ mBART-50 S$_\text{ctx}$ and S+T$_\text{ctx}$.
 :::
 
+### [PECoRe]{.smallcaps} for Other Language Generation Tasks {#sec-pecore-appendix-other-tasks}
+
+This section complements our MT analysis and by demonstrating the applicability of [PECoRe]{.smallcaps} to other model architectures and different language generation tasks. @tbl-zephyr-pecore presents some examples. To generate the outputs, we use Zephyr Beta [@tunstall-etal-2023-zephyr], a state-of-the-art conversational decoder-only language model with 7B parameters fine-tuned from the Mistral 7B v0.1 pre-trained model [@jiang-etal-2023-mistral]. We follow the same setup of @sec-chap4-analysis, using KL-Divergence as CTI metric, $\nabla_{\text{KL}}$ as CCI method and setting both $s_\text{CTI}$ and $s_\text{CCI}$ to two standard deviations above the per-example mean.
+
+[Constrained Story Generation]{.paragraph} In the first example, the model is asked to generate a story about \textit{Florbz}, which is defined as a planet with an alien race only in context $C_x$. We observe a plausible influence of several context components throughout the generation process, leading to a short story respecting the constraint specified in the system prompt provided as context.
+
+[Factual Question Answering]{.paragraph} In the second example, the model is asked to retrieve date information from the context and perform a calculation to derive the age of a fictional building. While the non-contextual generation $\tilde y$ hallucinates an age and a construction date associated to a real historical landmark, contextual generation $\hat y$ produces a wrong age, but plausibly relies on the date provided in $C_x$ during generation. Interestingly, we can also identify when the system instruction of "keeping answers concise" intervenes during generation.
+
+[Information Extraction]{.paragraph} The last example simulates a retrieval-augmented generation scenario in which a fictional refund policy is used as context to answer user queries. In this scenario, contextual generation $\hat y$ correctly identifies the user query as leading to a no-refund situation due to the limited refund timeline stated in the policy, and the corresponding timeline (\textit{within 30 days}) is identified as a contextual cue leading to the model's negative response.
+
+{{< include ../tables/chap-4-pecore/_zephyr-pecore.qmd >}}
+
 {{< pagebreak >}}
 \FloatBarrier
 

@@ -10,6 +10,7 @@ color:
     lightorange: "#f9cb9c"
     lightgray: "#bebebe"
     blue: "#0000ff"
+    purple: "#800080"
     majorerror: "#e69500"
     minorerror: "#e6bb00"
     correction: "#98cc70"

@@ -124,5 +124,5 @@
 
 :::
 
-Examples from different languages being classified as Human when using [extreme $\alpha$ values]{color='purple'}.
+Examples from different languages being classified as Human when using [extreme $\alpha$ values]{color='brand-color.purple'}.
 :::
