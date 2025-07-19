@@ -35,15 +35,15 @@
 
 ```{=latex}
 \begin{table}
-\small
+\footnotesize
 \centering
 \begin{tabular}{crr}
 \toprule
-\multirow{2}{*}{\textbf{Model}} & \multicolumn{2}{c}{\textbf{Missing citation (\%)}} \\
-& Sentence & Answer \\
+\multirow{2}{*}{\textbf{Model}} & \multicolumn{2}{c}{\textbf{Missing cit. (\%)}} \\
+& Sent. & Ans. \\
 \midrule
 Zephyr 7B $\beta$ & 54.5 & 95.7 \\
-LLaMA 2 7B Chat & 62.4 & 99.3 \\
+LLaMA 2 7B        & 62.4 & 99.3 \\
 \bottomrule
 \end{tabular}
 \end{table}

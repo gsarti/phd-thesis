@@ -50,7 +50,7 @@
 \begin{table}
     \centering
     \scriptsize
-    \begin{tabular}{p{1\textwidth}}
+    \begin{tabular}{p{0.95\textwidth}}
         \toprule[1.5pt]
         \textbf{3. Numeric format cohesion (English $\rightarrow$ French, incorrect)} \\
         \midrule

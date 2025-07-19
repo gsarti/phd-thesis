@@ -191,7 +191,7 @@
 \begin{table}
     \centering
     \tiny
-    \begin{tabular}{p{\textwidth}}
+    \begin{tabular}{p{0.95\textwidth}}
         \toprule[1.5pt]
         \textbf{Constrained Story Generation} \\
         \midrule

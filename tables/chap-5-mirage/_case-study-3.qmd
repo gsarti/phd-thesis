@@ -44,7 +44,7 @@
 \begin{table}
 \centering
 \small
-\begin{tabular}{p{1\textwidth}}
+\begin{tabular}{p{0.95\textwidth}}
 \toprule
 \textsc{Input: Prompt + Retrieved docs (N=5) + Query} \\
 \midrule

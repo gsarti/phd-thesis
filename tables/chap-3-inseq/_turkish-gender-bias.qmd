@@ -1,4 +1,4 @@
-:::{#tbl-turkish-gender-bias}
+:::{#tbl-chap3-turkish-gender-bias}
 
 :::{.content-visible when-format="html"}
 

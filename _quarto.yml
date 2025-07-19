@@ -160,6 +160,7 @@ format:
     pdf-engine: pdflatex
     keep-tex: true
     fig-pos: "!ht"
+    tbl-pos: "t"
     tbl-cap-location: bottom
 
 
