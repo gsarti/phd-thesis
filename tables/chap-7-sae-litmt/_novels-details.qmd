@@ -11,12 +11,12 @@
             <th><span data-qmd="**Train**"></span></th>
             <th><span data-qmd="**Val**"></span></th>
             <th><span data-qmd="**Test**"></span></th>
-            <th><span data-qmd="**ICL**"></span></th>
+            <th><span data-qmd="**ICL Ex.**"></span></th>
         </tr>
     </thead>
     <tbody>
         <tr class="midrule">
-            <td><span data-qmd="**IT**"></span></td>
+            <td><span data-qmd="**Italian (IT)**"></span></td>
             <td>Pinocchio</td>
             <td>745</td>
             <td>82</td>
@@ -24,7 +24,7 @@
             <td>20</td>
         </tr>
         <tr>
-            <td><span data-qmd="**FR**"></span></td>
+            <td><span data-qmd="**French (FR)**"></span></td>
             <td>Around the World in Eighty Days</td>
             <td>829</td>
             <td>92</td>
@@ -32,7 +32,7 @@
             <td>20</td>
         </tr>
         <tr>
-            <td><span data-qmd="**NL**"></span></td>
+            <td><span data-qmd="**Dutch (NL)**"></span></td>
             <td>The Diary of a Young Girl</td>
             <td>769</td>
             <td>85</td>
@@ -40,7 +40,7 @@
             <td>20</td>
         </tr>
         <tr>
-            <td><span data-qmd="**DE**"></span></td>
+            <td><span data-qmd="**German (DE)**"></span></td>
             <td>Beware of Pity</td>
             <td>606</td>
             <td>67</td>
@@ -48,7 +48,7 @@
             <td>20</td>
         </tr>
         <tr>
-            <td><span data-qmd="**RU**"></span></td>
+            <td><span data-qmd="**Russian (RU)**"></span></td>
             <td>Crime and Punishment</td>
             <td>1517</td>
             <td>168</td>
@@ -56,7 +56,7 @@
             <td>20</td>
         </tr>
         <tr>
-            <td><span data-qmd="**JA**"></span></td>
+            <td><span data-qmd="**Japanese (JA)**"></span></td>
             <td>No Longer Human</td>
             <td>652</td>
             <td>40</td>
@@ -64,7 +64,7 @@
             <td>20</td>
         </tr>
         <tr>
-            <td><span data-qmd="**ZH**"></span></td>
+            <td><span data-qmd="**Chinese (ZH)**"></span></td>
             <td>Dream of the Red Chamber</td>
             <td>694</td>
             <td>76</td>
@@ -85,15 +85,15 @@
 \small
 \begin{tabular}{llrrrr}
 \toprule
-Lang & Novel name & Train & Val & Test & ICL \\ 
+Lang & Novel name & Train & Val & Test & ICL Ex. \\ 
 \midrule
-IT & Pinocchio                          & 745  & 82 & 107 & 20 \\
-FR & Around the World in Eighty Days    & 829  & 92 & 120 & 20 \\ 
-NL & The Diary of a Young Girl          & 769  & 85 & 110 & 20 \\ 
-DE & Beware of Pity                     & 606  & 67 & 96 & 20 \\ 
-RU & Crime and Punishment               & 1517  & 168 & 224 & 20 \\ 
-JA & No Longer Human                    & 652  & 40 & 81 & 20 \\ 
-ZH & Dream of the Red Chamber           & 694  & 76 & 92 & 20 \\ 
+Italian (IT) & Pinocchio                          & 745  & 82 & 107 & 20 \\
+French (FR)  & Around the World in Eighty Days    & 829  & 92 & 120 & 20 \\ 
+Dutch (NL)   & The Diary of a Young Girl          & 769  & 85 & 110 & 20 \\ 
+German (DE)  & Beware of Pity                     & 606  & 67 & 96 & 20 \\ 
+Russian (RU) & Crime and Punishment               & 1517  & 168 & 224 & 20 \\ 
+Japanese (JA) & No Longer Human                    & 652  & 40 & 81 & 20 \\ 
+Chinese (ZH) & Dream of the Red Chamber           & 694  & 76 & 92 & 20 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
@@ -101,5 +101,5 @@ ZH & Dream of the Red Chamber           & 694  & 76 & 92 & 20 \\
 
 :::
 
-Each number corresponds to a single instance in the dataset. When the dataset is used for training, each instance is associated with three distinct labels - H$_1$, H$_2$, and MT - thus the total number must be multiplied by three.
+Languages and novels used in our evaluation. Numbers corresponds to a single paragraph in the dataset. In training, each paragraph is associated with three distinct translations: [H$_1$]{color="brand-color.darkgreen"},[H$_2$]{color="brand-color.lightbluedim"}, and [MT]{color="brand-color.pastelorange"}.
 :::

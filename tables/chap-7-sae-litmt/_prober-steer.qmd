@@ -50,5 +50,5 @@
 
 :::
 
-Probing accuracy on Cont<sub>HT</sub>-steered activations averaged across languages and H$_1$/H$_2$ translators. Probes trained on MS activations reliably detect the impact of SAE Cont. steering over model generations, suggesting similar mechanisms.
+Probing accuracy on Cont<sub>HT</sub>-steered activations averaged across languages and [H$_1$]{color="brand-color.darkgreen"}/[H$_2$]{color="brand-color.lightbluedim"} translators. Probes trained on MS activations reliably detect the impact of SAE Cont. steering over model generations, suggesting similar mechanisms.
 :::

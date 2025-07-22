@@ -164,5 +164,5 @@
 
 :::
 
-BLEU, COMET, **L**exical- and **S**entential-**Acc**uracy of selected LLMs using 16 same-language in-context examples on two tasks, alongside adapted MT models. Scores are aggregated across **seen** languages (w.r.t. BLOOM pre-training) and both attributes for each task. (Decomposed results are included in @tbl-chap6-same-language-cocoa-details--@tbl-chap6-cross-lingual-geneval-details.)
+BLEU, COMET, **L**exical- and **S**entential-**Acc**uracy of selected LLMs using 16 same-language in-context examples on two tasks, alongside adapted MT models. Scores are aggregated across **seen** languages (w.r.t. BLOOM pre-training) and both attributes for each task. (Full results in @tbl-chap6-same-language-cocoa-details--@tbl-chap6-cross-lingual-geneval-details.)
 :::

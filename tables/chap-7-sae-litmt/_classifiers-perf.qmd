@@ -85,5 +85,5 @@
 
 :::
 
-Accuracy of model- and language-specific 3-way (MT, H$_1$, H$_2$) classifiers on balanced held-out sets for every language. Random baseline: 0.33.
+Accuracy of model- and language-specific 3-way ([H$_1$]{color="brand-color.darkgreen"},[H$_2$]{color="brand-color.lightbluedim"}, [MT]{color="brand-color.pastelorange"}) classifiers on balanced held-out sets for every language. Random baseline: 0.33.
 :::

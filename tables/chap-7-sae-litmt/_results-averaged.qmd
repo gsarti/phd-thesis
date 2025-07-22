@@ -170,8 +170,8 @@
         & \textbf{H} & \textbf{P} & \textbf{P\textsubscript{flip}} & \large ☄️ & \textbf{H} & \textbf{P} & \textbf{P\textsubscript{flip}} & \large ☄️ & \textbf{H} & \textbf{P} & \textbf{P\textsubscript{flip}} & \large ☄️ \\
         \midrule
         ZS      & 0.21 & 0.10 & 0.05 & 0.69 & 0.15 & 0.08 & 0.04 & 0.71 & 0.24 & 0.08 & 0.05 & 0.70 \\
-        ZS-Exp\textsubscript{HT}   & 0.30 & 0.22 & 0.16 & 0.68 & 0.41 & 0.22 & 0.18 & 0.72 & 0.56 & 0.23 & 0.21 & 0.69 \\
-        ZS-Exp\textsubscript{PT}   &   --   & 0.20 & 0.14 & 0.69 &   --   & 0.23 & 0.19 & \textbf{0.73} & -- & 0.30 & 0.26 & 0.70 \\
+        ZS-Exp.\textsubscript{HT}   & 0.30 & 0.22 & 0.16 & 0.68 & 0.41 & 0.22 & 0.18 & 0.72 & 0.56 & 0.23 & 0.21 & 0.69 \\
+        ZS-Exp.\textsubscript{PT}   &   --   & 0.20 & 0.14 & 0.69 &   --   & 0.23 & 0.19 & \textbf{0.73} & -- & 0.30 & 0.26 & 0.70 \\
         MS      & 0.37 & 0.24 & 0.16 & 0.69 & \textbf{0.48} & 0.31 & 0.27 & \textbf{0.73} & 0.58 & 0.32 & \textbf{0.28} & \textbf{0.73} \\
         \midrule
         ActAdd  & 0.27 & 0.22 & 0.12 & 0.67  & 0.32 & 0.24 & 0.20 & 0.70 & 0.55 & 0.36 & \textbf{0.28} & 0.70 \\
@@ -185,5 +185,5 @@
 
 :::
 
-Averaged metric scores across all tested languages (per-language breakdown in appendix). **H**: human style accuracy, i.e. p(H$_1$) + p(H$_2$). **P**: personalization accuracy p(H$_x$) for the target style. **P$_\text{flip}$**: Proportion of segments for which steering has a causal impact on personalization. $\alpha$ = 5 is used for SAE Cont. results.
+Averaged metric scores across all tested languages (per-language breakdown in appendix). **H**: human style accuracy, i.e. $p($[H$_1$]{color="brand-color.darkgreen"}$) + p($[H$_2$]{color="brand-color.lightbluedim"}$)$. **P**: personalization accuracy p(H$_x$) for the target style. **P$_\text{flip}$**: Proportion of segments for which steering has a causal impact on personalization. $\alpha$ = 5 is used for SAE Cont. results.
 :::

@@ -144,12 +144,12 @@
  & & & \multicolumn{1}{|c}{F} & \multicolumn{1}{c}{I} & \multicolumn{1}{|c}{F} & \multicolumn{1}{c}{I} & \multicolumn{1}{|c}{F} & \multicolumn{1}{c}{I} &\multicolumn{1}{|c}{F} & \multicolumn{1}{c|}{I} & AVG \\
  \hline
  \multirow{8}{4em}{\textsc{Bloom} 175B} & \multirow{4}{*}{base} & BLEU & 40.9 & 46.3 & 33.7 & 32.0 & 21.8 & 18.9 & 33.9 & 29.0 & 32.1 \\
- & & COMET & .785 & .823 & .611 & .615 & .409 & .436 & .772 & .705 & .644 \\
+ & & \textsc{comet} & .785 & .823 & .611 & .615 & .409 & .436 & .772 & .705 & .644 \\
  & & L-Acc & .211 & .990 & .899 & .656 & .944 & .123 & .704 & .010 & .567 \\
  & & S-Acc & .200 & .930 & .880 & .715 & .940 & .100 & .975 & .025 & .596 \\
  \cline{2-12}
  & \multirow{4}{*}{\textsc{Ramp}} & BLEU & 39.4 & 44.6 & 35.3 & 34.7 & 22.4 & 18.4 & 32.2 & 27.5 & 31.8 \\
- & & COMET & .749 & .788 & .575 & .614 & .488 & .480 & .770 & .702 & .646 \\
+ & & \textsc{comet} & .749 & .788 & .575 & .614 & .488 & .480 & .770 & .702 & .646 \\
  & & L-Acc & .169 & .978 & .949 & .770 & .973 & .143 & 1.00 & .015 & .625 \\
  & & S-Acc & .175 & .950 & .930 & .790 & .975 & .140 & .975 & .040 & .622 \\
 \end{tabular}
@@ -158,5 +158,5 @@
 
 :::
 
-Decomposed results of cross-lingual prompting on [CoCoA-MT]{.smallcaps}.
+Full results of cross-lingual prompting on [CoCoA-MT]{.smallcaps}.
 :::
