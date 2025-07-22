@@ -2,7 +2,7 @@
 
 ::: {.callout-note appearance="simple" icon="false"}
 
-This chapter is adapted from the paper *Model Internals-based Answer Attribution for Trustworthy Retrieval-Augmented Generation* [@qi-etal-2024-model].
+This chapter is adapted from the paper *Model Internals-based Answer Attribution for Trustworthy Retrieval-Augmented Generation* [@qi-sarti-etal-2024-model].
 
 :::
 

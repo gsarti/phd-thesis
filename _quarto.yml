@@ -127,7 +127,6 @@ bibliography:
 - latex/references/chap-9-qe4pe.bib
 - latex/references/chap-10-unsup-wqe.bib
 - latex/references/appendices.bib
-bibliographystyle: latex/rug-phd-thesis.bst
 
 format:
   html:

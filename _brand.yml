@@ -11,6 +11,7 @@ color:
     lightgray: "#bebebe"
     blue: "#0000ff"
     purple: "#800080"
+    darkgreen: "#466362"
     majorerror: "#e69500"
     minorerror: "#e6bb00"
     correction: "#98cc70"
@@ -19,4 +20,5 @@ color:
     supervised: "#dc0d97"
     oracle: "#1c9a0e"
     random: "#888888"
+    pastelorange: "#CB793A"
     
