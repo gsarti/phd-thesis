@@ -8,43 +8,13 @@
 
 **Gender-Controlled Translation** Here is a sentence: {`src`} Here is its `lang` translation in which the person is `attr`: {`tgt`} In the translation, the `attr` gender of the person is made explicit by words such as '`w1`', '`w2`'.
 
-### Language Codes {#sec-ramp-languages}
-
-{{< include ../tables/chap-6-ramp/_language-codes.qmd >}}
-
-### Preliminary Evaluation of Same-Language Prompting {#sec-ramp-preliminary}
-
-We conduct preliminary evaluations aimed at reducing the number of experimental settings. We perform formality-controlled translation using [CoCoA-MT]{.smallcaps}, and evaluate LLMs by varying the number of in-context examples (i.e., 4-8-16-32, selected based on the feasible context length[^b-2]).
-
-[^b-2]: [Bloom]{.smallcaps} 175B encountered out-of-memory errors with 32 in-context example using eight 40GB A100 GPUs.
-
-@fig-chap6-preliminary-cocoa-results presents results averaged across all four languages **seen** by [Bloom]{.smallcaps} during its pre-training.[^b-3]
-
-::: {#fig-chap6-preliminary-cocoa-results layout-ncol=2 fig-pos="t"}
-
-![](../figures/chap-6-ramp/cocoamt_bleu.pdf)
-
-![](../figures/chap-6-ramp/cocoamt_accuracy.pdf)
-
-BLEU and sentential formality accuracy of prompt outputs on [CoCoA-MT]{.smallcaps} test set for different amounts of in-context examples. Confidence intervals are obtained base setting by sampling in-context examples using 3 seeds.
-:::
-
-Observations:
-
-[^b-3]: Detailed scores are included in @tbl-chap6-preliminary-cocoa-results.
-
-- [Ramp]{.smallcaps} generally outperforms base prompting (i.e., random in-context examples and no attribute marking) across most LLMs and example settings for both BLEU and formality accuracy.
-- BLEU and formality accuracy improve with increased model size and with the number of examples, until this number reaches 16. 
-
-Based on these results we move forward with the [XGLM]{.smallcaps} 7.5B and [Bloom]{.smallcaps} 175B models and 16 examples.
-
-### Detailed Scores of Aggregated Results {#sec-ramp-decomposed-scores}
+### Full Per-language Results {#sec-ramp-full-scores}
 
 - @tbl-chap6-preliminary-cocoa-results: Detailed scores of same-language prompting on [CoCoA-MT]{.smallcaps} (preliminary evaluation).[^b-4]
-- @tbl-chap6-same-language-cocoa-details: Decomposed results of same-language prompting on [CoCoA-MT]{.smallcaps} (full evaluation).
-- @tbl-chap6-same-language-geneval-details: Decomposed results of same-language prompting on [MT-GenEval]{.smallcaps} (full evaluation).
-- @tbl-chap6-cross-lingual-cocoa-details: Decomposed results of cross-lingual prompting on [CoCoA-MT]{.smallcaps}.
-- @tbl-chap6-cross-lingual-geneval-details: Decomposed results of cross-lingual prompting on [MT-GenEval]{.smallcaps}.
+- @tbl-chap6-same-language-cocoa-details: Full results of same-language prompting on [CoCoA-MT]{.smallcaps} (full evaluation).
+- @tbl-chap6-same-language-geneval-details: Full results of same-language prompting on [MT-GenEval]{.smallcaps} (full evaluation).
+- @tbl-chap6-cross-lingual-cocoa-details: Full results of cross-lingual prompting on [CoCoA-MT]{.smallcaps}.
+- @tbl-chap6-cross-lingual-geneval-details: Full results of cross-lingual prompting on [MT-GenEval]{.smallcaps}.
 
 [^b-4]: We set maximum output length as 50 tokens in the preliminary evaluation, while we use 100 tokens in the main evaluation. Early truncating leads to slightly lower scores in @tbl-chap6-preliminary-cocoa-results than in @tbl-chap6-full-results.
 
@@ -58,13 +28,9 @@ Based on these results we move forward with the [XGLM]{.smallcaps} 7.5B and [Blo
 
 {{< include ../tables/chap-6-ramp/_cross-lingual-geneval-details.qmd >}}
 
-### Amended Details of Cross-Lingual Prompting {#sec-ramp-zero-shot-cross}
-
-We test the zero-shot setting using the leave-one-out strategy, i.e. we retrieve in-context examples from every languages except the desired language of translation. We ensure that we retrieve an equal number of examples from all languages: the number of examples retrieved from each language is the total desired number of in-context examples divided by number of training languages. In [CoCoA-MT]{.smallcaps}, we retrieve 14 in-context examples from 7 languages. In [MT-GenEval]{.smallcaps}, we retrieve 8 in-context examples from 8 languages. We reduced the number of in-context examples in this setting to avoid out-of-memory errors with [Bloom]{.smallcaps} 175B.
-
 ### Error Analysis of Cross-Lingual Prompting {#sec-ramp-analysis-zeroshot}
 
-@tbl-chap6-cross-lingual-analysis shows two examples where [Ramp]{.smallcaps} performs significantly worse than the base model in terms of [COMET]{.smallcaps}. 
+@tbl-chap6-cross-lingual-analysis shows two examples where [Ramp]{.smallcaps} performs significantly worse than the base model in terms of [comet]{.smallcaps}. 
 In the first example, having multiple in-context examples containing *"million"* led the model to mis-translate *"billion"* to *"million"*.
 In the second example, we observe that the color related in-context examples led the model to produce hallucinated output about clothing colors.
 
@@ -77,12 +43,6 @@ Repeated misleading in-context examples are less observed on [MT-GenEval]{.small
 
 ## Steering Language Models for Machine Translation Personalization {#sec-sae-litmt-appendix}
 
-### List of Novels Used {#sec-sae-litmt-novels}
-
-To ensure a diverse and representative evaluation, we select novels spanning a variety of linguistic families and cultural backgrounds. Our dataset includes Romance languages such as Italian (Pinocchio) and French (Around the World in Eighty Days), as well as Germanic languages like Dutch (The Diary of a Young Girl) and German (Beware of Pity). To evaluate our setup on non-Latin scripts and distinct linguistic structures, we also include Russian (Crime and Punishment), Japanese (No Longer Human), and Chinese (Dream of the Red Chamber). @tbl-chap7-novels-details summarizes the number of paragraphs employed in the evaluation of each language.
-
-{{< include ../tables/chap-7-sae-litmt/_novels-details.qmd >}}
-
 ### Experiments Reproducibility {#sec-sae-litmt-reproducibility}
 
 In this section, we provide every parameter we use for the reproducibility of our experiments setups.
@@ -91,12 +51,6 @@ In this section, we provide every parameter we use for the reproducibility of ou
 
 We use the same prompt template across all methods: ZS (which corresponds to the original model translation), ZS-Exp.$_\text{HT}$, ZS-Exp.$_\text{PT}$ (detailed in @sec-sae-litmt-explain), MS, ActAdd, ReFT, and SAE-based contrastive setups. This prompt, shown in @lst-chap7-explain-final, instructs the model to translate the source sentence while explicitly preventing it from adding any explanations about the translation process. Since all test models are Instruction Tuned, we utilize their native chat templates to preprocess the input accordingly. For multi-shot examples, the *user* and *assistant* turns are repeated for each example, always using the same prompt structure.
 
-#### Classifier Training {#sec-sae-litmt-classifiers}
-
-All classifiers are fine-tuned from the `xlm-roberta-large` model^[<https://huggingface.co/FacebookAI/xlm-roberta-large>], using a linear classification head. Training is conducted for 6 epochs with a learning rate of 2e-5 and a batch size of 32, selecting the best model checkpoint based on validation accuracy.
-
-Training data only includes generations from models and the translator without any source text. It is also perfectly balanced, as each paragraph provides one instance for all three labels: H1, H2, and MT. The total size of the training set varies depending on the number of paragraphs in the chosen novel. On average, we obtain approximately 830 instances, resulting in a total of around 2,490 labeled examples for training (see @tbl-chap7-novels-details). Validation and test sets are strictly held out and never seen during training. Additionally, they do not include the small 20-example subsets used in the MS, ZS-Exp.$_\text{HT}$, ZS-Exp.$_\text{PT}$, SAE Cont.$_\text{HT}$, and SAE Cont.$_\text{PT}$ setups.
-
 #### ReFT Training {#sec-sae-litmt-reft-training}
 
 ReFT training was conducted using the PyReFT toolkit from the original authors^[<https://github.com/stanfordnlp/pyreft>]. We applied the intervention at the same hook point used by other steering methods - specifically, the layer output corresponding to the residual stream at the selected layer. The training configuration includes a `low_rank_dimension` of 4, `lora_alpha` set to 32, and a `lora_dropout` of 0.05. ReFT was trained on the same 20 prompts used in the MS setup, for a total of 100 epochs.
@@ -104,35 +58,6 @@ ReFT training was conducted using the PyReFT toolkit from the original authors^[
 #### SAE Cont.$_\text{HT}$ and SAE Cont.$_\text{PT}$ {#sec-sae-litmt-cont-methods}
 
 We use the NNsight library [@fiottokaufman-etal-2024-nnsight] to extract and manipulate model activations for all steering experiments. The source code is publicly available in the repository linked in the main body of this paper. For consistency, we use the same set of contrastive examples employed in the MS approach.
-
-@alg-chap7-latent-steering outlines the procedure for latent-based steering. It enhances features identified as relevant to personalization while simultaneously suppressing those negatively correlated with the task.
-
-```pseudocode
-#| label: alg-chap7-latent-steering
-#| pdf-placement: "ht!"
-
-\begin{algorithm}
-\caption{Contrastive SAE Steering}
-\begin{algorithmic}
-\Require Input activation $z$, SAE model, target latents expected value $\mathbb{E}^+[X_i]$, contrast latents expected value $\mathbb{E}^-[X_i]$, steering coefficient $\alpha$
-\Ensure Steered activation $z_{\text{new}}$
-\Procedure{ContrastiveSteering}{$z, \text{SAE}, \mathbb{E}^+[X_i], \mathbb{E}^-[X_i], \alpha$}
-    \State $x = \text{SAE.encode}(z)$
-    \State $m = \text{length}(x)$
-    \For{$i \gets 1$ to $m$}
-        \If{$\mathbb{E}^+[X_i] > x[i]$}
-            \State $x[i] = \mathbb{E}^+[X_i]$
-        \EndIf
-        \If{$\mathbb{E}^-[X_i] < x[i]$}
-            \State $x[i] =\mathbb{E}^-[X_i]$
-        \EndIf
-    \EndFor
-    \State $z_{\text{new}} = \alpha \cdot \text{SAE.decode}(x)$
-    \State \textbf{return} $z_{\text{new}}$
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-```
 
 #### ZS-Exp.$_\text{HT}$ and ZS-Exp.$_\text{PT}$ {#sec-sae-litmt-explain}
 
@@ -214,15 +139,9 @@ Zero shot template template when prompting language models with different setups
 
 ### All Models Results {#sec-sae-litmt-all-models}
 
-#### Classifiers {#sec-sae-litmt-classifier-results}
+#### Full Prompting and Steering Results {#sec-sae-litmt-steering-results}
 
-We show in @tbl-chap7-classifiers-perf results for every classifier trained for each model and for each language.
-
-{{< include ../tables/chap-7-sae-litmt/_classifiers-perf.qmd >}}
-
-#### Prompting and Steering Results {#sec-sae-litmt-steering-results}
-
-We present detailed plots of the results for each novel across the three evaluated models in @fig-chap7-gemma2b-all (Gemma 2 2B), @fig-chap7-gemma9b-all (Gemma 2 9B), and @fig-chap7-llama8b-all (Llama 3.1 8B). These plots display the performance of all evaluated methods, reporting the three submetrics: **H** accuracy (general human-likeness), **P** accuracy (translator-specific accuracy), and **P$_\text{flip}$** (personalized flip accuracy), alongside the corresponding COMET scores measuring translation quality.
+We present detailed plots of the results for each novel across the three evaluated models in @fig-chap7-gemma2b-all (Gemma 2 2B), @fig-chap7-gemma9b-all (Gemma 2 9B), and @fig-chap7-llama8b-all (Llama 3.1 8B). These plots display the performance of all evaluated methods, reporting the three submetrics: **H** accuracy (general human-likeness), **P** accuracy (translator-specific accuracy), and **P$_\text{flip}$** (personalized flip accuracy), alongside the corresponding [comet]{.smallcaps} scores measuring translation quality.
 
 ![Results for every language on Gemma 2 2B.](../figures/chap-7-sae-litmt/app_gemma-2-2b-it_novels_avg.pdf){#fig-chap7-gemma2b-all fig-pos="t"}
 
@@ -230,14 +149,12 @@ We present detailed plots of the results for each novel across the three evaluat
 
 ![Results for every language on Llama 3.1 8B.](../figures/chap-7-sae-litmt/app_llama-3.1-8b-it_novels_avg.pdf){#fig-chap7-llama8b-all fig-pos="t"}
 
-### Examples from Dataset and Different Approaches {#sec-sae-litmt-output-examples}
+### Dataset and Generation Examples {#sec-sae-litmt-output-examples}
 
-We present in @tbl-chap7-examples-all-zh and @tbl-chap7-examples-all-it a selection of examples from two different languages, showcasing outputs from each of the tested setups. For each example, we also report the corresponding classification label predicted by the classifier and the associated COMET score. Additionally @tbl-chap7-extreme-alphas shows some examples of models generating output aligned with the Human translator according to the classifier but with a low COMET score corresponding to an almost unreadable output due to extreme $\alpha$ values.
+We present in @tbl-chap7-examples-all-zh and @tbl-chap7-examples-all-it a selection of examples from two different languages, showcasing outputs from each of the tested setups. For each example, we also report the corresponding classification label predicted by the classifier and the associated [comet]{.smallcaps} score. Additionally 
 
 {{< include ../tables/chap-7-sae-litmt/_examples-all-zh.qmd >}}
 
 {{< include ../tables/chap-7-sae-litmt/_examples-all-it.qmd >}}
-
-{{< include ../tables/chap-7-sae-litmt/_extreme-alphas.qmd >}}
 
 {{< pagebreak >}}

@@ -15,17 +15,17 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="midrule">
-            <td><span data-qmd="**Italian (IT)**"></span></td>
+        <tr>
+            <td class="mediumrow"><span data-qmd="**Italian (IT)**"></span></td>
             <td>Pinocchio</td>
             <td>745</td>
             <td>82</td>
             <td>107</td>
-            <td>20</td>
+            <td class="smallrow">20</td>
         </tr>
         <tr>
             <td><span data-qmd="**French (FR)**"></span></td>
-            <td>Around the World in Eighty Days</td>
+            <td class="verylongrow">Around the World in Eighty Days</td>
             <td>829</td>
             <td>92</td>
             <td>120</td>

@@ -102,7 +102,7 @@ Attribute tagging is a standard method for ACT, so we include a baseline followi
 
 ### Evaluation Metrics {#sec-chap6-evaluation-metrics}
 
-We measure translation quality with [BLEU]{.smallcaps} [@papineni-etal-2002-bleu] and [COMET]{.smallcaps} [@rei-etal-2020-comet]. 
+We measure translation quality with [BLEU]{.smallcaps} [@papineni-etal-2002-bleu] and [comet]{.smallcaps} [@rei-etal-2020-comet]. 
 For attribute accuracy, we use the lexical matching metrics provided with [CoCoA-MT]{.smallcaps} and [MT-GenEval]{.smallcaps} (**Lexical-Accuracy**) and sentence encoders trained on contrastive examples (**Sentential-Accuracy**). For the latter, we train multilingual classifiers on top of the mDeBERTa-v3 encoder [@he-etal-2023-debertav3]. High-performance pre-trained classifiers have been shown to produce attribute accuracy estimates closer to human judgments for style transfer [@lai-etal-2022-human]. @tbl-chap6-classifier-accuracy-avg presents the accuracy of the classification models on the test sets of their respective datasets, averaged over all languages.
 
 We use the original train/test split provided by the [CoCoA-MT]{.smallcaps} dataset. Each split contains *telephony* and *topical_chat* domains. We use the *topical_chat* domain in our experiments. [MT-GenEval]{.smallcaps} contains a dev and test split, and we use the dev split as training data for the classification model and prompting experiments.
@@ -137,7 +137,7 @@ We observe that [Ramp]{.smallcaps} generally outperforms base prompting (i.e., r
 
 {{< include ../tables/chap-6-ramp/_full-results.qmd >}}
 
-We observe that in the +mark setting, simple attribute marking consistently improves attribute accuracy of the generated text, but leads to degradation of [COMET]{.smallcaps} on [CoCoA-MT]{.smallcaps}. The complete [Ramp]{.smallcaps} with similarity retrieval not only compensates for the [COMET]{.smallcaps} degradation but also improves quality and attribute metrics across the board, especially for the high-capacity [Bloom]{.smallcaps} 175B model.
+We observe that in the +mark setting, simple attribute marking consistently improves attribute accuracy of the generated text, but leads to degradation of [comet]{.smallcaps} on [CoCoA-MT]{.smallcaps}. The complete [Ramp]{.smallcaps} with similarity retrieval not only compensates for the [comet]{.smallcaps} degradation but also improves quality and attribute metrics across the board, especially for the high-capacity [Bloom]{.smallcaps} 175B model.
 
 Adapted MT outperforms [Bloom]{.smallcaps} 175B on [MT-GenEval]{.smallcaps} in all metrics, but underperforms it on [CoCoA-MT]{.smallcaps}. This suggests that it is challenging to do fine-grained comparison between LLMs and standard MT systems as they might have different domain coverage. 
 [Bloom]{.smallcaps} 175B consistently outperforms [XGLM]{.smallcaps} 7.5B in both generic translation quality and attribute control accuracy, so we focus on [Bloom]{.smallcaps} 175B four our cross-lingual prompting analysis.

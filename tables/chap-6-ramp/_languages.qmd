@@ -126,7 +126,7 @@ ES & Spanish & FR & French & HI & Hindi \\
 IT & Italian & JA & Japanese & NL & Dutch \\
 RU & Russian \\
 \end{tabular}
-\vspace{5pt}
+\vspace{10pt}
 \begin{tabular}{l|ccccc|ccccc}
  & AR & ES & FR & HI & PT & DE & IT & JA & RU & NL \\
  \hline

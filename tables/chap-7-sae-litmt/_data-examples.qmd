@@ -13,23 +13,23 @@
     </thead>
     <tbody>
         <tr>
-            <td><span data-qmd="H<sub>1</sub>"></span></td>
+            <td><span data-qmd="[**H$_1$**]{color='brand-color.darkgreen'}"></span></td>
             <td><em>"Such being the case," the Taoist acquiesced, "I am ready to follow you, whenever you please to go."</em></td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="H<sub>2</sub>"></span></td>
+            <td><span data-qmd="[**H$_2$**]{color='brand-color.lightbluedim'}"></span></td>
             <td><em>"Very good, I will go with you then," said the Taoist.</em></td>
         </tr>
         <tr>
-            <td style="color: #ff8c00;"><span data-qmd="**Gemma 2 2B**"></span></td>
+            <td><span data-qmd="[**Gemma 2 2B**]{color='brand-color.pastelorange'}"></span></td>
             <td><em>"If that's the case, then go ahead" said the Taoist.</em></td>
         </tr>
         <tr>
-            <td style="color: #ff8c00;"><span data-qmd="**Gemma 2 9B**"></span></td>
+            <td><span data-qmd="[**Gemma 2 9B**]{color='brand-color.pastelorange'}"></span></td>
             <td><em>"If so, then I will go with you" the Taoist said</em></td>
         </tr>
         <tr>
-            <td style="color: #ff8c00;"><span data-qmd="**Llama 3.1 8B**"></span></td>
+            <td><span data-qmd="[**Llama 3.1 8B**]{color='brand-color.pastelorange'}"></span></td>
             <td><em>The Taoist said: "If you insist on going, then go ahead."</em></td>
         </tr>
     </tbody>
@@ -45,23 +45,23 @@
     </thead>
     <tbody>
         <tr>
-            <td><span data-qmd="H<sub>1</sub>"></span></td>
+            <td><span data-qmd="[**H$_1$**]{color='brand-color.darkgreen'}"></span></td>
             <td><em>"The salt water must have done it. The sea plays funny tricks."</em></td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="H<sub>2</sub>"></span></td>
+            <td><span data-qmd="[**H$_2$**]{color='brand-color.lightbluedim'}"></span></td>
             <td><em>"It must have been the effect of sea-water. The sea makes extraordinary changes."</em></td>
         </tr>
         <tr>
-            <td style="color: #ff8c00;"><span data-qmd="**Gemma 2 2B**"></span></td>
+            <td><span data-qmd="[**Gemma 2 2B**]{color='brand-color.pastelorange'}"></span></td>
             <td><em>"It will be the effect of the sea water. The sea makes of these jokes."</em></td>
         </tr>
         <tr>
-            <td style="color: #ff8c00;"><span data-qmd="**Gemma 2 9B**"></span></td>
+            <td><span data-qmd="[**Gemma 2 9B**]{color='brand-color.pastelorange'}"></span></td>
             <td><em>It will be the effect of the sea water. The sea plays these tricks.</em></td>
         </tr>
         <tr>
-            <td style="color: #ff8c00;"><span data-qmd="**Llama 3.1 8B**"></span></td>
+            <td><span data-qmd="[**Llama 3.1 8B**]{color='brand-color.pastelorange'}"></span></td>
             <td><em>It will be the effect of the sea water. The sea does things like this.</em></td>
         </tr>
     </tbody>
@@ -75,35 +75,33 @@
 ```{=latex}
 \begin{table}
     \centering
-    \small
-    \scalebox{0.9}{
-\begin{tabular}{p{0.25\linewidth}@{}p{0.82\linewidth}}
+    \footnotesize
+\begin{tabular}{p{0.15\linewidth}p{0.77\linewidth}}
 \toprule[1.5pt]
 \multicolumn{2}{p{0.90\linewidth}}{\textsc{zh}~$\rightarrow$~\textsc{en}\hspace{5mm} \begin{CJK}{UTF8}{gbsn}道人道：「既如此，便隨你去來。」\end{CJK}} \\
 \midrule
-H\textsubscript{1} & \textit{"Such being the case," the Taoist acquiesced, "I am ready to follow you, whenever you please to go."} \\
-H\textsubscript{2} & \textit{"Very good, I will go with you then," said the Taoist.} \\
+\textcolor{darkgreen}{H\textsubscript{1}} & \textit{"Such being the case," the Taoist acquiesced, "I am ready to follow you, whenever you please to go."} \\
+\textcolor{LightBlue}{H\textsubscript{2}} & \textit{"Very good, I will go with you then," said the Taoist.} \\
 \midrule
-\textcolor{orange}{Gemma 2 2B} & \textit{"If that's the case, then go ahead" said the Taoist.} \\[4pt] 
-\textcolor{orange}{Gemma 2 9B} & \textit{"If so, then I will go with you" the Taoist said} \\[4pt] 
-\textcolor{orange}{Llama 3.1 8B} & \textit{The Taoist said: "If you insist on going, then go ahead."} \\[4pt] 
+\textcolor{pastelorange}{Gemma 2 2B} & \textit{"If that's the case, then go ahead" said the Taoist.} \\[4pt] 
+\textcolor{pastelorange}{Gemma 2 9B} & \textit{"If so, then I will go with you" the Taoist said} \\[4pt] 
+\textcolor{pastelorange}{Llama 3.1 8B} & \textit{The Taoist said: "If you insist on going, then go ahead."} \\[4pt] 
 \midrule
 \toprule
 \multicolumn{2}{p{0.90\linewidth}}{\textsc{it}~$\rightarrow$~\textsc{en} \hspace{5mm} Sar\`a l'effetto dell'acqua del mare. Il mare ne fa di questi scherzi} \\
 \midrule
-H\textsubscript{1} & \textit{"The salt water must have done it. The sea plays funny tricks."} \\
-H\textsubscript{2} & \textit{"It must have been the effect of sea-water. The sea makes extraordinary changes."} \\
+\textcolor{darkgreen}{H\textsubscript{1}} & \textit{"The salt water must have done it. The sea plays funny tricks."} \\
+\textcolor{LightBlue}{H\textsubscript{2}} & \textit{"It must have been the effect of sea-water. The sea makes extraordinary changes."} \\
 \midrule
-\textcolor{orange}{Gemma 2 2B} & \textit{"It will be the effect of the sea water. The sea makes of these jokes."} \\[4pt] 
-\textcolor{orange}{Gemma 2 9B} & \textit{It will be the effect of the sea water. The sea plays these tricks.} \\[4pt] 
-\textcolor{orange}{Llama 3.1 8B} & \textit{It will be the effect of the sea water. The sea does things like this.} \\[4pt] 
+\textcolor{pastelorange}{Gemma 2 2B} & \textit{"It will be the effect of the sea water. The sea makes of these jokes."} \\[4pt] 
+\textcolor{pastelorange}{Gemma 2 9B} & \textit{It will be the effect of the sea water. The sea plays these tricks.} \\[4pt] 
+\textcolor{pastelorange}{Llama 3.1 8B} & \textit{It will be the effect of the sea water. The sea does things like this.} \\[4pt] 
 \bottomrule[1.5pt]
 \end{tabular}
-}
 \end{table}
 ```
 
 :::
 
-ZH$\rightarrow$EN and IT$\rightarrow$EN examples for PAR3 segments translated by humans (H$_1$, H$_2$) and [LLMs with zero-shot prompting]{color='ff8c00'}. More examples in the appendix.
+ZH$\rightarrow$EN and IT$\rightarrow$EN examples for [Par3]{.smallcaps} segments translated by humans ([H$_1$]{color="brand-color.darkgreen"},[H$_2$]{color="brand-color.lightbluedim"}) and LLMs with zero-shot prompting ([MT]{color='brand-color.pastelorange'}). More examples in [@tbl-chap7-examples-all-it;  @tbl-chap7-examples-all-zh].
 :::
