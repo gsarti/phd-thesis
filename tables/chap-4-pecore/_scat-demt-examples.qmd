@@ -99,39 +99,39 @@
         \toprule[1.5pt]
         \textbf{SCAT+} \\
         \midrule
-        $C_x:$ I loathe that \colorbox{LightBlue}{song}. But why did you bite poor Birdie's head off? Because I've heard it more times than I care to. \colorbox{LightBlue}{It} haunts me. Just stop, for a moment. \\
-        $C_y:$ Je hais cette \colorbox{LightBlue}{chanson} \textcolor{lightgray}{(song, \textsc{feminine})}. Mais pourquoi avoir parlé ainsi à la pauvre Birdie ? Parce que j'ai entendu ce chant plus que de fois que je ne le peux. \colorbox{LightBlue}{Elle} \textcolor{lightgray}{(she)} me hante. Arrêtez-vous un moment. \\
-        $x:$ How does \colorbox{PaleGreen}{it} haunt you? \\
-        $y:$ Comment peut-\colorbox{PaleGreen}{elle} \textcolor{lightgray}{(she)} vous hanter? \\
+        $C_x:$ I loathe that \colorbox{lightblueclear}{song}. But why did you bite poor Birdie's head off? Because I've heard it more times than I care to. \colorbox{lightblueclear}{It} haunts me. Just stop, for a moment. \\
+        $C_y:$ Je hais cette \colorbox{lightblueclear}{chanson} \textcolor{lightgray}{(song, \textsc{feminine})}. Mais pourquoi avoir parlé ainsi à la pauvre Birdie ? Parce que j'ai entendu ce chant plus que de fois que je ne le peux. \colorbox{lightblueclear}{Elle} \textcolor{lightgray}{(she)} me hante. Arrêtez-vous un moment. \\
+        $x:$ How does \colorbox{lightgreen}{it} haunt you? \\
+        $y:$ Comment peut-\colorbox{lightgreen}{elle} \textcolor{lightgray}{(she)} vous hanter? \\
         \midrule
-        $C_x$: - Ah! Sven! It's been so long. - Riley, it's good to see you. - You, too. How's the \colorbox{LightBlue}{boat}? Uh, \colorbox{LightBlue}{it} creaks, \colorbox{LightBlue}{it} groans. \\
-        $C_y:$ Sven ! - Riley, contente de te voir. - Content aussi. Comment va le \colorbox{LightBlue}{bateau} \textcolor{lightgray}{(boat, \textsc{masculine})}? \colorbox{LightBlue}{Il} \textcolor{lightgray}{(he)} craque de partout. \\
-        $x:$ Not as fast as \colorbox{PaleGreen}{it} used to be. \\
-        $y:$ \colorbox{PaleGreen}{Il} \textcolor{lightgray}{(he)} n'est pas aussi rapide  qu'avant. \\
+        $C_x$: - Ah! Sven! It's been so long. - Riley, it's good to see you. - You, too. How's the \colorbox{lightblueclear}{boat}? Uh, \colorbox{lightblueclear}{it} creaks, \colorbox{lightblueclear}{it} groans. \\
+        $C_y:$ Sven ! - Riley, contente de te voir. - Content aussi. Comment va le \colorbox{lightblueclear}{bateau} \textcolor{lightgray}{(boat, \textsc{masculine})}? \colorbox{lightblueclear}{Il} \textcolor{lightgray}{(he)} craque de partout. \\
+        $x:$ Not as fast as \colorbox{lightgreen}{it} used to be. \\
+        $y:$ \colorbox{lightgreen}{Il} \textcolor{lightgray}{(he)} n'est pas aussi rapide  qu'avant. \\
         \midrule
         \textbf{\textsc{DiscEval-MT ana}} \\
         \midrule
-        $C_x:$ But how do you know the \colorbox{LightBlue}{woman} isn't going to turn out like all the others? \\
-        $C_y:$ Mais comment tu sais que la \colorbox{LightBlue}{femme} \textcolor{lightgray}{(woman, \textsc{feminine})} ne finira pas comme toutes les autres? \\
-        $x:$ \colorbox{PaleGreen}{This one}'s different. \\
-        $y:$ \colorbox{PaleGreen}{Celle-ci} \textcolor{lightgray}{(This one, \textsc{feminine})} est différente. \\
+        $C_x:$ But how do you know the \colorbox{lightblueclear}{woman} isn't going to turn out like all the others? \\
+        $C_y:$ Mais comment tu sais que la \colorbox{lightblueclear}{femme} \textcolor{lightgray}{(woman, \textsc{feminine})} ne finira pas comme toutes les autres? \\
+        $x:$ \colorbox{lightgreen}{This one}'s different. \\
+        $y:$ \colorbox{lightgreen}{Celle-ci} \textcolor{lightgray}{(This one, \textsc{feminine})} est différente. \\
         \midrule
-        $C_x:$ Can you authenticate these \colorbox{LightBlue}{signatures}, please? \\
-        $C_y:$ Pourriez-vous authentifier ces \colorbox{LightBlue}{signatures} \textcolor{lightgray}{(\textsc{feminine})}, s'il vous plaît? \\
-        $x:$ Yes, they're \colorbox{PaleGreen}{mines}. \\
-        $y:$ Oui, ce sont les \colorbox{PaleGreen}{miennes} \textcolor{lightgray}{(mines, \textsc{feminine})}. \\
+        $C_x:$ Can you authenticate these \colorbox{lightblueclear}{signatures}, please? \\
+        $C_y:$ Pourriez-vous authentifier ces \colorbox{lightblueclear}{signatures} \textcolor{lightgray}{(\textsc{feminine})}, s'il vous plaît? \\
+        $x:$ Yes, they're \colorbox{lightgreen}{mines}. \\
+        $y:$ Oui, ce sont les \colorbox{lightgreen}{miennes} \textcolor{lightgray}{(mines, \textsc{feminine})}. \\
         \midrule
         \textbf{\textsc{DiscEval-MT lex}} \\
         \midrule
-        $C_x:$ Do you think you can \colorbox{LightBlue}{shoot} it from here? \\
-        $C_y:$ Tu penses que tu peux le \colorbox{LightBlue}{tirer} \textcolor{lightgray}{(shoot)} dessus à partir d'ici? \\
-        $x:$ Hand me that \colorbox{PaleGreen}{bow}. \\
-        $y:$ Passe-moi cet \colorbox{PaleGreen}{arc} \textcolor{lightgray}{(bow, \textsc{weapon})}. \\
+        $C_x:$ Do you think you can \colorbox{lightblueclear}{shoot} it from here? \\
+        $C_y:$ Tu penses que tu peux le \colorbox{lightblueclear}{tirer} \textcolor{lightgray}{(shoot)} dessus à partir d'ici? \\
+        $x:$ Hand me that \colorbox{lightgreen}{bow}. \\
+        $y:$ Passe-moi cet \colorbox{lightgreen}{arc} \textcolor{lightgray}{(bow, \textsc{weapon})}. \\
         \midrule
-        $C_x:$ Can I help you with the \colorbox{LightBlue}{wrapping}? \\
-        $C_y:$ Est-ce que je peux t'aider pour l'\colorbox{LightBlue}{emballage} \textcolor{lightgray}{(wrapping)}? \\
-        $x:$ Hand me that \colorbox{PaleGreen}{bow}. \\
-        $y:$ Passe-moi ce \colorbox{PaleGreen}{ruban} \textcolor{lightgray}{(bow, \textsc{gift wrap})}. \\
+        $C_x:$ Can I help you with the \colorbox{lightblueclear}{wrapping}? \\
+        $C_y:$ Est-ce que je peux t'aider pour l'\colorbox{lightblueclear}{emballage} \textcolor{lightgray}{(wrapping)}? \\
+        $x:$ Hand me that \colorbox{lightgreen}{bow}. \\
+        $y:$ Passe-moi ce \colorbox{lightgreen}{ruban} \textcolor{lightgray}{(bow, \textsc{gift wrap})}. \\
         \bottomrule[1.5pt]
     \end{tabular}
 \end{table}

@@ -26,15 +26,15 @@
             <td>-</td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="[ZS]{color='brand-color.pastelorange'}"></span></td>
+            <td><span data-qmd="[ZS]{color='brand-color.darkorange'}"></span></td>
             <td><em>This amount will be returned to you upon your release from prison, the judge said. Meanwhile, you are free on bail.</em></td>
-            <td><span data-qmd="[MT]{color='brand-color.pastelorange'}"></span></td>
+            <td><span data-qmd="[MT]{color='brand-color.darkorange'}"></span></td>
             <td>0.79</td>
         </tr>
         <tr>
             <td><span data-qmd="**SAE Cont.$_\text{HT}$ ($\alpha$=5)**"></span></td>
             <td><em>This sum will be repaid to you at your departure from prison, the judge declared. In the meantime, you are released under bond.</em></td>
-            <td><span data-qmd="[MT]{color='brand-color.pastelorange'}"></span></td>
+            <td><span data-qmd="[MT]{color='brand-color.darkorange'}"></span></td>
             <td>0.85</td>
         </tr>
         <tr>
@@ -62,9 +62,9 @@
             <td>-</td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="[ZS]{color='brand-color.pastelorange'}"></span></td>
+            <td><span data-qmd="[ZS]{color='brand-color.darkorange'}"></span></td>
             <td><em>No, whatever you prefer, Lieutenant! Just no ceremonies, it doesn't matter.</em></td>
-            <td><span data-qmd="[MT]{color='brand-color.pastelorange'}"></span></td>
+            <td><span data-qmd="[MT]{color='brand-color.darkorange'}"></span></td>
             <td>0.76</td>
         </tr>
         <tr>
@@ -102,21 +102,21 @@
     Source (FR) & Cette somme vous sera restitu\'ee \'a votre sortie de prison, dit le juge. En attendant, vous êtes libres sous caution. & \large 📊 & \large ☄️ \\
     \midrule
     \textcolor{darkgreen}{H\textsubscript{1}} & \textit{This sum of money will be returned to you when you leave prison,' said the judge. 'In the meantime you are free on bail.} & - & - \\[4pt]
-    \textcolor{orange}{ZS} & \textit{This amount will be returned to you upon your release from prison, the judge said. Meanwhile, you are free on bail.} & \textcolor{pastelorange}{MT} & 0.79 \\[4pt]
+    \textcolor{orange}{ZS} & \textit{This amount will be returned to you upon your release from prison, the judge said. Meanwhile, you are free on bail.} & \textcolor{darkorange}{MT} & 0.79 \\[4pt]
     \midrule
-    SAE Cont.$_\text{HT}$ \\~~ $\alpha = $ 5 & \textit{This sum will be repaid to you at your departure from prison, the judge declared. In the meantime, you are released under bond.} & \textcolor{pastelorange}{MT} & 0.85 \\
-    ~~ $\alpha = $ \textcolor{purple}{50} & \textit{\#echo all ought to goodness too was put moreover goodness behaving goodness goodness goodness goodness } [...] & \textcolor{darkgreen}{H\textsubscript{1}} & 0.20 \\
-    ~~  $\alpha = $ \textcolor{purple}{150} & \textit{GURL callers goodness\_Noneummy amid\'ala Reportedaps Beaverishlor Decompiled\_unset queer headquarters Headquarters twe ...} [...] & \textcolor{darkgreen}{H\textsubscript{1}} & 0.23 \\
+    SAE Cont.$_\text{HT}$ \\~~ $\alpha = $ 5 & \textit{This sum will be repaid to you at your departure from prison, the judge declared. In the meantime, you are released under bond.} & \textcolor{darkorange}{MT} & 0.85 \\
+    ~~ $\alpha = $ \textcolor{darkpurple}{50} & \textit{\#echo all ought to goodness too was put moreover goodness behaving goodness goodness goodness goodness } [...] & \textcolor{darkgreen}{H\textsubscript{1}} & 0.20 \\
+    ~~  $\alpha = $ \textcolor{darkpurple}{150} & \textit{GURL callers goodness\_Noneummy amid\'ala Reportedaps Beaverishlor Decompiled\_unset queer headquarters Headquarters twe ...} [...] & \textcolor{darkgreen}{H\textsubscript{1}} & 0.23 \\
     \midrule
     \toprule
     Source (DE) & Nein – was Sie lieber haben, Herr Leutnant! Nur keine Zeremonien, es ist doch ganz einerlei. & 📊 & ☄️ \\
     \midrule
-    \textcolor{LightBlue}{H\textsubscript{2}} & \textit{"No, no-whatever you would rather have, Lieutenant Hofmiller! Please don't stand on ceremony, it makes no difference to us."} & - & - \\[4pt]
-    \textcolor{orange}{ZS} & \textit{No, whatever you prefer, Lieutenant! Just no ceremonies, it doesn't matter.} & \textcolor{pastelorange}{MT} & 0.76 \\[4pt]
+    \textcolor{lightblueclear}{H\textsubscript{2}} & \textit{"No, no-whatever you would rather have, Lieutenant Hofmiller! Please don't stand on ceremony, it makes no difference to us."} & - & - \\[4pt]
+    \textcolor{orange}{ZS} & \textit{No, whatever you prefer, Lieutenant! Just no ceremonies, it doesn't matter.} & \textcolor{darkorange}{MT} & 0.76 \\[4pt]
     \midrule
-    SAE Cont.$_\text{HT}$ \\~~ $\alpha = $ 5 & \textit{No, anything at all you want, sir!  Just don't make a fuss about it, it really doesn't matter.} & \textcolor{LightBlue}{H\textsubscript{2}} & 0.79 \\
-    ~~  $\alpha = $ \textcolor{purple}{50} & \textit{">I Don't worry about that... I don't want a ceremony for this one. It's not important...} & \textcolor{LightBlue}{H\textsubscript{2}} & 0.46 \\
-    ~~  $\alpha = $ \textcolor{purple}{150} & \textit{IWhenInWhatItDonIf Sometimes AIs Celebrating cerimonies... Sosir please don't have parties ey'} [...] & \textcolor{LightBlue}{H\textsubscript{2}} & 0.24 \\
+    SAE Cont.$_\text{HT}$ \\~~ $\alpha = $ 5 & \textit{No, anything at all you want, sir!  Just don't make a fuss about it, it really doesn't matter.} & \textcolor{lightblueclear}{H\textsubscript{2}} & 0.79 \\
+    ~~  $\alpha = $ \textcolor{darkpurple}{50} & \textit{">I Don't worry about that... I don't want a ceremony for this one. It's not important...} & \textcolor{lightblueclear}{H\textsubscript{2}} & 0.46 \\
+    ~~  $\alpha = $ \textcolor{darkpurple}{150} & \textit{IWhenInWhatItDonIf Sometimes AIs Celebrating cerimonies... Sosir please don't have parties ey'} [...] & \textcolor{lightblueclear}{H\textsubscript{2}} & 0.24 \\
     \bottomrule[1.5pt]
     \end{tabular}
 \end{table}
@@ -124,5 +124,5 @@
 
 :::
 
-Examples from different languages being classified as Human when using [extreme $\alpha$ values]{color='brand-color.purple'}.
+Examples from different languages being classified as Human when using [extreme $\alpha$ values]{color='brand-color.darkpurple'}.
 :::

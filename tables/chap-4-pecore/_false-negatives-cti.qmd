@@ -59,19 +59,19 @@
         \textbf{Pronoun Grammatical Formality, SCAT+} \\
         \midrule
         $C_x:$ [...] That demon that was in you, it wants you. But not like before. I think it loves you. \\
-        $C_y:$ [...] Ce démon qui était en \colorbox{PaleBlue}{vous}, il \colorbox{PaleBlue}{vous} veut. Mais pas comme avant. Je pense qu'il \colorbox{PaleBlue}{vous} aime. \\
+        $C_y:$ [...] Ce démon qui était en \colorbox{lightblueclear}{vous}, il \colorbox{lightblueclear}{vous} veut. Mais pas comme avant. Je pense qu'il \colorbox{lightblueclear}{vous} aime. \\
         $x:$ And it's powerless without you. \\
-        $y:$ Et il est impuissant sans \colorbox{PaleGreen}{vous} \textcolor{lightgray}{(you, \textsc{2nd p. plur., formal})}. \\
+        $y:$ Et il est impuissant sans \colorbox{lightgreen}{vous} \textcolor{lightgray}{(you, \textsc{2nd p. plur., formal})}. \\
         \midrule
         $C_x:$ You threaten my father again, I'll kill you myself... on this road. You hear me? \\
-        $C_y:$ \colorbox{PaleBlue}{Tu} menaces encore mon père, je \colorbox{PaleBlue}{te} tuerai moi-même... sur cette route. \colorbox{PaleBlue}{Tu} m'entends? \\
+        $C_y:$ \colorbox{lightblueclear}{Tu} menaces encore mon père, je \colorbox{lightblueclear}{te} tuerai moi-même... sur cette route. \colorbox{lightblueclear}{Tu} m'entends? \\
         $x:$ Now it is with you as well. \\
-        $y:$ Maintenant elle est aussi avec \colorbox{PaleGreen}{toi} \textcolor{lightgray}{(you, \textsc{2nd p. sing., informal})}. \\
+        $y:$ Maintenant elle est aussi avec \colorbox{lightgreen}{toi} \textcolor{lightgray}{(you, \textsc{2nd p. sing., informal})}. \\
         \midrule
         $C_x:$ She went back to Delhi. What do you think? [...] Girls, I tell you. \\
-        $C_y:$ Elle est revenue à Delhi. Qu'en penses-\colorbox{PaleBlue}{tu}? [...] Les filles, je \colorbox{PaleBlue}{te} le dis. \\
+        $C_y:$ Elle est revenue à Delhi. Qu'en penses-\colorbox{lightblueclear}{tu}? [...] Les filles, je \colorbox{lightblueclear}{te} le dis. \\
         $x:$ I wish they were all like you. \\
-        $y:$ J'aimerais qu'elles soient toutes comme \colorbox{PaleGreen}{toi} \textcolor{lightgray}{(you, \textsc{2nd p. sing., informal})}. \\
+        $y:$ J'aimerais qu'elles soient toutes comme \colorbox{lightgreen}{toi} \textcolor{lightgray}{(you, \textsc{2nd p. sing., informal})}. \\
     \bottomrule[1.5pt]
     \end{tabular}
 \end{table}

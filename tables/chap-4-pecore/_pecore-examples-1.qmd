@@ -54,19 +54,19 @@
         \toprule[1.5pt]
         \textbf{1. Acronym Translation (English $\rightarrow$ French, correct but more generic)} \\
         \cmidrule(lr){1-1}
-        $C_x:$ Across the United States of America, there are approximately 400,000 known cases of \colorbox{LightBlue}{Multiple Sclerosis (MS)} [...] \\
+        $C_x:$ Across the United States of America, there are approximately 400,000 known cases of \colorbox{lightblueclear}{Multiple Sclerosis (MS)} [...] \\
         $C_y:$ Aux États-Unis, il y a environ 400 000 cas connus de sclérose en plaques [...] \\
         $x:$ MS affects the central nervous system, which is made up of the brain, the spinal cord and the optic nerve. \\
-        $\tilde y:$ \colorbox{PaleRed}{La SEP} affecte le système nerveux central, composé du cerveau, de la moelle épinière et du nerf optique. \\
-        $\hat y:$ \colorbox{PaleGreen}{La maladie} affecte le système nerveux central, composé du cerveau, de la moelle épinière et du nerf optique. \\
+        $\tilde y:$ \colorbox{lightred}{La SEP} affecte le système nerveux central, composé du cerveau, de la moelle épinière et du nerf optique. \\
+        $\hat y:$ \colorbox{lightgreen}{La maladie} affecte le système nerveux central, composé du cerveau, de la moelle épinière et du nerf optique. \\
         \midrule
         \textbf{2. Anaphora Resolution (English $\rightarrow$ French, incorrect)} \\
         \midrule
-        $C_x:$ The terrified King and Madam Elizabeth were forced back to Paris by a \colorbox{LightBlue}{mob} of \colorbox{LightBlue}{market women}. \\
-        $C_y:$ Le roi et Madame Elizabeth ont été forcés à revenir à Paris par une foule de \colorbox{LightBlue}{femmes} du marché. \\
+        $C_x:$ The terrified King and Madam Elizabeth were forced back to Paris by a \colorbox{lightblueclear}{mob} of \colorbox{lightblueclear}{market women}. \\
+        $C_y:$ Le roi et Madame Elizabeth ont été forcés à revenir à Paris par une foule de \colorbox{lightblueclear}{femmes} du marché. \\
         $x:$ In a carriage, they traveled back to Paris surrounded by a mob of people screaming and shouting threats [...] \\
-        $\tilde y:$ Dans une carriole, \colorbox{PaleRed}{ils} sont retournés à Paris entourés d'une foule de gens hurlant et criant des menaces [...] \\
-        $\hat y:$ Dans une carriole, \colorbox{PaleGreen}{elles} sont \textit{retournées} à Paris \textit{entourées} d'une foule de gens hurlant et criant des menaces [...] \\
+        $\tilde y:$ Dans une carriole, \colorbox{lightred}{ils} sont retournés à Paris entourés d'une foule de gens hurlant et criant des menaces [...] \\
+        $\hat y:$ Dans une carriole, \colorbox{lightgreen}{elles} sont \textit{retournées} à Paris \textit{entourées} d'une foule de gens hurlant et criant des menaces [...] \\
         \bottomrule[1.5pt]
     \end{tabular}
 \end{table}

@@ -54,19 +54,19 @@
         \toprule[1.5pt]
         \textbf{3. Numeric format cohesion (English $\rightarrow$ French, incorrect)} \\
         \midrule
-        $C_x:$ The games kicked off at \colorbox{LightBlue}{10:00}am with great weather apart from mid morning drizzle [...] \\
-        $C_y:$ Les matchs se sont écoulés à \colorbox{LightBlue}{10:00} du matin avec un beau temps à part la nuée du matin [...] \vspace{3pt}\\
+        $C_x:$ The games kicked off at \colorbox{lightblueclear}{10:00}am with great weather apart from mid morning drizzle [...] \\
+        $C_y:$ Les matchs se sont écoulés à \colorbox{lightblueclear}{10:00} du matin avec un beau temps à part la nuée du matin [...] \vspace{3pt}\\
         $x:$ South Africa started on the right note when they had a comfortable 26-00 win against Zambia. \\
-        $\tilde y:$ L'Afrique du Sud a commencé sur la bonne note quand ils ont eu une confortable victoire de \colorbox{PaleRed}{26} contre le Zambia. \\
-        $\hat y:$  L'Afrique du Sud a commencé sur la bonne note quand ils ont eu une confortable victoire de \colorbox{PaleGreen}{26:00} contre le Zambia. \\
+        $\tilde y:$ L'Afrique du Sud a commencé sur la bonne note quand ils ont eu une confortable victoire de \colorbox{lightred}{26} contre le Zambia. \\
+        $\hat y:$  L'Afrique du Sud a commencé sur la bonne note quand ils ont eu une confortable victoire de \colorbox{lightgreen}{26:00} contre le Zambia. \\
         \midrule
         \textbf{4. Lexical cohesion (English $\rightarrow$ Turkish, correct)} \\
         \midrule
         $C_x:$ The activity of all stars in the system was found to be driven by their luminosity, their rotation, and nothing else. \\
-        $C_y:$ Sistemdeki bütün ulduzların faaliyetlerinin, parlaklıkları, \colorbox{LightBlue}{rotasyonları} ve başka hiçbir şeyin etkisi altında olduğunu ortaya çıkardılar. \vspace{3pt}\\
+        $C_y:$ Sistemdeki bütün ulduzların faaliyetlerinin, parlaklıkları, \colorbox{lightblueclear}{rotasyonları} ve başka hiçbir şeyin etkisi altında olduğunu ortaya çıkardılar. \vspace{3pt}\\
         $x:$ The luminosity and rotation are used together to determine a star's Rossby number, which is related to plasma flow. \\
-        $\tilde y:$ Parlaklık ve \colorbox{PaleRed}{döngü}, bir \textit{yıldızın plazm} akışıyla ilgili Rossby sayısını belirlemek için birlikte kullanılıyor. \\
-        $\hat y:$ Parlaklık ve \colorbox{PaleGreen}{rotasyon}, bir \textit{ulduzun plazma} akışıyla ilgili Rossby sayısını belirlemek için birlikte kullanılıyor. \\
+        $\tilde y:$ Parlaklık ve \colorbox{lightred}{döngü}, bir \textit{yıldızın plazm} akışıyla ilgili Rossby sayısını belirlemek için birlikte kullanılıyor. \\
+        $\hat y:$ Parlaklık ve \colorbox{lightgreen}{rotasyon}, bir \textit{ulduzun plazma} akışıyla ilgili Rossby sayısını belirlemek için birlikte kullanılıyor. \\
         \bottomrule[1.5pt]
     \end{tabular}
 \end{table}

@@ -1,10 +1,8 @@
-\definecolor{bettergreen}{RGB}{52, 168, 63}
-\definecolor{betterred}{RGB}{234, 68, 63}
-\newcommand{\cmark}{\textcolor{bettergreen}{\ding{51}}}%
-\newcommand{\xmark}{\textcolor{betterred}{\ding{55}}}%
 \newcommand{\cirtxt}[1]{\raisebox{.5pt}{\textcircled{\raisebox{-.9pt} {\texttt{#1}}}}}
-
-\DeclareMathOperator*{\argmax}{arg\,max}
+\definecolor{codebg}{gray}{0.95}
+\definecolor{codeframe}{gray}{0.8}
+\setlength\fboxsep{1.5pt}
+\newcommand{\inlinecode}[1]{\fcolorbox{codeframe}{codebg}{\small\!\texttt{#1}\!}}
 
 \DeclareUnicodeCharacter{2640}{\Female}
 \DeclareUnicodeCharacter{2642}{\Male}
@@ -18,54 +16,47 @@
 \DeclareUnicodeCharacter{24F9}{\cirtxt{5}}
 \DeclareUnicodeCharacter{24FA}{\cirtxt{6}}
 \DeclareUnicodeCharacter{2192}{\textcolor{TransColor}{\ding{212}}}
-\newcommand{\sig}{$^*$}
-\newcommand{\notsig}{$^{\phantom{*}}$}
 
-\definecolor{codebg}{gray}{0.95}
-\definecolor{codeframe}{gray}{0.8}
+\definecolor{lightgray}{HTML}{bebebe} % #bebebe
+\definecolor{lightred}{HTML}{ea9999} % #ea9999
+\definecolor{lightblueclear}{HTML}{9fc5e8} % #9fc5e8
+\definecolor{lightbluedim}{HTML}{6fa8dc} % #6fa8dc
+\definecolor{lightgreen}{HTML}{b6d7a8} % #b6d7a8
+\definecolor{lightorange}{HTML}{ffb366} % #ffb366
+\definecolor{lightyellow}{HTML}{ffe6b2} % #ffe6b2
 
-\setlength\fboxsep{1.5pt}
-\newcommand{\inlinecode}[1]{\fcolorbox{codeframe}{codebg}{\small\!\texttt{#1}\!}}
+\definecolor{darkorange}{HTML}{CB793A} % #CB793A
+\definecolor{darkgreen}{HTML}{466362} % #466362
+\definecolor{darkpurple}{HTML}{800080} % #800080
 
-\definecolor{PaleBlue}{RGB}{111, 168, 220}
-\definecolor{LightBlue}{RGB}{159, 197, 232}
-\definecolor{PaleGreen}{RGB}{182, 215, 168}
-\definecolor{PaleOrange}{RGB}{249, 203, 156}
-\definecolor{PaleRed}{RGB}{234, 153, 153}
-\definecolor{lightgray}{gray}{0.6}
+\definecolor{blue1}{RGB}{204, 229, 255}  % #CCE5FF
+\definecolor{blue2}{RGB}{179, 217, 255}  % #B3D9FF
+\definecolor{blue3}{RGB}{153, 204, 255}  % #99CCFF
+\definecolor{blue4}{RGB}{128, 191, 255}  % #80BFFF
+\definecolor{blue5}{RGB}{102, 178, 255}  % #66B2FF
+\definecolor{blue6}{RGB}{77, 153, 230}   % #4D99E6
 
-\definecolor{lightred}{rgb}{1, 0.70, 0.70}
-\definecolor{lightorange}{rgb}{1, 0.90, 0.70}
-\definecolor{lightgreen}{rgb}{0.7, 1, 0.7}
-\definecolor{lightblue}{rgb}{0.7, 0.85, 1}
+\definecolor{red1}{RGB}{255, 229, 229}  % #FFE5E5
+\definecolor{red2}{RGB}{255, 204, 204}  % #FFCCCC
+\definecolor{red3}{RGB}{255, 179, 179}  % #FFB3B3
+\definecolor{red4}{RGB}{255, 153, 153}  % #FF9999
+\definecolor{red5}{RGB}{244, 143, 143}  % #F48F8F
+\definecolor{red6}{RGB}{230, 120, 120}  % #E67878
 
-\definecolor{blueAA}{rgb}{0.99,0.99,1}
-\definecolor{blueA}{rgb}{0.97,0.97,1}
-\definecolor{blueB}{rgb}{0.87,0.87,1}
-\definecolor{blueC}{rgb}{0.75,0.75,1}
-\definecolor{blueF}{rgb}{0.35,0.35,1}
+\definecolor{NoHighlightColor}{HTML}{3949f5}  % #3949f5
+\definecolor{UnsupervisedColor}{HTML}{e6950a} % #e6950a
+\definecolor{SupervisedColor}{HTML}{dc0d97}   % #dc0d97
+\definecolor{OracleColor}{HTML}{1c9a0e}       % #1c9a0e
+\definecolor{RandomColor}{HTML}{888888}       % #888888
+\definecolor{TransColor}{HTML}{54278f}        % #54278f
 
-\definecolor{redA}{rgb}{1,0.95,0.95}
-\definecolor{redB}{rgb}{1,0.85,0.85}
-\definecolor{redC}{rgb}{1,0.7,0.7}
-\definecolor{redD}{rgb}{1,0.55,0.55}
-\definecolor{redE}{rgb}{1,0.45,0.45}
-\definecolor{redF}{rgb}{1,0.35,0.35}
+\definecolor{MajorErrorColor}{HTML}{ed6a05} % #ed6a05
+\definecolor{MinorErrorColor}{HTML}{e6bb00} % #e6bb00
 
 \newcommand{\Both}{\footnotesize\textcolor{OliveGreen}{Both}}
 \newcommand{\Neither}{\footnotesize\textcolor{BrickRed}{Neither}}
 \newcommand{\NldOnly}{\textcolor{Apricot}{\textsc{nld}}}
 \newcommand{\ItaOnly}{\textcolor{Apricot}{\textsc{ita}}}
-
-\definecolor{NoHighlightColor}{RGB}{57,74,245} % #3949f5
-\definecolor{UnsupervisedColor}{RGB}{230,149,10} % #e6950a
-\definecolor{SupervisedColor}{RGB}{220,13,152} % #dc0d97
-\definecolor{OracleColor}{RGB}{28,154,14} %#1c9a0e
-\definecolor{RandomColor}{HTML}{888888}
-\definecolor{TransColor}{HTML}{54278f}
-
-\definecolor{MajorErrorColor}{RGB}{230,149,0}
-\definecolor{MinorErrorColor}{RGB}{230, 187, 0}
 
 \newcommand{\nohighlight}{\textcolor{NoHighlightColor}{\textbf{\textit{no highlight}}}\xspace}
 \newcommand{\unsupervised}{\textcolor{UnsupervisedColor}{\textbf{\textit{unsupervised}}}\xspace}
@@ -129,20 +120,6 @@
     \vspace{-0.4cm}
 }
 
-\definecolor{Blue1}{RGB}{204, 229, 255}  % A very light, airy blue
-\definecolor{Blue2}{RGB}{179, 217, 255}  % A light sky blue
-\definecolor{Blue3}{RGB}{153, 204, 255}  % A clear, medium-light blue
-\definecolor{Blue4}{RGB}{128, 191, 255}  % A slightly deeper light blue
-\definecolor{Blue5}{RGB}{102, 178, 255}  % A medium blue, still light enough
-\definecolor{Blue6}{RGB}{77, 153, 230}
-
-\definecolor{Red1}{RGB}{255, 229, 229}  % A very light, almost pastel pinkish-red
-\definecolor{Red2}{RGB}{255, 204, 204}  % A light pink-red
-\definecolor{Red3}{RGB}{255, 179, 179}  % A clear, medium-light red
-\definecolor{Red4}{RGB}{255, 153, 153}  % A slightly deeper light red
-\definecolor{Red5}{RGB}{244, 143, 143}  % A medium-light salmon red, still providing good contrast
-\definecolor{Red6}{RGB}{230, 120, 120}
-
 \newcommand{\best}{{\tiny~$_{\textsc{best}}$~}}
 \newcommand{\mcdavg}{{\tiny~$_{\textsc{mcd avg}}$~}}
 \newcommand{\mcdvar}{{\tiny~$_{\textsc{mcd var}}$~}}
@@ -156,21 +133,3 @@
 \newcommand{\binary}{{\tiny~$_{\textsc{binary}}$~}}
 \renewcommand{\u}[1]{\underline{#1}}
 \renewcommand{\b}[1]{\textbf{#1}}
-
-\newcommand{\EnNl}{\textsc{en}$\rightarrow$\textsc{nl}\xspace}
-\newcommand{\EnIt}{\textsc{en}$\rightarrow$\textsc{it}\xspace}
-\newcommand{\EnTr}{\textsc{en}$\rightarrow$\textsc{tr}\xspace}
-\newcommand{\EnUk}{\textsc{en}$\rightarrow$\textsc{uk}\xspace}
-\newcommand{\EnAr}{\textsc{en}$\rightarrow$\textsc{ar}\xspace}
-\newcommand{\EnVi}{\textsc{en}$\rightarrow$\textsc{vi}\xspace}
-\newcommand{\EnCs}{\textsc{en}$\rightarrow$\textsc{cs}\xspace}
-\newcommand{\EnZh}{\textsc{en}$\rightarrow$\textsc{zh}\xspace}
-\newcommand{\EnJa}{\textsc{en}$\rightarrow$\textsc{ja}\xspace}
-\newcommand{\EnHi}{\textsc{en}$\rightarrow$\textsc{hi}\xspace}
-\newcommand{\EnRu}{\textsc{en}$\rightarrow$\textsc{ru}\xspace}
-\newcommand{\CsUk}{\textsc{cs}$\rightarrow$\textsc{uk}\xspace}
-
-\definecolor{pastelorange}{HTML}{CB793A}
-\definecolor{lightgreen}{HTML}{84BC9C}
-\definecolor{darkgreen}{HTML}{466362}
-\definecolor{purple}{HTML}{800080}

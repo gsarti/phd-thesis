@@ -101,5 +101,5 @@ Chinese (ZH) & Dream of the Red Chamber           & 694  & 76 & 92 & 20 \\
 
 :::
 
-Languages and novels used in our evaluation. Numbers corresponds to a single paragraph in the dataset. In training, each paragraph is associated with three distinct translations: [H$_1$]{color="brand-color.darkgreen"},[H$_2$]{color="brand-color.lightbluedim"}, and [MT]{color="brand-color.pastelorange"}.
+Languages and novels used in our evaluation. Numbers corresponds to a single paragraph in the dataset. In training, each paragraph is associated with three distinct translations: [H$_1$]{color="brand-color.darkgreen"},[H$_2$]{color="brand-color.lightbluedim"}, and [MT]{color="brand-color.darkorange"}.
 :::

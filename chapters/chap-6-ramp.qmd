@@ -1,4 +1,4 @@
-# Attribute-Controlled Translation using Retrieval and Marking {#sec-chap-6-ramp}
+# Retrieval and Marking for Attribute-Controlled Translation {#sec-chap-6-ramp}
 
 ::: {.callout-note appearance="simple" icon="false"}
 
@@ -110,11 +110,11 @@ We use the original train/test split provided by the [CoCoA-MT]{.smallcaps} data
 We finetune [mDeBERTa-v3-base]{.smallcaps} model[^6-4] on the contrastive examples in the respective training sets to get the attribute classifiers. We finetune the classifier for 2 epochs with a batch size of 8, learning rate 2e-5, 500 warm up steps, max sequence length of 256, and save checkpoint every 500 steps.
 We do not do hyperparameter tuning, and thus, a validation set is not used.
 
-[^6-4]: [https://huggingface.co/microsoft/mdeberta-v3-base](https://huggingface.co/microsoft/mdeberta-v3-base)
+[^6-4]: [`microsoft/mdeberta-v3-base`](https://huggingface.co/microsoft/mdeberta-v3-base)
 
 Unlike lexical accuracy, the multilingual attribute classifier does not penalize text generated in incorrect languages. Thus, in cross-lingual prompting experiments, we include a step of language detection[^6-5] so that generated sentences not in the requested target language are considered incorrect.
 
-[^6-5]: [https://pypi.org/project/langdetect/](https://pypi.org/project/langdetect/)
+[^6-5]: <https://pypi.org/project/langdetect/>
 
 ### Same-Language Prompting {#sec-chap6-same-language}
 
