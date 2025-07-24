@@ -172,7 +172,7 @@
 .fullwidthtable th, .fullwidthtable td {
     padding: 4px 12px;
     text-align: center;
-    border: none;
+    border-bottom: none;
 }
 
 .fullwidthtable thead th {
@@ -205,7 +205,7 @@ figure.quarto-float-tbl figcaption.quarto-float-caption-bottom {
 
 .rline {
     border-right-width: 1px !important;
-    border-right-color: black;
+    border-right-color: black !important;
 }
 
 /* Blue color classes for table cells - matching LaTeX macros */
@@ -274,4 +274,8 @@ figure.quarto-float-tbl figcaption.quarto-float-caption-bottom {
 
 .sidebar-menu-container > * > .sidebar-item {
     margin-top: 15px;
+}
+
+.smallfont {
+    font-size: 8pt;
 }

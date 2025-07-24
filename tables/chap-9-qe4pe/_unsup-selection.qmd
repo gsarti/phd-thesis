@@ -11,10 +11,10 @@
             <th colspan="4" class="group-header"><span data-qmd="**QE4PE**"></span></th>
         </tr>
         <tr class="subheader">
-            <th colspan="2"><span data-qmd="**En→It**"></span></th>
-            <th colspan="2"><span data-qmd="**En→Nl**"></span></th>
-            <th colspan="2"><span data-qmd="**En→It**"></span></th>
-            <th colspan="2"><span data-qmd="**En→Nl**"></span></th>
+            <th colspan="2"><span data-qmd="**en→it**"></span></th>
+            <th colspan="2"><span data-qmd="**en→nl**"></span></th>
+            <th colspan="2"><span data-qmd="**en→it**"></span></th>
+            <th colspan="2"><span data-qmd="**en→nl**"></span></th>
         </tr>
         <tr class="subheader">
             <th><span data-qmd="**AP**"></span></th>
@@ -29,7 +29,7 @@
     </thead>
     <tbody>
         <tr>
-            <td><span data-qmd="[Logprobs]{.smallcaps}"></span></td>
+            <td class="verylongrow"><span data-qmd="[Logprobs]{.smallcaps}"></span></td>
             <td>0.18</td>
             <td>0.18</td>
             <td>0.19</td>
@@ -40,7 +40,7 @@
             <td>0.09</td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="[Logprobs]{.smallcaps}$_{\text{mcd var}}$ ([Unsup.]{.smallcaps})"></span></td>
+            <td><span data-qmd="[Logprobs]{.smallcaps} $_\text{mcd var}$ ([Unsup.]{.smallcaps color='brand-color.unsupervised'})"></span></td>
             <td>0.41</td>
             <td>0.41</td>
             <td>0.42</td>
@@ -51,7 +51,7 @@
             <td>0.31</td>
         </tr>
         <tr>
-            <td><span data-qmd="XCOMET-XXL ([Sup.]{.smallcaps})"></span></td>
+            <td><span data-qmd="[xcomet-xxl]{.smallcaps} ([Sup.]{.smallcaps color='brand-color.supervised'})"></span></td>
             <td></td>
             <td></td>
             <td></td>
@@ -62,7 +62,7 @@
             <td>0.28</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Avg.]{.smallcaps} [Oracle]{.smallcaps} [single translator]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Avg.]{.smallcaps} [Oracle]{.smallcaps color='brand-color.oracle'} [single translator]{.smallcaps}"></span></td>
             <td>-</td>
             <td>-</td>
             <td>-</td>

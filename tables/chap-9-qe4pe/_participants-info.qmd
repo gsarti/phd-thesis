@@ -1,0 +1,708 @@
+:::{#tbl-qe4pe-participants-info}
+
+:::{.content-visible when-format="html"}
+
+```{=html}
+<table class="fullwidthtable smallfont">
+    <thead>
+        <tr>
+            <th><span data-qmd="**Identifier**"></span></th>
+            <th><span data-qmd="**Job**"></span></th>
+            <th><span data-qmd="**Eng. Lvl**"></span></th>
+            <th><span data-qmd="**Trans. YoE**"></span></th>
+            <th><span data-qmd="**Post-edit YoE**"></span></th>
+            <th><span data-qmd="**Post-edit %**"></span></th>
+            <th><span data-qmd="**Adv. CAT YoE**"></span></th>
+            <th><span data-qmd="**MT good/bad for:**"></span></th>
+            <th><span data-qmd="**Post-edit comment**"></span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="mediumrow"><code>ita-nohigh-fast</code></td>
+            <td>Freelance (FT)</td>
+            <td>C1</td>
+            <td>2-5</td>
+            <td>2-5</td>
+            <td>100%</td>
+            <td>Often</td>
+            <td>G: Productivity, quality, repetitive work.</td>
+            <td>PE better than from scratch when consistency is needed.</td>
+        </tr>
+        <tr>
+            <td><code>ita-nohigh-avg</code></td>
+            <td>Freelance (PT)</td>
+            <td>C1</td>
+            <td>&gt;10</td>
+            <td>&lt;2</td>
+            <td>20%</td>
+            <td>Often</td>
+            <td>G: Productivity, repetitive work. B: less creative.</td>
+            <td>PE produces unnatural sentences.</td>
+        </tr>
+        <tr>
+            <td><code>ita-nohigh-slow</code></td>
+            <td>Freelance (PT)</td>
+            <td>C2</td>
+            <td>&gt;10</td>
+            <td>2-5</td>
+            <td>40%</td>
+            <td>Sometimes</td>
+            <td>G: creativity.</td>
+            <td>Good for time saving.</td>
+        </tr>
+        <tr>
+            <td><code>ita-oracle-fast</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>5-10</td>
+            <td>2-5</td>
+            <td>60%</td>
+            <td>Sometimes</td>
+            <td>G: Productivity, repetitive work. B: less creative.</td>
+            <td>Good for productivity, humans always needed.</td>
+        </tr>
+        <tr>
+            <td><code>ita-oracle-avg</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>5-10</td>
+            <td>5-10</td>
+            <td>20%</td>
+            <td>Always</td>
+            <td>G: productivity, terminology.</td>
+            <td>Good for tech docs, not for articulated texts.</td>
+        </tr>
+        <tr>
+            <td><code>ita-oracle-slow</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>2-5</td>
+            <td>5-10</td>
+            <td>80%</td>
+            <td>Always</td>
+            <td>G: Productivity, repetitive work.</td>
+            <td>Useful for consistency and productivity, unless creativity is needed.</td>
+        </tr>
+        <tr>
+            <td><code>ita-unsup-fast</code></td>
+            <td>Freelance (FT)</td>
+            <td>C1</td>
+            <td>&lt;2</td>
+            <td>&lt;2</td>
+            <td>60%</td>
+            <td>Often</td>
+            <td>G: Productivity, terminology. B: less creative.</td>
+            <td>Humans will always be needed in translation.</td>
+        </tr>
+        <tr>
+            <td><code>ita-unsup-avg</code></td>
+            <td>Freelance (FT)</td>
+            <td>C1</td>
+            <td>&gt;10</td>
+            <td>2-5</td>
+            <td>60%</td>
+            <td>Often</td>
+            <td>G: Productivity, repetitive work. B: less creative.</td>
+            <td>An opportunity for translators.</td>
+        </tr>
+        <tr>
+            <td><code>ita-unsup-slow</code></td>
+            <td>Freelance (FT)</td>
+            <td>C1</td>
+            <td>5-10</td>
+            <td>5-10</td>
+            <td>80%</td>
+            <td>Always</td>
+            <td>G: Productivity, repetitive work. B: less creative.</td>
+            <td>Good for focusing on detailed/cultural/creative aspects of translations.</td>
+        </tr>
+        <tr>
+            <td><code>ita-sup-fast</code></td>
+            <td>Freelance (PT)</td>
+            <td>C1</td>
+            <td>&gt;10</td>
+            <td>2-5</td>
+            <td>40%</td>
+            <td>Often</td>
+            <td>G: Productivity, quality, repetitive work, terminology.</td>
+            <td>Improves quality and consistency.</td>
+        </tr>
+        <tr>
+            <td><code>ita-sup-avg</code></td>
+            <td>Freelance (FT)</td>
+            <td>C1</td>
+            <td>&gt;10</td>
+            <td>5-10</td>
+            <td>100%</td>
+            <td>Always</td>
+            <td>G: Productivity, repetitive work. B: less creative.</td>
+            <td>Consistency improved, but less variance means less creativity.</td>
+        </tr>
+        <tr class="midrule">
+            <td><code>ita-sup-slow</code></td>
+            <td>Freelance (FT)</td>
+            <td>C1</td>
+            <td>&gt;10</td>
+            <td>2-5</td>
+            <td>20%</td>
+            <td>Always</td>
+            <td>G: Productivity, creativity, quality, repetitive work.</td>
+            <td>Good for productivity, but does not work on creative texts.</td>
+        </tr>
+        <tr>
+            <td><code>nld-nohigh-fast</code></td>
+            <td>Freelance (FT)</td>
+            <td>C1</td>
+            <td>&gt;10</td>
+            <td>&gt;10</td>
+            <td>40%</td>
+            <td>Often</td>
+            <td>G: Productivity, terminology. B: creativity.</td>
+            <td>Widespread but still too literal</td>
+        </tr>
+        <tr>
+            <td><code>nld-nohigh-avg</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>&gt;10</td>
+            <td>2-5</td>
+            <td>40%</td>
+            <td>Always</td>
+            <td>G: Repetitive work. B: creativity, often wrong, worse quality.</td>
+            <td>Increase in productivity to save on costs brings down quality.</td>
+        </tr>
+        <tr>
+            <td><code>nld-nohigh-slow</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>&gt;10</td>
+            <td>5-10</td>
+            <td>100%</td>
+            <td>Often</td>
+            <td>G: Creativity, quality, repetitive work, terminology.</td>
+            <td>Working with MT can be creative beyond PE.</td>
+        </tr>
+        <tr>
+            <td><code>nld-oracle-fast</code></td>
+            <td>Freelance (FT)</td>
+            <td>C1</td>
+            <td>5-10</td>
+            <td>5-10</td>
+            <td>80%</td>
+            <td>Always</td>
+            <td>G: Productivity, quality, repetitive work, terminology.</td>
+            <td>Good for tech docs and repetition.</td>
+        </tr>
+        <tr>
+            <td><code>nld-oracle-avg</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>&gt;10</td>
+            <td>2-5</td>
+            <td>40%</td>
+            <td>Always</td>
+            <td>B: less creative, less productive, often wrong</td>
+            <td>Bad MT is worse than no MT for specialized domains.</td>
+        </tr>
+        <tr>
+            <td><code>nld-oracle-slow</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>&gt;10</td>
+            <td>2-5</td>
+            <td>60%</td>
+            <td>Often</td>
+            <td>G: Productivity, repetitive work. B: cultural references.</td>
+            <td>More productivity at the cost of idioms and cultural factors.</td>
+        </tr>
+        <tr>
+            <td><code>nld-unsup-fast</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>5-10</td>
+            <td>2-5</td>
+            <td>40%</td>
+            <td>Often</td>
+            <td>G: all. B: often wrong, worse quality.</td>
+            <td>PE makes you less in touch with the texts and often poorly paid.</td>
+        </tr>
+        <tr>
+            <td><code>nld-unsup-avg</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>5-10</td>
+            <td>2-5</td>
+            <td>60%</td>
+            <td>Sometimes</td>
+            <td>G: Productivity, quality, repetitive work, terminology. B: wrong.</td>
+            <td>Practical but less effective for longer passages.</td>
+        </tr>
+        <tr>
+            <td><code>nld-unsup-slow</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>&gt;10</td>
+            <td>2-5</td>
+            <td>40%</td>
+            <td>Always</td>
+            <td>G: repetitive work, productivity, terminology</td>
+            <td>Improves consistency and productivity if applied well.</td>
+        </tr>
+        <tr>
+            <td><code>nld-sup-fast</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>&gt;10</td>
+            <td>5-10</td>
+            <td>60%</td>
+            <td>Often</td>
+            <td>G: repetitive work, creativity, terminology</td>
+            <td>Useful, but worries about job loss</td>
+        </tr>
+        <tr>
+            <td><code>nld-sup-avg</code></td>
+            <td>Freelance (FT)</td>
+            <td>C2</td>
+            <td>&gt;10</td>
+            <td>10</td>
+            <td>60%</td>
+            <td>Sometimes</td>
+            <td>G: terminology, creativity</td>
+            <td>Useful for inspiration on better translations</td>
+        </tr>
+        <tr>
+            <td><code>nld-sup-slow</code></td>
+            <td>Freelance (FT)</td>
+            <td>C1</td>
+            <td>5-10</td>
+            <td>5-10</td>
+            <td>80%</td>
+            <td>Always</td>
+            <td>G: repetitive work, productivity</td>
+            <td>Better productivity at the cost of creativity.</td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+
+<table class="fullwidthtable smallfont">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th colspan="6"><span data-qmd="**Highlights statements**"></span></th>
+        </tr>
+        <tr class="subheader">
+            <th><span data-qmd="**Identifier**"></span></th>
+            <th><span data-qmd="**MT good / fluent / accurate**"></span></th>
+            <th><span data-qmd="**High. accurate / useful**"></span></th>
+            <th><span data-qmd="**Interface clear**"></span></th>
+            <th><span data-qmd="**Task difficult**"></span></th>
+            <th><span data-qmd="$\uparrow$ Speed?"></span></th>
+            <th><span data-qmd="$\uparrow$ Quality?"></span></th>
+            <th><span data-qmd="$\uparrow$ Effort?"></span></th>
+            <th><span data-qmd="$\uparrow$ Influence?"></span></th>
+            <th><span data-qmd="$\uparrow$ Spot errors?"></span></th>
+            <th><span data-qmd="$\uparrow$ Enjoy?"></span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="mediumlongrow"><code>ita-nohigh-fast</code></td>
+            <td>4 / 0.8 / 0.8</td>
+            <td>- / -</td>
+            <td>5</td>
+            <td>1</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>ita-nohigh-avg</code></td>
+            <td class="mediumrow">3 / 0.6 / 0.4</td>
+            <td>- / -</td>
+            <td>2</td>
+            <td>4</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>ita-nohigh-slow</code></td>
+            <td>3 / 0.8 / 0.8</td>
+            <td>- / -</td>
+            <td>1</td>
+            <td>5</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>ita-oracle-fast</code></td>
+            <td>5 / 0.4 / 0.8</td>
+            <td>4 / 4</td>
+            <td>4</td>
+            <td>5</td>
+            <td>5</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td><code>ita-oracle-avg</code></td>
+            <td>3 / 0.4 / 0.6</td>
+            <td>2 / 1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>1</td>
+            <td>1</td>
+            <td>4</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td><code>ita-oracle-slow</code></td>
+            <td>3 / 0.6 / 0.6</td>
+            <td>2 / 2</td>
+            <td>2</td>
+            <td>5</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>4</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td><code>ita-unsup-fast</code></td>
+            <td>3 / 0.8 / 0.6</td>
+            <td>3 / 2</td>
+            <td>4</td>
+            <td>5</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td><code>ita-unsup-avg</code></td>
+            <td>3 / 0.6 / 0.6</td>
+            <td>3 / 3</td>
+            <td>3</td>
+            <td>5</td>
+            <td>2</td>
+            <td>3</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td><code>ita-unsup-slow</code></td>
+            <td>3 / 0.4 / 0.6</td>
+            <td>2 / 2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>2</td>
+            <td>2</td>
+            <td>3</td>
+            <td>3</td>
+            <td>4</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td><code>ita-sup-fast</code></td>
+            <td>3 / 0.4 / 0.4</td>
+            <td>2 / 1</td>
+            <td>2</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>3</td>
+            <td>1</td>
+            <td>2</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td><code>ita-sup-avg</code></td>
+            <td>3 / 0.4 / 0.4</td>
+            <td>2 / 2</td>
+            <td>3</td>
+            <td>5</td>
+            <td>3</td>
+            <td>2</td>
+            <td>4</td>
+            <td>3</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr class="midrule">
+            <td><code>ita-sup-slow</code></td>
+            <td>3 / 0.6 / 0.6</td>
+            <td>2 / 2</td>
+            <td>1</td>
+            <td>2</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>4</td>
+            <td>4</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td><code>nld-nohigh-fast</code></td>
+            <td>3 / 0.2 / 0.4</td>
+            <td>- / -</td>
+            <td>4</td>
+            <td>4</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>nld-nohigh-avg</code></td>
+            <td>2 / 0.4 / 0.6</td>
+            <td>- / -</td>
+            <td>4</td>
+            <td>5</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>nld-nohigh-slow</code></td>
+            <td>2 / 0.2 / 0.4</td>
+            <td>- / -</td>
+            <td>3</td>
+            <td>5</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><code>nld-oracle-fast</code></td>
+            <td>3 / 0.6 / 0.6</td>
+            <td>2 / 1</td>
+            <td>3</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td><code>nld-oracle-avg</code></td>
+            <td>3 / 0.8 / 0.6</td>
+            <td>4 / 3</td>
+            <td>3</td>
+            <td>4</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>3</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td><code>nld-oracle-slow</code></td>
+            <td>3 / 0.6 / 0.4</td>
+            <td>3 / 1</td>
+            <td>3</td>
+            <td>4</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td><code>nld-unsup-fast</code></td>
+            <td>3 / 0.6 / 0.8</td>
+            <td>3 / 2</td>
+            <td>4</td>
+            <td>4</td>
+            <td>1</td>
+            <td>3</td>
+            <td>1</td>
+            <td>1</td>
+            <td>2</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td><code>nld-unsup-avg</code></td>
+            <td>3 / 0.6 / 0.6</td>
+            <td>4 / 3</td>
+            <td>2</td>
+            <td>4</td>
+            <td>3</td>
+            <td>3</td>
+            <td>4</td>
+            <td>3</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td><code>nld-unsup-slow</code></td>
+            <td>1 / 0.4 / 0.4</td>
+            <td>2 / 4</td>
+            <td>1</td>
+            <td>4</td>
+            <td>4</td>
+            <td>4</td>
+            <td>3</td>
+            <td>2</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td><code>nld-sup-fast</code></td>
+            <td>3 / 0.6 / 0.4</td>
+            <td>2 / 2</td>
+            <td>3</td>
+            <td>5</td>
+            <td>1</td>
+            <td>1</td>
+            <td>5</td>
+            <td>3</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td><code>nld-sup-avg</code></td>
+            <td>3 / 0.4 / 0.6</td>
+            <td>2 / 2</td>
+            <td>2</td>
+            <td>4</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td><code>nld-sup-slow</code></td>
+            <td>5 / 0.8 / 1</td>
+            <td>4 / 3</td>
+            <td>2</td>
+            <td>5</td>
+            <td>3</td>
+            <td>3</td>
+            <td>2</td>
+            <td>2</td>
+            <td>2</td>
+            <td>4</td>
+        </tr>
+    </tbody>
+</table>
+```
+
+:::
+
+:::{.content-visible when-format="pdf"}
+
+```{=latex}
+\begin{sidewaystable*}
+    \centering
+    \tiny
+    \begin{tabularx}{\linewidth}{lllllllXX}
+    \toprule[1.5pt]
+        \textbf{Identifier} & \textbf{Job} & \textbf{Eng. Lvl} & \textbf{Trans. YoE} & \textbf{Post-edit YoE} & \textbf{Post-edit \%} & \textbf{Adv. CAT YoE} & \textbf{MT good/bad for:} & \textbf{Post-edit comment} \\
+        \midrule
+        \texttt{ita-nohigh-fast} & Freelance (FT) & C1 & 2-5  & 2-5  & 100\% & Often     & G: Productivity, quality, repetitive work. & PE better than from scratch when consistency is needed. \\
+        \texttt{ita-nohigh-avg}  & Freelance (PT) & C1 & >10  & <2   & 20\%  & Often     & G: Productivity, repetitive work. B: less creative. & PE produces unnatural sentences. \\
+        \texttt{ita-nohigh-slow} & Freelance (PT) & C2 & >10  & 2-5  & 40\%  & Sometimes & G: creativity. & Good for time saving. \\
+        \texttt{ita-oracle-fast} & Freelance (FT) & C2 & 5-10 & 2-5  & 60\%  & Sometimes & G: Productivity, repetitive work. B: less creative. & Good for productivity, humans always needed. \\
+        \texttt{ita-oracle-avg}  & Freelance (FT) & C2 & 5-10 & 5-10 & 20\%  & Always    & G: productivity, terminology. & Good for tech docs, not for articulated texts. \\
+        \texttt{ita-oracle-slow} & Freelance (FT) & C2 & 2-5  & 5-10 & 80\%  & Always    & G: Productivity, repetitive work. & Useful for consistency and productivity, unless creativity is needed. \\
+        \texttt{ita-unsup-fast}  & Freelance (FT) & C1 & <2   & <2   & 60\%  & Often     & G: Productivity, terminology. B: less creative. & Humans will always be needed in translation. \\
+        \texttt{ita-unsup-avg}   & Freelance (FT) & C1 & >10  & 2-5  & 60\%  & Often     & G: Productivity, repetitive work. B: less creative. & An opportunity for translators. \\
+        \texttt{ita-unsup-slow}  & Freelance (FT) & C1 & 5-10 & 5-10 & 80\%  & Always    & G: Productivity, repetitive work. B: less creative. & Good for focusing on detailed/cultural/creative aspects of translations. \\
+        \texttt{ita-sup-fast}    & Freelance (PT) & C1 & >10  & 2-5  & 40\%  & Often     & G: Productivity, quality, repetitive work, terminology. & Improves quality and consistency. \\
+        \texttt{ita-sup-avg}     & Freelance (FT) & C1 & >10  & 5-10 & 100\% & Always    & G: Productivity, repetitive work. B: less creative. & Consistency improved, but less variance means less creativity. \\
+        \texttt{ita-sup-slow}    & Freelance (FT) & C1 & >10  & 2-5  & 20\%  & Always    & G: Productivity, creativity, quality, repetitive work. & Good for productivity, but does not work on creative texts. \\
+    \midrule
+        \texttt{nld-nohigh-fast} & Freelance (FT) & C1 & >10 & >10 & 40\% & Often & G: Productivity, terminology. B: creativity. & Widespread but still too literal \\
+        \texttt{nld-nohigh-avg}  & Freelance (FT) & C2 & >10 & 2-5 & 40\% & Always & G: Repetitive work. B: creativity, often wrong, worse quality. & Increase in productivity to save on costs brings down quality. \\
+        \texttt{nld-nohigh-slow} & Freelance (FT) & C2 & >10 & 5-10 & 100\% & Often & G: Creativity, quality, repetitive work, terminology. & Working with MT can be creative beyond PE. \\
+        \texttt{nld-oracle-fast} & Freelance (FT) & C1 & 5-10 & 5-10 & 80\% & Always & G: Productivity, quality, repetitive work, terminology. & Good for tech docs and repetition. \\
+        \texttt{nld-oracle-avg}  & Freelance (FT) & C2 & >10 & 2-5 & 40\% & Always & B: less creative, less productive, often wrong & Bad MT is worse than no MT for specialized domains. \\
+        \texttt{nld-oracle-slow} & Freelance (FT) & C2 & >10   & 2-5 & 60\% & Often & G: Productivity, repetitive work. B: cultural references. & More productivity at the cost of idioms and cultural factors. \\
+        \texttt{nld-unsup-fast}  & Freelance (FT) & C2 & 5-10 & 2-5 & 40\% & Often & G: all. B: often wrong, worse quality. & PE makes you less in touch with the texts and often poorly paid. \\
+        \texttt{nld-unsup-avg}   & Freelance (FT) & C2 & 5-10 & 2-5 & 60\% & Sometimes & G: Productivity, quality, repetitive work, terminology. B: wrong. & Practical but less effective for longer passages. \\
+        \texttt{nld-unsup-slow}  & Freelance (FT) & C2 & >10 & 2-5 & 40\% & Always & G: repetitive work, productivity, terminology & Improves consistency and productivity if applied well. \\
+        \texttt{nld-sup-fast}    & Freelance (FT) & C2 & >10 & 5-10 & 60\% & Often & G: repetitive work, creativity, terminology & Useful, but worries about job loss \\
+        \texttt{nld-sup-avg}     & Freelance (FT) & C2 & >10 & 10 & 60\% & Sometimes & G: terminology, creativity & Useful for inspiration on better translations \\
+        \texttt{nld-sup-slow}    & Freelance (FT) & C1 & 5-10 & 5-10 & 80\% & Always & G: repetitive work, productivity & Better productivity at the cost of creativity. \\
+    \bottomrule[1.5pt]
+    \end{tabularx}
+    \begin{tabularx}{\linewidth}{llllllllllllllll}
+    \toprule[1.5pt]
+        \textbf{Identifier} & \textbf{Freq. Issues} & \textbf{MT quality} & \textbf{MT fluency} & \textbf{MT accuracy} & \textbf{High. accurate} & \textbf{High. useful} & \textbf{Interface clear} & \textbf{Task difficult} & \multicolumn{6}{c}{\textbf{Highlights statements}} \\
+        \cmidrule(lr){10-15}
+        &&&&&&&&&$\uparrow$ Speed? & $\uparrow$ Quality? & $\uparrow$ Effort? & Influence & Spot errors & $\uparrow$ Enjoy? \\
+        \midrule % & mt_accuracy & interequent_issuerface_statement_2 & interface_statement_4
+        \texttt{ita-nohigh-fast} & inflection,additions,omissions& 4 & 0.8 & 0.8 & - & - & 5 & 1 & - & - & - & - & - & - \\
+        \texttt{ita-nohigh-avg}  & multiple& 3 & 0.6 & 0.4 & - & - & 2 & 4 & - & - & - & - & - & - \\
+        \texttt{ita-nohigh-slow} & terminology,omissions& 3 & 0.8 & 0.8 & - & - & 1 & 5 & - & - & - & - & - & - \\
+        \texttt{ita-oracle-fast} & inflection,terminology& 5 & 0.4 & 0.8 & 4 & 4 & 4 & 5 & 5 & 2 & 1 & 1 & 1 & 4 \\
+        \texttt{ita-oracle-avg}  & syntax,terminology,omissions,no context& 3 & 0.4 & 0.6 & 2 & 1 & 2 & 3 & 1 & 1 & 4 & 1 & 1 & 1 \\
+        \texttt{ita-oracle-slow} & syntax,no context& 3 & 0.6 & 0.6 & 2 & 2 & 2 & 5 & 1 & 1 & 1 & 1 & 4 & 1 \\
+        \texttt{ita-unsup-fast}    & omissions& 3 & 0.8 & 0.6 & 3 & 2 & 4 & 5 & 3 & 3 & 3 & 2 & 2 & 2 \\
+        \texttt{ita-unsup-avg}     & syntax,terminology,no context& 3 & 0.6 & 0.6 & 3 & 3 & 3 & 5 & 2 & 3 & 2 & 1 & 1 & 3 \\
+        \texttt{ita-unsup-slow}    & syntax,inflection,terminology,omissions& 3 & 0.4 & 0.6 & 2 & 2 & 3 & 4 & 2 & 2 & 3 & 3 & 4 & 4 \\
+        \texttt{ita-sup-fast}  & syntax,terminology,no context& 3 & 0.4 & 0.4 & 2 & 1 & 2 & 2 & 1 & 1 & 3 & 1 & 2 & 2 \\
+        \texttt{ita-sup-avg}   & syntax,terminology,no context& 3 & 0.4 & 0.4 & 2 & 2 & 3 & 5 & 3 & 2 & 4 & 3 & 3 & 4 \\
+        \texttt{ita-sup-slow}  & syntax,terminology,omissions,no context& 3 & 0.6 & 0.6 & 2 & 2 & 1 & 2 & 2 & 1 & 1 & 4 & 4 & 1 \\
+        \texttt{nld-nohigh-fast} & syntax,terminology,omissions,no context& 3 & 0.2 & 0.4 & - & - & 4 & 4 & - & - & - & - & - & - \\
+        \texttt{nld-nohigh-avg}  & syntax,terminology,omissions,no context& 2 & 0.4 & 0.6 & - & - & 4 & 5 & - & - & - & - & - & - \\
+        \texttt{nld-nohigh-slow} & terminology,omissions,no context& 2 & 0.2 & 0.4 & - & - & 3 & 5 & - & - & - & - & - & - \\
+        \texttt{nld-oracle-fast} & syntax,inflection,terminology& 3 & 0.6 & 0.6 & 2 & 1 & 3 & 2 & 2 & 2 & 2 & 1 & 1 & 1 \\
+        \texttt{nld-oracle-avg}  & syntax& 3 & 0.8 & 0.6 & 4 & 3 & 3 & 4 & 3 & 3 & 3 & 3 & 2 & 3 \\
+        \texttt{nld-oracle-slow} & syntax,terminology& 3 & 0.6 & 0.4 & 3 & 1 & 3 & 4 & 1 & 1 & 1 & 1 & 1 & 3 \\
+        \texttt{nld-unsup-fast}    & terminology,additions,omissions& 3 & 0.6 & 0.8 & 3 & 2 & 4 & 4 & 1 & 3 & 1 & 1 & 2 & 1 \\
+        \texttt{nld-unsup-avg}     & multiple & 3 & 0.6 & 0.6 & 4 & 3 & 2 & 4 & 3 & 3 & 4 & 3 & 2 & 3 \\
+        \texttt{nld-unsup-slow}    & syntax,terminology,omissions & 1 & 0.4 & 0.4 & 2 & 4 & 1 & 4 & 4 & 4 & 3 & 2 & 2 & 3 \\
+        \texttt{nld-sup-fast}  & terminology,omissions,no context& 3 & 0.6 & 0.4 & 2 & 2 & 3 & 5 & 1 & 1 & 5 & 3 & 1 & 1 \\
+        \texttt{nld-sup-avg}   & syntax,additions,no context& 3 & 0.4 & 0.6 & 2 & 2 & 2 & 4 & 1 & 1 & 1 & 1 & 2 & 3 \\
+        \texttt{nld-sup-slow}  & multiple & 5 & 0.8 & 1   & 4 & 3 & 2 & 5 & 3 & 3 & 2 & 2 & 2 & 4 \\
+    \bottomrule[1.5pt]
+    \end{tabularx}
+\end{sidewaystable}
+```
+
+:::
+
+**Top:** Sample of pre-task questionnaire results. **Bottom:** Sample of post-task questionnaire results. YoE = years of experience. PT = Part-time, FT = Full-time. Post-task statements use a 1--Strongly disagree to 5--Strongly agree scale.
+:::

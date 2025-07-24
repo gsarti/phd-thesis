@@ -3,7 +3,7 @@
 :::{.content-visible when-format="html"}
 
 ```{=html}
-<table class="fullwidthtable small-text">
+<table class="fullwidthtable smallfont">
     <thead>
         <tr>
             <th><span data-qmd="**Domain**"></span></th>
@@ -16,7 +16,6 @@
             <th><span data-qmd="$P(H|E)$"></span></th>
             <th><span data-qmd="$P(H|\neg E)$"></span></th>
             <th><span data-qmd="$\Lambda_E(H)$"></span></th>
-            <th><span data-qmd="$F1_H$"></span></th>
         </tr>
     </thead>
     <tbody>
@@ -25,7 +24,7 @@
         </tr>
         <tr>
             <td class="rowspan" rowspan="5">Biomed.</td>
-            <td class="bold">Random</td>
+            <td><span data-qmd="[Random]{.smallcaps color='brand-color.random'}"></span></td>
             <td>.12</td>
             <td>-</td>
             <td>- / .02</td>
@@ -34,10 +33,9 @@
             <td>- / .11</td>
             <td>- / .13</td>
             <td>- / 0.8</td>
-            <td>- / .03</td>
         </tr>
         <tr>
-            <td><span data-qmd="[No High.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[No High.]{.smallcaps color='brand-color.nohighlight'}"></span></td>
             <td>-</td>
             <td>.02</td>
             <td>-</td>
@@ -46,10 +44,9 @@
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>-</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Oracle]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'}"></span></td>
             <td>.08</td>
             <td>.07</td>
             <td>.26 / .08</td>
@@ -58,10 +55,9 @@
             <td>.30 / .26</td>
             <td>.06 / .08</td>
             <td>5.0 / 3.2</td>
-            <td>.28 / .12</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Unsup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Unsup.]{.smallcaps color='brand-color.unsupervised'}"></span></td>
             <td>.16</td>
             <td>.10</td>
             <td>.18 / .06</td>
@@ -70,10 +66,9 @@
             <td>.29 / .36</td>
             <td>.14 / .15</td>
             <td>2.0 / 2.4</td>
-            <td>.22 / .10</td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="[Sup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Sup.]{.smallcaps color='brand-color.supervised'}"></span></td>
             <td>.11</td>
             <td>.12</td>
             <td>.18 / .05</td>
@@ -82,11 +77,10 @@
             <td>.16 / .23</td>
             <td>.10 / .10</td>
             <td>1.6 / 2.3</td>
-            <td>.17 / .08</td>
         </tr>
         <tr>
             <td class="rowspan" rowspan="5">Social</td>
-            <td class="bold">Random</td>
+            <td><span data-qmd="[Random]{.smallcaps color='brand-color.random'}"></span></td>
             <td>.20</td>
             <td>-</td>
             <td>- / .09</td>
@@ -95,10 +89,9 @@
             <td>- / .21</td>
             <td>- / .20</td>
             <td>- / 1.0</td>
-            <td>- / .13</td>
         </tr>
         <tr>
-            <td><span data-qmd="[No High.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[No High.]{.smallcaps color='brand-color.nohighlight'}"></span></td>
             <td>-</td>
             <td>.09</td>
             <td>-</td>
@@ -107,10 +100,9 @@
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>-</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Oracle]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'}"></span></td>
             <td>.25</td>
             <td>.20</td>
             <td>.42 / .23</td>
@@ -119,10 +111,9 @@
             <td>.52 / .66</td>
             <td>.18 / .21</td>
             <td>2.8 / 3.1</td>
-            <td>.46 / .34</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Unsup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Unsup.]{.smallcaps color='brand-color.unsupervised'}"></span></td>
             <td>.17</td>
             <td>.18</td>
             <td>.35 / .19</td>
@@ -131,10 +122,9 @@
             <td>.33 / .37</td>
             <td>.14 / .15</td>
             <td>2.3 / 2.4</td>
-            <td>.34 / .25</td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="[Sup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Sup.]{.smallcaps color='brand-color.supervised'}"></span></td>
             <td>.15</td>
             <td>.21</td>
             <td>.38 / .23</td>
@@ -143,14 +133,13 @@
             <td>.27 / .39</td>
             <td>.11 / .12</td>
             <td>2.4 / 3.2</td>
-            <td>.32 / .29</td>
         </tr>
         <tr class="section-header">
             <td colspan="11" class="bold center" style="background-color: #f0f0f0;"><span data-qmd="**en→nl**"></span></td>
         </tr>
         <tr>
             <td class="rowspan" rowspan="5">Biomed.</td>
-            <td class="bold">Random</td>
+            <td><span data-qmd="[Random]{.smallcaps color='brand-color.random'}"></span></td>
             <td>.17</td>
             <td>-</td>
             <td>- / .12</td>
@@ -159,10 +148,9 @@
             <td>- / .19</td>
             <td>- / .17</td>
             <td>- / 1.1</td>
-            <td>- / .15</td>
         </tr>
         <tr>
-            <td><span data-qmd="[No High.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[No High.]{.smallcaps color='brand-color.nohighlight'}"></span></td>
             <td>-</td>
             <td>.10</td>
             <td>-</td>
@@ -171,10 +159,9 @@
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>-</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Oracle]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'}"></span></td>
             <td>.21</td>
             <td>.08</td>
             <td>.21 / .20</td>
@@ -183,10 +170,9 @@
             <td>.52 / .41</td>
             <td>.18 / .18</td>
             <td>2.8 / 2.2</td>
-            <td>.30 / .27</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Unsup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Unsup.]{.smallcaps color='brand-color.unsupervised'}"></span></td>
             <td>.23</td>
             <td>.09</td>
             <td>.17 / .17</td>
@@ -195,10 +181,9 @@
             <td>.43 / .38</td>
             <td>.21 / .21</td>
             <td>2.0 / 1.8</td>
-            <td>.24 / .23</td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="[Sup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Sup.]{.smallcaps color='brand-color.supervised'}"></span></td>
             <td>.12</td>
             <td>.08</td>
             <td>.20 / .21</td>
@@ -207,11 +192,10 @@
             <td>.30 / .25</td>
             <td>.11 / .11</td>
             <td>2.7 / 2.2</td>
-            <td>.24 / .23</td>
         </tr>
         <tr>
             <td class="rowspan" rowspan="5">Social</td>
-            <td class="bold">Random</td>
+            <td><span data-qmd="[Random]{.smallcaps color='brand-color.random'}"></span></td>
             <td>.16</td>
             <td>-</td>
             <td>- / .22</td>
@@ -220,10 +204,9 @@
             <td>- / .19</td>
             <td>- / .16</td>
             <td>- / 1.1</td>
-            <td>- / .17</td>
         </tr>
         <tr>
-            <td><span data-qmd="[No High.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[No High.]{.smallcaps color='brand-color.nohighlight'}"></span></td>
             <td>-</td>
             <td>.19</td>
             <td>-</td>
@@ -232,10 +215,9 @@
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td>-</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Oracle]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'}"></span></td>
             <td>.19</td>
             <td>.12</td>
             <td>.33 / .39</td>
@@ -244,10 +226,9 @@
             <td>.54 / .39</td>
             <td>.15 / .15</td>
             <td>3.6 / 2.6</td>
-            <td>.41 / .39</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Unsup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Unsup.]{.smallcaps color='brand-color.unsupervised'}"></span></td>
             <td>.15</td>
             <td>.13</td>
             <td>.25 / .33</td>
@@ -256,10 +237,9 @@
             <td>.30 / .26</td>
             <td>.13 / .12</td>
             <td>2.3 / 2.1</td>
-            <td>.27 / .29</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Sup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Sup.]{.smallcaps color='brand-color.supervised'}"></span></td>
             <td>.12</td>
             <td>.10</td>
             <td>.30 / .36</td>
@@ -268,7 +248,6 @@
             <td>.36 / .23</td>
             <td>.10 / .10</td>
             <td>3.6 / 2.3</td>
-            <td>.33 / .28</td>
         </tr>
     </tbody>
 </table>
@@ -325,5 +304,5 @@
 
 :::
 
-Highlighting ($H$) and editing ($E$) statistics for each domain, modality and translation direction combination ($n = 3$ post-editors per combination). Values after slashes are adjusted by projecting highlights of the specified modality over edits from [No Highlight]{.smallcaps} translators to estimate highlight-induced editing biases (@sec-qe4pe-highlights-edits). A **Random** baseline is added by projecting random highlights matching the average frequency over all modalities for specific domain and translation direction settings.
+Highlighting ($H$) and editing ($E$) statistics for each domain, modality and translation direction combination ($n = 3$ post-editors per combination). Values after slashes are adjusted by projecting highlights of the specified modality over edits from [No Highlight]{.smallcaps} translators to estimate highlight-induced editing biases (@sec-qe4pe-highlights-edits). A [**Random**]{color='brand-color.random'} baseline is added by projecting random highlights matching the average frequency over all modalities for specific domain and translation direction settings.
 :::

@@ -8,26 +8,26 @@
         <tr>
             <th rowspan="2"><span data-qmd="**# Doc.-Seg.**"></span></th>
             <th rowspan="2"><span data-qmd="**Error Type**"></span></th>
-            <th colspan="3" class="group-header"><span data-qmd="**Has Highlight**"></span></th>
+            <th colspan="3" class="group-header rline"><span data-qmd="**Has Highlight**"></span></th>
             <th colspan="4" class="group-header"><span data-qmd="**% Post-edited**"></span></th>
         </tr>
         <tr class="subheader">
-            <th><span data-qmd="[Oracle]{.smallcaps}"></span></th>
-            <th><span data-qmd="[Unsup.]{.smallcaps}"></span></th>
-            <th><span data-qmd="[Sup.]{.smallcaps}"></span></th>
-            <th><span data-qmd="[No High.]{.smallcaps}"></span></th>
-            <th><span data-qmd="[Oracle]{.smallcaps}"></span></th>
-            <th><span data-qmd="[Unsup.]{.smallcaps}"></span></th>
-            <th><span data-qmd="[Sup.]{.smallcaps}"></span></th>
+            <th><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'}"></span></th>
+            <th><span data-qmd="[Unsup.]{.smallcaps color='brand-color.unsupervised'}"></span></th>
+            <th class="rline"><span data-qmd="[Sup.]{.smallcaps color='brand-color.supervised'}"></span></th>
+            <th><span data-qmd="[No High.]{.smallcaps color='brand-color.nohighlight'}"></span></th>
+            <th><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'}"></span></th>
+            <th><span data-qmd="[Unsup.]{.smallcaps color='brand-color.unsupervised'}"></span></th>
+            <th><span data-qmd="[Sup.]{.smallcaps color='brand-color.supervised'}"></span></th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>1-8</td>
             <td>Wrong number</td>
-            <td><span data-qmd="[Nld Only]{.smallcaps}"></span></td>
-            <td>Both</td>
-            <td>Both</td>
+            <td><span data-qmd="[Nld Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
             <td>67</td>
             <td class="bold">83</td>
             <td class="bold">83</td>
@@ -36,9 +36,9 @@
         <tr>
             <td>13-6</td>
             <td>Remove negation</td>
-            <td><span data-qmd="[Ita Only]{.smallcaps}"></span></td>
-            <td>Both</td>
-            <td>Both</td>
+            <td><span data-qmd="[Ita Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
             <td class="bold">50</td>
             <td>33</td>
             <td>33</td>
@@ -47,9 +47,9 @@
         <tr>
             <td>16-3</td>
             <td>Title literal translation</td>
-            <td>Both</td>
-            <td>Both</td>
-            <td>Both</td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
             <td>83</td>
             <td class="bold">100</td>
             <td class="bold">100</td>
@@ -58,9 +58,9 @@
         <tr>
             <td>20-1</td>
             <td>Wrong acronym</td>
-            <td><span data-qmd="[Nld Only]{.smallcaps}"></span></td>
-            <td>Both</td>
-            <td><span data-qmd="[Ita Only]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Nld Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Ita Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
             <td>0</td>
             <td class="bold">33</td>
             <td class="bold">33</td>
@@ -68,10 +68,10 @@
         </tr>
         <tr>
             <td>20-7</td>
-            <td>Wrong acronym (1)</td>
-            <td>Neither</td>
-            <td>Both</td>
-            <td>Neither</td>
+            <td class="longrow">Wrong acronym (1)</td>
+            <td><span data-qmd="[Neither]{color='brand-color.lightreddim'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Neither]{color='brand-color.lightreddim'}"></span></td>
             <td>0</td>
             <td class="bold">58</td>
             <td>50</td>
@@ -80,9 +80,9 @@
         <tr>
             <td>20-7</td>
             <td>Wrong acronym (2)</td>
-            <td><span data-qmd="[Nld Only]{.smallcaps}"></span></td>
-            <td>Both</td>
-            <td><span data-qmd="[Ita Only]{.smallcaps}"></span></td>
+            <td class="mediumrow"><span data-qmd="[Nld Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Ita Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
             <td>0</td>
             <td class="bold">58</td>
             <td>50</td>
@@ -91,9 +91,9 @@
         <tr>
             <td>22-1</td>
             <td>Name literal translation</td>
-            <td>Both</td>
-            <td>Both</td>
-            <td>Both</td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline mediumrow"><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
             <td>50</td>
             <td>50</td>
             <td class="bold">83</td>
@@ -102,9 +102,9 @@
         <tr>
             <td>23-4</td>
             <td>Addition</td>
-            <td><span data-qmd="[Nld Only]{.smallcaps}"></span></td>
-            <td>Both</td>
-            <td>Neither</td>
+            <td><span data-qmd="[Nld Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Neither]{color='brand-color.lightreddim'}"></span></td>
             <td class="bold">100</td>
             <td class="bold">100</td>
             <td>83</td>
@@ -113,9 +113,9 @@
         <tr>
             <td>31-2</td>
             <td>Wrong acronym</td>
-            <td><span data-qmd="[Nld Only]{.smallcaps}"></span></td>
-            <td>Both</td>
-            <td>Neither</td>
+            <td><span data-qmd="[Nld Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Neither]{color='brand-color.lightreddim'}"></span></td>
             <td>17</td>
             <td class="bold">33</td>
             <td>17</td>
@@ -124,9 +124,9 @@
         <tr>
             <td>34-7</td>
             <td>Numbers swapped</td>
-            <td><span data-qmd="[Nld Only]{.smallcaps}"></span></td>
-            <td>Both</td>
-            <td><span data-qmd="[Nld Only]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Nld Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Nld Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
             <td>17</td>
             <td>50</td>
             <td>33</td>
@@ -135,9 +135,9 @@
         <tr>
             <td>37-4</td>
             <td>Verb polarity inverted</td>
-            <td>Both</td>
-            <td>Both</td>
-            <td>Both</td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
             <td>67</td>
             <td class="bold">83</td>
             <td>67</td>
@@ -146,9 +146,9 @@
         <tr>
             <td>43-5</td>
             <td>Wrong name</td>
-            <td>Both</td>
-            <td>Both</td>
-            <td>Both</td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
             <td>50</td>
             <td class="bold">83</td>
             <td>67</td>
@@ -157,9 +157,9 @@
         <tr class="midrule">
             <td>48-5</td>
             <td>Wrong term</td>
-            <td><span data-qmd="[Nld Only]{.smallcaps}"></span></td>
-            <td>Both</td>
-            <td><span data-qmd="[Nld Only]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Nld Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
+            <td><span data-qmd="[Both]{color='brand-color.lightgreen'}"></span></td>
+            <td class="rline"><span data-qmd="[Nld Only]{.smallcaps color='brand-color.lightorange'}"></span></td>
             <td>67</td>
             <td>50</td>
             <td class="bold">83</td>
@@ -167,10 +167,10 @@
         </tr>
         <tr>
             <td></td>
-            <td class="bold">Total</td>
+            <td class="bold">Total (%)</td>
             <td>65</td>
             <td class="bold">100</td>
-            <td>62</td>
+            <td class="rline">62</td>
             <td>44</td>
             <td class="bold">63</td>
             <td>60</td>
@@ -218,5 +218,5 @@
 
 :::
 
-Highlighting and post-editing statistics for manual critical errors (@sec-qe4pe-data). Labels in **Has Highlight** columns indicate whether the error was highlighted in Both, only one ([Ita Only]{.smallcaps} or [Nld Only]{.smallcaps}) or Neither directions. Total scores represent the percentage of detected errors (13 errors, 6 editors per highlight modality).
+Highlighting and post-editing statistics for manual critical errors (@sec-qe4pe-data). Labels in **Has Highlight** columns indicate whether the error was highlighted in [Both]{color='brand-color.lightgreen'}, only one ([Ita]{.smallcaps color='brand-color.lightorange'} / [Nld]{.smallcaps color='brand-color.lightorange'}) only or [Neither]{color='brand-color.lightreddim'} directions. Total scores represent the percentage of detected errors (13 errors, 6 editors per highlight modality).
 :::

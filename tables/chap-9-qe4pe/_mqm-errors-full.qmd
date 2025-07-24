@@ -3,16 +3,16 @@
 :::{.content-visible when-format="html"}
 
 ```{=html}
-<table class="fullwidthtable">
+<table class="fullwidthtable smallfont">
     <thead>
         <tr>
             <th rowspan="2"><span data-qmd="**Language**"></span></th>
             <th rowspan="2"><span data-qmd="**MQM Category**"></span></th>
             <th colspan="2" class="group-header"><span data-qmd="**MT**"></span></th>
-            <th colspan="2" class="group-header"><span data-qmd="**[No Highlight]{.smallcaps}**"></span></th>
-            <th colspan="2" class="group-header"><span data-qmd="**[Oracle]{.smallcaps}**"></span></th>
-            <th colspan="2" class="group-header"><span data-qmd="**[Unsupervised]{.smallcaps}**"></span></th>
-            <th colspan="2" class="group-header"><span data-qmd="**[Supervised]{.smallcaps}**"></span></th>
+            <th colspan="2" class="group-header"><span data-qmd="[No Highlight]{.smallcaps color='brand-color.nohighlight'}"></span></th>
+            <th colspan="2" class="group-header"><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'}"></span></th>
+            <th colspan="2" class="group-header"><span data-qmd="[Unsupervised]{.smallcaps color='brand-color.unsupervised'}"></span></th>
+            <th colspan="2" class="group-header"><span data-qmd="[Supervised]{.smallcaps color='brand-color.supervised'}"></span></th>
         </tr>
         <tr class="subheader">
             <th><span data-qmd="**Maj.**"></span></th>
@@ -30,7 +30,7 @@
     <tbody>
         <tr>
             <td class="rowspan" rowspan="12"><span data-qmd="**Italian**"></span></td>
-            <td>Accuracy - Addition</td>
+            <td class="longrow">Accuracy - Addition</td>
             <td>0</td>
             <td>1</td>
             <td>0</td>
@@ -159,7 +159,7 @@
             <td>0</td>
             <td>3</td>
         </tr>
-        <tr>
+        <tr class="midrule">
             <td>Linguistic - Spelling</td>
             <td>5</td>
             <td>3</td>
@@ -186,7 +186,7 @@
             <td class="bold">71</td>
         </tr>
         <tr>
-            <td class="rowspan" rowspan="11"><span data-qmd="**Dutch**"></span></td>
+            <td class="rowspan" rowspan="12"><span data-qmd="**Dutch**"></span></td>
             <td>Accuracy - Addition</td>
             <td>0</td>
             <td>1</td>

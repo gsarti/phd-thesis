@@ -65,7 +65,7 @@
 <table class="fullwidthtable">
     <thead>
         <tr>
-            <th><span data-qmd="**Severity level**"></span></th>
+            <th><span data-qmd="**Severity**"></span></th>
             <th><span data-qmd="**Description**"></span></th>
         </tr>
     </thead>

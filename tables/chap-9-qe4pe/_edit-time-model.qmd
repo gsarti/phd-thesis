@@ -41,17 +41,17 @@
             <td>***</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Oracle]{.smallcaps} Highlight"></span></td>
+            <td><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'} Highlight"></span></td>
             <td>-0.79</td>
             <td>.</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Sup.]{.smallcaps} Highlight"></span></td>
+            <td><span data-qmd="[Sup.]{.smallcaps color='brand-color.supervised'} Highlight"></span></td>
             <td>0.02</td>
             <td></td>
         </tr>
         <tr>
-            <td><span data-qmd="[Unsup.]{.smallcaps} Highlight"></span></td>
+            <td><span data-qmd="[Unsup.]{.smallcaps color='brand-color.unsupervised'} Highlight"></span></td>
             <td>-0.07</td>
             <td></td>
         </tr>
@@ -61,42 +61,42 @@
             <td>***</td>
         </tr>
         <tr>
-            <td><span data-qmd="ITA:[Oracle]{.smallcaps}"></span></td>
+            <td><span data-qmd="ITA:[Oracle]{.smallcaps color='brand-color.oracle'}"></span></td>
             <td>0.91</td>
             <td>***</td>
         </tr>
         <tr>
-            <td><span data-qmd="ITA:[Sup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="ITA:[Sup.]{.smallcaps color='brand-color.supervised'}"></span></td>
             <td>1.18</td>
             <td>***</td>
         </tr>
         <tr>
-            <td><span data-qmd="ITA:[Unsup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="ITA:[Unsup.]{.smallcaps color='brand-color.unsupervised'}"></span></td>
             <td>0.48</td>
             <td>***</td>
         </tr>
         <tr>
-            <td><span data-qmd="Social:[Oracle]{.smallcaps}"></span></td>
+            <td><span data-qmd="Social:[Oracle]{.smallcaps color='brand-color.oracle'}"></span></td>
             <td>-0.19</td>
             <td>**</td>
         </tr>
         <tr>
-            <td><span data-qmd="Social:[Sup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="Social:[Sup.]{.smallcaps color='brand-color.supervised'}"></span></td>
             <td>-0.34</td>
             <td>***</td>
         </tr>
         <tr>
-            <td><span data-qmd="Social:[Unsup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="Social:[Unsup.]{.smallcaps color='brand-color.unsupervised'}"></span></td>
             <td>-0.22</td>
             <td>***</td>
         </tr>
         <tr>
-            <td><span data-qmd="Highlight Ratio:[Oracle]{.smallcaps}"></span></td>
+            <td><span data-qmd="Highlight Ratio:[Oracle]{.smallcaps color='brand-color.oracle'}"></span></td>
             <td>-0.83</td>
             <td>*</td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="Highlight Ratio:[Sup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="Highlight Ratio:[Sup.]{.smallcaps color='brand-color.supervised'}"></span></td>
             <td>-1.33</td>
             <td>***</td>
         </tr>

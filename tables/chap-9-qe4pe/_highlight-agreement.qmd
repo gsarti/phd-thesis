@@ -27,8 +27,8 @@
     </thead>
     <tbody>
         <tr>
-            <td class="rowspan" rowspan="2"><span data-qmd="[Oracle]{.smallcaps} and"></span></td>
-            <td><span data-qmd="[Sup.]{.smallcaps}"></span></td>
+            <td class="rowspan" rowspan="2"><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'} and"></span></td>
+            <td><span data-qmd="[Sup.]{.smallcaps color='brand-color.supervised'}"></span></td>
             <td>0.17</td>
             <td>0.32</td>
             <td>0.25</td>
@@ -40,7 +40,7 @@
             <td>0.29</td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="[Unsup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Unsup.]{.smallcaps color='brand-color.unsupervised'}"></span></td>
             <td>0.14</td>
             <td>0.30</td>
             <td>0.20</td>
@@ -52,8 +52,8 @@
             <td>0.24</td>
         </tr>
         <tr>
-            <td class="rowspan" rowspan="2"><span data-qmd="[Sup.]{.smallcaps} and"></span></td>
-            <td><span data-qmd="[Oracle]{.smallcaps}"></span></td>
+            <td class="rowspan" rowspan="2"><span data-qmd="[Sup.]{.smallcaps color='brand-color.supervised'} and"></span></td>
+            <td><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'}"></span></td>
             <td>0.19</td>
             <td class="bold">0.31</td>
             <td>0.26</td>
@@ -65,7 +65,7 @@
             <td>0.28</td>
         </tr>
         <tr class="midrule">
-            <td><span data-qmd="[Unsup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Unsup.]{.smallcaps color='brand-color.unsupervised'}"></span></td>
             <td>0.19</td>
             <td class="bold">0.33</td>
             <td>0.25</td>
@@ -77,8 +77,8 @@
             <td>0.25</td>
         </tr>
         <tr>
-            <td class="rowspan" rowspan="2"><span data-qmd="[Unsup.]{.smallcaps} and"></span></td>
-            <td><span data-qmd="[Oracle]{.smallcaps}"></span></td>
+            <td class="rowspan" rowspan="2"><span data-qmd="[Unsup.]{.smallcaps color='brand-color.unsupervised'} and"></span></td>
+            <td><span data-qmd="[Oracle]{.smallcaps color='brand-color.oracle'}"></span></td>
             <td>0.22</td>
             <td>0.32</td>
             <td>0.27</td>
@@ -90,7 +90,7 @@
             <td>0.30</td>
         </tr>
         <tr>
-            <td><span data-qmd="[Sup.]{.smallcaps}"></span></td>
+            <td><span data-qmd="[Sup.]{.smallcaps color='brand-color.supervised'}"></span></td>
             <td>0.22</td>
             <td>0.37</td>
             <td>0.30</td>
