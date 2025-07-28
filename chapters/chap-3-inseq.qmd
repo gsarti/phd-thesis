@@ -10,7 +10,7 @@ This chapter is adapted from the papers *Inseq: An Interpretability Toolkit for 
 
 ## Chapter Summary
 
-We introduce Inseq, a Python library to democratize access to interpretability analyses of sequence generation models. Inseq enables intuitive and optimized extraction of models’ internal information and feature importance scores for popular decoder-only and encoder-decoder Transformers architectures. We showcase its potential by adopting it to highlight gender biases in machine translation models and locate factual knowledge inside GPT-2. Thanks to its extensible interface supporting cutting-edge techniques such as contrastive feature attribution, Inseq can drive future advances in explainable natural language generation, centralizing good practices and enabling reproducible model evaluations.
+This first chapter presents the Inseq interpretability toolkit employed across multiple chapters of this thesis. Inseq is a Python library that democratizes access to interpretability analyses of language models by enabling intuitive extraction of models' internal information and saliency scores throughout the generation process. After introducing Inseq design and features, we demonstrate its capabilities through applications highlighting gender biases in machine translation models and factual knowledge location inside the GPT-2 language model. Thanks to its extensible interface supporting cutting-edge techniques, Inseq can drive future advances in explainable natural language generation, centralizing good practices and enabling reproducible model evaluations.
 
 :::
 

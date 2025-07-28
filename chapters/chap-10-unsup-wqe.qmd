@@ -10,7 +10,7 @@ This chapter is adapted from the paper *Unsupervised Word-level Quality Estimati
 
 ## Chapter Summary
 
-We evaluate word-level quality estimation methods exploiting recent advances in language model interpretability and uncertainty quantification to identify translation errors from the inner workings of translation models. In our evaluation spanning 14 metrics across 12 translation directions, we quantify the impact of human label variation on metric performance by using multiple sets of human labels. Our results highlight the untapped potential of unsupervised metrics, the shortcomings of supervised methods when faced with label uncertainty, and the brittleness of single-annotator evaluation practices.
+This final experimental chapter presents our comprehensive evaluation of unsupervised word-level quality estimation methods exploiting interpretability and uncertainty quantification methods to identify translation errors in model outputs. In our evaluation spanning 14 metrics across 12 translation directions, we also quantify the impact of human label variation on metric performance, using multiple edit sets from the [DivEMT]{.smallcaps} and QE4PE studies of the previous chapters. Our results highlight the untapped potential of unsupervised metrics, the shortcomings of supervised methods when faced with label uncertainty, and the brittleness of single-annotator evaluation practices.
 :::
 
 ## Introduction {#sec-unsup-wqe-intro}

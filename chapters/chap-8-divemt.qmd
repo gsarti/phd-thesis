@@ -10,7 +10,7 @@ This chapter is adapted from the paper *DivEMT: Neural Machine Translation Post-
 
 ## Chapter Summary
 
-We begin our user-directed evaluation with [DivEMT]{.smallcaps}, the first publicly available post-editing study of Neural Machine Translation (NMT) over a set of six typologically diverse target languages. Using a strictly controlled setup, 18 professional translators were instructed to translate or post-edit the same set of English documents. During the process, their edits, keystrokes, editing times and pauses were recorded, enabling an in-depth, cross-lingual evaluation of NMT quality and post-editing effectiveness. Using this new dataset, we assess the impact of two state-of-the-art NMT systems on translation productivity. We find that post-editing is consistently faster than translation from scratch, but we highlighting major disparities in post-editing effectiveness for languages at different degrees of typological relatedness to English, even when controlling for system architecture and training data size.
+This chapter begins our investigation into the application of interpretability methods in user-facing translation settings. As a preliminary step in this direction, we introduce [DivEMT]{.smallcaps}, the first publicly available post-editing dataset spanning six typologically diverse target languages. We evaluate the impact of MT quality and translation directions on post-editing effectiveness in a controlled setup involving 18 professional editors through comprehensive behavioral logging of edits, keystrokes, timing, and pauses. While we find that post-editing machine translation is consistently faster than translation from scratch, our results show significant disparities across languages with different typological relationships to English, even when controlling for system architecture and data size, highlighting the need for tailored approaches in MT for diverse languages.
 
 :::
 
@@ -42,7 +42,7 @@ To control for the effect of individual translators' preferences and styles, we 
 
 {{< include ../tables/chap-8-divemt/_schedule.qmd >}}
 
-As productivity and other behavioral metrics can only be estimated with a sizable sample, we prioritize the number of documents over the number of subjects per language during budget allocation. A larger set of post-edited documents also provides more insight in the error type distribution of NMT systems across different language pairs, an analysis which we leave to future work.
+As productivity and other behavioral metrics can only be estimated with a sizable sample, we prioritize the number of documents over the number of subjects per language during budget allocation. In future analyses, larger set of post-edited documents would also provide more insight in the error type distribution of NMT systems across different language pairs.
 
 All subjects are professional translators with at least 3 years of professional experience, at least one year of post-editing experience and strong proficiency with CAT tools.[^8-2] Translators were provided with links to the source articles to facilitate contextualization, were asked to produce translations of publishable quality and were instructed not to use any external MT engine to produce their translations. Assessing the final quality of the post-edited material is out of the scope of the current study, although we realize that this is an important consideration to assess usability in a professional context.^[A summary of our translation guidelines is provided in [@sec-divemt-guidelines].]
 

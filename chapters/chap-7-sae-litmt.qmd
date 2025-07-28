@@ -10,7 +10,7 @@ This chapter is adapted from the paper *Steering Large Language Models for Machi
 
 ## Chapter Summary
 
-This chapter connects generation conditioning to interpretability methods, exploring various strategies for personalizing LLM-generated translations, focusing on the challenging literary translation domain. We explore prompting strategies and inference-time interventions into model internals for steering model generations towards a personalized style, and propose a contrastive framework exploiting latent concepts extracted from sparse autoencoders to identify salient personalization properties. Our results show that steering achieves strong personalization while preserving translation quality. We further examine the impact of steering on LLM representations, finding model layers with a relevant impact for personalization are impacted similarly by multi-shot prompting and our steering method, suggesting similar mechanism at play.
+This chapter expands our previous prompting investigation by proposing to use interventions into model internals for machine translation personalization with large language models. Focusing on the challenging literary translation domain, we explore prompting strategies and inference-time interventions using sparse autoencoders (SAEs) to steer model generations toward personalized translator styles. We propose a contrastive framework exploiting interpretable latent concepts from SAEs to identify salient personalization properties, and show that its strong personalization accuracy does not come at the cost of translation quality. Our analyses reveal that successful SAE steering and multi-shot prompting impact similar model layers, suggesting similar mechanisms at play.
 
 :::
 
@@ -186,7 +186,7 @@ Following @ferrando-etal-2025-do, which also employ SAEs for steering, we experi
 
 {{< include ../tables/chap-7-sae-litmt/_prober-steer.qmd >}}
 
-## Conclusion and Future Work
+## Conclusion
 
 We conducted a broad evaluation of various prompting and steering approaches for personalizing LLM-generated translations. Our evaluation targets a practical, real-world application of literary translation and addresses the underexplored challenge of steering LLM generations in a linguistically rich and stylistically sensitive domain. Through comprehensive evaluation across multiple languages, novels, and models, we demonstrate that our proposed SAE-based approach outperforms prompting and alternative steering techniques.
 
