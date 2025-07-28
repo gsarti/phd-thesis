@@ -96,9 +96,9 @@ The same heuristics were applied to both translation directions, selecting only 
 
 ### Additional Details and Statistics {#sec-qe4pe-additional}
 
-{{< include ../tables/chap-9-qe4pe/_participants-info.qmd >}}
+{{< include ../tables/chap-9-qe4pe/_participants-info-pretask.qmd >}}
 
-{{< include ../tables/chap-9-qe4pe/_highlight-agreement.qmd >}}
+{{< include ../tables/chap-9-qe4pe/_participants-info-posttask.qmd >}}
 
 :::{layout="[47,-3,42]"}
 {{< include ../tables/chap-9-qe4pe/_edit-time-model.qmd >}}
@@ -106,9 +106,11 @@ The same heuristics were applied to both translation directions, selecting only 
 {{< include ../tables/chap-9-qe4pe/_edit-rate-model.qmd >}}
 :::
 
-{{< include ../tables/chap-9-qe4pe/_edit-highlights-stats-domain-modality.qmd >}}
+{{< include ../tables/chap-9-qe4pe/_highlight-agreement.qmd >}}
 
 {{< include ../tables/chap-9-qe4pe/_edit-highlights-stats-domain-speed.qmd >}}
+
+{{< include ../tables/chap-9-qe4pe/_edit-highlights-stats-domain-modality.qmd >}}
 
 {{< include ../tables/chap-9-qe4pe/_qa-example.qmd >}}
 

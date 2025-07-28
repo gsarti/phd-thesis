@@ -115,7 +115,7 @@
 \begin{table}
     \tiny
     \centering
-    \begin{tabular}{p{0.10\textwidth}p{0.70\textwidth}cc}
+    \begin{tabular}{p{0.10\textwidth}p{0.66\textwidth}cc}
     \toprule[1.5pt] 
     Source (ZH) & \begin{CJK}{UTF8}{gbsn} 遂又往後看時，只見畫著一張弓，弓上掛著香櫞。也有一首歌詞云：「二十年來辨是非，榴花開處照宮闈。三春爭及初春景，虎兕相逢大夢歸。」\end{CJK} & \large 📊 & \large ☄️ \\
     \midrule

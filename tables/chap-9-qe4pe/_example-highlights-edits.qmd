@@ -54,7 +54,7 @@
     \footnotesize
     \centering
     \setlength{\tabcolsep}{4.5pt}
-    \begin{tabular}{lp{6cm}}
+    \begin{tabular}{ll}
         \toprule[1.5pt]
         Source\textsubscript{~\textsc{en}} & So why is it that people jump through extra hoops to install Google Maps? \\
         \midrule
@@ -74,5 +74,5 @@
 
 :::
 
-[en]{.smallcaps}$\rightarrow$[it]{.smallcaps} example from the QE4PE dataset, showing [minor]{bg-color="brand-color.minorerror"}/[major]{bg-color="brand-color.majorerror"} word highlights and a single post-edit per modality, with modified words [highlighted]{bg-color="brand-color.correction"}.
+[en]{.smallcaps}$\rightarrow$[it]{.smallcaps} example from the QE4PE dataset, showing [minor]{color="brand-color.minorerror"}/[major]{color="brand-color.majorerror"} word highlights and a single post-edit per modality, with modified words [highlighted]{color="brand-color.correction"}.
 :::

@@ -50,12 +50,12 @@
 \begin{table}
     \footnotesize
     \centering
-    \begin{tabular}{p{1cm}p{5.5cm}}
+    \begin{tabular}{p{1cm}l}
     \toprule[1.5pt]
     \multicolumn{2}{l}{\textbf{Remove negation (13-6)}} \\
     \midrule
-    \textbf{English} & \textcolor{red}{No significant differences} were found with respect to principal diagnoses [...] \\
-    \textbf{Dutch} & Er werden \textcolor{red}{geen significante verschillen $\rightarrow$ significante verschillen} gevonden met betrekking tot de belangrijkste diagnoses [...] \\
+    \textbf{English} & \textcolor{red}{No significant differences} were found with [...] \\
+    \textbf{Dutch} & Er werden \textcolor{red}{geen significante verschillen $\rightarrow$ significante verschillen} gevonden met [...] \\
     \midrule
     \multicolumn{2}{l}{\textbf{Title literal translation (16-3)}} \\
     \midrule

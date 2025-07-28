@@ -115,7 +115,7 @@
 \begin{table}
     \tiny
     \centering
-    \begin{tabular}{p{0.10\textwidth}p{0.70\textwidth}cc}
+    \begin{tabular}{p{0.10\textwidth}p{0.66\textwidth}cc}
     \toprule[1.5pt] 
     Source (IT) & Intanto la stalla fu chiusa e Pinocchio rimase solo: e perch\'e erano molte ore che non aveva mangiato, cominci\'o a sbadigliare dal grande appetito. E, sbadigliando, spalancava una bocca che pareva un forno. & \large 📊 & \large ☄️ \\
     \midrule

@@ -357,7 +357,7 @@
     \centering
     \begin{tabular}{ll|cc|cc|cc|cc|cc}
     \toprule[1.5pt]
-\multirow{2}{*}{\textbf{Language}} & \multirow{2}{*}{\textbf{MQM Category}} & \multicolumn{2}{c}{\textbf{MT}} & \multicolumn{2}{c}{\textbf{\NoHighlight}} & \multicolumn{2}{c}{\textbf{\Oracle}} & \multicolumn{2}{c}{\textbf{\Unsupervised}} & \multicolumn{2}{c}{\textbf{\Supervised}} \\
+\multirow{2}{*}{\textbf{Lang.}} & \multirow{2}{*}{\textbf{MQM Category}} & \multicolumn{2}{c}{\textbf{MT}} & \multicolumn{2}{c}{\textbf{\NoHighlight}} & \multicolumn{2}{c}{\textbf{\Oracle}} & \multicolumn{2}{c}{\textbf{\Unsupervised}} & \multicolumn{2}{c}{\textbf{\Supervised}} \\
 \cmidrule(lr){3-4}
 \cmidrule(lr){5-6}
 \cmidrule(lr){7-8}
@@ -365,7 +365,7 @@
 \cmidrule(lr){11-12}
 & & \textbf{Maj.} & \textbf{Min.} & \textbf{Maj.} & \textbf{Min.} & \textbf{Maj.} & \textbf{Min.} & \textbf{Maj.} & \textbf{Min.} & \textbf{Maj.} & \textbf{Min.} \\
 \midrule
-\multirow{9}{*}{\textbf{Italian}} & Accuracy - Addition 
+\multirow{12}{*}{\rotatebox{90}{\textbf{Italian}}} & Accuracy - Addition 
                              & 0  & 1  & 0  & 0  & 0  & 0  & 0  & 0  & 1  & 1  \\
 & Accuracy - Mistranslation  & 21 & 22 & 10 & 12 & 4  & 8  & 24 & 17 & 17 & 17 \\
 & Accuracy - Inconsistency   & 2  & 4  & 1  & 3  & 2  & 2  & 1  & 3  & 0  & 2  \\
@@ -383,7 +383,7 @@
 & \textbf{Total}             & 55 & 95 & 19 & 79 & 6  & 38 & 42 & 77 & 28 & 71 \\
 \midrule
 \midrule
-\multirow{11}{*}{\textbf{Dutch}} & Accuracy - Addition        
+\multirow{12}{*}{\rotatebox{90}{\textbf{Dutch}}} & Accuracy - Addition        
                              & 0  & 1  & 0  & 2  & 0  & 3  & 0  & 2  & 0  & 1  \\
 & Accuracy - Mistranslation  & 25 & 34 & 18 & 25 & 23 & 27 & 12 & 31 & 16 & 29 \\
 & Accuracy - Inconsistency   & 0  & 0  & 0  & 2  & 0  & 2  & 0  & 2  & 0  & 5  \\
