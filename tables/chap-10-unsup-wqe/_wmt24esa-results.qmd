@@ -17,19 +17,19 @@
         </tr>
         <tr>
             <th><strong>AP</strong></th>
-            <th><strong>F1<span data-qmd="$^{*}$"></span></strong></th>
+            <th><strong>F1<sup>*</sup></strong></th>
             <th><strong>AP</strong></th>
-            <th><strong>F1<span data-qmd="$^{*}$"></span></strong></th>
+            <th><strong>F1<sup>*</sup></strong></th>
             <th><strong>AP</strong></th>
-            <th><strong>F1<span data-qmd="$^{*}$"></span></strong></th>
+            <th><strong>F1<sup>*</sup></strong></th>
             <th><strong>AP</strong></th>
-            <th><strong>F1<span data-qmd="$^{*}$"></span></strong></th>
+            <th><strong>F1<sup>*</sup></strong></th>
             <th><strong>AP</strong></th>
-            <th><strong>F1<span data-qmd="$^{*}$"></span></strong></th>
+            <th><strong>F1<sup>*</sup></strong></th>
             <th><strong>AP</strong></th>
-            <th><strong>F1<span data-qmd="$^{*}$"></span></strong></th>
+            <th><strong>F1<sup>*</sup></strong></th>
             <th><strong>AP</strong></th>
-            <th><strong>F1<span data-qmd="$^{*}$"></span></strong></th>
+            <th><strong>F1<sup>*</sup></strong></th>
         </tr>
     </thead>
     <tbody>

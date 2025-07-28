@@ -131,17 +131,7 @@ The same heuristics were applied to both translation directions, selecting only 
 
 ## Unsupervised MT Error Detection and Human Disagreement {#sec-unsup-wqe-appendix}
 
-### Evaluation Details {#sec-unsup-wqe-evaluation-details}
-
-[Token-level Evaluation]{.paragraph} Error spans used as labels in our evaluation are defined at the character level, while metric scores depend on the tokenization employed by either the MT model (for unsupervised metrics) or [xcomet]{.smallcaps} (for supervised metrics). To allow for comparison, we label tokens as being part of an error span if at least one character contained in it was marked as an error or edited by an annotator. @tbl-example-qe4pe-ita and @tbl-example-wmt24-encs provide examples of various segmentations for the same MT output.
-
-{{< include ../tables/chap-10-unsup-wqe/_example-qe4pe-ita.qmd >}}
-
-{{< include ../tables/chap-10-unsup-wqe/_example-wmt24-encs.qmd >}}
-
-[Constraining generation]{.paragraph} Evaluating metrics at the word level can be challenging due to the need for perfect uniformity between model generations and annotated spans. For this reason we extract unsupervised metrics during generation while force-decoding the annotated outputs from the MT model to ensure perfect adherence with annotated error spans. In general, such an approach could introduce a problematic confounder in the evaluation, since observed results could be the product of constraining a model towards an unnatural generation, rather than reflecting underlying phenomena. However, in this study, we carefully ensure that the generation setup matches exactly the one of previous works where the annotated translations were produced, using the same MT model and the same inputs.[^generation-params] Hence, the constraining process is a simple insurance of conformity in light of potential discrepancies introduced by different decoding strategies, and does not affect the soundness of our method.
-
-[^generation-params]: Generation parameters are not relevant in this setting, provided that they only alter the selection of the following output token, which we do via force-decoding.
+### Full Results {#sec-unsup-wqe-full}
 
 {{< include ../tables/chap-10-unsup-wqe/_qe4pe-ita-results.qmd >}}
 
