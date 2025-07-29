@@ -1,6 +1,6 @@
 # Conditioning Generation for Personalized Machine Translation {#sec-appendix-b}
 
-## Attribute-Controlled Translation using Retrieval and Marking {#sec-ramp-appendix}
+## Retrieval and Marking for Attribute-Controlled Translation {#sec-ramp-appendix}
 
 ### Prompt Templates {#sec-ramp-prompt-templates}
 

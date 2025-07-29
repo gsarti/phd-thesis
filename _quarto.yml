@@ -39,7 +39,7 @@ book:
     - index.qmd
     - chapters/chap-2-background.qmd
     - text: "---"
-    - part: "Context Usage in Multilingual NLP"
+    - part: "Attributing Context Usage in Multilingual NLP"
       chapters:
         - chapters/chap-3-inseq.qmd
         - chapters/chap-4-pecore.qmd

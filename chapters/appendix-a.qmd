@@ -1,4 +1,4 @@
-# Context Usage in Multilingual NLP {#sec-appendix-a}
+# Attributing Context Usage in Multilingual NLP {#sec-appendix-a}
 
 ## Attributing Language Model Generations with the Inseq Toolkit {#sec-inseq-appendix}
 
@@ -195,7 +195,7 @@ This section complements our MT analysis and by demonstrating the applicability 
 {{< pagebreak >}}
 \FloatBarrier
 
-## Context Attribution for Trustworthy Retrieval-Augmented Generation {#sec-mirage-appendix}
+## Answer Attribution for Trustworthy Retrieval-Augmented Generation {#sec-mirage-appendix}
 
 ### Answer Attribution on the Full XOR-AttriQA {#sec-mirage-appendix-full-attribution}
 
