@@ -89,7 +89,7 @@
       \smallskip
       to obtain the degree of Philosophy Doctor at the\\
       $frontmatter.eng.university$\\
-      under the authority of the\\
+      on the authority of the\\
       Rector Magnificus $frontmatter.eng.rector_magnificus$\\
       and in accordance with\\
       the decision by the College of Deans.\\
@@ -220,9 +220,15 @@ $endif$
 
 $body$
 
+\unappendix
+
+\chapter*[Summary]{Summary}
+\addcontentsline{toc}{chapter}{Summary}
+\input{latex/summary_en.tex}
+
 \chapter*[Samenvatting]{Samenvatting}
 \addcontentsline{toc}{chapter}{Samenvatting}
-\input{latex/summary.tex}
+\input{latex/summary_nl.tex}
 
 % Include the Grodil series pages verbatim (get updated version!)
 % \includepdf[pages=-]{latex/grodil.tex}

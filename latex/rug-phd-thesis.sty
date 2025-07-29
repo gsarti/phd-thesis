@@ -316,6 +316,23 @@
 \renewcommand{\@tocrmarg}{3em}              % Right margin for TOC entries
 \makeatother
 
+% Custom end of appendix
+
+\makeatletter
+\newcounter{savesection}
+\newcounter{apdxsection}
+\renewcommand\appendix{\par
+  \setcounter{savesection}{\value{section}}%
+  \setcounter{section}{\value{apdxsection}}%
+  \setcounter{subsection}{0}%
+  \gdef\thesection{\@Alph\c@section}}
+\newcommand\unappendix{\par
+  \setcounter{apdxsection}{\value{section}}%
+  \setcounter{section}{\value{savesection}}%
+  \setcounter{subsection}{0}%
+  \gdef\thesection{\@arabic\c@section}}
+\makeatother
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 15. HEADERS AND FOOTERS
 %% Page header and footer configuration

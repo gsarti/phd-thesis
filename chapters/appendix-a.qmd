@@ -48,7 +48,7 @@ masculine.show(aggregator=PairAggregator, paired_attr=feminine)
 Comparing attributions for a synthetic Turkish-to-English translation example with underspecified source pronoun gender using a MarianMT Turkish-to-English translation model [@tiedemann-2020-tatoeba]. Values in the visualized attribution matrix show a 46% higher probability of producing the masculine pronoun in the translation and a relative decrease of 18.4% in the importance of the Turkish occupation term compared to the feminine pronoun case.
 :::
 
-### Example of Quantized Contrastive Attribution of Factual Knowledge {#sec-inseq-appendix-factual-knowledge}
+### Example of Quantized CAT Attribution {#sec-inseq-appendix-factual-knowledge}
 
 [@fig-ex-cat-counterfact-code] presents code used in [@sec-chap3-rome-repro] case study, with visualized attribution scores for contrastive examples presented in [@fig-chap3-ex-cat-counterfact-plots].
 
@@ -118,7 +118,7 @@ Visualization of contrastive attribution scores on a subset of layers (23 to 48)
 
 We compute BLEU using the SACREBLEU library [@post-2018-call] with default parameters `nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.3.1`.
 The models fine-tuned with source and target context clearly outperform the ones trained with source only, both in terms of generic translation quality and context-sensitive disambiguation accuracy.
-This motivates our choice to focus primarily on those models for our main analysis. All models are available in the following Huggingface organization: [`https://hf.co/context-mt`](https://hf.co/context-mt). The $S_{\text{ctx}}$ models correspond to those matching `context-mt/scat-<MODEL\_TYPE>-ctx4-cwd1-en-fr`, while $S+T_{\text{ctx}}$ models have the `context-mt/scat-<MODEL\_TYPE>-target-ctx4-cwd0-en-fr` identifier.
+This motivates our choice to focus primarily on those models for our main analysis. All models are available in the following Huggingface organization: <https://hf.co/context-mt>. The $S_{\text{ctx}}$ models correspond to those matching `context-mt/scat-<MODEL\_TYPE>-ctx4-cwd1-en-fr`, while $S+T_{\text{ctx}}$ models have the `context-mt/scat-<MODEL\_TYPE>-target-ctx4-cwd0-en-fr` identifier.
 
 ### Full CTI and CCI Results {#sec-pecore-appendix-cti-cci-results}
 
