@@ -65,7 +65,7 @@ model = AutoModelForCausalLM.from_pretrained(
 # Counterfact datasets used by Meng et al. (2022)
 data = load_dataset("NeelNanda/counterfact-tracing")["train"]
 
-# GPT-2 XL is a Transformer model with 48 layers
+# GPT-2 XL is a transformer model with 48 layers
 for layer in range(48):
     attrib_model = inseq.load_model(
         model,

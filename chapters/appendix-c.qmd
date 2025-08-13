@@ -26,7 +26,7 @@ An extract of the translation guidelines provided to the translators follows. Th
 > 
 > - Do not leave a unit in editing mode (yellow background) while you do something else. If you need to do something unrelated in the middle of a translation then go out of editing mode and come back to editing mode when you are ready to resume translating.
 > 
-> - First you will be translating a warmup task, and then the main task. When you are translating each file, you can consult the Source text (ST) by looking up the url in the Excel files that we have sent for reference.
+> - First you will be translating a warmup task, and then the main task. When you are translating each file, you can consult the source text by looking up the url in the Excel files that we have sent for reference.
 >
 > In order to find the correct terminology for the translation you can consult any source in the Internet. Important: However, it is **NOT ALLOWED** to use any MT engine to find terms or alternatives to translations (such as Google Translate, DeepL, MS Translator or any MT engine available in your language). Using MT engines invalidates the experiment, and will be detected in the log data. Please fill-in the post-task questionnaire ONLY ONCE after completing all the translation tasks (both warmup and main tasks).
 
@@ -53,7 +53,7 @@ An extract of the translation guidelines provided to the translators follows. Th
 
 ### Other Measurements {#sec-divemt-other}
 
-[Automatic Evaluation of NMT Systems]{.paragraph} The selection of systems used in this study was driven by a broader evaluation procedure covering more models, metrics and target languages. [@tbl-flores-perf-full] presents the overall results of our evaluation. We use HuggingFace’s Transformers library [@wolf-etal-2020-transformers] for all neural models, using the default decoding settings without further fine-tuning. All metrics were computed using the default settings of SacreBLEU [@post-2018-call] and [comet]{.smallcaps} [@rei-etal-2020-comet].
+[Automatic Evaluation of NMT Systems]{.paragraph} The selection of systems used in this study was driven by a broader evaluation procedure covering more models, metrics and target languages. [@tbl-flores-perf-full] presents the overall results of our evaluation. We use HuggingFace’s `transformers` library [@wolf-etal-2020-transformers] for all neural models, using the default decoding settings without further fine-tuning. All metrics were computed using the default settings of SacreBLEU [@post-2018-call] and [comet]{.smallcaps} [@rei-etal-2020-comet].
 
 {{< include ../tables/chap-8-divemt/_flores-perf-full.qmd >}}
 

@@ -279,3 +279,9 @@ figure.quarto-float-tbl figcaption.quarto-float-caption-bottom {
 .smallfont {
     font-size: 8pt;
 }
+
+#thesis-abstract {
+    font-size: 11pt;
+    padding-left: 30px;
+    padding-right: 30px;
+}

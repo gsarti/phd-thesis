@@ -1,22 +1,24 @@
 # Retrieval and Marking for Attribute-Controlled Translation {#sec-chap-6-ramp}
 
-::: {.callout-note appearance="simple" icon="false"}
-
-This chapter is adapted from the paper *[Ramp]{.smallcaps}: Retrieval and Attribute-Marking Enhanced Prompting for Attribute-Controlled Translation* [@sarti-etal-2023-ramp].
-
-:::
-
 ::: {.callout-note icon="false"}
 
 ## Chapter Summary
 
 This chapter shifts the focus from understanding models' context usage to influencing their generation process. As an initial investigation, we introduce Retrieval and Attribute-Marking enhanced Prompting ([Ramp]{.smallcaps}), a prompting method leveraging semantic similarity retrieval to select in-context examples and attribute marking to identify relevant information, with the goal of improving generation accuracy with large multilingual language models for few-shot and zero-shot attribute-controlled translation. We experiment on two multilingual datasets for formality and gender-controlled translation, showing that [Ramp]{.smallcaps} improves both attribute accuracy and translation quality over standard prompting and MT baselines. The cross-lingual effectiveness of our approach, using in-context examples from different languages, demonstrates the potential for scalable personalization methods when few examples are available.
 
+\vspace{7pt}\noindent
+
+This chapter is adapted from the paper *[Ramp]{.smallcaps}: Retrieval and Attribute-Marking Enhanced Prompting for Attribute-Controlled Translation* [@sarti-etal-2023-ramp].
+
 :::
+
+> *Like physical events with their causal and teleological interpretations, every linguistic event had two possible interpretations: as a transmission of information and as the realization of a plan.*
+>
+> *-- Ted Chiang, Stories of Your Life and Others (2002)*
 
 ## Introduction {#sec-chap6-introduction}
 
-*Text style transfer* (TST) is a task that aims to control stylistic attributes of an input text without affecting its semantic content [@jin-etal-2022-deep]. Research in TST has largely focused on English, thanks to the availability of large monolingual English datasets covering stylistic attributes like formality and simplicity [@rao-tetreault-2018-dear; @zhu-etal-2010-monolingual]. In recent years, however, multilingual and cross-lingual applications of TST have seen a steady gain in popularity [@briakou-etal-2021-ola; @garcia-etal-2021-multilingual; @krishna-etal-2022-shot]. A notable instance of cross-lingual TST is *attribute-controlled translation* (ACT), in which attribute[^6-1] conditioning is performed alongside machine translation (MT) to ensure that translations are not only correct but match user-specified preferences, such as formality/honorifics [@sennrich-etal-2016-controlling; @niu-etal-2017-study; @michel-neubig-2018-extreme; @niu-carpuat-2020-controlling; @nadejde-etal-2022-cocoa; @wang-etal-2023-controlling], gender [@rabinovich-etal-2017-personalized; @vanmassenhove-etal-2018-getting; @saunders-byrne-2020-reducing], and length [@lakew-etal-2019-controlling; @schioppa-etal-2021-controlling]. ACT is especially important for sectors like customer service and business communication, where stylistic differences can have an impact on user perception (e.g., misgendering customers or speaking to them in an appropriately informal tone can be offensive or disconcerting). @tbl-chap6-data-preview shows examples of ACT for formality and gender attributes.
+*Text style transfer* (TST) is a task that aims to control stylistic attributes of an input text without affecting its semantic content [@jin-etal-2022-deep]. Research in TST has largely focused on English, thanks to the availability of large monolingual English datasets covering stylistic attributes like formality and simplicity [@rao-tetreault-2018-dear; @zhu-etal-2010-monolingual]. In recent years, however, multilingual and cross-lingual applications of TST have steadily gained popularity [@briakou-etal-2021-ola; @garcia-etal-2021-multilingual; @krishna-etal-2022-shot]. A notable instance of cross-lingual TST is *attribute-controlled translation* (ACT), in which attribute[^6-1] conditioning is performed alongside machine translation to ensure that translations are not only correct but match user-specified preferences, such as formality/honorifics [@sennrich-etal-2016-controlling; @niu-etal-2017-study; @michel-neubig-2018-extreme; @niu-carpuat-2020-controlling; @nadejde-etal-2022-cocoa; @wang-etal-2023-controlling], gender [@rabinovich-etal-2017-personalized; @vanmassenhove-etal-2018-getting; @saunders-byrne-2020-reducing], and length [@lakew-etal-2019-controlling; @schioppa-etal-2021-controlling]. ACT is especially important for sectors like customer service and business communication, where stylistic differences can have an impact on user perception (e.g., misgendering customers or speaking to them in an inappropriately informal tone can be offensive or disconcerting). @tbl-chap6-data-preview shows examples of ACT for formality and gender attributes.
 
 [^6-1]: We employ the term *attribute* rather than *style*, since not all the attributes addressed here (e.g., gender) can be considered styles.
 
@@ -24,7 +26,7 @@ This chapter shifts the focus from understanding models' context usage to influe
 
 Most prior work on ACT relies on a supervised adaptation component that conditions the generative model on the selective attribute. However, few annotated ACT datasets are available, and they generally cover only a limited set of languages and attributes. Thus, enabling few-shot or zero-shot ACT would facilitate applying attribute control to less-resourced attributes and languages.
 
-As a first step into our investigation of conditioning machine translation generation, this chapter introduces a new approach for ACT: **R**etrieval and **A**ttribute-**M**arking enhanced **P**rompting ([Ramp]{.smallcaps}). Recent studies have shown that large language models (LLMs) can perform MT out of the box using the prompting paradigm [@brown-etal-2020-language; @lin-etal-2022-shot; @chowdhery-etal-2023-palm] We build on this, prompting LLMs to perform *attribute-controlled* MT through two innovations: (1) *retrieval of similar examples* and (2) *explicit attribute marking*.
+As a first step into our investigation of conditioning machine translation generation, this chapter introduces a new approach for ACT: **R**etrieval and **A**ttribute-**M**arking enhanced **P**rompting ([Ramp]{.smallcaps}). Recent studies have shown that large language models can perform MT out of the box using the prompting paradigm [@brown-etal-2020-language; @lin-etal-2022-shot; @chowdhery-etal-2023-palm]. We build on this, prompting LLMs to perform *attribute-controlled* MT through two innovations: (1) *retrieval of similar examples* and (2) *explicit attribute marking*.
 
 ![An example of [Ramp]{.smallcaps} using 2 in-context examples. **Top:** The input sentence is embedded by a sentence similarity model, and the top-$k$ most similar labeled examples are retrieved from a pool of training data to build the prompt context. **Bottom:** Labeled cross-lingual examples are used to fill in the English prompt template, which is then provided to the LLM to generate the output.](../figures/chap-6-ramp/ramp.pdf){#fig-chap6-ramp width=90% fig-pos="t"}
 
@@ -53,7 +55,7 @@ In the few-shot setting, we provide a sequence of $k$ labeled *in-context exampl
 
 ### Cross-Lingual Prompting {#sec-chap6-cross-lingual-methods}
 
-The similarity retrieval component of [Ramp]{.smallcaps} requires a large pool $D_A$ from which to find appropriate in-context examples for prompting. 
+The similarity retrieval component of [Ramp]{.smallcaps} requires a large pool $\mathcal{D}_A$ from which to find appropriate in-context examples for prompting. 
 Low-resource attributes or language pairs may have insufficient or no annotated data from which to retrieve such examples. 
 To mitigate this issue, we introduce *cross-lingual prompting*, in which the target side of the in-context examples differs from the desired target language of the translation task. As demonstrated in @fig-chap6-ramp, we study whether the system can leverage examples in one language (e.g., attribute indicators in Spanish) to produce the same attribute in another (e.g., French).
 Two main features of our [Ramp]{.smallcaps} model allow us to perform cross-lingual prompting: (1) the use of multilingual LLMs, and (2) the example retrieval step, which is done on the source language only.
@@ -73,13 +75,13 @@ Both datasets have gold annotations for attribute-marked target spans, and both 
 
 {{< include ../tables/chap-6-ramp/_languages.qmd >}}
 
-### Large Language Models (LLMs) {#sec-chap6-llm}
+### Large Language Models {#sec-chap6-llm}
 
 We select three massively multilingual decoder-only LLMs for the prompting experiments:
 
 - [XGLM]{.smallcaps} [@lin-etal-2022-shot] is a 7.5B-parameter model trained on a balanced corpus containing 30 languages. It was shown to outperform much larger models such as GPT-3 on tasks related to machine translation and cross-lingual language understanding. We select it due to its broad linguistic coverage and its manageable size.
 
-- [Bloom]{.smallcaps} [@bigscience-2023-bloom] is a model available in multiple sizes, trained on a curated corpus spanning 46 natural languages (and 13 programming languages). However, many of the test set languages are not part of its pre-training corpus (see @tbl-chap6-languages). We evaluate two variants of the model (7.1B and 175B parameters) to assess how it is affected by a massive scaling in model parameters. The larger variant has a parameter count comparable to the one of GPT-3, while it is presently the largest publicly available multilingual LLM.
+- [Bloom]{.smallcaps} [@bigscience-2023-bloom] is a model available in multiple sizes, trained on a curated corpus spanning 46 natural languages (and 13 programming languages). However, many of the test languages are not part of its pre-training corpus (see @tbl-chap6-languages). We evaluate two variants of the model (7.1B and 175B parameters) to assess how it is affected by a massive scaling in model parameters. The larger variant has a parameter count comparable to the one of GPT-3, while it is presently the largest publicly available multilingual LLM.
 
 - [GPT-NeoX]{.smallcaps} [@black-etal-2022-gpt] is a 20B-parameter model trained on The Pile [@gao-etal-2021-pile], a large English-centric corpus covering a broad range of domains. While the model saw mainly English data during pre-training and as such is not intended for multilingual usage, it exhibits interesting generalization performances for many of our target languages.
 
@@ -109,7 +111,7 @@ Unlike lexical accuracy, the multilingual attribute classifier does not penalize
 
 ### Same-Language Prompting {#sec-chap6-same-language}
 
-We first evaluate the effectiveness of [Ramp]{.smallcaps} for formality- and gender-controlled translation where the language pair used for in-context examples is the same as the one used in the prompt candidate (e.g., EN$\to$ES formality-controlled translation using EN$\to$ES in-context examples).
+We first evaluate the effectiveness of [Ramp]{.smallcaps} for formality- and gender-controlled translation where the language pair used for in-context examples is the same as the one used in the prompt candidate (e.g., English$\to$Spanish formality-controlled translation using English$\to$Spanish in-context examples).
 
 We begin by conducting a preliminary evaluation of 3 LLMs across different ranges of in-context examples to reduce the number of experimental settings for our main assessment. We perform formality-controlled translation using [CoCoA-MT]{.smallcaps}, and evaluate LLMs by varying the number of in-context examples (i.e., 4-8-16-32, selected based on the feasible context length^[[Bloom]{.smallcaps} 175B encountered out-of-memory errors with 32 in-context examples on 8 A100 40GB GPUs.]). @fig-chap6-preliminary-cocoa-results presents results averaged across all four languages **seen** by [Bloom]{.smallcaps} during its pre-training.
 
@@ -119,7 +121,7 @@ We begin by conducting a preliminary evaluation of 3 LLMs across different range
 
 ![](../figures/chap-6-ramp/cocoamt_accuracy.pdf)
 
-BLEU and sentential formality accuracy of prompt outputs on [CoCoA-MT]{.smallcaps} test set for different amounts of in-context examples in the base and [Ramp]{.smallcaps} settings. Confidence intervals are obtained base setting by sampling in-context examples using 3 seeds. Detailed scores are included in @tbl-chap6-preliminary-cocoa-results.
+BLEU and sentential formality accuracy of prompt outputs on [CoCoA-MT]{.smallcaps} test set for different amounts of in-context examples in the base and [Ramp]{.smallcaps} settings. Confidence intervals are obtained for the base setting by sampling in-context examples using 3 seeds. Detailed scores are included in @tbl-chap6-preliminary-cocoa-results.
 :::
 
 We observe that [Ramp]{.smallcaps} generally outperforms base prompting (i.e., random in-context examples and no attribute marking) across most LLMs and example settings for both BLEU and formality accuracy. Moreover, BLEU and formality accuracy improve with increased model size and with the number of examples, until this number reaches 16. Based on these results we move forward with the main evaluation using [XGLM]{.smallcaps} 7.5B and [Bloom]{.smallcaps} 175B models and 16 in-context examples for both datasets.
@@ -131,7 +133,7 @@ We observe that [Ramp]{.smallcaps} generally outperforms base prompting (i.e., r
 We observe that in the +mark setting, simple attribute marking consistently improves attribute accuracy of the generated text, but leads to degradation of [comet]{.smallcaps} on [CoCoA-MT]{.smallcaps}. The complete [Ramp]{.smallcaps} with similarity retrieval not only compensates for the [comet]{.smallcaps} degradation but also improves quality and attribute metrics across the board, especially for the high-capacity [Bloom]{.smallcaps} 175B model.
 
 Adapted MT outperforms [Bloom]{.smallcaps} 175B on [MT-GenEval]{.smallcaps} in all metrics, but underperforms it on [CoCoA-MT]{.smallcaps}. This suggests that it is challenging to do fine-grained comparison between LLMs and standard MT systems as they might have different domain coverage. 
-[Bloom]{.smallcaps} 175B consistently outperforms [XGLM]{.smallcaps} 7.5B in both generic translation quality and attribute control accuracy, so we focus on [Bloom]{.smallcaps} 175B four our cross-lingual prompting analysis.
+[Bloom]{.smallcaps} 175B consistently outperforms [XGLM]{.smallcaps} 7.5B in both generic translation quality and attribute control accuracy, so we focus on [Bloom]{.smallcaps} 175B for our cross-lingual prompting analysis.
 
 ### Cross-Lingual Prompting {#sec-chap6-cross-lingual-prompting}
 
@@ -139,7 +141,7 @@ We have demonstrated the effectiveness of selecting similar same-language exampl
 
 @tbl-chap6-full-results (bottom) presents our results using [Bloom]{.smallcaps} 175B. On both test sets, compared to the baseline, we observe improved attribute accuracy and comparable or better generic translation quality when using [Ramp]{.smallcaps} with cross-lingual prompting.
 
-We do observe translation quality degradation with [Ramp]{.smallcaps} on some target languages of [CoCoA-MT]{.smallcaps}, e.g., Spanish. Manual analysis shows that **repeated** inaccurate retrieval results could lead to hallucinations.[^6-8] For example, [Ramp]{.smallcaps} retrieves multiple sentences containing *"million"* for the input `If you got it why not? He is worth over 20 billion dollars after all`. This results in mistranslation of *billion* to *million* (*millionario*): `Si lo tienes, ¿por qué no?` `Es millonario después de todo`. We give detailed examples in @sec-ramp-analysis-zeroshot. This is a known issue with retrieval-based prompting [@liu-etal-2022-makes; @agrawal-etal-2023-context], and it can be mitigated by using more diverse in-context examples or by using a larger pool of training data for retrieval.
+We do observe translation quality degradation with [Ramp]{.smallcaps} on some target languages of [CoCoA-MT]{.smallcaps}, e.g., Spanish. Manual analysis shows that repeatedly inaccurate retrieval results could lead to hallucinations.[^6-8] For example, [Ramp]{.smallcaps} retrieves multiple sentences containing *"million"* for the input `If you got it why not? He is worth over 20 billion dollars after all`. This results in mistranslation of *billion* to *million* (*millionario*): `Si lo tienes, ¿por qué no?` `Es millonario después de todo`. We give detailed examples in @sec-ramp-analysis-zeroshot. This is a known issue with retrieval-based prompting [@liu-etal-2022-makes; @agrawal-etal-2023-context], and it can be mitigated by using more diverse in-context examples or by using a larger pool of training data for retrieval.
 
 [^6-8]: @vilar-etal-2023-prompting also observe hallucinations when the retrieved examples have bad translations (i.e., non-parallel sentences).
 
@@ -147,10 +149,10 @@ We do observe translation quality degradation with [Ramp]{.smallcaps} on some ta
 
 We delineate some limitations of our approach and discuss future work directions.
 
-[Example Availability and Prompt Sensitivity]{.paragraph} The proposed formulation of the [Ramp]{.smallcaps} method relies on gold annotations for attribute marking, which are not always available depending on the dataset. However, [Ramp]{.smallcaps} could be easily extended to unsupervised settings through LLM input attribution methods, such as those we presented in the previous part of this thesis. This approach builds upon recent techniques in unsupervised language generation metrics [@fomicheva-etal-2021-eval4nlp; @fomicheva-etal-2022-translation; @leiter-etal-2024-towards]. Moreover, apart from the choice of in-context examples, prompting is also sensitive to their ordering [@lu-etal-2022-fantastically] and the design of the template [@jiang-etal-2020-know]. We refrain from tuning example orders and templates to avoid introducing too many variables, but we acknowledge that this could lead to suboptimal results.
+[Example Availability and Prompt Sensitivity]{.paragraph} The proposed formulation of the [Ramp]{.smallcaps} method relies on gold annotations for attribute marking, which are not always available depending on the dataset. However, [Ramp]{.smallcaps} could be easily extended to unsupervised settings through LLM input attribution methods, such as those we presented in the previous part of this thesis. This approach builds upon recent techniques in unsupervised language generation metrics [@fomicheva-etal-2021-eval4nlp; @fomicheva-etal-2022-translation; @leiter-etal-2024-towards]. Apart from the choice of in-context examples, prompting is also sensitive to their ordering [@lu-etal-2022-fantastically] and the design of the template [@jiang-etal-2020-know]. We refrain from tuning example orders and templates to avoid introducing too many variables, but we acknowledge that this could lead to suboptimal results.
 
-[Unseen Languages, Computational Resources and Diversity]{.paragraph} Multilingual LLMs perform competitively on machine translation for languages seen during their pre-training. However, we noticed that [Bloom]{.smallcaps} 175B produces better English$\to$Italian translations than [XGLM]{.smallcaps} 7.5B even though Italian is not listed as a training language of [Bloom]{.smallcaps}. This could possibly be due to typological similarity between Italian and the Romance languages included in [Bloom]{.smallcaps} training. Multilingual LLMs like [Bloom]{.smallcaps} also require significant GPU resources for inference than standard bilingual MT systems, making them less practical for production use. Finally, the [MT-GenEval]{.smallcaps} test set is limited in providing only two gender labels (`female` and `male`) as minimal pairs, while neutral rewriting is not represented.
+[Unseen Languages, Computational Resources and Diversity]{.paragraph} Multilingual LLMs perform competitively on machine translation for languages seen during their pre-training. However, we noticed that [Bloom]{.smallcaps} 175B produces better English$\to$Italian translations than [XGLM]{.smallcaps} 7.5B even though Italian is not listed among [Bloom]{.smallcaps}'s training languages. This could possibly be due to typological similarity between Italian and the Romance languages included in [Bloom]{.smallcaps} training. Multilingual LLMs like [Bloom]{.smallcaps} also require significantly more GPU resources for inference than standard bilingual MT systems do, making them less practical for production deployment. Finally, the [MT-GenEval]{.smallcaps} test set is limited in providing only two gender labels (`female` and `male`) as minimal pairs, while neutral rewriting is not represented.
 
 ## Conclusion {#sec-chap6-conclusion}
 
-As a first step into our exploration of conditioning machine translation generation, we introduced the new [Ramp]{.smallcaps} in-context learning approach to leverage attribute annotations and similar same-language or cross-lingual examples for better prompting quality. We demonstrated its effectiveness with multilingual LLMs for both formality-controlled and gender-controlled translation, showing that it improves attribute accuracy and translation quality over standard prompting and adapted MT baselines, including in cross-lingual settings using relevant in-context examples from other languages. In the next chapter, we expand our investigation to steering methods intervening directly on the inner processing of LLMs, and study their effectiveness for personalization in the challenging domain of literary machine translation.
+As a first step in our exploration of conditioning machine translation generation, we introduced the [Ramp]{.smallcaps} in-context learning for better conditioning performance through the use of attribute annotations and similar retrieved examples. We demonstrated its effectiveness with multilingual LLMs for both formality-controlled and gender-controlled translation, showing that it improves attribute accuracy and translation quality over standard prompting and adapted MT baselines, including in cross-lingual settings using relevant in-context examples from other languages. In the next chapter, we expand our investigation to steering methods intervening directly on the inner processing of LLMs, and study their effectiveness for personalization in the challenging domain of literary machine translation.

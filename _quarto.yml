@@ -3,7 +3,7 @@ project:
   output-dir: _output
 book:
   title: "From Insights to Impact" # Your thesis title
-  subtitle: "User-centric Interpretability for Neural Machine Translation" # Your thesis subtitle if present, empty otherwise
+  subtitle: "Actionable Interpretability for Neural Machine Translation" # Your thesis subtitle if present, empty otherwise
   author: "Gabriele Sarti" # Your name in FirstName LastName format
   favicon: figures/logos/rug_crest_icon.png # Icon for the web version of the thesis
   description: "Ph.D. Thesis, Center for Language and Cognition (CLCG), University of Groningen" # Description for the web version of the thesis
@@ -11,7 +11,7 @@ book:
   url: https://gsarti.com/phd-thesis # The URL at which your thesis will be published
   back-to-top-navigation: true
   sidebar: 
-    logo: figures/logos/rug_eng_red.png # Remove if you don't want any logo in the website sidebar
+    logo: figures/logos/rug_eng_red_hat_line.png # Remove if you don't want any logo in the website sidebar
     logo-alt: RUG Coat of Arms # Remove if you don't want any logo in the website sidebar
     search: true
     style: "floating"
@@ -56,6 +56,7 @@ book:
         - chapters/chap-9-qe4pe.qmd
         - chapters/chap-10-unsup-wqe.qmd
     - text: "---"
+    - chapters/chap-11-conclusion.qmd
     - chapters/references.qmd
   appendices: 
     - chapters/appendix-a.qmd
@@ -112,7 +113,7 @@ frontmatter:
     - title: "Dr."
       name: "Ivan Titov"
   
-  dedication: "" # E.g. "To my dog". Leave empty to skip
+  dedication: "A nonno Giancarlo, e alle sue simmetrie nell'arte e nella scienza"
 
 bibliography:
 - latex/references/anthology-filtered.bib
@@ -150,7 +151,7 @@ format:
   pdf:
     filters:
       - highlight-text
-      - pseudocode  
+      - pseudocode 
       - at: pre-ast
         path: _extensions/gsarti/rug-phd-thesis/rug-phd-thesis.lua
     template: latex/rug-phd-thesis.tex
