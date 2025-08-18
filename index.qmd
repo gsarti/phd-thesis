@@ -18,37 +18,37 @@ Overall, this dissertation advances the field of machine translation interpretab
 
 Recent years have seen astounding advances in the development of language models, which have quickly progressed from being simple research prototypes producing barely-sensical outputs, to becoming cornerstones of modern technological infrastructure. The success of these systems can be largely attributed to the outstanding ability of large deep neural networks such as the Transformer [@vaswani-etal-2017-attention], to learn rich representations of language---and hence of our world and society---from vertiginous amounts of textual data. However, the complex and deeply intertwined structure that renders these models so powerful is also the main culprit behind their opacity: the inner workings of neural networks are notoriously difficult to interpret, and the lack of transparency in their decision-making processes has raised significant concerns about their reliability and fairness in high-stakes applications [@rudin-2019-stop].
 
-These circumstances have led to a growing interest in the field of *interpretability*, closely related to the broader area of explainable artificial intelligence (XAI), which aims to develop methods and tools to understand how neural networks work, and to provide insights into their decision-making processes [@doshivelez-kim-2017-towards;@li-etal-2022-interpretable]. In the context of natural language processing (NLP), interpretability research has largely focused on understanding how language models encode and process factual knowledge and linguistic information [@tenney-etal-2019-bert;@belinkov-2022-probing;@meng-etal-2022-rome], how they leverage contextual information during generation [@clark-etal-2019-bert;@ferrando-etal-2022-measuring] and studying the learned mechanisms underlying their capabilities [@elhage-etal-2021-mathematical;@saphra-wiegreffe-2024-mechanistic]. 
+These circumstances have led to a growing interest in the field of *interpretability*, closely related to the broader area of explainable artificial intelligence (XAI), which aims to develop methods and tools to understand how neural networks work, and to provide insights into their decision-making processes [@doshivelez-kim-2017-towards;@li-etal-2022-interpretable]. In the context of natural language processing (NLP), interpretability research has largely focused on understanding how language models encode and process factual knowledge and linguistic information [@tenney-etal-2019-bert;@belinkov-2022-probing;@meng-etal-2022-rome], how they use contextual information during generation [@clark-etal-2019-bert;@ferrando-etal-2022-measuring] and which learned mechanisms are behind their capabilities [@elhage-etal-2021-mathematical;@saphra-wiegreffe-2024-mechanistic]. 
 
-Despite major advances in interpretability research, the field has faced criticism for rarely producing actionable outputs that would meaningfully improve the design or usage of language models in practice [@rauker-etal-2023-toward;@rai-etal-2024-practical;@hendrycks-hiscott-2025-misguided], despite interpretability insights being recognized as highly influential among the research community [@mosbach-etal-2024-insights]. While a majority of interpretability works nowadays focus on identifying subnetworks and mechanisms responsible for specific tasks inside language models [@ferrando-etal-2024-primer;@sharkey-etal-2025-open], few works have put interpretability insights in relation to the needs and desires of end-users of such systems [@ehsan-etal-2021-expanding], whose perception plays a crucial role in determining the practical effectiveness of interpretability findings in applied settings [@ehsan-etal-2024-who]. This is largely due to a disconnect between the NLP and AI research communities, focusing mostly on theoretical understanding, and human-computer interaction (HCI) researchers, who are more concerned with actionable insights and practical applications.
+While interpretability insights being recognized as highly influential among the research community [@mosbach-etal-2024-insights], the field has faced criticism for rarely producing actionable insights that would meaningfully improve the practical design or usage of language models [@rauker-etal-2023-toward;@rai-etal-2024-practical;@hendrycks-hiscott-2025-misguided]. While a majority of interpretability works nowadays focus on identifying subnetworks and mechanisms responsible for specific tasks inside language models [@ferrando-etal-2024-primer;@sharkey-etal-2025-open], few works have put interpretability insights in relation to the needs and desires of end-users of such systems [@ehsan-etal-2021-expanding], whose perception plays a crucial role in determining the practical usefulness of interpretability findings in applied settings [@ehsan-etal-2024-who]. This is largely due to a disconnect between the AI interpretability research community, focusing mostly on theoretical understanding, and human-computer interaction (HCI) researchers, who are more concerned with actionable insights and practical applications.
 
-A prime example of the disconnect between insights and impact of interpretability research comes from the field of machine translation (MT), a long-standing area within NLP research. MT researchers pioneered the use of neural language models for sequence generation tasks [@sutskever-etal-2014-sequence;@bahdanau-etal-2015-neural], and were among the first to analyze the inner workings of neural language models [@belinkov-etal-2017-neural;@voita-etal-2019-analyzing;@rogers-etal-2020-primer]. Despite the significant progress in MT systems' performance across hundreds of languages over the past decade, the field has been slow to convert new approaches shedding light on models' usage of contextual information and predictive uncertainty into improvements for users and professional translators. As of today, most users of "classic" translation tools such as Google Translate are simply presented with translations, without the possibility to personalize their tone or properties, or to identify potential errors or alternative formulations. On the other hand, the eloquent justifications that large language models (LLMs) such as GPT-4 [@openai-2023-gpt4] eagerly produce alongside their translations are not guaranteed to actually reflect the models' inner processing and context usage, often resulting in plausible but misleading explanations [@turpin-etal-2023-language].
+A prime example of the disconnect between insights and impact of interpretability research comes from the field of machine translation (MT), a long-standing area within NLP research. MT researchers pioneered the use of neural language models for sequence generation tasks [@sutskever-etal-2014-sequence;@bahdanau-etal-2015-neural], and were among the first to analyze the inner workings of neural language models [@belinkov-etal-2017-neural;@voita-etal-2019-analyzing;@rogers-etal-2020-primer]. Despite the significant progress in MT systems' performance across hundreds of languages over the past decade, the field has been slow to convert new approaches shedding light on models' inner processing into user experience improvements, especially for professional translators that regularly work in close contact with these systems. As a case in point, most users of "classic" translation tools such as Google Translate are simply presented with translations, without the possibility to personalize their tone or properties, or to identify potential errors or alternative formulations. On the other end of the customizability spectrum, the eloquent justifications that large language models (LLMs) such as GPT-4 [@openai-2023-gpt4] eagerly produce alongside their translations are not guaranteed to actually reflect the models' inner processing and context usage, often resulting in plausible but unfaithful explanations [@turpin-etal-2023-language].
 
-This dissertation aims to bridge the gap between method-centric interpretability research and outcome-centric real-world machine translation applications by developing novel actionable methods to understand and control neural language models' generation process, and how these can be integrated effectively in human translation workflows. The research presented here explores three main directions, namely: 1) understanding how language models exploit contextual information during generation, 2) controlling model generation for personalized translation outputs, and 3) integrating interpretability insights into human translation workflows. We investigate these themes through a series of methodological contributions, empirical evaluations and user studies, with the goal of providing a comprehensive understanding of how insights from interpretability can be used to improve the interaction between human users and machine translation systems.
+This dissertation aims to bridge the gap between method-centric interpretability research and outcome-centric real-world machine translation applications. We achieve this by developing novel methods to understand and control the generation process of language models and studying how these can be integrated effectively in human translation workflows. The research presented in this dissertation is organized in three parts, each exploring one of the following topics: 1) understanding how language models exploit contextual information during generation, 2) controlling model generation for personalized translation outputs, and 3) integrating interpretability insights into human translation workflows. We investigate these themes through a series of methodological contributions, empirical evaluations and user studies, highlighting how insights and methods from interpretability research can be repurposed as faithful and performant methods to improve the interactions between human users and machine translation systems.
 
 ## Outline and Contributions
 
-The experimental chapters of this dissertation are organized into three parts, corresponding each to one of the main research directions outlined above. Each part is composed of multiple chapters, each presenting a self-contained contribution or study related to the overarching theme. @fig-chap1-chapter-guide provides a visual overview of parts and chapters, with topics introduced in @sec-chap-2-background highlighted within each chapter. Below, we summarize the contents, research questions and contributions of each part.
+The experimental chapters of this dissertation are organized into three parts, corresponding each to one of the main research directions outlined above. Each part is composed of multiple chapters, each presenting a self-contained contribution or study related to the overarching theme. @fig-chap1-chapter-guide provides a visual overview of parts and chapters. The topics highlighted within each chapter are covered in @sec-chap-2-background. Below, we summarize the contents, research questions and contributions of each part.
 
 ![Chapter guide for the three parts of this dissertation.](figures/index/chapter_guide.pdf){#fig-chap1-chapter-guide fig-pos="t"}
 
 \vspace{7pt}
 **Part I: Attributing Context Usage in Multilingual NLP**
 
-Part I establishes the foundational infrastructure and methodological frameworks for understanding how neural language models and machine translation systems process and rely on contextual information during generation. This part begins by introducing Inseq (@sec-chap-3-inseq), a toolkit to simplify the access to interpretability analyses of sequence generation models, supporting various cutting-edge input attribution methods and utility functions. Building upon this, @sec-chap-4-pecore introduces [PECoRe]{.smallcaps}, a data-driven framework for quantifying context usage plausibility in language models through contrastive identification of context-sensitive tokens and contextual cues influencing their prediction. Finally, @sec-chap-5-mirage extends our analysis to modern large language models and retrieval-augmented generation settings with MIRAGE, an adaptation of the [PECoRe]{.smallcaps} framework demonstrating how model internals can be employed for faithful answer attribution in question answering settings. In this part, we aim to answer two main research questions:
+Part I establishes the foundational infrastructure and methodological frameworks for understanding how neural language models and machine translation systems process and rely on contextual information during generation. This part begins by introducing Inseq (@sec-chap-3-inseq), a toolkit democratizing access to interpretability analyses of generative language models, building the foundation to enable our context usage investigations. Then, @sec-chap-4-pecore introduces [PECoRe]{.smallcaps}, a data-driven framework for quantifying context usage plausibility in language models through contrastive identification of context-sensitive tokens and contextual cues influencing their prediction. Finally, @sec-chap-5-mirage extends our analysis to modern large language models and retrieval-augmented generation settings with MIRAGE, an adaptation of the [PECoRe]{.smallcaps} framework demonstrating how model internals can be employed for faithful answer attribution in question answering settings. In this part, we aim to answer two main research questions:
 
 ::: {.callout-tip icon="false"}
 
 ## ❓ Research Question 1 (RQ1)
 
-What design principles and abstractions are necessary to democratize access to cutting-edge input attribution methods for generative language models?
+What are the conceptual and technical requirements for interpretability software tools enabling scalable and reproducible analyses into the inner workings of generative language models?
 :::
 
 ::: {.callout-tip icon="false"}
 
 ## ❓ Research Question 2 (RQ2)
 
-How do language models and machine translation systems exploit contextual information during generation, and how can we quantify this usage faithfully?
+How do language models and machine translation systems exploit contextual information during generation, and how can we quantify this usage in a faithful manner?
 :::
 
 The primary contributions of Part I include: (1) the development of two open-source releases of the Inseq interpretability library; (2) the contrastive attribution tracing (CAT) method, a gradient-based alternative to causal intervention for efficiently identifying salient model components; (3) the [PECoRe]{.smallcaps} framework for context reliance attribution in language models, allowing data-driven explorations of context usage patterns in context-aware MT systems; and (4) an extended evaluation of context attribution for retrieval-augmented generation using the MIRAGE framework, achieving good citation quality while ensuring greater faithfulness to the model's reasoning process.
@@ -62,7 +62,7 @@ Part II shifts the focus from understanding context usage to actively controllin
 
 ## ❓ Research Question 3 (RQ3)
 
-Are interpretability-based steering methods viable approaches for controllable machine translation? How do they compare with prompting-based methods?
+Are interpretability-based steering methods viable approaches for controllable machine translation? How do they compare with prompting-based methods in terms of their performance and their impact on models' internal mechanisms?
 :::
 
 Specifically, @sec-chap-6-ramp pioneers the usage of prompting-based strategies for attribute-controlled translation, while @sec-chap-7-sae-litmt connects generation conditioning to interpretability techniques, expanding the scope from simple attributes in common domains to sophisticated translator personal styles in the challenging setting of literary translation.
@@ -70,15 +70,15 @@ Specifically, @sec-chap-6-ramp pioneers the usage of prompting-based strategies 
 The core contributions of Part II include: (1) [Ramp]{.smallcaps}, a novel prompting methodology that achieves strong performance in attribute-controlled translation across multiple languages and attributes without requiring model fine-tuning; (2) the first comprehensive comparison of prompting versus interpretability-based steering approaches for machine translation personalization; (3) a contrastive steering technique employing sparse autoencoder latents to achieve personalization accuracy comparable to prompting while preserving quality in the literary translation domain; and (4) evidence that successful prompting and steering approaches converge to similar mechanistic solutions, revealing fundamental principles of generation conditioning in language models.
 
 \vspace{7pt}
-**Part III: Towards Interpretability in Human Translation Workflows**
+**Part III: Interpretability in Human Translation Workflows**
 
-Part III is dedicated to evaluating how interpretability insights can practically benefit the work of human professionals editing machine translated contents. This part begins with [DivEMT]{.smallcaps} (@sec-chap-8-divemt), a comprehensive cross-lingual study to establish the effectiveness of MT post-editing compared to translation from scratch across six typologically diverse languages, addressing the question:
+Part III is dedicated to evaluating how interpretability insights can practically benefit the work of human professionals editing machine translated contents. This part begins with [DivEMT]{.smallcaps} (@sec-chap-8-divemt), a study we employ to investigate the effectiveness of professional MT post-editing across a diverse set of mid-resourced languages, going beyond the one-size-fits-all analysis of high-resourced translation directions. This allows to establish our human evaluation setup, and address the question:
 
 ::: {.callout-tip icon="false"}
 
 ## ❓ Research Question 4 (RQ4)
 
-How does post-editing effectiveness vary across typologically diverse languages, and what factors influence translator productivity?
+Does MT contribute positively to professional translators' productivity across different languages? Which factors influence its effectiveness?
 :::
 
 Building upon these insights, the second user study QE4PE (@sec-chap-9-qe4pe) investigates how word-level error span highlights, including those derived by the uncertainty of the MT system during generation, impact the productivity of professional translators and the quality of post-edited contents, seeking to answer: 
@@ -87,16 +87,16 @@ Building upon these insights, the second user study QE4PE (@sec-chap-9-qe4pe) in
 
 ## ❓ Research Question 5 (RQ5)
 
-How do word-level error highlights impact professional translator productivity and output quality in realistic editing settings?
+How do word-level error highlights impact the productivity and editing choices of professional translators and the quality of resulting translations?
 :::
 
-Finally, @sec-chap-10-unsup-wqe concludes our human-centered investigation with an assessment spanning multiple uncertainty and interpretability-based word-level quality estimation methods, identifying how their performance varies across models, languages and labels produced by different human annotators:
+Finally, @sec-chap-10-unsup-wqe concludes our human-centered investigation with a deeper analysis spanning multiple uncertainty and interpretability-based word-level quality estimation methods, identifying how their performance varies across models, languages and labels produced by different human annotators:
 
 ::: {.callout-tip icon="false"}
 
 ## ❓ Research Question 6 (RQ6)
 
-Can unsupervised error span detection reliably detect problems in machine translated outputs? How does human label variation affect such comparisons?
+Can unsupervised error span detection methods reliably detect problems in machine translated outputs? How does human label variation affect their performance, compared to traditional supervised approaches?
 :::
 
 Part III contributions include (1) [DivEMT]{.smallcaps}, a cross-lingual post-editing dataset enabling controlled comparison of translator productivity across editing modality and typologically diverse languages; (2) Evidence that MT quality metric do not correlate with human post-editing productivity across languages, and that the latter is heavily influenced by the relatedness between source and target languages; (3) QE4PE, a comprehensive bilingual post-editing dataset containing error spans, behavioral editing metrics and quality annotations from 42 professional post-editors; (4) Evidence that error span highlights might result in lower productivity, but improve the detection of critical errors in translations; and (5) Evidence that model internals-based unsupervised quality estimation methods can perform on par with state-of-the-art supervised approaches both in terms of accuracy and downstream usability, showing the impact of human editing propensity on the effectiveness of error span detection methods.
@@ -111,12 +111,15 @@ The following articles represent the main contributions reflected in the experim
 
 [^1]: $^\dagger$ indicates shared first co-authorship.
 
+\vspace{5pt}
+**Introduction and Background**
+
 - Ferrando, J., **Sarti, G.**, Bisazza, A. and Costa-jussà, M. R. [-@ferrando-etal-2024-primer]. A Primer on the Inner Workings of Transformer-based Language Models. *Arxiv Preprint* (**@sec-chap-2-background**)
 
 \vspace{5pt}
 **Part I: Attributing Context Usage in Multilingual NLP**
 
-- **Sarti, G.**, Feldhus, N., Sickert, L., van der Wal, O., Nissim, M. and Bisazza, A. [-@sarti-etal-2023-inseq]. Inseq: An Interpretability Toolkit for Sequence Generation Models. In *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL Demo)* (**@sec-chap-3-inseq**)
+- **Sarti, G.**, Feldhus, N., Sickert, L., van der Wal, O., Nissim, M. and Bisazza, A. [-@sarti-etal-2023-inseq-fixed]. Inseq: An Interpretability Toolkit for Sequence Generation Models. In *Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL Demo)* (**@sec-chap-3-inseq**)
 
 - **Sarti, G.**, Feldhus, N., Qi, J., Nissim, M. and Bisazza, A. [-@sarti-etal-2024-democratizing]. Democratizing Advanced Attribution Analyses of Generative Language Models with the Inseq Toolkit. In *Proceedings of the 2nd World Conference on eXplainable Artificial Intelligence: Late-breaking works and demos (xAI Demo)* (**@sec-chap-3-inseq** and **@sec-chap-4-pecore**)
 
@@ -130,7 +133,7 @@ The following articles represent the main contributions reflected in the experim
 
 - Scalena, D.$^\dagger$, **Sarti, G.**$^\dagger$, Bisazza, A., Fersini, E. and Nissim, M. [-@scalena-sarti-etal-2025-steering]. Steering Large Language Models for Machine Translation Personalization. *Arxiv Preprint* (**@sec-chap-7-sae-litmt**)
 
-**Part III: Towards Interpretability in Human Translation Workflows**
+**Part III: Interpretability in Human Translation Workflows**
 
 - **Sarti, G.**, Bisazza, A., Guerberof-Arenas, A. and Toral, A. [-@sarti-etal-2022-divemt]. DivEMT: Neural Machine Translation Post-Editing Effort Across Typologically Diverse Languages. In *Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (**@sec-chap-8-divemt**)
 
@@ -144,7 +147,7 @@ I was responsible for the conceptualization, implementation, experimental evalua
 
 Open-source software played a fundamental role in this thesis' development, acting as a solid foundation for conducting experimental work in a reproducible way. Notably, all investigations conducted in this thesis employ solely open-source tools, models and datasets, despite the popularity of proprietary language models in the current research landscape. Links to all datasets, models, code and demos are provided in each of the following chapters to encourage scrutiny and foster further research work.
 
-My most notable contribution to the open-source research ecosystem is the **Inseq** toolkit, presented in @sec-chap-3-inseq, for which I acted as development lead, and which now counts 430+ stars on GitHub and 70+ citations across multiple international venues.
+My most notable contribution to the open-source research ecosystem is the **Inseq** toolkit, presented in @sec-chap-3-inseq, for which I acted as development lead, and which now counts 430+ stars on GitHub and 80+ citations across multiple international venues.
 
 I also contributed to the development of the following open-source projects:
 
@@ -189,5 +192,7 @@ Apart from the main thesis work, an important part of my research output during 
 - Ghasemi Madani, M. R., Gema, A. P., **Sarti, G.**, Zhao, Y., Minervini, P. and Passerini, A. [-@ghasemi-madani-etal-2025-noiser]. Noiser: Bounded Input Perturbations for Attributing Large Language Models. In *Proceedings of the Second Conference on Language Modeling (CoLM)*
 
 - Candussio, S., Saveri, G., **Sarti, G.** and Bortolussi, L. [-@candussio-etal-2025-bridging]. Bridging Logic and Learning: Decoding Temporal Logic Embeddings via Transformers. In *Proceedings of the 2025 European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)*
+
+- Islam, K. I. and **Sarti, G.** [-@islam-sarti-2025-reveal]. Reveal-Bangla: A Dataset for Cross-Lingual Multi-Step Reasoning Evaluation. *Arxiv Preprint*.
 
 I was also lucky to be involved in the organization of the BlackboxNLP 2025 workshop^[<https://blackboxnlp.github.io/2025>]---the leading venue for interpretability work in the NLP domain---and its shared task focused on benchmarking mechanistic interpretability methods for circuit localization and causal variable identification in large language models.

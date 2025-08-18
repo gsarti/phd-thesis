@@ -1,4 +1,4 @@
-# Towards Interpretability in Human Translation Workflows {#sec-appendix-c}
+# Interpretability in Human Translation Workflows {#sec-appendix-c}
 
 ## Machine Translation Post-editing for Typologically Diverse Languages {#sec-divemt-appendix}
 

@@ -149,7 +149,7 @@ In the **base case**, we correlate the different metrics with how much the gende
 In the **gender-swap case** (♀️ $\rightarrow$ ♂️), we use the `PairAggregator` class to contrastively compare attribution scores and probabilities when translating the pronoun as *She* or *He*.^[An example is provided in [@sec-inseq-appendix-pair-agg-gender-swap].]
 We correlate resulting scores with the percentage of women working in the respective occupation and find strong correlations for $p(y_\text{pron})$, supporting the validity of contrastive approaches in uncovering gender bias.
 
-[Qualitative Example: English to Dutch]{#chap3-par-gender-bias-bug .paragraph} We also qualitatively analyze biased MT outputs, showing how attributions can help develop hypotheses about models' behavior. [@tbl-chap3-m2m-gender-example] (top) shows the I $\times$ G attributions for English-to-Dutch translation using M2M-100 [@fan-etal-2021-m2m100].
+[Qualitative Example: English to Dutch]{#chap3-par-gender-bias-bug .paragraph} We also qualitatively analyze biased MT outputs, showing how attributions can help develop hypotheses about models' behavior. [@tbl-chap3-m2m-gender-example] (top) shows the I $\times$ G attributions for English-to-Dutch translation using M2M-100 [@fan-etal-2021-beyond].
 
 {{< include ../tables/chap-3-inseq/_m2m-gender-example.qmd >}}
 

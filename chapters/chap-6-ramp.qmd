@@ -47,7 +47,7 @@ In the few-shot setting, we provide a sequence of $k$ labeled *in-context exampl
 
 ### Our Approach: [Ramp]{.smallcaps} {#sec-chap6-ramp}
 
-[Ramp]{.smallcaps} builds on the success of the prompting paradigm on few-shot generation tasks such as monolingual text style transfer [@reif-etal-2022-recipe] and MT [@garcia-firat-2022-natural; @agrawal-etal-2023-context] by creating more informative prompts through *similarity retrieval* and *attribute marking*. See @fig-chap6-ramp for an illustration of [Ramp]{.smallcaps}. 
+[Ramp]{.smallcaps} builds on the success of the prompting paradigm on few-shot generation tasks such as monolingual text style transfer [@reif-etal-2022-recipe] and MT [@garcia-firat-2022-using; @agrawal-etal-2023-context] by creating more informative prompts through *similarity retrieval* and *attribute marking*. See @fig-chap6-ramp for an illustration of [Ramp]{.smallcaps}. 
 
 [Similarity Retrieval]{.paragraph} In standard prompting, in-context examples are sampled randomly from the pool of labeled examples $\mathcal{D}_A$. In [Ramp]{.smallcaps}, we select examples based on their similarity with the input text. We first embed both the input text and the source texts of $\mathcal{D}_A$ using all-MiniLM-L6-v2 [@wang-etal-2020-minilm]. Then, the top-$k$ most similar examples are retrieved for the input text based on cosine similarity. These are then used in a descending order with respect to their cosine similarity as the in-context examples in the inference prompt. As demonstrated in @fig-chap6-ramp, the in-context example "You will always be welcome here." has the highest similarity to the test example "You're welcome.", so it is prompted first.
 

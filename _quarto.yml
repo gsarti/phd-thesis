@@ -50,7 +50,7 @@ book:
         - chapters/chap-6-ramp.qmd
         - chapters/chap-7-sae-litmt.qmd
     - text: "---"
-    - part: "Towards Interpretability in Human Translation Workflows"
+    - part: "Interpretability in Human Translation Workflows"
       chapters:
         - chapters/chap-8-divemt.qmd
         - chapters/chap-9-qe4pe.qmd
@@ -127,6 +127,7 @@ bibliography:
 - latex/references/chap-8-divemt.bib
 - latex/references/chap-9-qe4pe.bib
 - latex/references/chap-10-unsup-wqe.bib
+- latex/references/chap-11-conclusion.bib
 - latex/references/appendices.bib
 
 format:

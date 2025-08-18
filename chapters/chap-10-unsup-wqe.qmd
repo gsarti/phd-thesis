@@ -61,7 +61,7 @@ We use datasets containing error annotations or post-edits on the outputs of ope
 
 ## Evaluated Metrics {#sec-unsup-wqe-metrics}
 
-The following metrics were evaluated using the Inseq library introduced in @sec-chap-3-inseq [@sarti-etal-2023-inseq; @sarti-etal-2024-democratizing].
+The following metrics were evaluated using the Inseq library introduced in @sec-chap-3-inseq [@sarti-etal-2023-inseq-fixed; @sarti-etal-2024-democratizing].
 
 [Predictive Distribution Metrics]{.paragraph} We use the **Surprisal** of the predicted token $t^{*}$, as negative log-probability $-\log p(t^{*}_i|t_{<i})$, and the **Entropy** $H$ of the output distribution $P_N$ over vocabulary $\mathcal{V}$, $-\sum_{i=1}^{|\mathcal{V}|} p(t_i|t_{<i}) \log_2 p(t_i|t_{<i})$, as simple metrics to quantify pointwise and full prediction uncertainty [@fomicheva-etal-2020-unsupervised]. For surprisal, we also compute its expectation (**MCD$_\text{avg}$**) and variance (**MCD$_\text{var}$**) with $n=10$ steps of Monte Carlo Dropout [MCD, @gal-ghahramani-2016-dropout] to obtain a robust estimate and a measure of epistemic uncertainty in predictions, respectively. Intuitively, epistemic uncertainty reflects models' lack of knowledge rather than data ambiguity.^[MCD is tested only on encoder-decoder models since Aya layers do not include dropout. The MCD$_\text{var}$ setting corresponds to the [Unsupervised]{color="brand-color.unsupervised"} setting from @sec-chap-9-qe4pe.]  We employ the mean of the negative log probabilities as a robust estimate of surprisal:
 

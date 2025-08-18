@@ -17,15 +17,15 @@ img.quarto-cover-image {
 }
 
 div.sidebar-item-container .active{
-  color: #003A70 !important;
+  color: #0099cc !important;
 }
 
 .sidebar-navigation a:hover{
-  color: #E54D23 !important;
+  color: #ffa600 !important;
 }
 
 .nav-link.active {
-  background-color: #efc078!important;
+  background-color: #9acc32 !important;
 }
 
 .footnotes{
@@ -36,16 +36,16 @@ div.sidebar-item-container .active{
 // colours
 
 // main
-$primary: #003A70 !default;
-$link-color: #003A70;
+$primary: #0099cc !default;
+$link-color: #0099cc;
 
 // sidebar
-$sidebar-hl: #E54D23 !default;
+$sidebar-hl: #ffa600 !default;
 
 // table of contents
 
 $toc-color: #000;
-$toc-active-border: #003A70;
+$toc-active-border: #0099cc;
 $toc-active-background: #EEECEA!default;
 
 // packages
@@ -59,9 +59,9 @@ $toc-active-background: #EEECEA!default;
 // download buttons
 #download-button {
   border-width: 1.5px 1.5px 1.5px 1.5px;
-  background-color: #efc078;
+  background-color: #9acc32;
   color: #fff;
-  border-color: #003A70;
+  border-color: #0099cc;
 }
 
 .quarto-page-breadcrumbs {

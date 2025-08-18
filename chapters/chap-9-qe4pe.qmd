@@ -53,13 +53,13 @@ In summary, for each translation direction, we collect 3 full sets of oracle pos
 ### Highlight Modalities {#sec-qe4pe-modalities}
 
 We conduct our study on four highlight modalities across two severity levels (*minor* and *major* errors).
-Using multiple severity levels follows the current MT evaluation practices [@freitag-etal-2021-experts; @freitag-etal-2024-llms], and previous results showing that users tend to prefer more granular and informative word-level highlights [@shenoy-etal-2021-investigating; @vasconcelos-etal-2024-generation]. The highlight modalities we employ are:
+Using multiple severity levels follows the current MT evaluation practices [@freitag-etal-2021-experts; @freitag-etal-2024-llms], and previous results showing that users tend to prefer more granular and informative word-level highlights [@shenoy-etal-2021-investigating; @vasconcelos-etal-2025-generation]. The highlight modalities we employ are:
 
 [[No Highlight]{color="brand-color.nohighlight"}]{.paragraph} The text is presented as-is, without any highlighted spans. This setting serves as a baseline to estimate the default post-editing quality and productivity using our interface.
 
 [[Oracle]{color="brand-color.oracle"}]{.paragraph} Following the Oracle Post-editing phase, we produce oracle error spans from the editing consensus of human post-editors. We label text spans that were edited by two of the three translators as *minor*, and those edited by all three translators as *major*, following the intuition that more critical errors are more likely to be identified by several annotators, while minor changes will show more variance across subjects. This modality serves as a best-case scenario, providing an upper bound for future improvements in word-level QE quality.
 
-[[Supervised]{color="brand-color.supervised"}]{.paragraph} In this setting, word-level error spans are obtained using [xcomet-xxl]{.smallcaps} [@guerreiro-etal-2024-xcomet], which is a multilingual transformer encoder [@xlmr] further trained for joint word- and sentence-level QE prediction.
+[[Supervised]{color="brand-color.supervised"}]{.paragraph} In this setting, word-level error spans are obtained using [xcomet-xxl]{.smallcaps} [@guerreiro-etal-2024-xcomet], which is a multilingual transformer encoder [@goyal-etal-2021-larger] further trained for joint word- and sentence-level QE prediction.
 We select [xcomet-xxl]{.smallcaps} in light of its broad adoption, open accessibility and state-of-the-art performance in QE across several translation directions [@zerva-etal-2024-findings].
 For the severity levels, we use the labels predicted by the model, mapping *critical* labels to the *major* level.
 

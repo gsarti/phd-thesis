@@ -16,6 +16,21 @@ from pathlib import Path
 from typing import Set, List
 
 
+def is_quarto_crossref(citation: str) -> bool:
+    """
+    Check if a citation is actually a Quarto cross-reference.
+    
+    Returns True if the citation starts with common Quarto prefixes:
+    - @tbl- (tables)
+    - @fig- (figures)
+    - @sec- (sections)
+    - @alg- (algorithms)
+    - @eq-  (equations)
+    """
+    crossref_prefixes = ['tbl-', 'fig-', 'sec-', 'alg-', 'eq-']
+    return any(citation.startswith(prefix) for prefix in crossref_prefixes)
+
+
 def extract_citations_from_qmd(qmd_file: Path) -> Set[str]:
     """
     Extract all citation keys from a Quarto markdown file.
@@ -27,6 +42,8 @@ def extract_citations_from_qmd(qmd_file: Path) -> Set[str]:
     - [-@key] (suppress author)
     - [see @key]
     - @key (in-text citations)
+    
+    Excludes Quarto cross-references (@tbl-, @fig-, @sec-, @alg-, @eq-)
     """
     citations = set()
     
@@ -37,35 +54,22 @@ def extract_citations_from_qmd(qmd_file: Path) -> Set[str]:
         print(f"Error reading {qmd_file}: {e}")
         return citations
     
-    # Pattern to match various citation formats
-    # This captures citations within brackets [@...] and standalone @key
-    patterns = [
-        # Citations within brackets: [@key], [@key1; @key2], [see @key, p. 123]
-        r'\[(?:[^@\[\]]*@([a-zA-Z0-9_:-]+)(?:[^@\[\]]*@([a-zA-Z0-9_:-]+))*[^\[\]]*)\]',
-        # In-text citations: @key (but not in brackets or after -)
-        r'(?<!\[)(?<!-)@([a-zA-Z0-9_:-]+)(?!\])'
-    ]
-    
-    for pattern in patterns:
-        matches = re.finditer(pattern, content)
-        for match in matches:
-            # Extract all captured groups (citation keys)
-            for group in match.groups():
-                if group:
-                    citations.add(group)
-    
-    # More comprehensive approach: find all @key patterns and validate them
-    # This catches edge cases the above might miss
-    all_at_mentions = re.findall(r'@([a-zA-Z0-9_:-]+)', content)
+    # Find all @mentions first (simplest and most reliable approach)
+    # This pattern matches @ followed by valid citation key characters
+    all_at_mentions = re.findall(r'@([a-zA-Z0-9_:\-]+)', content)
     
     for mention in all_at_mentions:
-        # Check if this @mention is likely a citation (not an email, mention, etc.)
-        # Simple heuristic: citations usually contain hyphens, years, or specific patterns
-        if (re.search(r'[0-9]{4}', mention) or  # Contains a year
-            '-' in mention or                    # Contains hyphens (common in citation keys)
-            mention.lower().endswith('etal') or  # Ends with 'etal'
-            len(mention) > 10):                  # Reasonably long (likely a citation key)
-            citations.add(mention)
+        # Skip Quarto cross-references
+        if is_quarto_crossref(mention):
+            continue
+        
+        # Skip email-like patterns (contains @ before or after)
+        if '@' + mention in re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+', content):
+            continue
+        
+        # Add all other @mentions as potential citations
+        # The BibTeX filtering step will handle any false positives
+        citations.add(mention)
     
     return citations
 
@@ -73,12 +77,29 @@ def extract_citations_from_qmd(qmd_file: Path) -> Set[str]:
 def extract_citations_from_multiple_qmd(qmd_files: List[Path]) -> Set[str]:
     """Extract citations from multiple QMD files."""
     all_citations = set()
+    excluded_crossrefs = set()
     
     for qmd_file in qmd_files:
         print(f"Processing {qmd_file}...")
+        
+        # Also track excluded cross-references for informational purposes
+        with open(qmd_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+        all_mentions = re.findall(r'@([a-zA-Z0-9_:-]+)', content)
+        crossrefs = {m for m in all_mentions if is_quarto_crossref(m)}
+        excluded_crossrefs.update(crossrefs)
+        
         citations = extract_citations_from_qmd(qmd_file)
-        print(f"  Found {len(citations)} citations")
+        print(f"  Found {len(citations)} citations (excluded {len(crossrefs)} cross-references)")
         all_citations.update(citations)
+    
+    if excluded_crossrefs:
+        print(f"\nExcluded {len(excluded_crossrefs)} Quarto cross-references total")
+        print("  Sample excluded cross-references:")
+        for ref in sorted(excluded_crossrefs)[:10]:  # Show first 10 as examples
+            print(f"    - @{ref}")
+        if len(excluded_crossrefs) > 10:
+            print(f"    ... and {len(excluded_crossrefs) - 10} more")
     
     return all_citations
 
@@ -169,12 +190,6 @@ def extract_complete_bibtex_entry(content: str) -> str:
     return '\n'.join(entry_lines)
 
 
-
-
-
-
-
-
 def main():
     parser = argparse.ArgumentParser(
         description='Filter BibTeX file based on citations used in Quarto markdown files',
@@ -183,6 +198,8 @@ def main():
 Examples:
   python filter_bibtex.py references.bib filtered.bib chapter1.qmd chapter2.qmd
   python filter_bibtex.py main.bib output.bib *.qmd
+
+Note: Quarto cross-references (@tbl-, @fig-, @sec-, @alg-, @eq-) are automatically excluded.
         """
     )
     
