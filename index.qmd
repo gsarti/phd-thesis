@@ -90,7 +90,7 @@ Building upon these insights, our second large-scale study QE4PE (@sec-chap-9-qe
 How do word-level error highlights impact the productivity and editing choices of professional translators and the quality of resulting translations?
 :::
 
-@sec-chap-10-unsup-wqe concludes our human-centered investigation with a deeper analysis spanning multiple uncertainty and interpretability-based word-level quality estimation methods, identifying how their performance varies across different models, languages and human annotators:
+@sec-chap-10-unsup-wqe concludes our human-centered investigation with a deeper analysis of multiple uncertainty and interpretability-based word-level quality estimation methods. This allows us to assess how the performance of such techniques varies across different models, languages and human annotators:
 
 ::: {.callout-tip icon="false"}
 
@@ -99,17 +99,17 @@ How do word-level error highlights impact the productivity and editing choices o
 Can unsupervised error span detection methods reliably detect problems in machine translated outputs? How does human label variation affect their performance, compared to traditional supervised approaches?
 :::
 
-Part III contributions include (1) [DivEMT]{.smallcaps}, a cross-lingual post-editing dataset enabling controlled comparison of translator productivity across editing modalities and typologically diverse languages; (2) evidence that MT quality metrics fail to correlate with human post-editing productivity across languages, with productivity being heavily influenced by source-target language relatedness; (3) QE4PE, a comprehensive bilingual post-editing dataset containing error spans, behavioral editing metrics, and quality annotations from 42 professional post-editors;  (4) evidence that error span highlights may reduce productivity but improve critical error detection; and (5) evidence that unsupervised quality estimation methods based on model internals can match state-of-the-art supervised approaches in both accuracy and downstream usability, revealing how human editing propensity affects error span detection effectiveness.
+Part III contributions include (1) [DivEMT]{.smallcaps}, a cross-lingual post-editing dataset enabling controlled comparison of translator productivity across editing modalities and typologically diverse languages; (2) evidence that MT quality metrics fail to correlate with human post-editing productivity across languages, with productivity being heavily influenced by source-target language relatedness; (3) QE4PE, a comprehensive post-editing dataset containing error spans, behavioral editing metrics, and quality annotations from 42 professional post-editors for two translation directions;  (4) evidence that error span highlights may reduce productivity but improve critical error detection; and (5) evidence that unsupervised quality estimation methods based on model internals can match state-of-the-art supervised approaches in both accuracy and downstream usability, revealing how subjective editing choice impact the evaluation of error span detection methods.
 
 ## Scientific Output
 
-This dissertation was the product of several research articles and open-source projects, which are categorized in the following sections.
+This dissertation is the product of several research articles and open-source projects, which are categorized in the following sections.
 
 ### Main Publications
 
 The following articles represent the main contributions reflected in this thesis' experimental chapters, organized in their respective parts:[^1]
 
-[^1]: $^\dagger$ indicates shared first co-authorship.
+[^1]: Shared first co-authorship is indicated by $^\dagger$.
 
 \vspace{5pt}
 **Introduction and Background**
