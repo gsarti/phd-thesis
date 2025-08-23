@@ -47,12 +47,10 @@ AAs produced by these systems were shown to correlate strongly with human annota
 [Self-citation]{.paragraph} [@gao-etal-2023-enabling] is a recent AA approach exploiting the ability of recent LLMs to follow instructions in natural language [@raffel-etal-2020-exploring; @chung-etal-2022-scaling; @sanh2022multitask; @openai-2023-gpt4], thereby avoiding the need for an external validator. @nakano-etal-2021-webgpt and @menick-etal-2022-teaching propose citation fine-tuning for LLMs, while @gao-etal-2023-enabling instruct general-purpose LLMs to produce inline citations in a few-shot setting. Self-citation answers are generally more relevant to the provided sources' contents, but can still contain unsupported statements and inaccurate citations [@liu-etal-2023-evaluating]. In our preliminary analysis, we find that self-citation often misses relevant citations, uses wrong formats, or refers to non-existing documents (@fig-chap5-error). For the ELI5 dataset [@fan-etal-2019-eli5], we find that LLaMA 2 7B Chat [@touvron-etal-2023-llama2] and Zephyr $\beta$ 7B [@tunstall-etal-2023-zephyr] fail to produce AAs matching the prompt instructions for the majority of generated sentences, with almost all answers having at least one unattributed sentence when the @gao-etal-2023-enabling self-citation setup is used (@tbl-chap5-self-citation-error).
 
 :::{fig-pos="t" layout="[0.55, -0.03, 0.42]" layout-valign="bottom"}
-![Instruction-following errors in a *self-citation* example, using the setup of @gao-etal-2023-enabling.](../figures/chap-5-mirage/self_citation_errors.pdf){#fig-chap5-error}
+![Instruction-following errors in *self-citation*, using the setup of @gao-etal-2023-enabling.](../figures/chap-5-mirage/self_citation_errors.pdf){#fig-chap5-error}
 
 {{< include ../tables/chap-5-mirage/_self-citation-error.qmd >}}
 :::
-
-### Attribution Faithfulness
 
 [Answer Attribution can be Unfaithful]{.paragraph} The aforementioned approaches do not account for attributions' *faithfulness*, i.e. whether the selected documents influence the LLM during the generation. Indeed, the presence of an entailment relation or high semantic similarity does not imply that the retrieved document had an influence on the answer generation process. This can be true in cases where LLMs may rely on memorized knowledge while ignoring relevant, albeit unnecessary, contextual information.
 

@@ -85,15 +85,15 @@
 \small
 \begin{tabular}{llrrrr}
 \toprule
-Lang & Novel name & Train & Val & Test & ICL Ex. \\ 
+Lang & Novel name & Train & Val & Test \\ 
 \midrule
-Italian (IT) & Pinocchio                          & 745  & 82 & 107 & 20 \\
-French (FR)  & Around the World in Eighty Days    & 829  & 92 & 120 & 20 \\ 
-Dutch (NL)   & The Diary of a Young Girl          & 769  & 85 & 110 & 20 \\ 
-German (DE)  & Beware of Pity                     & 606  & 67 & 96 & 20 \\ 
-Russian (RU) & Crime and Punishment               & 1517  & 168 & 224 & 20 \\ 
-Japanese (JA) & No Longer Human                    & 652  & 40 & 81 & 20 \\ 
-Chinese (ZH) & Dream of the Red Chamber           & 694  & 76 & 92 & 20 \\ 
+Italian (IT) & Pinocchio                          & 745  & 82 & 107 \\
+French (FR)  & Around the World in Eighty Days    & 829  & 92 & 120 \\ 
+Dutch (NL)   & The Diary of a Young Girl          & 769  & 85 & 110 \\ 
+German (DE)  & Beware of Pity                     & 606  & 67 & 96 \\ 
+Russian (RU) & Crime and Punishment               & 1517  & 168 & 224 \\ 
+Japanese (JA) & No Longer Human                    & 652  & 40 & 81 \\ 
+Chinese (ZH) & Dream of the Red Chamber           & 694  & 76 & 92 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
@@ -101,5 +101,5 @@ Chinese (ZH) & Dream of the Red Chamber           & 694  & 76 & 92 & 20 \\
 
 :::
 
-Languages and novels used in our evaluation. Numbers corresponds to a single paragraph in the dataset. In training, each paragraph is associated with three distinct translations: [H$_1$]{color="brand-color.darkgreen"},[H$_2$]{color="brand-color.lightbluedim"}, and [MT]{color="brand-color.darkorange"}.
+Languages and novels used in our evaluation. Numbers corresponds to a single paragraph in the dataset. In training, each paragraph is associated with three distinct translations: [H$_1$]{color="brand-color.darkgreen"},[H$_2$]{color="brand-color.lightbluedim"}, and [MT]{color="brand-color.darkorange"}. 20 additional in-context examples are left aside for each language for prompting and steering methods. 
 :::
