@@ -74,7 +74,7 @@ frontmatter:
   funding_project_type: "NWA-ORC"
   funding_project_title: "InDeep: Interpreting Deep Learning Models for Text and Sound"
   funding_project_number: "NWA.1292.19.399"
-  document_formatting_comment: "Document prepared with Quarto and typeset using pdfLatex"
+  document_formatting_comment: "Document typeset with Quarto and compiled using pdfLaTeX"
   cover_designer: "Gabriele Sarti"
   book_series: "Groningen Dissertations in Linguistics"
   volume: "XXX"
@@ -83,15 +83,15 @@ frontmatter:
   # Front matter
   eng:
     university: "University of Groningen"
-    defense_date: "XXX, XXX XXX 2025" # Use e.g. Thursday, June 13th 2024 format
+    defense_date: "Thursday, December 11th 2025" # Use e.g. Thursday, June 13th 2024 format
     candidate_birth_date: "November 11th, 1996" # Use e.g. January 22nd, 1996
     rector_magnificus: "Prof. J. M. A. Scherpen"
   nld:
     university: "Rijksuniversiteit Groningen"
     rector_magnificus: "prof. dr. ir. J. M. A. Scherpen"
-    defense_date: "XXX, XXX XXX 2025" # Use e.g. donderdag 16 november 2023 format
+    defense_date: "donderdag 11 december 2025" # Use e.g. donderdag 16 november 2023 format
     candidate_birth_date: "11 november 1996" # Use e.g. 4 februari 1994
-  defense_time: "XX:XX"
+  defense_time: "14:00"
   candidate_birthplace: "Trieste, Italy"
 
   # Supervisors and examiners
@@ -163,5 +163,3 @@ format:
     fig-pos: "!ht"
     tbl-pos: "t"
     tbl-cap-location: bottom
-
-
