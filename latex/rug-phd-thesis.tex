@@ -78,7 +78,7 @@
   \end{figure}
   \vspace{0.5cm}
   \begin{center}
-    {\huge\bfseries{From Insight to Impact: \\ Actionable Interpretability for \\ Neural Machine Translation}}\\
+    {\huge\bfseries{From Insights to Impact: \\ Actionable Interpretability for \\ Neural Machine Translation}}\\
     \bigskip
     \bigskip
     \bigskip
@@ -87,7 +87,7 @@
       \bigskip
       \bigskip
       \smallskip
-      to obtain the degree of Philosophy Doctor at the\\
+      to obtain the degree of PhD at the\\
       $frontmatter.eng.university$\\
       on the authority of the\\
       Rector Magnificus $frontmatter.eng.rector_magnificus$\\
@@ -96,7 +96,7 @@
       \bigskip
       The thesis will be defended in public on\\
       \bigskip
-      $frontmatter.eng.defense_date$ at $frontmatter.defense_time$ \\
+      $frontmatter.eng.defense_date$ at $frontmatter.defense_time$ hours \\
       \bigskip
       \bigskip
       by\\
@@ -138,21 +138,21 @@
 \newcommand{\makethesissupervisors}{
   \thispagestyle{empty}
   $if(frontmatter.supervisors)$
-  \noindent\ifstrequal{$pdf-lang$}{eng}{\textbf{Supervisors}}{\textbf{Promotor}} \\
+  \noindent\ifstrequal{$pdf-lang$}{eng}{{\large\textbf{Supervisors}}}{{\large\textbf{Promotor}}} \\
   $for(frontmatter.supervisors)$
   $frontmatter.supervisors.title$ $frontmatter.supervisors.name$ \\
   $endfor$
   $endif$
 
   $if(frontmatter.cosupervisors)$
-  \noindent\ifstrequal{$pdf-lang$}{eng}{\textbf{Co-Supervisor}}{\textbf{Copromotores}} \\
+  \noindent\ifstrequal{$pdf-lang$}{eng}{{\large\textbf{Co-supervisor}}}{{\large\textbf{Copromotores}}} \\
   $for(frontmatter.cosupervisors)$
   $frontmatter.cosupervisors.title$ $frontmatter.cosupervisors.name$ \\
   $endfor$
   $endif$
 
   $if(frontmatter.committee)$
-  \noindent\ifstrequal{$pdf-lang$}{eng}{\textbf{Assessment Committee}}{\textbf{Beoordelingscommissie}} \\
+  \noindent\ifstrequal{$pdf-lang$}{eng}{{\large\textbf{Assessment Committee}}}{{\large\textbf{Beoordelingscommissie}}} \\
   $for(frontmatter.committee)$
   $frontmatter.committee.title$ $frontmatter.committee.name$ \\
   $endfor$
@@ -200,11 +200,11 @@
 % Supervisors and examiners
 \makethesissupervisors
 
-$if(frontmatter.dedication)$
-  \makededication
-$endif$
-
-\makeacknowledgements
+%$if(frontmatter.dedication)$
+%  \makededication
+%$endif$
+%
+%\makeacknowledgements
 
 \begingroup
   \newgeometry{top=40mm}

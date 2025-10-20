@@ -77,21 +77,21 @@ frontmatter:
   document_formatting_comment: "Document typeset with Quarto and compiled using pdfLaTeX"
   cover_designer: "Gabriele Sarti"
   book_series: "Groningen Dissertations in Linguistics"
-  volume: "XXX"
+  volume: "263"
   year: "2025"
 
   # Front matter
   eng:
     university: "University of Groningen"
-    defense_date: "Thursday, December 11th 2025" # Use e.g. Thursday, June 13th 2024 format
-    candidate_birth_date: "November 11th, 1996" # Use e.g. January 22nd, 1996
+    defense_date: "Thursday 11 December 2025" # Use e.g. Thursday 11 December 2025 format
+    candidate_birth_date: "11 November 1996" # Use e.g. January 22nd, 1996
     rector_magnificus: "Prof. J. M. A. Scherpen"
   nld:
     university: "Rijksuniversiteit Groningen"
     rector_magnificus: "prof. dr. ir. J. M. A. Scherpen"
     defense_date: "donderdag 11 december 2025" # Use e.g. donderdag 16 november 2023 format
     candidate_birth_date: "11 november 1996" # Use e.g. 4 februari 1994
-  defense_time: "14:00"
+  defense_time: "14:30"
   candidate_birthplace: "Trieste, Italy"
 
   # Supervisors and examiners
@@ -108,8 +108,6 @@ frontmatter:
       name: "Michael Biehl"
     - title: "Prof. dr."
       name: "Barbara Plank"
-    - title: "Prof. dr."
-      name: "Andre F. T. Martins"
     - title: "Prof. dr."
       name: "Ivan Titov"
   
