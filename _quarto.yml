@@ -97,19 +97,19 @@ frontmatter:
   # Supervisors and examiners
   supervisors:
     - title: "Dr."
-      name: "Arianna Bisazza"
-    - title: "Prof. dr."
-      name: "Malvina Nissim"
+      name: "A. Bisazza"
+    - title: "Prof."
+      name: "M. Nissim"
   cosupervisors:
     - title: "Dr."
-      name: "Grzegorz Chrupała"
+      name: "G. Chrupała"
   committee:
-    - title: "Prof. dr."
-      name: "Michael Biehl"
-    - title: "Prof. dr."
-      name: "Barbara Plank"
-    - title: "Prof. dr."
-      name: "Ivan Titov"
+    - title: "Prof."
+      name: "M. Biehl"
+    - title: "Prof."
+      name: "B. Plank"
+    - title: "Prof."
+      name: "I. Titov"
   
   dedication: "A nonno Giancarlo, e alle sue simmetrie nell'arte e nella scienza"
 
