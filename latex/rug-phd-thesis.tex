@@ -63,7 +63,7 @@
   $frontmatter.document_formatting_comment$ \\
   Cover design: $frontmatter.cover_designer$ \\
   }
-  \newpage
+  \cleardoublepage
 }
 
 % Front matter
@@ -157,7 +157,7 @@
   $frontmatter.committee.title$ $frontmatter.committee.name$ \\
   $endfor$
   $endif$
-  \newpage
+  \cleardoublepage
 }
 
 \newcommand{\makededication}{
@@ -166,12 +166,12 @@
   \begin{center}
     \textit{$frontmatter.dedication$}
   \end{center}
-  \newpage
+  \cleardoublepage
 }
 
 \newcommand{\makeacknowledgements}{
   \input{latex/acknowledgements.tex}
-  \newpage
+  \cleardoublepage
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -200,17 +200,17 @@
 % Supervisors and examiners
 \makethesissupervisors
 
-%$if(frontmatter.dedication)$
-%  \makededication
-%$endif$
-%
-%\makeacknowledgements
+$if(frontmatter.dedication)$
+  \makededication
+$endif$
+
+\makeacknowledgements
 
 \begingroup
-  \newgeometry{top=40mm}
+  \newgeometry{top=40mm,inner=30mm,outer=20mm,twoside}
   \tableofcontents
 \endgroup
-\clearpage
+\cleardoublepage
 \restoregeometry
 
 \mainmatter

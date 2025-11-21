@@ -142,7 +142,7 @@ The following articles represent the main contributions reflected in this thesis
 
 - **Sarti, G.**, Zouhar, V., Nissim, M. and Bisazza, A. [-@sarti-etal-2025-unsupervised]. Unsupervised Word-level Quality Estimation for Machine Translation Through the Lens of Annotators (Dis)agreement. In *Proc. of the 2025 Conference on Empirical Methods in Natural Language Processing (EMNLP)* (**@sec-chap-10-unsup-wqe**)
 
-I led the conceptualization, implementation, experimental evaluation, and manuscript writing for each article for which I am the sole first author. For articles with shared first authorship, I co-led the conceptualization, experimental design, and manuscript writing. In @qi-sarti-etal-2024-model, I implemented the API for experimental evaluation. The background in @sec-chap-2-background adapts parts of our primer on transformer interpretability [@ferrando-etal-2024-primer], for which I contributed by surveying the literature and writing content regarding transformer architecture, input attribution methods, steering approaches, and interpretability tools.
+I led the conceptualization, implementation, experimental evaluation, and manuscript writing for each article for which I am the sole first author. For articles with shared first authorship, I co-led the conceptualization, experimental design, and manuscript writing. In @qi-sarti-etal-2024-model, I also implemented the API for experimental evaluation. The background in @sec-chap-2-background adapts parts of our primer on transformer interpretability [@ferrando-etal-2024-primer], for which I contributed by surveying the literature and writing content regarding transformer architecture, input attribution methods, steering approaches, and interpretability tools.
 
 ### Open-source Contributions
 
@@ -190,10 +190,14 @@ Beyond this dissertation's scope, my research output included projects organized
 
 - Scalena, D., **Sarti, G.** and Nissim, M. [-@scalena-etal-2024-multi]. Multi-property Steering of Large Language Models with Dynamic Activation Composition. In *Proc. of the 7th Workshop on Analyzing and Interpreting Neural Networks for NLP (BlackboxNLP)*
 
-- Ghasemi Madani, M. R., Gema, A. P., **Sarti, G.**, Zhao, Y., Minervini, P. and Passerini, A. [-@ghasemi-madani-etal-2025-noiser]. Noiser: Bounded Input Perturbations for Attributing Large Language Models. In *Proc. of the Second Conference on Language Modeling (CoLM)*
+- Ghasemi Madani, M. R., Gema, A. P., **Sarti, G.**, Zhao, Y., Minervini, P. and Passerini, A. [-@ghasemi-madani-etal-2025-noiser]. Noiser: Bounded Input Perturbations for Attributing Large Language Models. In *Proc. of the 2nd Conference on Language Modeling (CoLM)*
 
 - Candussio, S., Saveri, G., **Sarti, G.** and Bortolussi, L. [-@candussio-etal-2025-bridging]. Bridging Logic and Learning: Decoding Temporal Logic Embeddings via Transformers. In *Proc. of the European Conference on Machine Learning and Principles of Knowledge Discovery in Databases (ECML-PKDD)*
 
-- Islam, K. I. and **Sarti, G.** [-@islam-sarti-2025-reveal]. Reveal-Bangla: A Dataset for Cross-Lingual Multi-Step Reasoning Evaluation. *Arxiv Preprint*.
+- Islam, K. I. and **Sarti, G.** [-@islam-sarti-2025-reveal]. Reveal-Bangla: A Dataset for Cross-Lingual Multi-Step Reasoning Evaluation. In *Proc. of the 2nd Workshop on Bangla Language Processing (BLP)*.
 
-I also had the privilege of organizing the BlackboxNLP 2025 workshop^[<https://blackboxnlp.github.io/2025>]---the leading venue for NLP interpretability work---and its shared task on benchmarking mechanistic interpretability methods for circuit localization and causal variable identification in large language models.
+Fin also had the privilege of co-organizing the BlackboxNLP 2025 workshop^[<https://blackboxnlp.github.io/2025>]---the leading venue for NLP interpretability work---and contributing to its shared task on benchmarking mechanistic interpretability methods for circuit localization and causal variable identification in large language models:
+
+- Belinkov, Y., Mueller, A., Kim, N., Mohebbi, H., Chen, H., Arad, D., **Sarti, G.** [-@blackboxnlp-ws-2025-1]. Proceedings of the 8th BlackboxNLP Workshop: Analyzing and Interpreting Neural Networks for NLP.
+
+- Arad, D., Belinkov, Y., Chen, H., Kim, N., Mohebbi, H., Mueller, A., **Sarti, G.**, Tutek, M. [-@arad-etal-2025-findings]. Findings of the BlackboxNLP 2025 Shared Task: Localizing Circuits and Causal Variables in Language Models. In *Proc. of the 8th Workshop on Analyzing and Interpreting Neural Networks for NLP (BlackboxNLP)*
