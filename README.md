@@ -13,6 +13,12 @@ Run the following command to install the required R packages:
 ./setup.sh
 ```
 
+## Why bother?
+
+The most significant advantage of using Quarto over writing plain LaTeX is the supported **cross-compilation** to HTML and PDF formats. Having used RMarkdown for writing my [masters' thesis](https://github.com/gsarti/masters-thesis), I was already familiar with Bookdown and migrating to Quarto was a breeze. However, for someone approaching this for the first time, writing with Quarto can come at the cost of fiddling with edge cases, writing most content in Markdown, and converting tables to be available in both LaTeX and HTML formats. Be mindful of these overhead efforts before deciding to pick Quarto for your thesis!
+
+You can have a look at the [web version of my thesis](https://gsarti.com/phd-thesis) for an example of a finished book looks like.
+
 ## Usage
 
 To build the thesis in its PDF form, run the following command:
